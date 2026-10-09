@@ -26,7 +26,7 @@ jobs:
       - name: PDF Derle
         run: |
           mkdir -p dist
-          typst compile main.typ dist/2026-2027_9_Sinif_Programlamanin_Temelleri.pdf
+          typst compile main.typ dist/notes.pdf
 
       - name: Dağıtım Paketi Hazırla
         uses: actions/upload-pages-artifact@v3
