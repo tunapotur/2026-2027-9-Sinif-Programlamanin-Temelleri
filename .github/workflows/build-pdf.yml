@@ -29,7 +29,7 @@ jobs:
       - name: Typst Kur
         uses: typst-community/setup-typst@v3
         with:
-          typst-version: "0.13.1"   # kendi sürümünüzle değiştirin
+          typst-version: "0.15.1"   # kendi sürümünüzle değiştirin
 
       - name: PDF Derle
         run: |
