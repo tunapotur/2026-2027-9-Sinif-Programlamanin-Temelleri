@@ -4,7 +4,6 @@
 #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
 
 #title()
-#sys.version
 #outline(title: "İçindekiler")
 #counter(page).update(0)
 
