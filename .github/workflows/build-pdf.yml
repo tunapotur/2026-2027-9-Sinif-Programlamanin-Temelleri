@@ -34,7 +34,7 @@ jobs:
       - name: PDF Derle
         run: |
           mkdir -p dist
-          typst compile main.typ dist/programlamanin_temelleri.pdf
+          typst compile main.typ dist/2026_2027_9_programlamanin_temelleri.pdf
 
       - name: Dağıtım Paketi Hazırla
         uses: actions/upload-pages-artifact@v3
