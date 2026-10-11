@@ -1236,4 +1236,4 @@ Kullanıcıdan aldığı isim bilgisiyle ekrana "Hoş Geldiniz Sayın :" + isim 
 
 
 === Dijital Depo
-Daha sonra anlatılacak.
+Daha sonra anlatılacak. Denemek için bir metin eklemesi yapıyorum.
