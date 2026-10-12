@@ -4,6 +4,6 @@
   dir: ttb,
   spacing: 4pt,
   text(size: 8pt,weight: "bold")[#baslik],
-  qr-code(url, width: 2.5cm),
+  qr-code(url, width: 3cm),
   text(size: 8pt)[#link(url)[Bağlantıya tıklayın \ #gorunen]],
 ))

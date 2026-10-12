@@ -570,6 +570,83 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table_dataCell_left[Algoritma başarıyla sonlanır.],
 )
 
+#pagebreak()
+
+#let flowgorithmYoutubeEgitim = "https://youtube.com/playlist?list=PL9A3J9niD78dSHTvHwow4QCkQqPmJNTcs"
+#let flowgorithm = "http://www.flowgorithm.org"
+#let thonny = "https://thonny.org/"
+#let githubDersPdf = "https://tunapotur.github.io/2026-2027-9-Sinif-Programlamanin-Temelleri/2026_2027_9_programlamanin_temelleri.pdf"
+#let githubDersPdfKisa = "kisa.link/hpYCg"
+
+#v(2em)
+*Flowgorithm ve Thonny Uygulamaları*
+
+Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve destekleyici eğitim videolarına yan taraftaki karekodları taratarak veya altlarındaki bağlantılara tıklayarak doğrudan erişebilirsiniz.
+
+// breakable: false -> tablo iki sayfaya bölünmez, sığmazsa bütünüyle sonraki sayfaya geçer
+#block(breakable: false)[
+  #v(2em)
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Flowgorithm Programı*
+
+      Algoritmik düşünme becerimizi geliştirmek ve tasarladığımız mantıksal adımları görselleştirmek için Flowgorithm yazılımını kullanacağız. Bu program sayesinde yazdığımız akış şemalarını adım adım çalıştırabilir, değişkenlerin değer değişimlerini anlık olarak izleyebilir ve algoritmalarımızı kod yazmadan önce test edebiliriz.
+    ],
+    kare-kod-hucresi([Flowgorithm Programı], flowgorithm, "flowgorithm.org"),
+  )
+]
+
+#block(breakable: false)[
+  #v(2em)
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Flowgorithm Youtube Eğitimi*
+
+      Derste işlediğimiz konuları pekiştirmek ve kendi hızınızda pratik yapabilmeniz için Atilla Çetin tarafından hazırlanan Flowgorithm ile Algoritma ve Akış Diyagramları video serisinden yararlanabilirsiniz. Temel kavramlardan uygulamalı örneklere kadar uzanan bu oynatma listesine sağdaki karekodu okutarak veya bağlantıya tıklayarak ulaşabilirsiniz.
+    ],
+    kare-kod-hucresi([Youtube Eğitimi], flowgorithmYoutubeEgitim, "kisa.link/bHGEg"),
+  )
+]
+
+#block(breakable: false)[
+  #v(2em)
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Thonny IDE*
+
+      Akış şemalarından kodlamaya geçerken, Python öğrenimi için özel olarak tasarlanmış Thonny IDE'yi kullanacağız. Sade arayüzü ve adım adım kod takibi sunan hata ayıklama (debug) özellikleriyle başlangıç seviyesine son derece uygundur. Dahili Python desteği sayesinde harici bir kurulum gerektirmez; yalnızca Thonny'yi kurarak kodlarınızı hemen çalıştırmaya başlayabilirsiniz.
+    
+    ],
+    kare-kod-hucresi([Thonny], thonny, "thonny.org"),
+  )
+]
+
+#block(breakable: false)[
+  #v(2em)
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Programlamanın Temelleri Ders Notları*
+
+      Derslerimizde işlediğimiz konuları düzenli takip edebilmeniz ve tekrar yapabilmeniz için hazırladığım bu doküman; MEB'in 14 Eylül 2026 tarihli *'Programlamanın Temelleri 9'* müfredatını temel almaktadır. Konu anlatımları, akış şemaları ve örnek kod uygulamalarıyla ders içi kazanımları pekiştirmeyi amaçlayan kapsamlı bir çalışma kaynağıdır
+    
+    ],
+    kare-kod-hucresi([Ders Notları], githubDersPdf, githubDersPdfKisa),
+  )
+]
+
+#pagebreak()
 === Akış Şeması (Flowchart) Sembolleri ve Görsel Modelleme
 *Akış şeması(flowchat)*, bir algoritmanın adımlarını standart semboller ve oklarla gösteren görsel bir modeldir. Programın çalışma mantığını kolayca anlamayı ve kodlama öncesinde olası hataları fark etmeyi sağlar.
 
@@ -611,26 +688,6 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table_dataCell_left[Adımlar arasındaki ilerleme yönünü gösterir.],
   table_dataCell_left[İzlenecek yolu gösteren oklardır.],
 )
-
-#let playlist = "https://youtube.com/playlist?list=PL9A3J9niD78dSHTvHwow4QCkQqPmJNTcs"
-#let flowgorithm = "http://www.flowgorithm.org"
-
-// breakable: false -> tablo iki sayfaya bölünmez, sığmazsa bütünüyle sonraki sayfaya geçer
-#block(breakable: false)[
-  #v(1em)
-  *Flowgorithm Programı*
-  #grid(
-    columns: (3fr, 1fr, 1fr),
-    gutter: 10pt,
-     align: (horizon, top, top),
-    [
-      Derslerimizde *Flowgorithm* programının kullanarak akış şemalarını oluşturacağız.
-      Flowgorithm programının web sitesine ve Atilla Çetin isimli kullanıcının hazırladığı *Flowgorithm ile Algoritma ve Akış Diyagramları* oynatım listesine yandaki kare kodlar ya da linkler üzerinden ulaşabilirsiniz.
-    ],
-    kare-kod-hucresi([Flowgorithm Programı], flowgorithm, "flowgorithm.org"),
-    kare-kod-hucresi([Youtube Eğitimi], playlist, "kisa.link/bHGEg"),
-  )
-]
 
 #pagebreak()
 
@@ -702,6 +759,7 @@ Ortalama hesabı:
   )
 ]
 
+#pagebreak()
 ==== Örnek Çalışma Soruları
 + Yaş Hesaplama: Kullanıcıdan doğum yılını ve mevcut yılı alıp yaşını hesaplayan ve ekrana yazdıran akış şemasını çiziniz.
 + Kare Alan ve Çevre: Bir kenar uzunluğu kullanıcıdan girilen karenin alanını ve çevresini hesaplayıp ekrana yazdıran akış şemasını çiziniz.
@@ -1234,6 +1292,43 @@ Kullanıcıdan aldığı isim bilgisiyle ekrana "Hoş Geldiniz Sayın :" + isim 
   )
 ]
 
-
+#pagebreak()
 === Dijital Depo
-Bu konu daha sonra anlatılacak. 
+Yazılım geliştirme sürecinde algoritmaların, tasarım belgelerinin ve kaynak kodların güvenle saklandığı, sürümlerinin (v0.1, v1.0 gibi) takip edildiği alanlara dijital depo (repository) denir. Günümüzde GitHub ve GitLab gibi platformlar; projelerin sürümler halinde yönetilmesini, dağıtılmasını ve ekiplerce ortak geliştirilmesini sağlar. Her deponun vitrini sayılan README.md dosyası ise projenin amacını ve kullanımını özetleyen teknik imzasıdır.
+
+Sizlerin yapacağı yazılım projeleri de ilerleyen derslerimizde GitHub üzerinde yayımlanarak paylaşıma açılacaktır.
+
+#let githubATP = "https://github.com/tunapotur"
+#let githubProgTem = "https://github.com/tunapotur/2026-2027-9-Sinif-Programlamanin-Temelleri"
+#let githubProgTemKisa = "kisa.link/WeLYU"
+
+
+#block(breakable: false)[
+  #v(2em)
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Ahmet Tuna POTUR GitHub Hesabı*
+
+      Geliştirdiğim açık kaynaklı yazılımları, eğitim materyallerini ve projelerin sürüm geçmişlerini incelemek için kişisel GitHub profilimi ziyaret edebilirsiniz.
+     
+    ],
+    kare-kod-hucresi([A.Tuna POTUR GitHub], githubATP, "github.com/tunapotur"),
+  )
+]
+#block(breakable: false)[
+  #v(2em)
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Programlamanın Temelleri 9 GitHub Projesi*
+
+      Ders notlarımızın kaynak kodlarını barındıran örnek dijital depoyu buradan inceleyebilirsiniz. Projenin amacını öğrenmek için vitrin belgesi olan README.md dosyasını ve geliştirme sürecindeki sürüm adımlarını gözlemleyebilirsiniz.
+    ],
+    kare-kod-hucresi([GitHub Prog. Temelleri], githubProgTem, githubProgTemKisa),
+  )
+]
