@@ -6,7 +6,7 @@ on:
   workflow_dispatch:   # Actions sekmesinden elle de çalıştırabilmek için
 
 permissions:
-  contents: read
+  contents: write      # Repoya commit atabilmek için write gerekli
   pages: write
   id-token: write
 
@@ -35,6 +35,16 @@ jobs:
         run: |
           mkdir -p dist
           typst compile main.typ dist/2026_2027_9_programlamanin_temelleri.pdf
+
+      - name: PDF'i Repoya Kaydet
+        run: |
+          cp dist/2026_2027_9_programlamanin_temelleri.pdf 2026_2027_9_programlamanin_temelleri.pdf
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add 2026_2027_9_programlamanin_temelleri.pdf
+          # Değişiklik yoksa commit atma (ilk çalıştırmada veya içerik değişmediğinde)
+          git diff --cached --quiet || git commit -m "chore: PDF güncellendi [skip ci]"
+          git push
 
       - name: Dağıtım Paketi Hazırla
         uses: actions/upload-pages-artifact@v3
