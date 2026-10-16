@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_3_1_ornek_Metin_Birlestirme"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-03 08:08:12 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0wMzswODowMTowNiDDllM7MjUwMQ=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0wMzswODowODoxMiDDllM7MTsyNjEz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="isim, mesaj" type="String" array="False" size=""/>
+            <output expression="&quot;Kullan&#305;c&#305; Ad&#305;n&#305; Giriniz :&quot;" newline="True"/>
+            <input variable="isim"/>
+            <assign variable="mesaj" expression="&quot;Ho&#351; Geldiniz Say&#305;n &quot;&amp;isim"/>
+            <output expression="mesaj" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

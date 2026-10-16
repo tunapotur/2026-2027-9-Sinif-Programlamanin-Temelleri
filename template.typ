@@ -104,7 +104,7 @@
   #text(fill: white, weight: "bold")[#body]
 ]
 #let table_dataCell_middle(body) = table.cell(align: center + horizon)[#body]
-#let table_dataCell_left(body) = table.cell(align: left +horizon)[#body]
+#let table_dataCell_left(body) = table.cell(align: left + horizon)[#body]
 
 // Akış şeması sembolleri
 #let terminal-sembolu = ellipse(

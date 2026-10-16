@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_5_ornek_3_KombiAlgoritmasi"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-03 07:24:27 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0wOS0yOTswNjowOTowMSDDllM7MjUxOA=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0wMzswNzoyNDoyNyDDllM7NzsyNjIy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="gizliSayi, tahminSayi, deneme" type="Integer" array="False" size=""/>
+            <declare name="dongu" type="Boolean" array="False" size=""/>
+            <assign variable="dongu" expression="true"/>
+            <assign variable="deneme" expression="1"/>
+            <assign variable="gizliSayi" expression="33"/>
+            <while expression="dongu">
+                <output expression="&quot;Tahmin Say&#305;n&#305;z&#305; Giriniz :&quot;" newline="True"/>
+                <input variable="tahminSayi"/>
+                <if expression="tahminSayi == gizliSayi">
+                    <then>
+                        <output expression="deneme&amp;&quot; Denemede Say&#305;y&#305; Buldunuz Tebrikler!&quot;" newline="True"/>
+                        <assign variable="dongu" expression="false"/>
+                    </then>
+                    <else>
+                        <assign variable="deneme" expression="deneme + 1"/>
+                        <if expression="tahminSayi &lt; gizliSayi">
+                            <then>
+                                <output expression="&quot;Say&#305; K&#252;&#231;&#252;k!&quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Say&#305; B&#252;y&#252;k!&quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

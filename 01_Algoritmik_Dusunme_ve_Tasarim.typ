@@ -172,83 +172,85 @@ Aşağıda ki tabloda sık karşılaştırma operatörleri ve kullanımı göste
   table_dataCell_left[Hız, 90 veya 90’dan daha küçükse sonuç *Doğru* olur.],
 )
 
+#pagebreak()
+
 ==== Örnek 1 Hatalı Giriş Kontrolü Algoritması (Sayfa 28 Örnek 4)
 
-
-Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol eden programının sözde kodunu ve elle çalıştırma tablosunu hazırlayın. Sistem şifresi için *s_key*, kullanıcı şifresi için *k_pass* kullanılacak.
+Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol eden programının sözde kodunu ve elle çalıştırma tablosunu hazırlayın. Sistem şifresi için *sistemKey*, kullanıcı şifresi için *kullaniciKey* kullanılacak.
 
 *Sözde Kod*
 1. Adım: BAŞLA
-2. Adım: *s_key = 1234*
-3. Adım: kullanıcıdan (*k_pass*) değerini al
-4. Adım: *EĞER s_key == k_pass*
+2. Adım: *sistemKey = 1234*
+3. Adım: kullanıcıdan (*kullaniciKey*) değerini al
+4. Adım: *EĞER sistemKey == kullaniciKey*
           \ *EVET* ise "Sisteme Girer"
           \ *HAYIR* ise "Sisteme Giremez!"    
 5. Adım: BİTİR
 
 *Elle Çalışma Tablosu* \
-*Örnek Girdiler:* s_key=1234, k_pass=9876, *Beklenen Çıktı:* Sisteme Giremez
+*Örnek Girdiler:* sistemKey=1234, kullaniciKey=9876, *Beklenen Çıktı:* Sisteme Giremez
 
-#table(
-  columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 3.2cm, 2.2cm, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Ad],
-    table_headerCell[İşlem],
-    table_headerCell[s_key],
-    table_headerCell[k_pass],
-    table_headerCell[Koşul\ s_key == k_pass],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
-  ),
+#text(size: 9pt)[
+  #table(
+    columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 3.2cm, 2.2cm, 1fr),
+    stroke:  table_Stroke,
+    inset: 7pt,
+    
+    table.header(
+      table_headerCell[Ad],
+      table_headerCell[İşlem],
+      table_headerCell[sistem Key],
+      table_headerCell[kullanici Key],
+      table_headerCell[Koşul\ sistemKey == kullaniciKey],
+      table_headerCell[Çıktı],
+      table_headerCell[Açıklama],
+    ),
 
-  table_dataCell_middle[1],
-  table_dataCell_middle[BAŞLA],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başlar.],
+    table_dataCell_middle[1],
+    table_dataCell_middle[BAŞLA],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_left[Algoritma başlar.],
 
-  table_dataCell_middle[2],
-  table_dataCell_middle[s_key = 1234],
-  table_dataCell_middle[*1234*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Kodun içinde sistem şifresi *s_key=1234* oluşturuldu],
+    table_dataCell_middle[2],
+    table_dataCell_middle[sistemKey = 1234],
+    table_dataCell_middle[*1234*],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_left[Kodun içinde sistem şifresi *sistemKey=1234* oluşturuldu],
 
-  table_dataCell_middle[3],
-  table_dataCell_middle[k_pass = 9876 Gir],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[*9876*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Kullanıcıdan *k_pass=9876* değeri alındı.],
+    table_dataCell_middle[3],
+    table_dataCell_middle[kullaniciKey = 9876 Gir],
+    table_dataCell_middle[1234],
+    table_dataCell_middle[*9876*],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_left[Kullanıcıdan *kullaniciKey=9876* değeri alındı.],
 
-  table_dataCell_middle[4],
-  table_dataCell_middle[s_key == k_pass ],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[9876],
-  table_dataCell_middle[*HAYIR*],
-  table_dataCell_middle[*Giriş yapılamaz!*],
-  table_dataCell_left[Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme giremez!],
-  
-  table_dataCell_middle[5],
-  table_dataCell_middle[DUR],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[9876],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başarıyla sonlanır.],
-)
+    table_dataCell_middle[4],
+    table_dataCell_middle[sistemKey == kullaniciKey ],
+    table_dataCell_middle[1234],
+    table_dataCell_middle[9876],
+    table_dataCell_middle[*HAYIR*],
+    table_dataCell_middle[*Giriş yapılamaz!*],
+    table_dataCell_left[Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme giremez!],
+    
+    table_dataCell_middle[5],
+    table_dataCell_middle[DUR],
+    table_dataCell_middle[1234],
+    table_dataCell_middle[9876],
+    table_dataCell_middle[-],
+    table_dataCell_middle[-],
+    table_dataCell_left[Algoritma başarıyla sonlanır.],
+  )
 
-#pagebreak()
+]
 
 *Elle Çalışma Tablosu* \
-*Örnek Girdiler:* s_key=1234, k_pass=1234, *Beklenen Çıktı:* Sisteme Girer
+*Örnek Girdiler:* sistemKey=1234, kullaniciKey=1234, *Beklenen Çıktı:* Sisteme Girer
 
 #table(
   columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 3.2cm, 2.2cm, 1fr),
@@ -258,9 +260,9 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
   table.header(
     table_headerCell[Ad],
     table_headerCell[İşlem],
-    table_headerCell[s_key],
-    table_headerCell[k_pass],
-    table_headerCell[Koşul\ s_key == k_pass],
+    table_headerCell[sistem Key],
+    table_headerCell[kullanici Key],
+    table_headerCell[Koşul\ sistemKey == kullaniciKey],
     table_headerCell[Çıktı],
     table_headerCell[Açıklama],
   ),
@@ -274,23 +276,23 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
   table_dataCell_left[Algoritma başlar.],
 
   table_dataCell_middle[2],
-  table_dataCell_middle[s_key = 1234],
+  table_dataCell_middle[sistemKey = 1234],
   table_dataCell_middle[*1234*],
   table_dataCell_middle[-],
   table_dataCell_middle[-],
   table_dataCell_middle[-],
-  table_dataCell_left[Kodun içinde sistem şifresi *s_key=1234* oluşturuldu],
+  table_dataCell_left[Kodun içinde sistem şifresi *sistemKey=1234* oluşturuldu],
 
   table_dataCell_middle[3],
-  table_dataCell_middle[k_pass = 1234 Gir],
+  table_dataCell_middle[kullaniciKey = 1234 Gir],
   table_dataCell_middle[1234],
   table_dataCell_middle[*1234*],
   table_dataCell_middle[-],
   table_dataCell_middle[-],
-  table_dataCell_left[Kullanıcıdan *k_pass=1234* değeri alındı.],
+  table_dataCell_left[Kullanıcıdan *kullaniciKey=1234* değeri alındı.],
 
   table_dataCell_middle[4],
-  table_dataCell_middle[s_key == k_pass ],
+  table_dataCell_middle[sistemKey == kullaniciKey ],
   table_dataCell_middle[1234],
   table_dataCell_middle[1234],
   table_dataCell_middle[*EVET*],
@@ -362,8 +364,6 @@ Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi ç
   table_dataCell_left[Algoritma başarıyla sonlanır.],
 )
 
-#pagebreak()
-
 *Örnek Girdiler:* SICAKLIK = 22, *Beklenen Çıktı:* Kombi Durur
 #table(
   columns: (1.1cm, 3cm, 2cm, 3.5cm, 2cm, 1fr),
@@ -408,14 +408,15 @@ Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi ç
   table_dataCell_left[Algoritma başarıyla sonlanır.],
 )
 
+#pagebreak()
 ==== Örnek 3: Yaş Kontrolü ve Ehliyet Alabilme (Sayfa 25 Örnek 2)
-Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*DY*) alarak kullanıcının 18 yaşından büyük olması durumunda "*Ehliyet Alır!*" küçük olması durumunda "*Ehliyet Almaz!*" yazısını ekrana yazdıran programın sözde kodunu ve elle çalışma tablosunu hazırlayınız.
+Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılını (*dogumYil*) alarak kullanıcının 18 yaşından büyük olması durumunda "*Ehliyet Alır!*" küçük olması durumunda "*Ehliyet Almaz!*" yazısını ekrana yazdıran programın sözde kodunu ve elle çalışma tablosunu hazırlayınız.
 
 *Sözde Kod*
 1. Adım: BAŞLA.
-2. Adım: Sistem Tarihi (*ST*) değerini oku.
-3. Adım: Kullanıcının Doğum Yılı (*DY*) değerini oku.
-4. Adım: *Yaş = ST - DY* işlemini yap.
+2. Adım: Sistem Tarihi (*sistemYil*) değerini oku.
+3. Adım: Kullanıcının Doğum Yılı (*dogumYil*) değerini oku.
+4. Adım: *Yaş = sistemYil - dogumYil* işlemini yap.
 5. Adım:  *Eğer Yaş >= 18* 
  \ *EVET* ise "*Ehliyet Alır!*" mesajını yazdır.   
   \ *HAYIR* ise "*Ehliyet Almaz!*" mesajını yazdır.
@@ -423,7 +424,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
 
 
 *Elle Çalışma Tablosu*\
-*Örnek Girdiler:* Sistem Tarihi (ST) = 2026, Doğum Yılı (DY) = 2005, *Beklenen Çıktı:* Ehliyet alabilirsiniz.
+*Örnek Girdiler:* Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2005, *Beklenen Çıktı:* Ehliyet alabilirsiniz.
 #table(
   columns: (1.1cm, 2.75cm, 1.2cm, 1.2cm, 1.2cm, 2.5cm, 2cm, 1fr),
   stroke:  table_Stroke,
@@ -432,8 +433,8 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table.header(
     table_headerCell[Adım],
     table_headerCell[İşlem],
-    table_headerCell[ST],
-    table_headerCell[DY],
+    table_headerCell[sistemYil],
+    table_headerCell[dogumYil],
     table_headerCell[Yaş],
     table_headerCell[Koşul\ (Yaş >= 18)],
     table_headerCell[Çıktı],
@@ -450,7 +451,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
    table_dataCell_left[Algoritma başlar.],
 
    table_dataCell_middle[2],
-   table_dataCell_middle[ST oku],
+   table_dataCell_middle[sistemYil oku],
    table_dataCell_middle[*2026*],
    table_dataCell_middle[-],
    table_dataCell_middle[-],
@@ -459,7 +460,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
    table_dataCell_left[Sistem tarihi alınır.],
 
    table_dataCell_middle[3],
-   table_dataCell_middle[DY oku],
+   table_dataCell_middle[dogumYil oku],
    table_dataCell_middle[2026],
    table_dataCell_middle[*2005*],
    table_dataCell_middle[-],
@@ -468,7 +469,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
    table_dataCell_left[Kullanıcı 2005 sayısını girer.],
 
    table_dataCell_middle[4],
-   table_dataCell_middle[Yaş = ST - DY],
+   table_dataCell_middle[Yaş = sistemYil - dogumYil],
    table_dataCell_middle[2026],
    table_dataCell_middle[2005],
    table_dataCell_middle[*21*],
@@ -495,9 +496,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
    table_dataCell_left[Algoritma başarıyla sonlanır.],
 )
 
-#pagebreak()
-
-*Örnek Girdiler: * Sistem Tarihi (ST) = 2026, Doğum Yılı (DY) = 2010, *Beklenen Çıktı: * Ehliyet almak için henüz küçüksünüz.
+*Örnek Girdiler: * Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2010, *Beklenen Çıktı: * Ehliyet almak için henüz küçüksünüz.
 
 #table(
   columns: (1.1cm, 2.75cm, 1.2cm, 1.2cm, 1.2cm, 2.5cm, 2cm, 1fr),
@@ -507,8 +506,8 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table.header(
     table_headerCell[Adım],
     table_headerCell[İşlem],
-    table_headerCell[ST],
-    table_headerCell[DY],
+    table_headerCell[sistemYil],
+    table_headerCell[dogumYil],
     table_headerCell[Yaş],
     table_headerCell[Koşul\ (Yaş >= 18)],
     table_headerCell[Çıktı],
@@ -525,7 +524,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table_dataCell_left[Algoritma başlar.],
 
   table_dataCell_middle[2],
-  table_dataCell_middle[ST oku],
+  table_dataCell_middle[sistemYil oku],
   table_dataCell_middle[*2026*],
   table_dataCell_middle[-],
   table_dataCell_middle[-],
@@ -534,7 +533,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table_dataCell_left[Sistem tarihi alınır.],
 
   table_dataCell_middle[3],
-  table_dataCell_middle[DY oku],
+  table_dataCell_middle[dogumYil oku],
   table_dataCell_middle[2026],
   table_dataCell_middle[*2010*],
   table_dataCell_middle[-],
@@ -543,7 +542,7 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
   table_dataCell_left[Kullanıcı 2010 sayısını girer.],
 
   table_dataCell_middle[4],
-  table_dataCell_middle[Yaş = ST - DY],
+  table_dataCell_middle[Yaş = sistemYil - dogumYil],
   table_dataCell_middle[2026],
   table_dataCell_middle[2010],
   table_dataCell_middle[*16*],
@@ -842,13 +841,13 @@ Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi ç
 
 #pagebreak()
 ==== Örnek 4 Hatalı Giriş Kontrolü Algoritması
-Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol eden programının akış şemasını hazırlayın. Sistem şifresi için *s_key*, kullanıcı şifresi için *k_pass* kullanılacak.
+Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol eden programının akış şemasını hazırlayın. Sistem şifresi için *sistemKey*, kullanıcı şifresi için *kullaniciKey* kullanılacak.
 
 *Sözde Kod*
 1. Adım: BAŞLA
-2. Adım: *s_key = 1234*
-3. Adım: kullanıcıdan (*k_pass*) değerini al
-4. Adım: *EĞER s_key == k_pass*
+2. Adım: *sistemKey = 1234*
+3. Adım: kullanıcıdan (*kullaniciKey*) değerini al
+4. Adım: *EĞER sistemKey == kullaniciKey*
           \ *EVET* ise "Sisteme Girer"
           \ *HAYIR* ise "Sisteme Giremez!"    
 5. Adım: BİTİR
@@ -862,11 +861,11 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
 
     // Düğümler (sütun 0: Yanlış, sütun 1: orta, sütun 2: Doğru)
     baslangic((1, 0), [Ana]),
-    islem((1, 1), [String sKey, kPass]),
-    islem((1, 2), [sKey = "1234"]),
+    islem((1, 1), [String sistemKey, kullaniciKey]),
+    islem((1, 2), [sistemKey = "1234"]),
     cikti((1, 3), [Çıktı "Şifrenizi Giriniz: "]),
-    girdi((1, 4), [Giriş kPass]),
-    karar((1, 5), [sKey == kPass]),
+    girdi((1, 4), [Giriş kullaniciKey]),
+    karar((1, 5), [sistemKey == kullaniciKey], width:135pt),
     cikti((0, 6), [Çıktı "Sisteme GİREMEZ!"]),
     cikti((2, 6), [Çıktı "Sisteme Girer"]),
     birlesim((1, 7)),
@@ -888,13 +887,13 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
 
 #pagebreak()
 ==== Örnek 5: Yaş Kontrolü ve Ehliyet Alabilme
-Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*DY*) alarak kullanıcının 18 yaşından büyük olması durumunda "*Ehliyet Alır!*" küçük olması durumunda "*Ehliyet Almaz!*" yazısını ekrana yazdıran programın sözde kodunu ve elle çalışma tablosunu hazırlayınız.
+Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılını (*dogumYil*) alarak kullanıcının 18 yaşından büyük olması durumunda "*Ehliyet Alır!*" küçük olması durumunda "*Ehliyet Almaz!*" yazısını ekrana yazdıran programın sözde kodunu ve elle çalışma tablosunu hazırlayınız.
 
 *Sözde Kod*
-2. Adım: Sistem Tarihi (*ST*) değerini oku.
-3. Adım: Kullanıcının Doğum Yılı (*DY*) değerini oku.
-4. Adım: *Yaş = ST - DY* işlemini yap.
-5. Adım:  *Eğer Yaş >= 18* 
+2. Adım: Sistem Tarihi (*sistemYil*) değerini oku.
+3. Adım: Kullanıcının Doğum Yılı (*dogumYil*) değerini oku.
+4. Adım: *yas = sistemYil - dogumYil* işlemini yap.
+5. Adım:  *Eğer yas >= 18* 
  \ *EVET* ise "*Ehliyet Alır!*" mesajını yazdır.   
   \ *HAYIR* ise "*Ehliyet Almaz!*" mesajını yazdır.
 
@@ -907,14 +906,14 @@ Kullanıcıdan o günün yılını (*ST*) ve kullanıcıdan doğum yılını (*D
 
     // Düğümler (sütun 0: Yanlış, sütun 1: orta, sütun 2: Doğru)
     baslangic((1, 0), [Ana]),
-    islem((1, 1), [Tamsayı ST, DY, YAS]),
-    cikti((1, 2), [Çıktı "Şu an ki yılı girin: "]),
-    girdi((1, 3), [Giriş ST]),
-    cikti((1, 4), [Çıktı "Doğum yılınızı girin: "]),
-    girdi((1, 5), [Giriş DY]),
-    islem((1, 6), [YAS = ST-DY]),
-    cikti((1, 7), [Çıktı "Yaş :"&YAS]),
-    karar((1, 8), [YAS >= 18]),
+    islem((1, 1), [Tamsayı sistemYil, dogumYil, yas],width:180pt),
+    cikti((1, 2), [Çıktı "Şu an ki yılı girin: "], width: 140pt),
+    girdi((1, 3), [Giriş sistemYil]),
+    cikti((1, 4), [Çıktı "Doğum yılınızı girin: "], width:140pt),
+    girdi((1, 5), [Giriş dogumYil]),
+    islem((1, 6), [yas = sistemYil-dogumYil], width:140pt),
+    cikti((1, 7), [Çıktı "Yaş :"&yas]),
+    karar((1, 8), [yas >= 18]),
     cikti((0, 9), [Çıktı "Ehliyet ALMAZ!"]),
     cikti((2, 9), [Çıktı "Ehliyet Alır"]),
     birlesim((1, 10)),
@@ -1283,7 +1282,7 @@ Kullanıcıdan aldığı isim bilgisiyle ekrana "Hoş Geldiniz Sayın :" + isim 
     islem((0, 1), [String isim, mesaj], width: 135pt),
     cikti((0, 2), [Çıktı "Kullanıcı Adını Giriniz :"], width: 175pt),
     girdi((0, 3), [Giriş isim], width: 95pt),
-    islem((0, 4), [mesaj = "Hoş Geldiniz Sayın "\&isim], width: 165pt),
+    islem((0, 4), [mesaj = "Hoş Geldiniz Sayın "\&isim], width: 180pt),
     cikti((0, 5), [Çıktı mesaj], width: 105pt),
     baslangic((0, 6), [Son]),
 

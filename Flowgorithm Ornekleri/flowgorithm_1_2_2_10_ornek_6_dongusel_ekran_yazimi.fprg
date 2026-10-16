@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="ornek 8"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-03 05:07:04 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0wMjswNjo0NTozMSDDllM7MjUwNA=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0wMzswNTowNzowNCDDllM7MjsyNjEx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="sayac" type="Integer" array="False" size=""/>
+            <assign variable="sayac" expression="1"/>
+            <while expression="sayac &lt;= 3">
+                <output expression="&quot;Merhaba Geli&#351;tirici! &quot;&amp;sayac" newline="True"/>
+                <assign variable="sayac" expression="sayac + 1"/>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
