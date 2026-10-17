@@ -4,18 +4,18 @@
         <attribute name="name" value="flowgorithm_1_2_2_5_ornek_4_GirisKontrolu"/>
         <attribute name="authors" value="tuna"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2026-09-29 06:22:16 &#214;S"/>
+        <attribute name="saved" value="2026-10-17 05:20:39 &#214;S"/>
         <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0wOS0yOTswNjoxNjoxNyDDllM7MjUyMw=="/>
-        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0wOS0yOTswNjoyMjoxNiDDllM7MTsyNjI3"/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswNToyMDozOSDDllM7MzsyNjIw"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="sKey, kPass" type="String" array="False" size=""/>
-            <assign variable="sKey" expression="&quot;1234&quot;"/>
+            <declare name="sistemKey, kullaniciKey" type="String" array="False" size=""/>
+            <assign variable="sistemKey" expression="&quot;1234&quot;"/>
             <output expression="&quot;&#350;ifrenizi Giriniz: &quot;" newline="True"/>
-            <input variable="kPass"/>
-            <if expression="sKey == kPass">
+            <input variable="kullaniciKey"/>
+            <if expression="sistemKey == kullaniciKey">
                 <then>
                     <output expression="&quot;Sisteme Girer&quot;" newline="True"/>
                 </then>

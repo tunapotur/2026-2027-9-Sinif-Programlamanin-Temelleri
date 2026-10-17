@@ -656,13 +656,12 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 #let githubDersPdfKisa = "kisa.link/hpYCg"
 
 #v(2em)
-*Flowgorithm ve Thonny Uygulamaları*
-
+==== Flowgorithm ve Thonny Uygulamaları
 Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve destekleyici eğitim videolarına yan taraftaki karekodları taratarak veya altlarındaki bağlantılara tıklayarak doğrudan erişebilirsiniz.
 
 // breakable: false -> tablo iki sayfaya bölünmez, sığmazsa bütünüyle sonraki sayfaya geçer
 #block(breakable: false)[
-  #v(2em)
+  #v(1em)
   #grid(
     columns: (2fr, 1fr),
     gutter: 10pt,
@@ -677,7 +676,7 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
 ]
 
 #block(breakable: false)[
-  #v(2em)
+  #v(1em)
   #grid(
     columns: (2fr, 1fr),
     gutter: 10pt,
@@ -692,7 +691,7 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
 ]
 
 #block(breakable: false)[
-  #v(2em)
+  #v(1em)
   #grid(
     columns: (2fr, 1fr),
     gutter: 10pt,
@@ -722,6 +721,133 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
     kare-kod-hucresi([Ders Notları], githubDersPdf, githubDersPdfKisa),
   )
 ]
+
+#pagebreak()
+==== Değişkenler ve Veri Tipleri
+#bilgi-kutusu("DEĞİŞKEN NEDİR?")[
+  Programın çalışması sırasında kullanıcıdan alınan, hesaplanan veya geçici olarak hafızada (RAM) tutulması gereken verileri saklayan isimlendirilmiş bellek alanlarıdır.
+]
+
+Flowgorithm üzerinde bir değişkeni kullanmadan önce mutlaka *Tanımlama (Declare)* adımıyla bilgisayara tanıtmak gerekir. Aynı türdeki birden fazla değişken aralarına virgül konularak tek seferde tanımlanabilir (Örn: `sistemYil, dogumYil, yas`).
+
+===== Temel Veri Tipleri
+Flowgorithm içerisinde en sık kullanılan 4 temel veri tipi bulunur:
+
+#table(
+  columns: (2.2cm, 2.5cm, 2.8cm, 1fr),
+  stroke: table_Stroke,
+  inset: 7pt,
+  
+  table.header(
+    table_headerCell[Veri Tipi],
+    table_headerCell[Türü],
+    table_headerCell[Örnek Değerler],
+    table_headerCell[Açıklama],
+  ),
+
+  table_dataCell_middle[*Tamsayı* \ (Integer)],
+  table_dataCell_middle[Tam Sayı],
+  table_dataCell_middle[`15`, `0`, `-8`, `2026`],
+  table_dataCell_left[Küsüratsız, negatif veya pozitif tam sayı değerlerini tutar. Yaş, adet, sayaç gibi veriler için kullanılır.],
+
+  table_dataCell_middle[*Reel* \ (Real / Float)],
+  table_dataCell_middle[Ondalıklı Sayı],
+  table_dataCell_middle[`3.14`, `18.5`, `-0.75`],
+  table_dataCell_left[Kesirli veya ondalıklı sayıları tutar. Ortalama, boy, sıcaklık veya fiyat gibi hassas hesaplamalarda tercih edilir.],
+
+  table_dataCell_middle[*String*],
+  table_dataCell_middle[Metinsel Veri],
+  table_dataCell_middle[`"Ahmet"`, `"1234"`, `"A"`],
+  table_dataCell_left[Çift tırnak içinde yazılan her türlü yazı, harf, sembol ve rakamı saklar. *Matematiksel işlemlere girmez.*],
+
+  table_dataCell_middle[*Boolean*],
+  table_dataCell_middle[Mantıksal],
+  table_dataCell_middle[`true(1)`, `false(0)`],
+  table_dataCell_left[Yalnızca iki değerden birini alabilir: *Doğru (true(1))* ya da *Yanlış (false(0))*. Karar ve döngü kontrollerinde kullanılır.],
+)
+
+===== Değişken İsimlendirme Kuralları
+Değişken tanımlarken programların hata vermemesi ve kodun düzenli olması için belirli kurallara uymak şarttır.
+
+#block(breakable: false)[
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 4pt,
+    align: (top, top),
+    [
+      *Türkçe Karakter Kullanımı*
+
+Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken\ * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.\
+Aşağıdaki tabloda büyük ve küçük Türkçe karakterlerin yerine İngilizce alfabe karşılıkları tercih edilmelidir:
+    ],
+    [
+      #table(
+  columns: (2cm, 2cm, 2cm),
+  stroke: table_Stroke,
+  inset: 6pt,
+  table.header(
+    table_headerCell[Türkçe Karakter],
+    table_headerCell[Doğru Kullanım],
+    table_headerCell[İngilizce Karakte],
+  ),
+  table_dataCell_middle[*ç / Ç*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*c / C*],
+  
+  table_dataCell_middle[*ğ / Ğ*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*g / G*],
+    
+  table_dataCell_middle[*ı / İ*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*i / I*],
+    
+  table_dataCell_middle[*ö / Ö*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*o / O*],
+    
+  table_dataCell_middle[*ş / Ş*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*s / S*],
+    
+  table_dataCell_middle[*ü / Ü*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*u / U*],
+)
+
+    ],
+  )
+]
+
+*Camel Case (Deve Notasyonu) Kuralı*
+
+Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
+*Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
+
+#table(
+  columns: (4cm, 4cm, 1fr),
+  stroke: table_Stroke,
+  inset: 6pt,
+  table.header(
+    table_headerCell[Yanlış Biçim],
+    table_headerCell[camelCase],
+    table_headerCell[Açıklama],
+  ),
+  table_dataCell_middle[#text(fill: red)[`sistem yil`]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`sistemYil`]],
+  table_dataCell_left[Boşluk yerine birleşik yazılır],
+
+  table_dataCell_middle[#text(fill: red)[`dogumyil`]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`dogumYil`]],
+  table_dataCell_left[İkinci kelimenin baş harfi büyük],
+
+  table_dataCell_middle[#text(fill: red)[`ogrencinotortalamasi`]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`ogrenciNotOrtalamasi`]],
+  table_dataCell_left[Okunabilirlik artırılır],
+)
+
+
+
 
 #pagebreak()
 === Akış Şeması (Flowchart) Sembolleri ve Görsel Modelleme
@@ -892,29 +1018,39 @@ Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi ç
 4. Adım: BİTİR
 
 *Akış Şeması(Flowchart)*
-#diagram(
-  spacing: (40pt, 28pt),
-  edge-stroke: 1pt,
-  mark-scale: 90%,
-  
-  // Düğümler (sütun 0: Evet, sütun 1: orta, sütun 2: Hayır)
-  baslangic((1, 0), [BAŞLA]),
-  girdi((1, 1), [Sıcaklık değerini oku (*SICAKLIK*).]),
-  karar((1, 2), [SICAKLIK \< 20]),
-  cikti((0, 3), [Kombi Çalıştır]),
-  cikti((2, 3), [Kombi Durdur]),
-  birlesim((1, 4)),
-  baslangic((1, 5), [DUR]),
-  
-  // Oklar
-  edge((1, 0), (1, 1), "-|>"),
-  edge((1, 1), (1, 2), "-|>"),
-  edge((1, 2), (0, 2), (0, 3), "-|>", label: [Evet], label-pos: 0.3, label-side: right),
-  edge((1, 2), (2, 2), (2, 3), "-|>", label: [Hayır], label-pos: 0.3, label-side: left),
-  edge((0, 3), (0, 4), (1, 4), "-|>"),
-  edge((1, 4), (1, 5), "-|>"),
-  edge((2, 3), (2, 4), (1, 4), "-|>"),
-)
+#align(center)[
+  #diagram(
+    spacing: (40pt, 26pt),
+    edge-stroke: 1pt,
+    mark-scale: 90%,
+
+    // Düğümler (Sütun 0: Yanlış, Sütun 1: Orta Omurga, Sütun 2: Doğru)
+    baslangic((1, 0), [Ana]),
+    islem((1, 1), [Reel SICAKLIK], width: 110pt),
+    cikti((1, 2), [Çıktı "Sıcaklık Değerini Giriniz: "], width: 155pt),
+    girdi((1, 3), [Giriş SICAKLIK], width: 110pt),
+    karar((1, 4), [SICAKLIK < 20], width: 115pt),
+    cikti((0, 5), [Çıktı "Kombi DURDUR!"], width: 135pt),
+    cikti((2, 5), [Çıktı "Kombi Çalıştır"], width: 130pt),
+    birlesim((1, 6)),
+    baslangic((1, 7), [Son]),
+
+    // Orta omurga iniş okları
+    edge((1, 0), (1, 1), "-|>"),
+    edge((1, 1), (1, 2), "-|>"),
+    edge((1, 2), (1, 3), "-|>"),
+    edge((1, 3), (1, 4), "-|>"),
+
+    // Karar dalları (Görselde: Sol -> Yanlış, Sağ -> Doğru)
+    edge((1, 4), (0, 4), (0, 5), "-|>", label: [Yanlış], label-pos: 0.3, label-side: right),
+    edge((1, 4), (2, 4), (2, 5), "-|>", label: [Doğru], label-pos: 0.3, label-side: left),
+
+    // Birleşme noktası ve bitiş
+    edge((0, 5), (0, 6), (1, 6), "-|>"),
+    edge((2, 5), (2, 6), (1, 6), "-|>"),
+    edge((1, 6), (1, 7), "-|>"),
+  )
+]
 
 #pagebreak()
 ==== Örnek 4 Hatalı Giriş Kontrolü Algoritması

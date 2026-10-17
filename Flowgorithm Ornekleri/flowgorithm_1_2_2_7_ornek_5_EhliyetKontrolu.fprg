@@ -4,21 +4,21 @@
         <attribute name="name" value="flowgorithm_1_2_2_6_ornek_5_EhliyetKontrolu"/>
         <attribute name="authors" value="tuna"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2026-09-29 08:31:23 &#214;S"/>
+        <attribute name="saved" value="2026-10-17 05:19:25 &#214;S"/>
         <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0wOS0yOTswNzo1NDo1MSDDllM7MjUyNA=="/>
-        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0wOS0yOTswODozMToyMyDDllM7MjsyNjI4"/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswNToxOToyNSDDllM7MzsyNjIz"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
         <body>
-            <declare name="ST, DY, YAS" type="Integer" array="False" size=""/>
+            <declare name="sistemYil, dogumYil, yas" type="Integer" array="False" size=""/>
             <output expression="&quot;&#350;u an ki y&#305;l&#305; girin: &quot;" newline="True"/>
-            <input variable="ST"/>
+            <input variable="sistemYil"/>
             <output expression="&quot;Do&#287;um y&#305;l&#305;n&#305;z&#305; girin: &quot;" newline="True"/>
-            <input variable="DY"/>
-            <assign variable="YAS" expression="ST-DY"/>
-            <output expression="&quot;Ya&#351; :&quot;&amp;YAS" newline="True"/>
-            <if expression="YAS &gt;= 18">
+            <input variable="dogumYil"/>
+            <assign variable="yas" expression="sistemYil - dogumYil"/>
+            <output expression="&quot;Ya&#351; :&quot;&amp;yas" newline="True"/>
+            <if expression="yas &gt;= 18">
                 <then>
                     <output expression="&quot;Ehliyet Al&#305;r&quot;" newline="True"/>
                 </then>
