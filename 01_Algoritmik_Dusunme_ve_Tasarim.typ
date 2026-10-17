@@ -1109,7 +1109,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 *Akış Şeması(Flowchart)*
 #align(center)[
   #diagram(
-    spacing: (40pt, 26pt),
+    spacing: (20pt, 26pt),
     edge-stroke: 1pt,
     mark-scale: 90%,
 
@@ -1122,7 +1122,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
     girdi((1, 5), [Giriş dogumYil]),
     islem((1, 6), [yas = sistemYil-dogumYil], width:140pt),
     cikti((1, 7), [Çıktı "Yaş :"&yas]),
-    karar((1, 8), [yas >= 18]),
+    karar((1, 8), [yas >= 18], width:90pt),
     cikti((0, 9), [Çıktı "Ehliyet ALMAZ!"]),
     cikti((2, 9), [Çıktı "Ehliyet Alır"]),
     birlesim((1, 10)),
@@ -1142,7 +1142,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
   )
 ]
 
-==== Örnek Çalışma Soruları
+==== Örnek Çalışma Soruları Karar Yapıları
 + Akıllı Bahçe Sulama Sistemi (Sensör ve Eşik Değeri Mantığı): Bir seradaki toprak nem oranı sensöründen gelen değer *nem* değişkeninde tutulmaktadır.
   - Nem oranı 30'un altına düştüğünde sulama vanasını açan (*"Sulama Başlatıldı"*),
   - 30 veya üzerinde olduğunda ise sulama vanasını kapatan (*"Sulama Durduruldu"*) programın akış şemasını çiziniz.
@@ -1456,7 +1456,7 @@ Birden başlayarak kullanıcının belirlediği değere kadar belirlenen dahil t
 ]
 #pagebreak()
 
-==== Örnek Çalışma Soruları
+==== Örnek Çalışma Soruları Döngü Konusu
 + 1 ile 100 arasında belirlenen gizli bir sayının (örneğin 33) kullanıcının tahminleriyle bulunmaya çalışıldığı bir tahmin oyununun akış şemasını çiziniz. Döngü kontrolü için boolean tipinde dongu değişkenini kullanınız. Girilen tahmin gizli sayıdan farklı olduğu sürece kullanıcıyı "Sayı Küçük!" veya "Sayı Büyük!" şeklinde yönlendiriniz. Her tahmini sayarak doğru sonuca ulaşıldığında toplam deneme sayısını ekrana yazdırınız.
 
 + Geri Sayım ve Fırlatma (Geriye Doğru Sayıcı Mantığı): Bir roket fırlatma simülasyonu için 10'dan başlayıp 1'e kadar birer birer geriye doğru sayan ve her sayıyı ekrana yazdıran, döngü bittiğinde ise ekrana "Fırlatma Başarılı!" mesajı veren programın akış şemasını çiziniz. \ İpucu: Döngü sayacını her adımda 1 azaltınız (SAYAC = SAYAC - 1).

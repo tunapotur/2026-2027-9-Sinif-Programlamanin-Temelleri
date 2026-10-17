@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by Flowgorithm 4.5.0 (http://flowgorithm.org) -->
+
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="1575" height="2375">
+	<rect x="0" y="0" width="1575" height="2375" fill="#FFFFFF"/>
+	<g>
+		<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="375,125 375,186"/>
+		<polygon fill="#404040" stroke="none" points="375,200 388,175 361,175"/>
+		<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="375,2175 375,2236"/>
+		<polygon fill="#404040" stroke="none" points="375,2250 388,2225 361,2225"/>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="3" stroke-dasharray="none" d="M 275,25 A 50 50, 0, 0 0, 275 125 L 475,125 A 50 50, 0, 0 0, 475 25 Z"/>
+			<text x="375" y="40" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="375" dy="50" unicode-bidi="embed">Ana</tspan>
+			</text>
+		</g>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="3" stroke-dasharray="none" d="M 275,2250 A 50 50, 0, 0 0, 275 2350 L 475,2350 A 50 50, 0, 0 0, 475 2250 Z"/>
+			<text x="375" y="2265" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="375" dy="50" unicode-bidi="embed">Son</tspan>
+			</text>
+		</g>
+		<g>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="375,375 375,436"/>
+			<polygon fill="#404040" stroke="none" points="375,450 388,425 361,425"/>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="375,550 375,611"/>
+			<polygon fill="#404040" stroke="none" points="375,625 388,600 361,600"/>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="375,725 375,811"/>
+			<polygon fill="#404040" stroke="none" points="375,825 388,800 361,800"/>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="375,925 375,2011"/>
+			<polygon fill="#404040" stroke="none" points="375,2025 388,2000 361,2000"/>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 150,200 L 150,375 L 600,375 L 600,200 Z"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" points="150,225 600,225"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" points="175,200 175,375"/>
+				<text x="387" y="240" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="387" dy="50" unicode-bidi="embed">Tamsay&#305; girilenSayi,</tspan>
+					<tspan x="387" dy="50" unicode-bidi="embed"> girilenPozitifSayiAdeti</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 125,450 L 125,550 L 625,550 L 625,450 Z"/>
+				<text x="375" y="465" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="375" dy="50" unicode-bidi="embed">girilenPozitifSayiAdeti = 0</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 225,625 L 225,725 L 525,725 L 525,625 Z"/>
+				<text x="375" y="640" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="375" dy="50" unicode-bidi="embed">girilenSayi = 1</tspan>
+				</text>
+			</g>
+			<g>
+				<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="575,875 925,875 925,961"/>
+				<polygon fill="#404040" stroke="none" points="925,975 938,950 911,950"/>
+				<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="925,1850 925,1925 425,1925 425,938"/>
+				<polygon fill="#404040" stroke="none" points="425,925 411,949 438,949"/>
+				<g>
+					<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="925,1075 925,1136"/>
+					<polygon fill="#404040" stroke="none" points="925,1150 938,1125 911,1125"/>
+					<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="925,1250 925,1311"/>
+					<polygon fill="#404040" stroke="none" points="925,1325 938,1300 911,1300"/>
+					<g>
+						<path fill="#D8FFD8" stroke="#78A078" stroke-width="3" stroke-dasharray="none" d="M 675,975 L 625,1075 L 1175,1075 L 1225,975 Z"/>
+						<text x="925" y="990" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="925" dy="50" unicode-bidi="embed">&#199;&#305;kt&#305; &quot;Say&#305; Giri&#351;i Yap&#305;n&#305;z :&quot;</tspan>
+						</text>
+					</g>
+					<g>
+						<path fill="#D0E8FF" stroke="#7088A0" stroke-width="3" stroke-dasharray="none" d="M 750,1150 L 700,1250 L 1100,1250 L 1150,1150 Z"/>
+						<text x="925" y="1165" fill="#102840" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="925" dy="50" unicode-bidi="embed">Giri&#351; girilenSayi</tspan>
+						</text>
+					</g>
+					<g>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1100,1425 1300,1425 1300,1561"/>
+						<polygon fill="#404040" stroke="none" points="1300,1575 1313,1550 1286,1550"/>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1300,1725 1300,1825 963,1825"/>
+						<polygon fill="#404040" stroke="none" points="950,1825 974,1838 974,1811"/>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="750,1425 550,1425 550,1825 886,1825"/>
+						<polygon fill="#404040" stroke="none" points="900,1825 875,1811 875,1838"/>
+						<g>
+							<path fill="#FFD8D8" stroke="#A07878" stroke-width="3" stroke-dasharray="none" d="M 925,1325 L 725,1425 L 925,1525 L 1125,1425 Z"/>
+							<text x="925" y="1390" fill="#401818" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+								<tspan x="925" dy="50" unicode-bidi="embed">girilenSayi &gt; 0</tspan>
+							</text>
+						</g>
+						<g>
+							<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 1050,1575 L 1050,1725 L 1550,1725 L 1550,1575 Z"/>
+							<text x="1300" y="1590" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+								<tspan x="1300" dy="50" unicode-bidi="embed">girilenPozitifSayiAdeti =</tspan>
+								<tspan x="1300" dy="50" unicode-bidi="embed"> girilenPozitifSayiAdeti + 1</tspan>
+							</text>
+						</g>
+						<g>
+						</g>
+						<ellipse cx="925" cy="1825" rx="25" ry="25" fill="#FFD8D8" stroke="#A07878" stroke-width="3"/>
+						<text x="1212" y="1340" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="1212" dy="50" unicode-bidi="embed">Do&#287;ru</tspan>
+						</text>
+						<text x="637" y="1340" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="637" dy="50" unicode-bidi="embed">Yanl&#305;&#351;</tspan>
+						</text>
+					</g>
+				</g>
+				<g>
+					<path fill="#FFE0B0" stroke="#A08050" stroke-width="3" stroke-dasharray="none" d="M 225,825 L 175,875 L 225,925 L 525,925 L 575,875 L 525,825 Z"/>
+					<text x="375" y="840" fill="#402000" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+						<tspan x="375" dy="50" unicode-bidi="embed">girilenSayi != 0</tspan>
+					</text>
+				</g>
+				<text x="662" y="790" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="662" dy="50" unicode-bidi="embed">Do&#287;ru</tspan>
+				</text>
+				<text x="287" y="940" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="287" dy="50" unicode-bidi="embed">Yanl&#305;&#351;</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#D8FFD8" stroke="#78A078" stroke-width="3" stroke-dasharray="none" d="M 100,2025 L 25,2175 L 650,2175 L 725,2025 Z"/>
+				<text x="375" y="2040" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="375" dy="50" unicode-bidi="embed">&#199;&#305;kt&#305; &quot;Toplam Pozitif Say&#305;</tspan>
+					<tspan x="375" dy="50" unicode-bidi="embed"> Adeti:&quot;&amp;girilenPozitifSayiAdeti</tspan>
+				</text>
+			</g>
+		</g>
+	</g>
+</svg>

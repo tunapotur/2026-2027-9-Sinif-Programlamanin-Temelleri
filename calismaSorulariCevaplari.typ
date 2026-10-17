@@ -1,8 +1,12 @@
 #import "template.typ": *
 #import "flowchart.typ": *
 
+
+#align(center)[#text(size:18pt, weight: "bold")[Çalışma Sorularının Cevapları]]
+
 *1.2.2.3. Örnek Çalışma Soruları*
-1.
+
+1.Doğum Yılı
 #align(center)[
   #diagram(
     spacing: (0pt, 16pt),
@@ -25,7 +29,7 @@
   )
 ]
 
-2. 
+2.Kare Alan Çevre 
 #align(center)[
   #diagram(
     spacing: (0pt, 16pt),
@@ -47,7 +51,7 @@
 ]
 
 #pagebreak()
-3.
+3.Urun KDV'li Fiyat
 #align(center)[
   #diagram(
     spacing: (0pt, 16pt),
@@ -69,7 +73,7 @@
   )
 ]
 
-4.
+4.Celsius, Fahrenheit Dönüşümü
 #align(center)[
   #diagram(
     spacing: (0pt, 16pt),
@@ -89,7 +93,7 @@
 ]
 
 #pagebreak()
-5.
+5.Taksimerte Açlış, Taksi Tutarı
 #align(center)[
   #diagram(
     spacing: (0pt, 16pt),
@@ -110,35 +114,330 @@
   )
 ]
 
-*1.2.2.8. Örnek Çalışma Soruları*
-+ Akıllı Bahçe Sulama Sistemi (Sensör ve Eşik Değeri Mantığı): Bir seradaki toprak nem oranı sensöründen gelen değer *nem* değişkeninde tutulmaktadır.
-  - Nem oranı 30'un altına düştüğünde sulama vanasını açan (*"Sulama Başlatıldı"*),
-  - 30 veya üzerinde olduğunda ise sulama vanasını kapatan (*"Sulama Durduruldu"*) programın akış şemasını çiziniz.
+*1.2.2.8. Örnek Çalışma Soruları Karar Yapıları*
+1. Akıllı Bahçe Sulama Sistemi
+#align(center)[
+  #diagram(
+    spacing: (1pt, 24pt),
+    edge-stroke: 1pt,
+    mark-scale: 85%,
 
-+ Bakiye ve Ödeme Kontrolü (İki Değişkeni Karşılaştırma): Bir online alışveriş sisteminde kullanıcının mevcut hesap bakiyesi *bakiye*, satın almak istediği sepet tutarı ise *sepet* değişkenidir.
-  - Eğer *bakiye* değeri *sepet* tutarına eşit veya büyükse ekrana *"Ödeme Başarılı"* yazdıran ve kalan yeni bakiyeyi ekranda gösteren,
-  - Yetersiz ise ekrana *"Yetersiz Bakiye"* uyarısı veren programın akış şemasını çiziniz.
+    baslangic((1, 0), [Ana]),
+    islem((1, 1), [Reel nem], width: 80pt),
+    cikti((1, 2), [Çıktı "Sıcaklık Değerini Giriniz: "], width: 160pt),
+    girdi((1, 3), [Giriş nem], width: 80pt),
+    karar((1, 4), [nem > 30], width: 90pt),
+    cikti((0, 5), [Çıktı "Sulama Başlatıldı"], width: 130pt),
+    cikti((2, 5), [Çıktı "Sulama Durduruldu!"], width: 140pt),
+    birlesim((1, 6)),
+    baslangic((1, 7), [Son]),
 
-+ Bir öğrencinin vize ve final notunu kullanıcıdan alarak, öğrencinin not ortalamasını hesaplayan programın akış şemasını çizin.
-  - Ortalama formülü: ortalama = (vize * 0.4) + (final * 0.6)
-  - Eğer ortalama değeri 50 veya üzerinde ise ekrana *"Geçti"*, 50'nin altında ise *"Kaldı"* yazdırılacak
+    edge((1, 0), (1, 1), "-|>"),
+    edge((1, 1), (1, 2), "-|>"),
+    edge((1, 2), (1, 3), "-|>"),
+    edge((1, 3), (1, 4), "-|>"),
+    edge((1, 4), (0, 4), (0, 5), "-|>", label: [Yanlış], label-pos: 0.3, label-side: right),
+    edge((1, 4), (2, 4), (2, 5), "-|>", label: [Doğru], label-pos: 0.3, label-side: left),
+    edge((0, 5), (0, 6), (1, 6), "-|>"),
+    edge((2, 5), (2, 6), (1, 6), "-|>"),
+    edge((1, 6), (1, 7), "-|>"),
+  )
+]
 
-+ Web sitesi kargo ücreti hesaplama;
-  - Sipariş tutarı 500 TL veya üzerinde ise kargo ücretsizdir
-  - Sipariş tutarı 500 TL'nin altında ise 50 TL kargo ücreti eklenmektedir. 
-  Kullanıcıya son ödenecek toplam tutarı ekrana yazdıran programın akış şemasını hazırlayınız.
+2. Bakiye ve Ödeme Kontrolü
+#align(center)[
+  #diagram(
+    spacing: (15pt, 18pt),
+    edge-stroke: 1pt,
+    mark-scale: 75%,
 
-+ Kullanıcıdan bir tamsayı (*sayi*) girmesini isteyen, girilen sayının 0'dan büyük olması durumunda ekrana *"Pozitif Sayı"*, 0'dan küçük olması durumunda *"Negatif Sayı"* yazdıran programın akış şemasını hazırlayın.
+    baslangic((1, 0), [Ana]),
+    islem((1, 1), [Reel bakiye, sepet, kalanBakiye], width: 170pt),
+    islem((1, 2), [kalanBakiye = 0], width: 100pt),
+    cikti((1, 3), [Çıktı "Bakiye Değerini Girin: "], width: 150pt),
+    girdi((1, 4), [Giriş bakiye], width: 90pt),
+    cikti((1, 5), [Çıktı "Sepet Tutarını Girin: "], width: 150pt),
+    girdi((1, 6), [Giriş sepet], width: 90pt),
+    karar((1, 7), [bakiye >= sepet], width: 110pt),
 
-*1.2.2.12. Örnek Çalışma Soruları*
-+ 1 ile 100 arasında belirlenen gizli bir sayının (örneğin 33) kullanıcının tahminleriyle bulunmaya çalışıldığı bir tahmin oyununun akış şemasını çiziniz. Döngü kontrolü için boolean tipinde dongu değişkenini kullanınız. Girilen tahmin gizli sayıdan farklı olduğu sürece kullanıcıyı "Sayı Küçük!" veya "Sayı Büyük!" şeklinde yönlendiriniz. Her tahmini sayarak doğru sonuca ulaşıldığında toplam deneme sayısını ekrana yazdırınız.
+    // Yanlış kolu (Sol)
+    cikti((0, 8), [Çıktı "Yetersiz Bakiye"], width: 80pt),
 
-+ Geri Sayım ve Fırlatma (Geriye Doğru Sayıcı Mantığı): Bir roket fırlatma simülasyonu için 10'dan başlayıp 1'e kadar birer birer geriye doğru sayan ve her sayıyı ekrana yazdıran, döngü bittiğinde ise ekrana "Fırlatma Başarılı!" mesajı veren programın akış şemasını çiziniz. \ İpucu: Döngü sayacını her adımda 1 azaltınız (SAYAC = SAYAC - 1).
+    // Doğru kolu (Sağ)
+    islem((2, 8), [kalanBakiye = bakiye - sepet], width: 155pt),
+    cikti((2, 9), [Çıktı "Ödeme Başarılı. Kalan Bakiye :" & kalanBakiye], width: 150pt),
 
-+ Çift Sayıların Çarpımı (Faktöriyel / Kümülatif Çarpım Mantığı): Kullanıcıdan pozitif bir çift sayı (N) alarak, 2'den başlayıp N değerine kadar olan (N dahil) tüm çift sayıların çarpımını hesaplayan programın akış şemasını ve sözde kodunu hazırlayınız. \ Örnek Hesap: N = 6 için Carpim = 2 \* 4 \* 6 = 48 \ Öğrenci Notu: Çarpım için başlangıç etkisiz elemanını (CARPIM = 1) ve adım artışını (SAYAC = SAYAC + 2) doğru belirleyiniz.
+    birlesim((1, 10)),
+    baslangic((1, 11), [Son]),
 
-+ Sınıf Not Ortalaması Hesaplama (Döngü İçinde Girdi Alma ve Ortalama): Kullanıcıdan önce sınıfta kaç öğrenci olduğu bilgisini (ogrenciAdet) alan, ardından döngü yardımıyla bu adet kadar öğrenci notunu (ogrenciNot) teker teker kullanıcıdan isteyip toplayan, döngü sonunda ise sınıfın genel not ortalamasını hesaplayıp ekrana yazdıran programın akış şemasını çiziniz. \ Elle Çalışma: ogrenciAdet = 3 ve girilen notlar 70, 80, 90 olacak şekilde elle çalışma (izleme) tablosunu oluşturunuz.
+    edge((1, 0), (1, 1), "-|>"),
+    edge((1, 1), (1, 2), "-|>"),
+    edge((1, 2), (1, 3), "-|>"),
+    edge((1, 3), (1, 4), "-|>"),
+    edge((1, 4), (1, 5), "-|>"),
+    edge((1, 5), (1, 6), "-|>"),
+    edge((1, 6), (1, 7), "-|>"),
 
-+ PIN Kodu ile Telefon Kilidi Açma (3 Hak Sınırlı): Telefonun kayıtlı PIN kodu dogruPin = 1234 olarak belirlenmiştir. Kullanıcıya en fazla 3 deneme hakkı tanınacaktır. \ Kullanıcı doğru PIN'i girerse ekrana "Kilit Açıldı" yazıp döngü derhal sonlanmalıdır.\ Kullanıcı 3 hakkında da hatalı giriş yaparsa ekrana "Telefon Kilitlendi!" uyarısı verilmelidir. \ Bu senaryoyu gerçekleştiren programın akış şemasını çiziniz.
+    edge((1, 7), (0, 7), (0, 8), "-|>", label: [Yanlış], label-pos: 0.3, label-side: right),
+    edge((0, 8), (0, 10), (1, 10), "-|>"),
 
-+ Sıfır Girilene Kadar Pozitif Sayıları Sayma: Kullanıcı klavyeden 0 (sıfır) girene kadar sürekli sayı girişi kabul eden bir program tasarlayınız.\ Girilen sayılar arasından yalnızca pozitif olanların kaç adet olduğunu saymalıdır (pozitifAdet).\ Kullanıcı 0 girdiğinde döngüden çıkılmalı ve toplamda kaç adet pozitif sayı girildiği ekrana yazdırılmalıdır.
+    edge((1, 7), (2, 7), (2, 8), "-|>", label: [Doğru], label-pos: 0.3, label-side: left),
+    edge((2, 8), (2, 9), "-|>"),
+    edge((2, 9), (2, 10), (1, 10), "-|>"),
+
+    edge((1, 10), (1, 11), "-|>"),
+  )
+]
+
+#pagebreak()
+3. Vize ve final notunu
+#align(center)[
+  #diagram(
+    spacing: (1pt, 22pt),
+    edge-stroke: 1pt,
+    mark-scale: 85%,
+
+    baslangic((1, 0), [Ana]),
+    islem((1, 1), [Reel vize, final, ortalama], width: 150pt),
+    cikti((1, 2), [Çıktı "Vize Notunu Girin: "], width: 140pt),
+    girdi((1, 3), [Giriş vize], width: 85pt),
+    cikti((1, 4), [Çıktı "Final Notunu Girin :"], width: 140pt),
+    girdi((1, 5), [Giriş final], width: 85pt),
+    islem((1, 6), [ortalama = vize \* 0.4 + final \* 0.6], width: 160pt),
+    karar((1, 7), [ortalama >= 50], width: 110pt),
+    cikti((0, 8), [Çıktı "Kaldınız! Ortalamanız: " & ortalama], width: 150pt),
+    cikti((2, 8), [Çıktı "Geçtiniz Tebrikler! Ortalamanız: " & ortalama], width: 150pt),
+    birlesim((1, 9)),
+    baslangic((1, 10), [Son]),
+
+    edge((1, 0), (1, 1), "-|>"),
+    edge((1, 1), (1, 2), "-|>"),
+    edge((1, 2), (1, 3), "-|>"),
+    edge((1, 3), (1, 4), "-|>"),
+    edge((1, 4), (1, 5), "-|>"),
+    edge((1, 5), (1, 6), "-|>"),
+    edge((1, 6), (1, 7), "-|>"),
+    edge((1, 7), (0, 7), (0, 8), "-|>", label: [Yanlış], label-pos: 0.3, label-side: right),
+    edge((1, 7), (2, 7), (2, 8), "-|>", label: [Doğru], label-pos: 0.3, label-side: left),
+    edge((0, 8), (0, 9), (1, 9), "-|>"),
+    edge((2, 8), (2, 9), (1, 9), "-|>"),
+    edge((1, 9), (1, 10), "-|>"),
+  )
+]
+
+#pagebreak()
+4. Web sitesi kargo ücreti hesaplama
+#align(center)[
+  #diagram(
+    spacing: (40pt, 22pt),
+    edge-stroke: 1pt,
+    mark-scale: 85%,
+
+    baslangic((1, 0), [Ana]),
+    islem((1, 1), [Reel siparisTutar, kargoTutar, toplam], width: 195pt),
+    cikti((1, 2), [Çıktı "Sipariş Tutarınızı Giriniz: "], width: 165pt),
+    girdi((1, 3), [Giriş siparisTutar], width: 115pt),
+    islem((1, 4), [kargoTutar = 50], width: 105pt),
+    karar((1, 5), [siparisTutar >= 500], width: 130pt),
+    islem((2, 6), [kargoTutar = 0], width: 100pt),
+    birlesim((1, 7)),
+    islem((1, 8), [toplam = siparisTutar + kargoTutar], width: 185pt),
+    cikti((1, 9), [Çıktı "Sipariş Bedeli: " & toplam], width: 155pt),
+    baslangic((1, 10), [Son]),
+
+    edge((1, 0), (1, 1), "-|>"),
+    edge((1, 1), (1, 2), "-|>"),
+    edge((1, 2), (1, 3), "-|>"),
+    edge((1, 3), (1, 4), "-|>"),
+    edge((1, 4), (1, 5), "-|>"),
+    edge((1, 5), (0, 5), (0, 7), (1, 7), "-|>", label: [Yanlış], label-pos: 0.25, label-side: right),
+    edge((1, 5), (2, 5), (2, 6), "-|>", label: [Doğru], label-pos: 0.25, label-side: left),
+    edge((2, 6), (2, 7), (1, 7), "-|>"),
+    edge((1, 7), (1, 8), "-|>"),
+    edge((1, 8), (1, 9), "-|>"),
+    edge((1, 9), (1, 10), "-|>"),
+  )
+]
+
+#pagebreak()
+5. Pozitif Negatif
+#align(center)[
+  #diagram(
+    spacing: (1pt, 22pt),
+    edge-stroke: 1pt,
+    mark-scale: 85%,
+
+    baslangic((1, 0), [Ana]),
+    islem((1, 1), [Tamsayı sayi], width: 90pt),
+    cikti((1, 2), [Çıktı "Bir Tamsayı Giriniz"], width: 140pt),
+    girdi((1, 3), [Giriş sayi], width: 85pt),
+    karar((1, 4), [sayi == 0], width: 90pt),
+
+    // sayi == 0 Doğru
+    cikti((2, 5), [Çıktı sayi & " Sayısı Girildi!"], width: 140pt),
+
+    // sayi == 0 Yanlış -> İç Karar
+    karar((0, 5), [sayi > 0], width: 85pt),
+    cikti((-1, 6), [Çıktı sayi & " Sayısı Negatif Bir Sayıdır"], width: 150pt),
+    cikti((1, 6), [Çıktı sayi & " Sayısı Pozitif Bir Sayıdır"], width: 150pt),
+    birlesim((0, 7)),
+
+    birlesim((1, 8)),
+    baslangic((1, 9), [Son]),
+
+    edge((1, 0), (1, 1), "-|>"),
+    edge((1, 1), (1, 2), "-|>"),
+    edge((1, 2), (1, 3), "-|>"),
+    edge((1, 3), (1, 4), "-|>"),
+
+    // Dış Karar
+    edge((1, 4), (2, 4), (2, 5), "-|>", label: [Doğru], label-pos: 0.3, label-side: left),
+    edge((2, 5), (2, 8), (1, 8), "-|>"),
+
+    edge((1, 4), (0, 4), (0, 5), "-|>", label: [Yanlış], label-pos: 0.3, label-side: right),
+
+    // İç Karar
+    edge((0, 5), (-1, 5), (-1, 6), "-|>", label: [Yanlış], label-pos: 0.3, label-side: right),
+    edge((0, 5), (1, 5), (1, 6), "-|>", label: [Doğru], label-pos: 0.3, label-side: left),
+    edge((-1, 6), (-1, 7), (0, 7), "-|>"),
+    edge((1, 6), (1, 7), (0, 7), "-|>"),
+
+    edge((0, 7), (0, 8), (1, 8), "-|>"),
+    edge((1, 8), (1, 9), "-|>"),
+  )
+]
+
+#pagebreak()
+*1.2.2.12. Örnek Çalışma Soruları Döngü Konusu*
+1. Gizli Sayı Bulma
+#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_1_Sayi_Bulma - Ana.svg")
+
+#pagebreak()
+2. Geri Sayım ve Fırlatma
+#align(center)[
+  #diagram(
+    spacing: (32pt, 22pt),
+    edge-stroke: 1.1pt,
+    mark-scale: 85%,
+
+    baslangic((0, 0), [Ana]),
+    islem((0, 1), [Tamsayı sayac], width: 95pt),
+    islem((0, 2), [sayac = 10], width: 75pt),
+    dongu-altigen((0, 3), [sayac >= 0], width: 85pt),
+
+    cikti((2, 4), [Çıktı "Sayac :" & sayac], width: 125pt),
+    islem((2, 5), [sayac = sayac - 1], width: 105pt),
+
+    cikti((0, 6), [Çıktı "Fırlatma Başarılı!"], width: 130pt),
+    baslangic((0, 7), [Son]),
+
+    edge((0, 0), (0, 1), "-|>"),
+    edge((0, 1), (0, 2), "-|>"),
+    edge((0, 2), (0, 3), "-|>"),
+
+    edge((0, 3), (2, 3), (2, 4), "-|>", label: [Doğru], label-pos: 0.25, label-side: left),
+    edge((2, 4), (2, 5), "-|>"),
+    edge((2, 5), (2, 5.6), (0.3, 5.6), (0.3, 3), "-|>"),
+
+    edge((0, 3), (0, 6), "-|>", label: [Yanlış], label-pos: 0.15, label-side: right),
+    edge((0, 6), (0, 7), "-|>"),
+  )
+]
+
+#pagebreak()
+3. Çift Sayıların Çarpımı
+#align(center)[
+  #diagram(
+    spacing: (32pt, 20pt),
+    edge-stroke: 1.1pt,
+    mark-scale: 85%,
+
+    baslangic((0, 0), [Ana]),
+    islem((0, 1), [Tamsayı N, carpim, sayac], width: 155pt),
+    islem((0, 2), [sayac = 2], width: 75pt),
+    islem((0, 3), [carpim = 1], width: 75pt),
+    cikti((0, 4), [Çıktı "N degerini Girin: "], width: 140pt),
+    girdi((0, 5), [Giriş N], width: 85pt),
+    dongu-altigen((0, 6), [sayac <= N], width: 95pt),
+
+    cikti((2, 7), [Çıktı "İslem :" & sayac & " \* " & carpim], width: 170pt),
+    islem((2, 8), [carpim = carpim \* sayac], width: 140pt),
+    cikti((2, 9), [Çıktı "Carpma Sonuc :" & carpim], width: 160pt),
+    cikti((2, 10), [Çıktı "----"], width: 75pt),
+    islem((2, 11), [sayac = sayac + 2], width: 110pt),
+
+    cikti((0, 12), [Çıktı "Sonuc :" & carpim], width: 130pt),
+    baslangic((0, 13), [Son]),
+
+    edge((0, 0), (0, 1), "-|>"),
+    edge((0, 1), (0, 2), "-|>"),
+    edge((0, 2), (0, 3), "-|>"),
+    edge((0, 3), (0, 4), "-|>"),
+    edge((0, 4), (0, 5), "-|>"),
+    edge((0, 5), (0, 6), "-|>"),
+
+    edge((0, 6), (2, 6), (2, 7), "-|>", label: [Doğru], label-pos: 0.25, label-side: left),
+    edge((2, 7), (2, 8), "-|>"),
+    edge((2, 8), (2, 9), "-|>"),
+    edge((2, 9), (2, 10), "-|>"),
+    edge((2, 10), (2, 11), "-|>"),
+    edge((2, 11), (2, 11.6), (0.35, 11.6), (0.35, 6), "-|>"),
+
+    edge((0, 6), (0, 12), "-|>", label: [Yanlış], label-pos: 0.12, label-side: right),
+    edge((0, 12), (0, 13), "-|>"),
+  )
+]
+
+#pagebreak()
+4. Sınıf Not Ortalaması Hesaplama
+#align(center)[
+  #diagram(
+    spacing: (32pt, 20pt),
+    edge-stroke: 1.1pt,
+    mark-scale: 85%,
+
+    baslangic((0, 0), [Ana]),
+    islem((0, 1), [Tamsayı ogrenciAdet, ogrenciNot, \ notToplami, sayac, ortalama], width: 200pt),
+    cikti((0, 2), [Çıktı "Öğrenci Adedini Girin:"], width: 155pt),
+    girdi((0, 3), [Giriş ogrenciAdet], width: 115pt),
+    islem((0, 4), [ogrenciNot = 0], width: 100pt),
+    islem((0, 5), [notToplami = 0], width: 100pt),
+    islem((0, 6), [sayac = ogrenciAdet], width: 120pt),
+    dongu-altigen((0, 7), [sayac >= 1], width: 85pt),
+
+    cikti((2, 8), [Çıktı "Ogrenci Notu Giriniz"], width: 145pt),
+    girdi((2, 9), [Giriş ogrenciNot], width: 110pt),
+    islem((2, 10), [notToplami = ogrenciNot + notToplami], width: 190pt),
+    islem((2, 11), [sayac = sayac - 1], width: 105pt),
+
+    islem((0, 12), [ortalama = notToplami / ogrenciAdet], width: 190pt),
+    cikti((0, 13), [Çıktı "Ortalama Sonuc: " & ortalama], width: 180pt),
+    baslangic((0, 14), [Son]),
+
+    edge((0, 0), (0, 1), "-|>"),
+    edge((0, 1), (0, 2), "-|>"),
+    edge((0, 2), (0, 3), "-|>"),
+    edge((0, 3), (0, 4), "-|>"),
+    edge((0, 4), (0, 5), "-|>"),
+    edge((0, 5), (0, 6), "-|>"),
+    edge((0, 6), (0, 7), "-|>"),
+
+    edge((0, 7), (2, 7), (2, 8), "-|>", label: [Doğru], label-pos: 0.25, label-side: left),
+    edge((2, 8), (2, 9), "-|>"),
+    edge((2, 9), (2, 10), "-|>"),
+    edge((2, 10), (2, 11), "-|>"),
+    edge((2, 11), (2, 11.6), (0.35, 11.6), (0.35, 7), "-|>"),
+
+    edge((0, 7), (0, 12), "-|>", label: [Yanlış], label-pos: 0.12, label-side: right),
+    edge((0, 12), (0, 13), "-|>"),
+    edge((0, 13), (0, 14), "-|>"),
+  )
+]
+
+#pagebreak()
+5. PIN Kodu
+#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_5_PIN - Ana.svg")
+
+#pagebreak()
+6. Pozitif Sayıları Sayma
+#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_5_PotitifSayiAdet - Ana.svg")

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created by Flowgorithm 4.5.0 (http://flowgorithm.org) -->
+
+<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="2200" height="2925">
+	<rect x="0" y="0" width="2200" height="2925" fill="#FFFFFF"/>
+	<g>
+		<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="300,125 300,186"/>
+		<polygon fill="#404040" stroke="none" points="300,200 313,175 286,175"/>
+		<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="300,925 300,2786"/>
+		<polygon fill="#404040" stroke="none" points="300,2800 313,2775 286,2775"/>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="3" stroke-dasharray="none" d="M 200,25 A 50 50, 0, 0 0, 200 125 L 400,125 A 50 50, 0, 0 0, 400 25 Z"/>
+			<text x="300" y="40" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="300" dy="50" unicode-bidi="embed">Ana</tspan>
+			</text>
+		</g>
+		<g>
+			<path fill="#F0E0FF" stroke="#9070A0" stroke-width="3" stroke-dasharray="none" d="M 200,2800 A 50 50, 0, 0 0, 200 2900 L 400,2900 A 50 50, 0, 0 0, 400 2800 Z"/>
+			<text x="300" y="2815" fill="#301040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+				<tspan x="300" dy="50" unicode-bidi="embed">Son</tspan>
+			</text>
+		</g>
+		<g>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="300,375 300,436"/>
+			<polygon fill="#404040" stroke="none" points="300,450 313,425 286,425"/>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="300,550 300,611"/>
+			<polygon fill="#404040" stroke="none" points="300,625 313,600 286,600"/>
+			<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="300,725 300,811"/>
+			<polygon fill="#404040" stroke="none" points="300,825 313,800 286,800"/>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 25,200 L 25,375 L 575,375 L 575,200 Z"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" points="25,225 575,225"/>
+				<polyline fill="none" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" points="50,200 50,375"/>
+				<text x="312" y="240" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="312" dy="50" unicode-bidi="embed">Tamsay&#305; dogruPin, sayac,</tspan>
+					<tspan x="312" dy="50" unicode-bidi="embed"> girisPin</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 150,450 L 150,550 L 450,550 L 450,450 Z"/>
+				<text x="300" y="465" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="300" dy="50" unicode-bidi="embed">sayac = 3</tspan>
+				</text>
+			</g>
+			<g>
+				<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 125,625 L 125,725 L 475,725 L 475,625 Z"/>
+				<text x="300" y="640" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="300" dy="50" unicode-bidi="embed">dogruPin = 1234</tspan>
+				</text>
+			</g>
+			<g>
+				<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="475,875 1525,875 1525,961"/>
+				<polygon fill="#404040" stroke="none" points="1525,975 1538,950 1511,950"/>
+				<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1525,2625 1525,2700 350,2700 350,938"/>
+				<polygon fill="#404040" stroke="none" points="350,925 336,949 363,949"/>
+				<g>
+					<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1525,1075 1525,1136"/>
+					<polygon fill="#404040" stroke="none" points="1525,1150 1538,1125 1511,1125"/>
+					<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1525,1250 1525,1311"/>
+					<polygon fill="#404040" stroke="none" points="1525,1325 1538,1300 1511,1300"/>
+					<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1525,1425 1525,1486"/>
+					<polygon fill="#404040" stroke="none" points="1525,1500 1538,1475 1511,1475"/>
+					<g>
+						<path fill="#D8FFD8" stroke="#78A078" stroke-width="3" stroke-dasharray="none" d="M 1275,975 L 1225,1075 L 1775,1075 L 1825,975 Z"/>
+						<text x="1525" y="990" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="1525" dy="50" unicode-bidi="embed">&#199;&#305;kt&#305; &quot;PIN Kodunu Giriniz: &quot;</tspan>
+						</text>
+					</g>
+					<g>
+						<path fill="#D0E8FF" stroke="#7088A0" stroke-width="3" stroke-dasharray="none" d="M 1375,1150 L 1325,1250 L 1675,1250 L 1725,1150 Z"/>
+						<text x="1525" y="1165" fill="#102840" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="1525" dy="50" unicode-bidi="embed">Giri&#351; girisPin</tspan>
+						</text>
+					</g>
+					<g>
+						<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 1350,1325 L 1350,1425 L 1700,1425 L 1700,1325 Z"/>
+						<text x="1525" y="1340" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="1525" dy="50" unicode-bidi="embed">sayac = sayac - 1</tspan>
+						</text>
+					</g>
+					<g>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1750,1625 1950,1625 1950,1786"/>
+						<polygon fill="#404040" stroke="none" points="1950,1800 1963,1775 1936,1775"/>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1950,2075 1950,2600 1563,2600"/>
+						<polygon fill="#404040" stroke="none" points="1550,2600 1574,2613 1574,2586"/>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1300,1625 850,1625 850,1786"/>
+						<polygon fill="#404040" stroke="none" points="850,1800 863,1775 836,1775"/>
+						<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="850,2500 850,2600 1486,2600"/>
+						<polygon fill="#404040" stroke="none" points="1500,2600 1475,2586 1475,2613"/>
+						<g>
+							<path fill="#FFD8D8" stroke="#A07878" stroke-width="3" stroke-dasharray="none" d="M 1525,1500 L 1275,1625 L 1525,1750 L 1775,1625 Z"/>
+							<text x="1525" y="1590" fill="#401818" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+								<tspan x="1525" dy="50" unicode-bidi="embed">dogruPin == girisPin</tspan>
+							</text>
+						</g>
+						<g>
+							<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1950,1900 1950,1961"/>
+							<polygon fill="#404040" stroke="none" points="1950,1975 1963,1950 1936,1950"/>
+							<g>
+								<path fill="#D8FFD8" stroke="#78A078" stroke-width="3" stroke-dasharray="none" d="M 1775,1800 L 1725,1900 L 2125,1900 L 2175,1800 Z"/>
+								<text x="1950" y="1815" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+									<tspan x="1950" dy="50" unicode-bidi="embed">&#199;&#305;kt&#305; &quot;Kilit A&#231;&#305;ld&#305;&quot;</tspan>
+								</text>
+							</g>
+							<g>
+								<path fill="#FFFFD8" stroke="#A0A078" stroke-width="3" stroke-dasharray="none" d="M 1800,1975 L 1800,2075 L 2100,2075 L 2100,1975 Z"/>
+								<text x="1950" y="1990" fill="#404018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+									<tspan x="1950" dy="50" unicode-bidi="embed">sayac = 0</tspan>
+								</text>
+							</g>
+						</g>
+						<g>
+							<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="850,1950 850,2011"/>
+							<polygon fill="#404040" stroke="none" points="850,2025 863,2000 836,2000"/>
+							<g>
+								<path fill="#D8FFD8" stroke="#78A078" stroke-width="3" stroke-dasharray="none" d="M 575,1800 L 500,1950 L 1125,1950 L 1200,1800 Z"/>
+								<text x="850" y="1815" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+									<tspan x="850" dy="50" unicode-bidi="embed">&#199;&#305;kt&#305; &quot;Hatal&#305; Pin Giri&#351;i! Kalan</tspan>
+									<tspan x="850" dy="50" unicode-bidi="embed"> Giri&#351; Hakk&#305;n&#305;z &quot;&amp;sayac</tspan>
+								</text>
+							</g>
+							<g>
+								<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1000,2125 1200,2125 1200,2261"/>
+								<polygon fill="#404040" stroke="none" points="1200,2275 1213,2250 1186,2250"/>
+								<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="1200,2375 1200,2475 888,2475"/>
+								<polygon fill="#404040" stroke="none" points="875,2475 899,2488 899,2461"/>
+								<polyline fill="none" stroke="#404040" stroke-width="6" stroke-dasharray="none" points="700,2125 500,2125 500,2475 811,2475"/>
+								<polygon fill="#404040" stroke="none" points="825,2475 800,2461 800,2488"/>
+								<g>
+									<path fill="#FFD8D8" stroke="#A07878" stroke-width="3" stroke-dasharray="none" d="M 850,2025 L 675,2125 L 850,2225 L 1025,2125 Z"/>
+									<text x="850" y="2090" fill="#401818" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+										<tspan x="850" dy="50" unicode-bidi="embed">sayac == 0</tspan>
+									</text>
+								</g>
+								<g>
+									<path fill="#D8FFD8" stroke="#78A078" stroke-width="3" stroke-dasharray="none" d="M 975,2275 L 925,2375 L 1425,2375 L 1475,2275 Z"/>
+									<text x="1200" y="2290" fill="#184018" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+										<tspan x="1200" dy="50" unicode-bidi="embed">&#199;&#305;kt&#305; &quot;Telefon Kilitlendi!&quot;</tspan>
+									</text>
+								</g>
+								<g>
+								</g>
+								<ellipse cx="850" cy="2475" rx="25" ry="25" fill="#FFD8D8" stroke="#A07878" stroke-width="3"/>
+								<text x="1112" y="2040" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+									<tspan x="1112" dy="50" unicode-bidi="embed">Do&#287;ru</tspan>
+								</text>
+								<text x="587" y="2040" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+									<tspan x="587" dy="50" unicode-bidi="embed">Yanl&#305;&#351;</tspan>
+								</text>
+							</g>
+						</g>
+						<ellipse cx="1525" cy="2600" rx="25" ry="25" fill="#FFD8D8" stroke="#A07878" stroke-width="3"/>
+						<text x="1862" y="1540" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="1862" dy="50" unicode-bidi="embed">Do&#287;ru</tspan>
+						</text>
+						<text x="1187" y="1540" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+							<tspan x="1187" dy="50" unicode-bidi="embed">Yanl&#305;&#351;</tspan>
+						</text>
+					</g>
+				</g>
+				<g>
+					<path fill="#FFE0B0" stroke="#A08050" stroke-width="3" stroke-dasharray="none" d="M 175,825 L 125,875 L 175,925 L 425,925 L 475,875 L 425,825 Z"/>
+					<text x="300" y="840" fill="#402000" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+						<tspan x="300" dy="50" unicode-bidi="embed">sayac &gt; 0</tspan>
+					</text>
+				</g>
+				<text x="562" y="790" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="562" dy="50" unicode-bidi="embed">Do&#287;ru</tspan>
+				</text>
+				<text x="212" y="940" fill="#404040" font-family="Arial" font-size="32pt" text-anchor="middle" direction="ltr">
+					<tspan x="212" dy="50" unicode-bidi="embed">Yanl&#305;&#351;</tspan>
+				</text>
+			</g>
+		</g>
+	</g>
+</svg>
