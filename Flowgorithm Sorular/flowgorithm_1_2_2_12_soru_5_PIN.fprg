@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_12_soru_5_PIN"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 09:45:18 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswOTozNTozOSDDllM7MjUyMA=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswOTo0NToxOCDDllM7MTsyNjI2"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="dogruPin, sayac, girisPin" type="Integer" array="False" size=""/>
+            <assign variable="sayac" expression="3"/>
+            <assign variable="dogruPin" expression="1234"/>
+            <while expression="sayac &gt; 0">
+                <output expression="&quot;PIN Kodunu Giriniz: &quot;" newline="True"/>
+                <input variable="girisPin"/>
+                <assign variable="sayac" expression="sayac - 1"/>
+                <if expression="dogruPin == girisPin">
+                    <then>
+                        <output expression="&quot;Kilit A&#231;&#305;ld&#305;&quot;" newline="True"/>
+                        <assign variable="sayac" expression="0"/>
+                    </then>
+                    <else>
+                        <output expression="&quot;Hatal&#305; Pin Giri&#351;i! Kalan Giri&#351; Hakk&#305;n&#305;z &quot;&amp;sayac" newline="True"/>
+                        <if expression="sayac == 0">
+                            <then>
+                                <output expression="&quot;Telefon Kilitlendi!&quot;" newline="True"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>

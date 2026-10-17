@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_8_Soru_4_PozitifNegatifSayi"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 11:47:41 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTo0MzozNCDDllM7MjUwNw=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTo0Nzo0MSDDllM7MTsyNjE3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="sayi" type="Integer" array="False" size=""/>
+            <output expression="&quot;Bir Tamsay&#305; Giriniz&quot;" newline="True"/>
+            <input variable="sayi"/>
+            <if expression="sayi == 0">
+                <then>
+                    <output expression="sayi&amp;&quot; Say&#305;s&#305; Girildi!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="sayi &gt; 0">
+                        <then>
+                            <output expression="sayi&amp;&quot; Say&#305;s&#305; Pozitif Bir Say&#305;d&#305;r&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <output expression="sayi&amp;&quot; Say&#305;s&#305; Negatif Bir Say&#305;d&#305;r&quot;" newline="True"/>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

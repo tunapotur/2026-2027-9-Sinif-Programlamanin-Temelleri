@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_8_Soru_2_BakiyeKontrol"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 10:20:23 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMDoxNDo1OSDDllM7MjUxMQ=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMDoyMDoyMyDDllM7MTsyNjA3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="bakiye, sepet, kalanBakiye" type="Real" array="False" size=""/>
+            <assign variable="kalanBakiye" expression="0"/>
+            <output expression="&quot;Bakiye De&#287;erini Girin: &quot;" newline="True"/>
+            <input variable="bakiye"/>
+            <output expression="&quot;Sepet Tutar&#305;n&#305; Girin: &quot;" newline="True"/>
+            <input variable="sepet"/>
+            <if expression="bakiye &gt;= sepet">
+                <then>
+                    <assign variable="kalanBakiye" expression="bakiye - sepet"/>
+                    <output expression="&quot;&#214;deme Ba&#351;ar&#305;l&#305;. Kalan Bakiye :&quot;&amp;kalanBakiye" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Yetersiz Bakiye&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

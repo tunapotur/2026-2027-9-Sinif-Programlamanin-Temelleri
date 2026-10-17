@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_3_Soru_2_KareAlanCevre"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 11:57:53 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTo1NDoyMiDDllM7MjUwNg=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTo1Nzo1MyDDllM7MTsyNjIx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="kenar, alan, cevre" type="Real" array="False" size=""/>
+            <output expression="&quot;Karenin Bir Kenar Uzunlu&#287;unu Girin: &quot;" newline="True"/>
+            <input variable="kenar"/>
+            <assign variable="alan" expression="kenar * kenar"/>
+            <assign variable="cevre" expression="kenar * 4"/>
+            <output expression="&quot;Karenin Alan&#305;: &quot;&amp;alan" newline="True"/>
+            <output expression="&quot;Karenin &#199;evresi: &quot;&amp;cevre" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

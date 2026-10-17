@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_3_Soru_TaksiTutar"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-18 12:13:23 &#214;&#214;"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xODsxMjowNzo1MyDDlsOWOzI2NDE="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xODsxMjoxMzoyMyDDlsOWOzE7Mjc0Mw=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="taksiMetreAcilisTutar, kilometreBasiTutar, kilometreYol, odenecekTutar" type="Real" array="False" size=""/>
+            <assign variable="taksiMetreAcilisTutar" expression="30"/>
+            <assign variable="kilometreBasiTutar" expression="20"/>
+            <output expression="&quot;Gidilen Kilometre :&quot;" newline="True"/>
+            <input variable="kilometreYol"/>
+            <assign variable="odenecekTutar" expression="taksimetreAcilisTutar + kilometreYol*kilometreBasiTutar"/>
+            <output expression="&quot;&#214;denecek Tutar :&quot;&amp;odenecekTutar" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

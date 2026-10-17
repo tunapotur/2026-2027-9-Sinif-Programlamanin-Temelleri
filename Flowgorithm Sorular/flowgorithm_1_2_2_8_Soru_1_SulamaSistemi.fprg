@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_5_ornek_3_KombiAlgoritmasi"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 10:11:34 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0wOS0yOTswNjowOTowMSDDllM7MjUxOA=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMDoxMTozNCDDllM7MzsyNjEx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nem" type="Real" array="False" size=""/>
+            <output expression="&quot;S&#305;cakl&#305;k De&#287;erini Giriniz: &quot;" newline="True"/>
+            <input variable="nem"/>
+            <if expression="nem &gt; 30">
+                <then>
+                    <output expression="&quot;Sulama Durduruldu!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Sulama Ba&#351;lat&#305;ld&#305;&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

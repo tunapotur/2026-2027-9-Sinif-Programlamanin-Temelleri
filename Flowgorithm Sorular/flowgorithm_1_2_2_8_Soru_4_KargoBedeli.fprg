@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_8_Soru_4_KargoBedeli"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 11:43:20 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTozOTozMCDDllM7MjUwOA=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTo0MzoyMCDDllM7MTsyNjEw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="siparisTutar, kargoTutar, toplam" type="Real" array="False" size=""/>
+            <output expression="&quot;Sipari&#351; Tutar&#305;n&#305;z&#305; Giriniz: &quot;" newline="True"/>
+            <input variable="siparisTutar"/>
+            <assign variable="kargoTutar" expression="50"/>
+            <if expression="siparisTutar &gt;= 500">
+                <then>
+                    <assign variable="kargoTutar" expression="0"/>
+                </then>
+                <else/>
+            </if>
+            <assign variable="toplam" expression="siparisTutar + kargoTutar"/>
+            <output expression="&quot;Sipari&#351; Bedeli: &quot;&amp;toplam" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

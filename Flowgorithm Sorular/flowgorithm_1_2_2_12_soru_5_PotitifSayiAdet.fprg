@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_12_soru_5_PotitifSayiAdet"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 09:58:24 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswOTo0Njo0MSDDllM7MjUxNQ=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswOTo1ODoyNCDDllM7MTsyNjI3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="girilenSayi, girilenPozitifSayiAdeti" type="Integer" array="False" size=""/>
+            <assign variable="girilenPozitifSayiAdeti" expression="0"/>
+            <assign variable="girilenSayi" expression="1"/>
+            <while expression="girilenSayi != 0">
+                <output expression="&quot;Say&#305; Giri&#351;i Yap&#305;n&#305;z :&quot;" newline="True"/>
+                <input variable="girilenSayi"/>
+                <if expression="girilenSayi &gt; 0">
+                    <then>
+                        <assign variable="girilenPozitifSayiAdeti" expression="girilenPozitifSayiAdeti + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </while>
+            <output expression="&quot;Toplam Pozitif Say&#305; Adeti:&quot;&amp;girilenPozitifSayiAdeti" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

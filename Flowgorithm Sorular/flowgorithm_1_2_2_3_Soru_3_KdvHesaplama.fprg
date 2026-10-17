@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_3_Soru_3_KdvHesaplama"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-18 12:02:15 &#214;&#214;"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzsxMTo1Nzo1OSDDllM7MjUxOQ=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xODsxMjowMjoxNSDDlsOWOzE7Mjc0Mg=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="urunFiyat, kdvOran, kdvTutar, toplam" type="Real" array="False" size=""/>
+            <assign variable="kdvOran" expression="0.20"/>
+            <output expression="&quot;&#220;r&#252;n Fiyat&#305;n&#305; Giriniz: &quot;" newline="True"/>
+            <input variable="urunFiyat"/>
+            <assign variable="kdvTutar" expression="urunFiyat * kdvOran"/>
+            <output expression="&quot;&#220;r&#252;n Kdv Tutar: &quot;&amp;kdvTutar" newline="True"/>
+            <assign variable="toplam" expression="urunFiyat + kdvTutar"/>
+            <output expression="&quot;&#220;r&#252;n Toplam Fiyat: &quot;&amp;toplam" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

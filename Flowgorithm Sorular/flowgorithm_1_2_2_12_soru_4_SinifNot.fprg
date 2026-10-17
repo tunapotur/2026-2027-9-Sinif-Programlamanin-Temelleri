@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowgorithm_1_2_2_12_soru_4_SinifNot"/>
+        <attribute name="authors" value="tuna"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-17 09:07:56 &#214;S"/>
+        <attribute name="created" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswODowMzoxNCDDllM7MjUwNw=="/>
+        <attribute name="edited" value="dHVuYTtXSU4xMVRVTkE7MjAyNi0xMC0xNzswOTowNzo1NiDDllM7NDsyNjI5"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="ogrenciAdet, ogrenciNot, notToplami, sayac, ortalama" type="Integer" array="False" size=""/>
+            <output expression="&quot;&#214;&#287;renci Adedini Girin:&quot;" newline="True"/>
+            <input variable="ogrenciAdet"/>
+            <assign variable="ogrenciNot" expression="0"/>
+            <assign variable="notToplami" expression="0"/>
+            <assign variable="sayac" expression="ogrenciAdet"/>
+            <while expression="sayac &gt;= 1">
+                <output expression="&quot;Ogrenci Notu Giriniz&quot;" newline="True"/>
+                <input variable="ogrenciNot"/>
+                <assign variable="notToplami" expression="ogrenciNot + notToplami"/>
+                <assign variable="sayac" expression="sayac - 1"/>
+            </while>
+            <assign variable="ortalama" expression="notToplami/ogrenciAdet"/>
+            <output expression="&quot;Ortalama Sonuc: &quot;&amp;ortalama" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

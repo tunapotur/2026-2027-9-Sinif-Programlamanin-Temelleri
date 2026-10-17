@@ -11,6 +11,7 @@
 #set page(numbering: "1")
 
 #include "01_Algoritmik_Dusunme_ve_Tasarim.typ"
-// #pagebreak()
+#pagebreak()
+#include "calismaSorulariCevaplari.typ" 
 // #include "02_Temel_Programlama_Yapilari.typ"
 // #pagebreak()

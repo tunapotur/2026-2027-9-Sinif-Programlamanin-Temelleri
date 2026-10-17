@@ -965,11 +965,7 @@ Ortalama hesabı:
 + Yaş Hesaplama: Kullanıcıdan doğum yılını ve mevcut yılı alıp yaşını hesaplayan ve ekrana yazdıran akış şemasını çiziniz.
 + Kare Alan ve Çevre: Bir kenar uzunluğu kullanıcıdan girilen karenin alanını ve çevresini hesaplayıp ekrana yazdıran akış şemasını çiziniz.
 + KDV Hesaplama: Fiyatı girilen bir ürünün %20 KDV tutarını ve KDV dahil toplam satış fiyatını hesaplayıp ekrana yazdıran akış şemasını çiziniz.
-+ Dakikayı Saniyeye Çevirme: Kullanıcıdan dakika cinsinden bir süre girmesini isteyen, bu sürenin kaç saniye olduğunu hesaplayıp yazdıran akış şemasını çiziniz.
-+ Diktörtgenler Prizması Hacmi: Kullanıcıdan en, boy ve yükseklik değerlerini alarak prizmanın hacmini (Hacim = en * boy * yükseklik) hesaplayıp ekrana yazdıran akış şemasını çiziniz.
-+ Ağırlıklı Not Ortalaması: Bir öğrencinin 1. vize (%40) ve 2. vize (%60) notlarını alıp dönem sonu başarı puanını hesaplayan ve yazdıran akış şemasını çiziniz.
 + Birim Dönüşümü (Sıcaklık): Kullanıcıdan Celsius cinsinden sıcaklık değerini alıp Fahrenheit değerine çeviren (F = C \*1.8 + 32) ve sonucu gösteren akış şemasını çiziniz.
-+ Yol, Hız ve Zaman: Bir aracın gittiği mesafeyi (km) ve bu mesafeyi aldığı süreyi (saat) kullanıcıdan alıp ortalama hızını hesaplayan ve ekrana yazdıran akış şemasını çiziniz.
 + Taksi Ücreti Hesaplama: Taksimetre açılış ücreti 30 TL, kilometre başına ücret 20 TL olan bir şehirde; gidilen kilometre bilgisini kullanıcıdan alıp ödenecek toplam tutarı hesaplayıp yazdıran akış şemasını çiziniz.
 
 #v(1em)
@@ -1147,27 +1143,24 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 ]
 
 ==== Örnek Çalışma Soruları
-+ Akıllı Bahçe Sulama Sistemi (Sensör ve Eşik Değeri Mantığı): Bir seradaki toprak nem oranı sensöründen gelen değer NEM değişkeninde tutulmaktadır.
-  - Nem oranı 30'un altına düştüğünde sulama vanasını açan ("Sulama Başlatıldı"),
-  - 30 veya üzerinde olduğunda ise sulama vanasını kapatan ("Sulama Durduruldu") programın akış şemasını çiziniz.
++ Akıllı Bahçe Sulama Sistemi (Sensör ve Eşik Değeri Mantığı): Bir seradaki toprak nem oranı sensöründen gelen değer *nem* değişkeninde tutulmaktadır.
+  - Nem oranı 30'un altına düştüğünde sulama vanasını açan (*"Sulama Başlatıldı"*),
+  - 30 veya üzerinde olduğunda ise sulama vanasını kapatan (*"Sulama Durduruldu"*) programın akış şemasını çiziniz.
 
-+ Bakiye ve Ödeme Kontrolü (İki Değişkeni Karşılaştırma): Bir online alışveriş sisteminde kullanıcının mevcut hesap bakiyesi BAKIYE, satın almak istediği sepet tutarı ise SEPET değişkenidir.
-  - Eğer BAKIYE değeri SEPET tutarına eşit veya büyükse ekrana "Ödeme Başarılı" yazdıran ve kalan yeni bakiyeyi ekranda gösteren,
-  - Yetersiz ise ekrana "Yetersiz Bakiye" uyarısı veren programın akış şemasını çiziniz.
++ Bakiye ve Ödeme Kontrolü (İki Değişkeni Karşılaştırma): Bir online alışveriş sisteminde kullanıcının mevcut hesap bakiyesi *bakiye*, satın almak istediği sepet tutarı ise *sepet* değişkenidir.
+  - Eğer *bakiye* değeri *sepet* tutarına eşit veya büyükse ekrana *"Ödeme Başarılı"* yazdıran ve kalan yeni bakiyeyi ekranda gösteren,
+  - Yetersiz ise ekrana *"Yetersiz Bakiye"* uyarısı veren programın akış şemasını çiziniz.
 
-+ Vize-Final ile Dersten Geçme / Kalma (İşlem + Karar + Çalışma Tablosu): Bir öğrencinin vize notu VIZE, final notu FINAL olarak kullanıcıdan alınacaktır.
-  - Ortalama formülü: ORT = (VIZE * 0.4) + (FINAL * 0.6)
-  - Eğer ORT değeri 50 veya üzerinde ise ekrana "Geçti", 50'nin altında ise "Kaldı" yazdıran programın sözde kodunu (pseudo-code) ve en az iki farklı öğrenci notu için elle çalışma (izleme) tablosunu hazırlayınız.
++ Bir öğrencinin vize ve final notunu kullanıcıdan alarak, öğrencinin not ortalamasını hesaplayan programın akış şemasını çizin.
+  - Ortalama formülü: ortalama = (vize * 0.4) + (final * 0.6)
+  - Eğer ortalama değeri 50 veya üzerinde ise ekrana *"Geçti"*, 50'nin altında ise *"Kaldı"* yazdırılacak
 
-+ Hız Sınırı ve Radar Kontrolü (Hız ve Ceza Durumu): Şehir içi yolda hız sınırını kontrol eden radar sistemi, araç hızını HIZ değişkeni olarak okumaktadır. Yasal hız sınırı 70 km/s olarak belirlenmiştir.
-  - Sürücünün hızı 70'in üzerindeyse ekrana "Hız Sınırı Aşıldı - Ceza Uygulandı",
-  - 70 veya altındaysa ekrana "İyi Yolculuklar" mesajını veren programın akış şemasını çiziniz.
++ Web sitesi kargo ücreti hesaplama;
+  - Sipariş tutarı 500 TL veya üzerinde ise kargo ücretsizdir
+  - Sipariş tutarı 500 TL'nin altında ise 50 TL kargo ücreti eklenmektedir. 
+  Kullanıcıya son ödenecek toplam tutarı ekrana yazdıran programın akış şemasını hazırlayınız.
 
-+ Basit Kargo Ücreti Hesaplama (Eşik Değeri ve Şartlı Matematik): Bir e-ticaret sitesinde sipariş tutarı TUTAR değişkeninde tutulmaktadır.
-  - Sipariş tutarı 500 TL veya üzerinde ise kargo ücretsizdir (Ödenecek tutar = TUTAR).
-  - Sipariş tutarı 500 TL'nin altında ise 50 TL kargo ücreti eklenmektedir (Ödenecek tutar = TUTAR + 50). Kullanıcıya son ödenecek toplam tutarı ekrana yazdıran programın akış şemasını ve sözde kodunu hazırlayınız.
-
-+ Pozitif / Negatif Sayı Tespiti (Temel Sayısal Karar): Kullanıcıdan bir tamsayı (SAYI) girmesini isteyen, girilen sayının 0'dan büyük olması durumunda ekrana "Pozitif Sayı", 0'dan küçük olması durumunda "Negatif Sayı" yazdıran programın akış şemasını hazırlayın.
++ Kullanıcıdan bir tamsayı (*sayi*) girmesini isteyen, girilen sayının 0'dan büyük olması durumunda ekrana *"Pozitif Sayı"*, 0'dan küçük olması durumunda *"Negatif Sayı"* yazdıran programın akış şemasını hazırlayın.
   
 #pagebreak()
 ==== Döngü(Loop)
@@ -1470,11 +1463,11 @@ Birden başlayarak kullanıcının belirlediği değere kadar belirlenen dahil t
 
 + Çift Sayıların Çarpımı (Faktöriyel / Kümülatif Çarpım Mantığı): Kullanıcıdan pozitif bir çift sayı (N) alarak, 2'den başlayıp N değerine kadar olan (N dahil) tüm çift sayıların çarpımını hesaplayan programın akış şemasını ve sözde kodunu hazırlayınız. \ Örnek Hesap: N = 6 için Carpim = 2 \* 4 \* 6 = 48 \ Öğrenci Notu: Çarpım için başlangıç etkisiz elemanını (CARPIM = 1) ve adım artışını (SAYAC = SAYAC + 2) doğru belirleyiniz.
 
-+ Sınıf Not Ortalaması Hesaplama (Döngü İçinde Girdi Alma ve Ortalama): Kullanıcıdan önce sınıfta kaç öğrenci olduğu bilgisini (ADET) alan, ardından döngü yardımıyla bu adet kadar öğrenci notunu (NOT) teker teker kullanıcıdan isteyip toplayan, döngü sonunda ise sınıfın genel not ortalamasını hesaplayıp ekrana yazdıran programın akış şemasını çiziniz. \ Elle Çalışma: ADET = 3 ve girilen notlar 70, 80, 90 olacak şekilde elle çalışma (izleme) tablosunu oluşturunuz.
++ Sınıf Not Ortalaması Hesaplama (Döngü İçinde Girdi Alma ve Ortalama): Kullanıcıdan önce sınıfta kaç öğrenci olduğu bilgisini (ogrenciAdet) alan, ardından döngü yardımıyla bu adet kadar öğrenci notunu (ogrenciNot) teker teker kullanıcıdan isteyip toplayan, döngü sonunda ise sınıfın genel not ortalamasını hesaplayıp ekrana yazdıran programın akış şemasını çiziniz. \ Elle Çalışma: ogrenciAdet = 3 ve girilen notlar 70, 80, 90 olacak şekilde elle çalışma (izleme) tablosunu oluşturunuz.
 
-+ PIN Kodu ile Telefon Kilidi Açma (3 Hak Sınırlı): Telefonun kayıtlı PIN kodu DOGRU_PIN = 1234 olarak belirlenmiştir. Kullanıcıya en fazla 3 deneme hakkı tanınacaktır. \ Kullanıcı doğru PIN'i girerse ekrana "Kilit Açıldı" yazıp döngü derhal sonlanmalıdır.\ Kullanıcı 3 hakkında da hatalı giriş yaparsa ekrana "Telefon Kilitlendi!" uyarısı verilmelidir. \ Bu senaryoyu gerçekleştiren programın akış şemasını çiziniz.
++ PIN Kodu ile Telefon Kilidi Açma (3 Hak Sınırlı): Telefonun kayıtlı PIN kodu dogruPin = 1234 olarak belirlenmiştir. Kullanıcıya en fazla 3 deneme hakkı tanınacaktır. \ Kullanıcı doğru PIN'i girerse ekrana "Kilit Açıldı" yazıp döngü derhal sonlanmalıdır.\ Kullanıcı 3 hakkında da hatalı giriş yaparsa ekrana "Telefon Kilitlendi!" uyarısı verilmelidir. \ Bu senaryoyu gerçekleştiren programın akış şemasını çiziniz.
 
-+ Sıfır Girilene Kadar Pozitif Sayıları Sayma: Kullanıcı klavyeden 0 (sıfır) girene kadar sürekli sayı girişi kabul eden bir program tasarlayınız.\ Girilen sayılar arasından yalnızca pozitif olanların kaç adet olduğunu saymalıdır (POZITIF_ADET).\ Kullanıcı 0 girdiğinde döngüden çıkılmalı ve toplamda kaç adet pozitif sayı girildiği ekrana yazdırılmalıdır. \ Programın sözde kodunu ve 5, -3, 12, -1, 0 test girdileri için elle çalışma tablosunu hazırlamak işinizi kolaylaştırır.
++ Sıfır Girilene Kadar Pozitif Sayıları Sayma: Kullanıcı klavyeden 0 (sıfır) girene kadar sürekli sayı girişi kabul eden bir program tasarlayınız.\ Girilen sayılar arasından yalnızca pozitif olanların kaç adet olduğunu saymalıdır (pozitifAdet).\ Kullanıcı 0 girdiğinde döngüden çıkılmalı ve toplamda kaç adet pozitif sayı girildiği ekrana yazdırılmalıdır.
 
 #pagebreak()
 === Algoritmalarda Metinsel Veriler ve İşlemler
