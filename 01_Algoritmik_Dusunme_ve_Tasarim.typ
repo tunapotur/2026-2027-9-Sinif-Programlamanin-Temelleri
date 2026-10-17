@@ -172,8 +172,80 @@ Aşağıda ki tabloda sık karşılaştırma operatörleri ve kullanımı göste
   table_dataCell_left[Hız, 90 veya 90’dan daha küçükse sonuç *Doğru* olur.],
 )
 
-#pagebreak()
+===== Karşılaştırma Operatörleri İle Yapılan İşlem Örnekleri
+#block(breakable: false)[
+  #grid(
+    columns: (1fr,1fr),
+    gutter: 5pt,
+    align: (top,top),
+    [
+    *EŞİTTİR (==)*
+    - *5 == 5* #sym.arrow.r Sonuç: true (1)
+    - *12 == 20* #sym.arrow.r Sonuç: false (0)
+    - *"Tuna" == "Tuna"* #sym.arrow.r Sonuç: true (1)
+    - *"Ahmet" == "ahmet"* #sym.arrow.r Sonuç:\ false (0) (Büyük/küçük harf duyarlılığı)
+    - *-10 == 10* #sym.arrow.r Sonuç: false (0)
+    ],
+    [
+      *EŞİT DEĞİLDİR (!=)*
+      - *10 != 5* #sym.arrow.r Sonuç: true (1)
+      - *7 != 7* #sym.arrow.r Sonuç: false (0)
+      - *"Java" != "Python"* #sym.arrow.r Sonuç: true (1)
+      - *"Okul" != "Okul"* #sym.arrow.r Sonuç: false (0)
+      - *-4 != 4* #sym.arrow.r Sonuç: true (1)
+    ]
+  )
+]
+#v(0.5em)
+#block(breakable: false)[
+  #grid(
+    columns: (1fr,1fr),
+    gutter: 5pt,
+    align: (top,top),
+    [
+    *BÜYÜKTÜR (>)*
+    - *15 > 8*  #sym.arrow.r Sonuç: true (1)
+    - *3 > 10*  #sym.arrow.r Sonuç: false (0)
+    - *5 > 5*  #sym.arrow.r Sonuç: false (0)
+    - *-2 > -10*  #sym.arrow.r Sonuç: true (1)
+    - *0.5 > 0.2*  #sym.arrow.r Sonuç: true (1)
+    ],
+    [
+      *KÜÇÜKTÜR (<)*
+      - *4 < 9*  #sym.arrow.r Sonuç: true (1)
+      - *25 < 12*  #sym.arrow.r Sonuç: false (0)
+      - *7 < 7*  #sym.arrow.r Sonuç: false (0)
+      - *-15 < -3*  #sym.arrow.r Sonuç: true (1)
+      - *1.25 < 1.30*  #sym.arrow.r Sonuç: true (1)
+    ]
+  )
+]
+#v(0.5em)
+#block(breakable: false)[
+  #grid(
+    columns: (1fr,1fr),
+    gutter: 5pt,
+    align: (top,top),
+    [
+    *BÜYÜK EŞİTTİR (>=)*
+    - *18 >= 18* #sym.arrow.r Sonuç: true (1)
+    - *20 >= 15* #sym.arrow.r Sonuç: true (1)
+    - *6 >= 10* #sym.arrow.r Sonuç: false (0)
+    - *0 >= 0* #sym.arrow.r Sonuç: true (1)
+    - *-5 >= -5* #sym.arrow.r Sonuç: true (1)
+    ],
+    [
+    *KÜÇÜK EŞİTTİR (<=)*
+    - *5 <= 5* #sym.arrow.r Sonuç: true (1)
+    - *3 <= 8* #sym.arrow.r Sonuç: true (1)
+    - *14 <= 9* #sym.arrow.r Sonuç: false (0)
+    - *-8 <= -2* #sym.arrow.r Sonuç: true (1)
+    - *100 <= 99* #sym.arrow.r Sonuç: false (0)
+    ]
+  )
+]
 
+#pagebreak()
 ==== Örnek 1 Hatalı Giriş Kontrolü Algoritması (Sayfa 28 Örnek 4)
 
 Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol eden programının sözde kodunu ve elle çalıştırma tablosunu hazırlayın. Sistem şifresi için *sistemKey*, kullanıcı şifresi için *kullaniciKey* kullanılacak.
@@ -190,9 +262,8 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
 *Elle Çalışma Tablosu* \
 *Örnek Girdiler:* sistemKey=1234, kullaniciKey=9876, *Beklenen Çıktı:* Sisteme Giremez
 
-#text(size: 9pt)[
   #table(
-    columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 3.2cm, 2.2cm, 1fr),
+    columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 2.5cm, 2.2cm, 1fr),
     stroke:  table_Stroke,
     inset: 7pt,
     
@@ -236,7 +307,11 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
     table_dataCell_middle[9876],
     table_dataCell_middle[*HAYIR*],
     table_dataCell_middle[*Giriş yapılamaz!*],
-    table_dataCell_left[Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme giremez!],
+    table_dataCell_left[
+      #text(size:9pt)[
+      Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme giremez!
+      ]
+      ],
     
     table_dataCell_middle[5],
     table_dataCell_middle[DUR],
@@ -247,13 +322,12 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
     table_dataCell_left[Algoritma başarıyla sonlanır.],
   )
 
-]
 
 *Elle Çalışma Tablosu* \
 *Örnek Girdiler:* sistemKey=1234, kullaniciKey=1234, *Beklenen Çıktı:* Sisteme Girer
 
 #table(
-  columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 3.2cm, 2.2cm, 1fr),
+  columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 2.5cm, 2.2cm, 1fr),
   stroke:  table_Stroke,
   inset: 7pt,
   
@@ -297,7 +371,11 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
   table_dataCell_middle[1234],
   table_dataCell_middle[*EVET*],
   table_dataCell_middle[*Giriş yapılır.*],
-  table_dataCell_left[Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme girer.],
+  table_dataCell_left[
+    #text(size:9pt)[
+    Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme girer.
+    ]
+    ],
   
   table_dataCell_middle[5],
   table_dataCell_middle[DUR],
@@ -307,6 +385,7 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
   table_dataCell_middle[-],
   table_dataCell_left[Algoritma başarıyla sonlanır.],
 )
+
 
 ==== Örnek 2 Sıcaklık Kontrolü (Sayfa 28 Örnek 3)
 Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi çalıştıran, 20 derecenin üzerine çıktığında ise kombiyi durduran bir termostat programının sözde kodunu ve elle çalıştırma tablosunu hazırlayın.
@@ -421,7 +500,6 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
  \ *EVET* ise "*Ehliyet Alır!*" mesajını yazdır.   
   \ *HAYIR* ise "*Ehliyet Almaz!*" mesajını yazdır.
 6. Adım: DUR.
-
 
 *Elle Çalışma Tablosu*\
 *Örnek Girdiler:* Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2005, *Beklenen Çıktı:* Ehliyet alabilirsiniz.
@@ -647,11 +725,11 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
 
 #pagebreak()
 === Akış Şeması (Flowchart) Sembolleri ve Görsel Modelleme
-*Akış şeması(flowchat)*, bir algoritmanın adımlarını standart semboller ve oklarla gösteren görsel bir modeldir. Programın çalışma mantığını kolayca anlamayı ve kodlama öncesinde olası hataları fark etmeyi sağlar.
+*Akış şeması(flowchat)*, bir algoritmanın adımlarını semboller ve oklarla gösteren görsel bir modeldir. Programın çalışma mantığını kolayca anlamayı ve kodlama öncesinde olası hataları fark etmeyi sağlar.
 
 *Tablo 1.2:* Temel Akış Şeması Sembolleri, İşlevleri ve Günlük Hayat Karşılıkları.
 #table(
-  columns: (3cm, 3.5cm, 1fr, 1fr),
+  columns: (3cm, 3.2cm, 1fr, 1fr),
   stroke: table_Stroke,
   inset: 7pt,
   
@@ -664,17 +742,17 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
 
   table_dataCell_middle[#terminal-sembolu],
   table_dataCell_middle[Oval \ (Terminal)],
-  table_dataCell_left[Algoritmanın başlangıcını ve bitişini temsil eder. İçine *BAŞLA* veya *DUR* yazılır.],
+  table_dataCell_left[Algoritmanın başlangıcını ve bitişini temsil eder.],
   table_dataCell_left[Bir işe başlama veya sonlandırma anıdır.],
 
   table_dataCell_middle[#giris-cikis-sembolu],
   table_dataCell_middle[Paralelkenar\ (Giriş / Çıkış)],
-  table_dataCell_left[Kullanıcıdan veri alınacağını veya ekrana bilgi yazdırılacağını belirtir.],
+  table_dataCell_left[#text(size: 8pt)[Kullanıcıdan veri alınacağını veya ekrana bilgi yazdırılacağını belirtir.]],
   table_dataCell_left[Soru sormak veya cevap vermek içindir.],
 
   table_dataCell_middle[#islem-sembolu],
   table_dataCell_middle[Dikdörtgen\ (İşlem)],
-  table_dataCell_left[Matematiksel hesaplamalar ve değişken atamaları için kullanılır.],
+  table_dataCell_left[#text(size: 8pt)[Matematiksel hesaplamalar ve değişken atamaları için kullanılır.]],
   table_dataCell_left[Bir eylemi gerçekleştirmek içindir.],
 
   table_dataCell_middle[#karar-sembolu],
@@ -688,7 +766,6 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
   table_dataCell_left[İzlenecek yolu gösteren oklardır.],
 )
 
-#pagebreak()
 
 #block(breakable: false)[
   #grid(
@@ -696,59 +773,59 @@ Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve des
     gutter: 5pt,
     align: (top,top),
     [
-      ==== Örnek 1: İki Sayının Toplamını Bulma (Sayfa 25 Örnek 1)
-Söze kodu ve elle çalışma tablosunu önceden yaptığımız kullanıcı tarafından girilen iki sayının toplamını bulan örneğin akış şemasını (flowchart) çiziniz.\
-Birinci sayı ve ikinci sayı için sırasıyla *s1*, *s2*, toplam sonucu için *toplam* değişkenleri kullanılacak.
+
+==== Örnek 1: İki Sayının Toplamını Bulma (Sayfa 25 Örnek 1)
+Kullanıcı tarafından girilen iki sayının toplamını bulan örneğin akış şemasını (flowchart) çiziniz.\
+Birinci ve ikinci sayı ve toplam için sırasıyla *s1*, *s2*, *toplam* değişkenleri kullanılacak.
 
 *Akış Şeması(Flowchart)*
 #align(center)[
   #diagram(
-    spacing: (0pt, 26pt),
+    spacing: (0pt, 16pt),
     edge-stroke: 1pt,
-    mark-scale: 90%,
+    mark-scale: 70%,
 
     baslangic((0, 0), [Ana]),
     islem((0, 1), [Tamsayı s1, s2, toplam]),
-    cikti((0, 2), [Çıktı "Birinci Sayıyı Giriniz: "]),
+    cikti((0, 2), [Çıktı "Birinci Sayıyı Giriniz: "], width: 140pt),
     girdi((0, 3), [Giriş s1]),
-    cikti((0, 4), [Çıktı "İkinci Sayıyı Giriniz: "]),
+    cikti((0, 4), [Çıktı "İkinci Sayıyı Giriniz: "], width: 140pt),
     girdi((0, 5), [Giriş s2]),
     islem((0, 6), [toplam = s1+s2]),
-    cikti((0, 7), [Çıktı "İşleminizin Sonucu: "\&toplam]),
+    cikti((0, 7), [Çıktı "İşleminizin Sonucu: "&toplam], width: 180pt),
     baslangic((0, 8), [Son]),
 
     // Oklar
     ..range(8).map(i => edge((0, i), (0, i + 1), "-|>")),
   )
 ]
-      
     ],
     [
       ==== Örnek 2: İki Sayının Ortalamasını Bulma
 Kullanıcı tarafından girilen iki sayının ortalamasını bulan örneğin akış şemasını(flowchat) çiziniz.\
-Birinci sayı ve ikinci sayı için sırasıyla *s1*, *s2*, ortalama sonucu için *ortalama* değişkenleri kullanılacak.\
-
+Birinci ve ikinci sayı ve ortalama için sırasıyla *s1*, *s2*, *ortalama* değişkenleri kullanılacak.\
+      
 Ortalama hesabı: 
-#text(size: 14pt, weight: "semibold")[
+#text(size: 12pt, weight: "semibold")[
   `ortalama = (s1 + s2) / 2`
 ]
 
 *Akış Şeması(Flowchart)*
 #align(center)[
   #diagram(
-    spacing: (0pt, 26pt),
+    spacing: (0pt, 12pt),
     edge-stroke: 1pt,
-    mark-scale: 90%,
+    mark-scale: 70%,
 
     baslangic((0, 0), [Ana]),
     islem((0, 1), [Tamsayı s1, s2]),
     islem((0, 2), [Reel ortalama]),
-    cikti((0, 3), [Çıktı "Birinci Sayıyı Giriniz: "]),
+    cikti((0, 3), [Çıktı "Birinci Sayıyı Giriniz: "], width: 140pt),
     girdi((0, 4), [Giriş s1]),
-    cikti((0, 5), [Çıktı "İkinci Sayıyı Giriniz: "]),
+    cikti((0, 5), [Çıktı "İkinci Sayıyı Giriniz: "], width: 140pt),
     girdi((0, 6), [Giriş s2]),
     islem((0, 7), [ortalama = (s1+s2) / 2]),
-    cikti((0, 8), [Çıktı "İşleminizin Sonucu: "\&ortalama]),
+    cikti((0, 8), [Çıktı "İşleminizin Sonucu: "&ortalama], width: 200pt),
     baslangic((0, 9), [Son]),
     // Oklar
     ..range(9).map(i => edge((0, i), (0, i + 1), "-|>")),
@@ -758,7 +835,6 @@ Ortalama hesabı:
   )
 ]
 
-#pagebreak()
 ==== Örnek Çalışma Soruları
 + Yaş Hesaplama: Kullanıcıdan doğum yılını ve mevcut yılı alıp yaşını hesaplayan ve ekrana yazdıran akış şemasını çiziniz.
 + Kare Alan ve Çevre: Bir kenar uzunluğu kullanıcıdan girilen karenin alanını ve çevresini hesaplayıp ekrana yazdıran akış şemasını çiziniz.
@@ -769,7 +845,8 @@ Ortalama hesabı:
 + Birim Dönüşümü (Sıcaklık): Kullanıcıdan Celsius cinsinden sıcaklık değerini alıp Fahrenheit değerine çeviren (F = C \*1.8 + 32) ve sonucu gösteren akış şemasını çiziniz.
 + Yol, Hız ve Zaman: Bir aracın gittiği mesafeyi (km) ve bu mesafeyi aldığı süreyi (saat) kullanıcıdan alıp ortalama hızını hesaplayan ve ekrana yazdıran akış şemasını çiziniz.
 + Taksi Ücreti Hesaplama: Taksimetre açılış ücreti 30 TL, kilometre başına ücret 20 TL olan bir şehirde; gidilen kilometre bilgisini kullanıcıdan alıp ödenecek toplam tutarı hesaplayıp yazdıran akış şemasını çiziniz.
-#v(2em)
+
+#v(1em)
 ==== Karar Yapıları
 Karar yapıları, programın bir koşulu kontrol ederek hangi adımı izleyeceğini belirler. Akış şemasında eşkenar dörtgen ile gösterilir. Koşul doğruysa bir yola, yanlışsa başka bir yola devam edilir. Altta ki şemada görüldüğü gibi eğer işlemi ile yapılan kontrolün sonunda kod doğru ya da yanlış ihtimale doğru hareket edecektir.
 
@@ -1273,9 +1350,9 @@ Kullanıcıdan aldığı isim bilgisiyle ekrana "Hoş Geldiniz Sayın :" + isim 
 
 #align(center)[
   #diagram(
-    spacing: (0pt, 24pt),
+    spacing: (0pt, 14pt),
     edge-stroke: 1.2pt,
-    mark-scale: 90%,
+    mark-scale: 70%,
 
     // Düğümler
     baslangic((0, 0), [Ana]),
@@ -1291,9 +1368,9 @@ Kullanıcıdan aldığı isim bilgisiyle ekrana "Hoş Geldiniz Sayın :" + isim 
   )
 ]
 
-#pagebreak()
+
 === Dijital Depo
-Yazılım geliştirme sürecinde algoritmaların, tasarım belgelerinin ve kaynak kodların güvenle saklandığı, sürümlerinin (v0.1, v1.0 gibi) takip edildiği alanlara dijital depo (repository) denir. Günümüzde GitHub ve GitLab gibi platformlar; projelerin sürümler halinde yönetilmesini, dağıtılmasını ve ekiplerce ortak geliştirilmesini sağlar. Her deponun vitrini sayılan README.md dosyası ise projenin amacını ve kullanımını özetleyen teknik imzasıdır.
+Yazılım geliştirme sürecinde kaynak kodların güvenle saklandığı, sürümlerinin takip edildiği alanlara dijital depo (repository) denir. Günümüzde GitHub ve GitLab gibi platformlar; projelerin sürümler halinde yönetilmesini, dağıtılmasını ve ekiplerce ortak geliştirilmesini sağlar. Her deponun vitrini sayılan README.md dosyası ise projenin amacını ve kullanımını özetleyen teknik imzasıdır.
 
 Sizlerin yapacağı yazılım projeleri de ilerleyen derslerimizde GitHub üzerinde yayımlanarak paylaşıma açılacaktır.
 
