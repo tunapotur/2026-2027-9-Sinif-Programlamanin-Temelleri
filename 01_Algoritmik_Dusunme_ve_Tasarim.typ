@@ -1023,7 +1023,7 @@ Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi ç
     // Düğümler (Sütun 0: Yanlış, Sütun 1: Orta Omurga, Sütun 2: Doğru)
     baslangic((1, 0), [Ana]),
     islem((1, 1), [Reel SICAKLIK], width: 110pt),
-    cikti((1, 2), [Çıktı "Sıcaklık Değerini Giriniz: "], width: 155pt),
+    cikti((1, 2), [Çıktı "Sıcaklık Değerini Giriniz: "], width: 160pt),
     girdi((1, 3), [Giriş SICAKLIK], width: 110pt),
     karar((1, 4), [SICAKLIK < 20], width: 115pt),
     cikti((0, 5), [Çıktı "Kombi DURDUR!"], width: 135pt),
