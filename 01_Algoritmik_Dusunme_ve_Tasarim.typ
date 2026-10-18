@@ -495,8 +495,8 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 1. Adım: BAŞLA.
 2. Adım: Sistem Tarihi (*sistemYil*) değerini oku.
 3. Adım: Kullanıcının Doğum Yılı (*dogumYil*) değerini oku.
-4. Adım: *Yaş = sistemYil - dogumYil* işlemini yap.
-5. Adım:  *Eğer Yaş >= 18* 
+4. Adım: *yas = sistemYil - dogumYil* işlemini yap.
+5. Adım:  *Eğer yas >= 18* 
  \ *EVET* ise "*Ehliyet Alır!*" mesajını yazdır.   
   \ *HAYIR* ise "*Ehliyet Almaz!*" mesajını yazdır.
 6. Adım: DUR.
@@ -504,17 +504,17 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 *Elle Çalışma Tablosu*\
 *Örnek Girdiler:* Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2005, *Beklenen Çıktı:* Ehliyet alabilirsiniz.
 #table(
-  columns: (1.1cm, 2.75cm, 1.2cm, 1.2cm, 1.2cm, 2.5cm, 2cm, 1fr),
+  columns: (1.1cm, 3.9cm, 1.3cm, 1.3cm, 1.2cm, 2.4cm, 1.4cm, 1fr),
   stroke:  table_Stroke,
   inset: 7pt,
   
   table.header(
     table_headerCell[Adım],
     table_headerCell[İşlem],
-    table_headerCell[sistemYil],
-    table_headerCell[dogumYil],
-    table_headerCell[Yaş],
-    table_headerCell[Koşul\ (Yaş >= 18)],
+    table_headerCell[#text(size:7pt)[sistemYil]],
+    table_headerCell[#text(size:7pt)[dogumYil]],
+    table_headerCell[yas],
+    table_headerCell[Koşul\ (yas >= 18)],
     table_headerCell[Çıktı],
     table_headerCell[Açıklama],
   ),
@@ -547,7 +547,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
    table_dataCell_left[Kullanıcı 2005 sayısını girer.],
 
    table_dataCell_middle[4],
-   table_dataCell_middle[Yaş = sistemYil - dogumYil],
+   table_dataCell_middle[#text(size:8pt)[yas =\sistemYil - dogumYil]],
    table_dataCell_middle[2026],
    table_dataCell_middle[2005],
    table_dataCell_middle[*21*],
@@ -556,7 +556,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
    table_dataCell_left[2026 - 2005 = 21],
 
    table_dataCell_middle[5],
-   table_dataCell_middle[Yaş >= 18],
+   table_dataCell_middle[yas >= 18],
    table_dataCell_middle[2026],
    table_dataCell_middle[2005],
    table_dataCell_middle[21],
@@ -577,17 +577,17 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 *Örnek Girdiler: * Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2010, *Beklenen Çıktı: * Ehliyet almak için henüz küçüksünüz.
 
 #table(
-  columns: (1.1cm, 2.75cm, 1.2cm, 1.2cm, 1.2cm, 2.5cm, 2cm, 1fr),
+  columns: (1.1cm, 3.9cm, 1.3cm, 1.3cm, 1.2cm, 2.4cm, 1.4cm, 1fr),
   stroke:  table_Stroke,
   inset: 7pt,
   
   table.header(
     table_headerCell[Adım],
     table_headerCell[İşlem],
-    table_headerCell[sistemYil],
-    table_headerCell[dogumYil],
-    table_headerCell[Yaş],
-    table_headerCell[Koşul\ (Yaş >= 18)],
+    table_headerCell[#text(size:7pt)[sistemYil]],
+    table_headerCell[#text(size:7pt)[dogumYil]],
+    table_headerCell[yas],
+    table_headerCell[Koşul\ (yas >= 18)],
     table_headerCell[Çıktı],
     table_headerCell[Açıklama],
   ),
@@ -620,7 +620,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
   table_dataCell_left[Kullanıcı 2010 sayısını girer.],
 
   table_dataCell_middle[4],
-  table_dataCell_middle[Yaş = sistemYil - dogumYil],
+  table_dataCell_middle[#text(size:8pt)[yas =\sistemYil - dogumYil]],
   table_dataCell_middle[2026],
   table_dataCell_middle[2010],
   table_dataCell_middle[*16*],
@@ -629,7 +629,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
   table_dataCell_left[2026 - 2010 = 16],
 
   table_dataCell_middle[5],
-  table_dataCell_middle[Yaş >= 18],
+  table_dataCell_middle[yas >= 18],
   table_dataCell_middle[2026],
   table_dataCell_middle[2010],
   table_dataCell_middle[16],
