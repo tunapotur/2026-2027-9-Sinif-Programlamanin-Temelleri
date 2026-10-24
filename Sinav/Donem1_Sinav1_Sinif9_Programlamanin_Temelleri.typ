@@ -1,6 +1,6 @@
-#import "template.typ": *
-#import "flowchart.typ": *
-#import "qr_code.typ": *
+#import "../template.typ": *
+#import "../flowchart.typ": *
+#import "../qr_code.typ": *
 
 #set page(numbering: "1")
 
