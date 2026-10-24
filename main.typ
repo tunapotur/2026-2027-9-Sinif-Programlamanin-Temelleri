@@ -13,5 +13,5 @@
 #include "01_Algoritmik_Dusunme_ve_Tasarim.typ"
 #pagebreak()
 #include "calismaSorulariCevaplari.typ" 
-// #include "02_Temel_Programlama_Yapilari.typ"
+#include "02_Temel_Programlama_Yapilari.typ"
 // #pagebreak()
