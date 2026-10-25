@@ -446,7 +446,7 @@ print(f"Toplam: {toplam}")
 #pagebreak()
 === Değişkenler ve Temel Veri Türleri
 
-*Değişken* \
+==== Değişken
 Programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
 Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
 
@@ -499,5 +499,139 @@ Güncellenmiş Puan: 75
   )
 ]
 
+#pagebreak()
+==== Temel Veri Türleri
 
+Bilgisayar belleğine kaydedilecek verilerin nitelikleri, boyutları ve üzerlerinde hangi matematiksel veya mantıksal işlemlerin yapılabileceği veri türü (data type) kavramı ile belirlenir. Python dilinde değişkenlerin veri türleri, türetildikleri anda dinamik olarak yorumlayıcı tarafından atanır.
+
+*Tam Sayı [Integer (int)]:* Kesirli kısmı bulunmayan; pozitif, negatif veya sıfır değerini alabilen sayısal veri
+türüdür (örneğin ogrenci_sayisi = 34, hava_sicakligi = -5).
+
+*Ondalıklı Sayı [Floating Point (float)]:* Kesirli veya ondalıklı kısımları bulunan, bilimsel hesaplamalarda
+ve hassas ölçümlerde kullanılan sayısal veri türüdür. Python dilinde ondalık kısımlar virgül (,) değil
+uluslararası standart gereği nokta (.) karakteriyle (örneğin urun_fiyati = 89.90, pi_sayisi = 3.14159)
+ayrılır.
+
+*Metinsel Veri [String (str)]:* Tek tırnak '...' veya çift tırnak "..." işaretleri arasında tanımlanan; alfabetik
+karakterler, rakamlar ve özel sembollerden oluşan karakter dizileridir. Rakamlardan oluşsalar dahi string
+türündeki verilerle doğrudan aritmetik işlem yapılamaz. Örneğin kullanici_adi = "gok turk_9", okul_numarasi =
+"1071"
+
+*Mantıksal Veri [Boolean (bool)]:* Sadece iki farklı durumun kontrolünde kullanılan, mantıksal karar
+süreçlerinin temelini oluşturan veri türüdür. Alabileceği değerler yalnızca Doğru veya Yanlış ifadeleridir. Örneğin
+sistem_acik_mi = True, bakiye_yeterli_mi = False
+
+==== Python Değişken Tanımlama Kuralları
+Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
+
+*Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
+
+*Başlangıç Kriteri:* Bir değişken ismi kesinlikle bir rakam ile başlayamaz. İsimler ya alfabetik bir karakterle ya da alt çizgi (*\_*) işaretiyle başlamak zorundadır. Örneğin *3etap_skor* hatalı bir söz dizimi iken, *etap_skor_3* veya *\_etap3* kurallara uygundur.
+
+*Büyük-Küçük Harf Duyarlılığı (Case-Sensitivity):* Python dili, büyük ve küçük harfleri farklı karakterler olarak değerlendirir. Bu nedenle aynı harflerden oluşsa bile yazımında büyük-küçük harf farkı bulunan kelimeler, bellekte tutulan verilere erişmek için kullanılan farklı değişken adları olarak kabul edilir. Örneğin *asistan_adi*, *Asistan_Adi* ve *ASISTAN_ADI* ifadeleri Python yorumlayıcısı tarafından birbirinden bağımsız üç farklı değişken adı olarak değerlendirilir.
+
+*Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
+
+*Türkçe Karakter Standardı:* Python yorumlayıcısı Unicode karakter setini desteklediği için Türkçe karakterleri (ç, ğ, ı, ö, ş, ü) teknik olarak kabul etse de küresel yazılım standartları ve kodun farklı işletim sistemlerinde kararlı çalışabilmesi adına değişken isimlerinde sadece İngiliz alfabesindeki karakterlerin kullanılması önerilir.
+
+
+#block(breakable: false)[
+  #grid(
+    columns: (2fr, 1fr),
+    gutter: 4pt,
+    align: (top, top),
+    [
+      *Türkçe Karakter Kullanımı*
+
+Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken\ * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.\
+Aşağıdaki tabloda büyük ve küçük Türkçe karakterlerin yerine İngilizce alfabe karşılıkları tercih edilmelidir.
+
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 14pt,
+    align: (top, top),
+    [
+      öğrenci_yaşı ==> ogrenci_yasi,\
+      ücret_miktarı ==> ucret_miktari,\
+      ilk_değer ==> ilk_deger,\
+      şifresi ==> sifresi,\
+    ],
+    [
+      doğumTarihi ==> dogumTarihi,\
+      ürünFiyatı ==> urunFiyati,\
+      şubeKodu ==> subeKodu,\
+      kayıtDurumu ==> kayitDurumu,\
+
+    ],
+  )
+]
+
+
+    ],
+    [
+      #table(
+  columns: (2cm, 2cm, 2cm),
+  stroke: table_Stroke,
+  inset: 6pt,
+  table.header(
+    table_headerCell[Türkçe Karakter],
+    table_headerCell[Doğru Kullanım],
+    table_headerCell[İngilizce Karakte],
+  ),
+  table_dataCell_middle[*ç / Ç*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*c / C*],
+  
+  table_dataCell_middle[*ğ / Ğ*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*g / G*],
+    
+  table_dataCell_middle[*ı / İ*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*i / I*],
+    
+  table_dataCell_middle[*ö / Ö*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*o / O*],
+    
+  table_dataCell_middle[*ş / Ş*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*s / S*],
+    
+  table_dataCell_middle[*ü / Ü*],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*u / U*],
+)
+
+    ],
+  )
+]
+
+*Camel Case (Deve Notasyonu) Kuralı*
+
+Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
+*Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
+
+#table(
+  columns: (4cm, 4cm, 1fr),
+  stroke: table_Stroke,
+  inset: 6pt,
+  table.header(
+    table_headerCell[Yanlış Biçim],
+    table_headerCell[camelCase],
+    table_headerCell[Açıklama],
+  ),
+  table_dataCell_middle[#text(fill: red)[`sistem yil`]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`sistemYil`]],
+  table_dataCell_left[Boşluk yerine birleşik yazılır],
+
+  table_dataCell_middle[#text(fill: red)[`dogumyil`]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`dogumYil`]],
+  table_dataCell_left[İkinci kelimenin baş harfi büyük],
+
+  table_dataCell_middle[#text(fill: red)[`ogrencinotortalamasi`]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`ogrenciNotOrtalamasi`]],
+  table_dataCell_left[Okunabilirlik artırılır],
+)
 
