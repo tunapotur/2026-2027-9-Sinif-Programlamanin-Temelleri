@@ -443,4 +443,61 @@ print(f"Toplam: {toplam}")
 ]
 ]
 
-=== Temel Veri Türleri
+#pagebreak()
+=== Değişkenler ve Temel Veri Türleri
+
+*Değişken* \
+Programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
+Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
+
+#v(1em)
+*Örnek Python Kodu*
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+```Python
+puan = int(input("Puan Giriniz: "))
+print("Puanı:", puan)
+puan = puan + 25
+print("Güncellenmiş Puan:", puan)
+```
+    ],
+    [
+      #output-box(title: "Python Ekran Çıktısı")[
+Puan Giriniz: 50 \
+Puanı: 50 \
+Güncellenmiş Puan: 75
+]
+
+    ]
+  
+  )
+]
+#text(size:8pt)[
++ *Tanımlama:* Kullanıcıdan veri alınır, tam sayıya çevrilir ve *puan* değişkenine atanarak bellekte saklanır.
++ *Çağırma:* *puan* değişkeni kullanılarak RAM'deki veriye erişilir ve ekrana yazdırılır
++ *Değer:* Güncelleme (Mevcut değer hesaplamaya katılır, yeni değer *puan* değişkenine atanır
++ *Çağırma:* *puan* değişkeninin güncel hali tekrar çağrılır
+]
+
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 0pt,
+     align: (top),
+    [
+      #image("02_Files/Bellek Kullanımı 01.svg")
+    ],
+    [
+      #image("02_Files/Bellek Kullanımı 02.svg")
+
+    ]
+  
+  )
+]
+
+
+

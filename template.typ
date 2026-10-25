@@ -141,3 +141,32 @@
 
 #let akis-sembolu = text(size: 25pt)[→]
 
+#let output-box(title: "Ekran Çıktısı", content) = {
+  block(
+    fill: rgb("#F1F5F9"),
+    stroke: (left: 3pt + rgb("#16A34A")),
+    inset: 12pt,
+    radius: 5pt,
+    width: 100%,
+  )[
+    #text(size: 9pt, weight: "bold", fill: rgb("#166534"))[
+      #title
+    ]
+
+    #v(6pt)
+
+    #block(
+      fill: white,
+      inset: 10pt,
+      radius: 3pt,
+      width: 100%,
+    )[
+      #set text(
+        font: "DejaVu Sans Mono",
+        size: 9pt,
+        fill: rgb("#1E293B"),
+      )
+      #content
+    ]
+  ]
+}
