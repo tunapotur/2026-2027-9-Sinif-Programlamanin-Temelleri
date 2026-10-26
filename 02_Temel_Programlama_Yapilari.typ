@@ -8,10 +8,19 @@
 === Donanımın Temel Yapı Taşı: Transistör ve İkili Sistem (Binary)
 Transistör elektrik akımını geçirerek ya da keserek 1 veya 0 değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 
-
-- Bir transistör elektrik akını geçirir veya keser:
-  - Elektrik akımı var (Açık): 1 (Bit)
-  - Elektrik akımı yok (Kapalı): 0 (Bit)
+Bir transistör elektrik akını geçirir veya keser:
+  #grid(
+    columns: (auto, auto, auto),
+    gutter: 5pt,
+     align: (top),
+    [- Elektrik akımı var (Açık)\
+    - Elektrik akımı yok (Kapalı)],
+    [:\
+    :],
+    [1 (Bit)\
+    0 (Bit)
+    ]
+  )
 
   *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit(Binary Digit* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
 
@@ -312,7 +321,7 @@ Bir harfi veya sembolü temsil etmek için $4$ bit ($2^4 = 16$ olasılık) yeter
     gutter: 10pt,
      align: (top),
     [
-      *Tarihi Eser Bilgisayarı Programladım | Altair 8800*
+      *Altair 8800 Emulatorü*
 
       Altair 8800 cihazını denemek istiyorsanız tarayıcınızda kullanabileceğiniz Altair 8800 Emulator linki.
      
@@ -532,106 +541,186 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 
 *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
 
-*Türkçe Karakter Standardı:* Python yorumlayıcısı Unicode karakter setini desteklediği için Türkçe karakterleri (ç, ğ, ı, ö, ş, ü) teknik olarak kabul etse de küresel yazılım standartları ve kodun farklı işletim sistemlerinde kararlı çalışabilmesi adına değişken isimlerinde sadece İngiliz alfabesindeki karakterlerin kullanılması önerilir.
+*Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
-
-#block(breakable: false)[
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 4pt,
-    align: (top, top),
-    [
-      *Türkçe Karakter Kullanımı*
-
-Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken\ * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.\
-Aşağıdaki tabloda büyük ve küçük Türkçe karakterlerin yerine İngilizce alfabe karşılıkları tercih edilmelidir.
+#align(center)[
 
 #block(breakable: false)[
   #grid(
     columns: (1fr, 1fr),
-    gutter: 14pt,
+    gutter: 4pt,
     align: (top, top),
     [
-      öğrenci_yaşı ==> ogrenci_yasi,\
-      ücret_miktarı ==> ucret_miktari,\
-      ilk_değer ==> ilk_deger,\
-      şifresi ==> sifresi,\
-    ],
-    [
-      doğumTarihi ==> dogumTarihi,\
-      ürünFiyatı ==> urunFiyati,\
-      şubeKodu ==> subeKodu,\
-      kayıtDurumu ==> kayitDurumu,\
-
-    ],
-  )
-]
-
-
-    ],
-    [
-      #table(
+      *Türçe Karakterlerin İngilizce Karşılıkları*
+  #table(
   columns: (2cm, 2cm, 2cm),
   stroke: table_Stroke,
-  inset: 6pt,
+  inset: 8.5pt,
   table.header(
     table_headerCell[Türkçe Karakter],
     table_headerCell[Doğru Kullanım],
     table_headerCell[İngilizce Karakte],
   ),
-  table_dataCell_middle[*ç / Ç*],
+  table_dataCell_middle[ç / Ç],
   table_dataCell_middle[#sym.arrow.r],
   table_dataCell_middle[*c / C*],
   
-  table_dataCell_middle[*ğ / Ğ*],
+  table_dataCell_middle[ğ / Ğ],
   table_dataCell_middle[#sym.arrow.r],
   table_dataCell_middle[*g / G*],
     
-  table_dataCell_middle[*ı / İ*],
+  table_dataCell_middle[ı / İ],
   table_dataCell_middle[#sym.arrow.r],
   table_dataCell_middle[*i / I*],
     
-  table_dataCell_middle[*ö / Ö*],
+  table_dataCell_middle[ö / Ö],
   table_dataCell_middle[#sym.arrow.r],
   table_dataCell_middle[*o / O*],
     
-  table_dataCell_middle[*ş / Ş*],
+  table_dataCell_middle[ş / Ş],
   table_dataCell_middle[#sym.arrow.r],
   table_dataCell_middle[*s / S*],
     
-  table_dataCell_middle[*ü / Ü*],
+  table_dataCell_middle[ü / Ü],
   table_dataCell_middle[#sym.arrow.r],
   table_dataCell_middle[*u / U*],
 )
 
     ],
+    [
+*Değişken Kullanım Örnekleri*
+#table(
+  columns: (auto, 2cm, auto),
+  stroke: table_Stroke,
+  inset: 6pt,
+  table.header(
+    table_headerCell[Türkçe\ Karakter],
+    table_headerCell[Doğru Kullanım],
+    table_headerCell[İngilizce\ Karakte],
+  ),
+  table_dataCell_middle[doğumTarihi],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*dogumTarihi*],
+  
+  table_dataCell_middle[ürünFiyatı],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*urunFiyati*],
+  
+  table_dataCell_middle[şubeKodu],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*subeKodu*],
+  
+  table_dataCell_middle[kayıtDurumu],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*kayitDurumu*],  
+
+  table_dataCell_middle[şifresi],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*sifresi*],
+
+  table_dataCell_middle[öğrenci_yaşı],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*ogrenci_yasi*],
+  
+  table_dataCell_middle[ücret_miktarı],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*ucret_miktari*],
+  
+  table_dataCell_middle[ilk_değer],
+  table_dataCell_middle[#sym.arrow.r],
+  table_dataCell_middle[*ilk_deger*],
+)
+
+    ],
   )
 ]
+
+]
+
+==== Değişken Adlandırma Standartları (Notasyonlar)
+*Yılan Gösterimi (snake_case)* 
+
+Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin kullanici_giris_tarihi, asistan_bellek_kapasitesi vb.) kurumsal olarak tavsiye edilir.
+
 
 *Camel Case (Deve Notasyonu) Kuralı*
 
 Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 *Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
+#align(center)[
 #table(
-  columns: (4cm, 4cm, 1fr),
+  columns: (auto, auto, auto),
   stroke: table_Stroke,
   inset: 6pt,
   table.header(
     table_headerCell[Yanlış Biçim],
-    table_headerCell[camelCase],
-    table_headerCell[Açıklama],
+    table_headerCell[snake_case],  
+    table_headerCell[camelCase],  
   ),
-  table_dataCell_middle[#text(fill: red)[`sistem yil`]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`sistemYil`]],
-  table_dataCell_left[Boşluk yerine birleşik yazılır],
-
-  table_dataCell_middle[#text(fill: red)[`dogumyil`]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`dogumYil`]],
-  table_dataCell_left[İkinci kelimenin baş harfi büyük],
-
-  table_dataCell_middle[#text(fill: red)[`ogrencinotortalamasi`]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`ogrenciNotOrtalamasi`]],
-  table_dataCell_left[Okunabilirlik artırılır],
+  table_dataCell_middle[#text(fill: red)[personelsayisi]],
+  table_dataCell_middle[#text(fill: blue.darken(30%), weight: "extrabold")[personel_sayisi]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[personelSayisi]],
+  
+  table_dataCell_middle[#text(fill: red)[dogumyil]],
+  table_dataCell_middle[#text(fill: blue.darken(30%), weight: "extrabold")[dogum_yil]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[dogumYil]],
+  
+  table_dataCell_middle[#text(fill: red)[ogrencinotortalamasi]],
+  table_dataCell_middle[#text(fill: blue.darken(30%), weight: "extrabold")[ogrenci_not_ortalamasi]],
+  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[ogrenciNotOrtalamasi]],
 )
+]
+
+==== Sabitler
+Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (constant) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
+
+```Python
+# Doğru Sabit Kullanım Standardı (BÜYÜK HARF)
+PI_SAYISI = 3.14159
+MAKSIMUM_DENEME_SAYISI = 3
+SISTEM_PORT_NUMARASI = 443
+VARSAYILAN_DIL = "TR"
+KARSILAMA_MESAJI = " Sisteme Hoş Geldiniz!"
+GELISTIRICI_MODU_ACIK = True
+```
+
+==== Açıklama Satırı (Comment line)
+Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıların kendileri için veya diğer yazılımcılar için bıraktığı notlara açıklama satarı (comment line) denir. Python'da iki tür açıklama satırı uygulaması vardır.
++ \# ile başlayan tek satırlık açıklama satırı
++ \"\"\"...\"\"\" Çok satırlı açıklama satırları üç adet tırnak ile açılan ve yine üç adet tırnak ile kapanan alan içine yazılan açıklama ifadeleri ile yapılır.
+
+#block(breakable: false)[
+  #grid(
+    columns: (auto, auto), // İki sütunun eşit veya içeriğe göre olmasını istiyorsanız (auto, auto) da kalabilir
+    gutter: 10pt,
+    align: top,
+    [
+      #block(width: 100%)[```Python
+# Bu tam satırlık açıklama
+x = 10  # satır içi (inline) açıklama
+```]
+
+      #v(5pt)
+
+      #block(width: 100%)[```Python
+# Bu fonksiyon iki sayıyı toplar,
+# ardından sonucu ekrana yazdırır
+# ve geriye döndürür.
+def topla(a, b):
+    return a + b
+```]
+    ],
+    [
+      #block(width: 100%)[```Python
+"""
+Bu teknik olarak bir string değişmezidir,
+ancak bir değişkene atanmadığı için
+yorum bloğu gibi davranır.
+"""
+print("Kod çalışıyor")
+```]
+    ]
+  )
+]
 
