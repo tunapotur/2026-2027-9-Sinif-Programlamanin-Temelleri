@@ -170,3 +170,16 @@
     ]
   ]
 }
+
+#let not_block(body, title: "Not:") = {
+  block(
+    fill: rgb("#eff6ff"),
+    stroke: (left: 3pt + rgb("#3b82f6")),
+    inset: (x: 10pt, y: 8pt),
+    radius: (right: 3pt),
+    width: 100%,
+  )[
+    #if title != "" [*#title* ]
+    #body
+  ]
+}

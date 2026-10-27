@@ -6,33 +6,45 @@
 
 == Değişkenler, Sabitler ve Veri Türleri
 === Donanımın Temel Yapı Taşı: Transistör ve İkili Sistem (Binary)
-Transistör elektrik akımını geçirerek ya da keserek 1 veya 0 değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
+*Transistör* elektrik akımını geçirerek ya da keserek *$1$* veya *$0$* değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 
-Bir transistör elektrik akını geçirir veya keser:
-  #grid(
-    columns: (auto, auto, auto),
-    gutter: 5pt,
-     align: (top),
-    [- Elektrik akımı var (Açık)\
-    - Elektrik akımı yok (Kapalı)],
-    [:\
-    :],
-    [1 (Bit)\
-    0 (Bit)
-    ]
-  )
+#align(center)[
+#v(1em)
+*Bir Transistör Elektrik Akını Geçirir veya Keser*  
+#grid(
+  columns: (auto, auto),
+  gutter: 15pt,
+  align: (top),
+  [
+    #image("02_Files/Transistor On.jpg")
+    #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Var (Açık)],[:],[1 (Bit)])
+  ],
+  [
+    #image("02_Files/Transistor Off.jpg")
+    #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
+  ]
+)
+#v(1em)
+]
 
-  *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit(Binary Digit* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
+*$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
 
 === Sayı Sistemleri ve Gruplama: 4 Bit ve Onaltılık (Hexadecimal)
-4 bit'den oluşan bir sayıyı decimal yani 0-9 rakamları kullanmak yerine 16 karakterden oluşan hexadecimal sayı düzenini kullanmak daha pratik bir yöntemdir.
+4 bit'den oluşan bir sayıyı decimal yani 0-9 rakamları kullanmak yerine 16 karakterden oluşan hexadecimal sayı düzenini kullanmak donanım üzerinde yapılan işlemler için daha pratik bir yöntemdir.
 
 $2^4 = 16$ olduğu için 4 bitlik bir ikili sayı tam olarak bir hexadecimal basamağı karşılık gelir.
 
 #align(center)[
-  #table(
-    columns: (3cm, 3cm, 3cm),
-    align: (center, center, center),
+#block(breakable: false)[
+#grid(
+  columns: (auto, auto),
+  gutter: 15pt,
+  align: (top),
+  [
+    #table(
+    columns: (2.5cm, 2cm, 2cm),
+    rows:(4em, (2.5em)),
+    align: center + horizon,
     stroke: (x, y) => if y == 0 { (bottom: 1.5pt + rgb("#2d3748")) } else { (bottom: 0.5pt + rgb("#e2e8f0")) },
     fill: (col, row) => {
       if row == 0 {
@@ -56,6 +68,29 @@ $2^4 = 16$ olduğu için 4 bitlik bir ikili sayı tam olarak bir hexadecimal bas
     [*`5`*], [5],  [`0101`],
     [*`6`*], [6],  [`0110`],
     [*`7`*], [7],  [`0111`],
+    
+  )
+  ],
+  [
+     #table(
+    columns: (2.5cm, 2cm, 2cm),
+    rows:(4em, (2.5em)),
+    align: center + horizon,
+    stroke: (x, y) => if y == 0 { (bottom: 1.5pt + rgb("#2d3748")) } else { (bottom: 0.5pt + rgb("#e2e8f0")) },
+    fill: (col, row) => {
+      if row == 0 {
+        rgb("#edf2f7") // Başlık satırı
+      } else if calc.even(row) {
+        rgb("#f8fafc") // Zebra deseni (çift satırlar)
+      } else {
+        none
+      }
+    },
+    
+    // Tablo Başlıkları
+    [*Hexadecimal\ (16'lık)*], [*Decimal\ (10'luk)*], [*Binary\ (4 Bit)*],
+
+    // Tablo Gövdesi (0 - F)
     [*`8`*], [8],  [`1000`],
     [*`9`*], [9],  [`1001`],
     [*`A`*], [10], [`1010`],
@@ -65,21 +100,30 @@ $2^4 = 16$ olduğu için 4 bitlik bir ikili sayı tam olarak bir hexadecimal bas
     [*`E`*], [14], [`1110`],
     [*`F`*], [15], [`1111`],
   )
+  ]
+)
+  ]
 ]
+
 
 #pagebreak()
 === Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
+Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (American Standard Code for Information Interchange)* geliştirilmiştir. *ASCII* tablosundaki her sembolün sayısal bir karşılığı bulunur.
 
-Bir harfi veya sembolü temsil etmek için $4$ bit ($2^4 = 16$ olasılık) yeterli değildir; alfabedeki büyük/küçük harfler, rakamlar ve noktalama işaretleri daha geniş bir değer aralığı gerektirir. Bilgisayarların bu sayısal değerleri anlamlı karakterlere dönüştürebilmesi için standart bir referans tablosu geliştirilmiştir: *ASCII (American Standard Code for Information Interchange)*. ASCII tablosundaki her sembolün sayısal bir karşılığı bulunur.
+- *Karakter ve Boyut İlişkisi:* $8$ bit yan yana getirilerek $1$ Byte oluşturulur. Bilgisayar mimarisinde her temel karakter bellekte $1$ Byte ($8$ bit) yer kaplar. $8$ bit ile $2^8 = 256$ farklı durum ($0$ ile $255$ arası) ifade edilebilir.
+- *Değer Aralığı:* Standart ASCII tablosu ilk $128$ karakteri ($0$–$127$) tanımlarken, $128$–$255$ arası değerler genişletilmiş karakter seti (özel semboller, bölgesel harfler) için kullanılır.
+- *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten *Kontrol Karakterleri (Control / Non-printable Characters)* olarak adlandırılır.
+- *Pratik Bir Deney (Windows Alt Kodları):* Microsoft Windows ortamında herhangi bir metin düzenleyicide *`Alt`* tuşuna basılı tutularak bir karakterin onluk (decimal) kodu girildiğinde o karakter ekrana yazdırılır. Örneğin *`Alt + 65`* tuşlandığında ekranda *`A`* harfi belirir.
 
-- Karakter ve Boyut İlişkisi:** $8$ bit yan yana getirilerek $1$ Byte oluşturulur. Modern bilgisayar mimarisinde metin dosyalarındaki her temel karakter bellekte $1$ Byte ($8$ bit) yer kaplar.
-- Değer Aralığı:** $8$ bit ile $2^8 = 256$ farklı durum ($0$ ile $255$ arası) ifade edilebilir. Standart ASCII tablosu ilk $128$ karakteri ($0$–$127$) tanımlarken, $128$–$255$ arası değerler genişletilmiş karakter seti (özel semboller, bölgesel harfler) için kullanılır.
-- Pratik Bir Deney (Windows Alt Kodları):** Microsoft Windows ortamında (Command Prompt veya herhangi bir metin düzenleyicide) `Alt` tuşuna basılı tutularak sağdaki sayısal tuş takımından (Numpad) bir karakterin onluk (decimal) kodu girildiğinde o karakter ekrana yazdırılır. Örneğin `Alt + 65` tuşlandığında ekranda *A* harfi belirir.
-- Kontrol Karakterleri:** Tablodaki $0$ ile $31$ arasındaki ilk 32 karakter (ve $127$ numaralı *DEL* karakteri) ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten *Kontrol Karakterleri (Control / Non-printable Characters)* olarak adlandırılır.
+#link-box(
+  url:"www.ascii-code.com",
+  title: "ASCII Code - Karakter Kodlama Tablosu",
+  desc: "Tüm standart ve genişletilmiş ASCII karakterleri, onluk (dec), onaltılık (hex) ve ikilik (bin) değerleri ile kontrol karakterlerini incelemek için bu referans tablosunu kullanabilirsiniz."
+)
 
 #align(center)[
   #v(0.5em)
-  *Temel ASCII Tablosu*
+  *Temel ASCII Tablosu (32-127 Karakterin Kodu)*
   #text(size:8pt)[
 
 #block(breakable: false)[
@@ -270,8 +314,56 @@ Bir harfi veya sembolü temsil etmek için $4$ bit ($2^4 = 16$ olasılık) yeter
 ]
   ]
 
+=== Dijital Dünyanın Ölçü Birimi Bit'ten Terabayt'a Veri Büyüklükleri
+Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0$*'lardan ibaret olduğunu ve *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* dendiğini söylemiştik.  
+
+- *Bit (Binary Digit):* Bilgisayardaki en küçük mantıksal veri birimidir. Sadece *0* veya *1* değerini alabilir. Devredeki tek bir transistör lamba anahtarı gibi düşünülebilir: ya kapalıdır (0) ya da açıktır (1).
+- *Byte:* 8 adet bitin yan yana gelmesiyle oluşan veri kümesidir.
+  $ 8 " Bit" = 1 " Byte" $
+  Örneğin *"A"* harfi bellekte *1 Byte* yer kaplar gibi düşünebiliriz.
+- Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır.
+  $ 2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024 $
+Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
+
+
+#align(center)[
+#v(1em)
+*Veri Büyüklüğü Basamakları*
+#table(
+  columns: (auto, auto, auto, auto),
+  fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+  stroke: 0.5pt + rgb("#cbd5e1"),
+  align: (left + horizon, left + horizon, center + horizon, left + horizon),
+   rows:(4em, (2.5em)),
+  table.header([*Birim*], [*Kapasite*], [*Kısaltma*], [*Somut Karşılığı*]),
+  [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
+  [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
+  [Kilobyte], [$1024 " Byte"$], [*KB*], [Düz metinden oluşan 1 sayfalık belge],
+  [Megabyte], [$1024 " KB"$], [*MB*], [1 dakikalık MP3 ses kaydı veya telefon fotoğrafı],
+  [Gigabyte], [$1024 " MB"$], [*GB*], [Yaklaşık 1 saatlik HD kalitede film],
+  [Terabyte], [$1024 " GB"$], [*TB*], [Geniş harici yedekleme diski, çok sayıda büyük oyun],
+  [Petabyte], [$1024 " TB"$], [*PB*], [Büyük veri merkezleri veya bulut sunucu havuzları],
+  [Exabyte], [$1024 " PB"$], [*EB*], [Küresel internet trafiğinin aylık ölçekteki hacmi],
+)
+]
+
+#v(1em)
+#not_block(title: "Donanım Üreticisi vs. İşletim Sistemi Farkı: ")[
+Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara takıldığında, depolama alanı genellikle yaklaşık *931 GB* görünür. Bu durum donanım hatası değildir:
+
+Donanım Üreticileri *Onluk* sayı birimini kullanarak $1 " KB" = 10^3 " Byte"$ şeklinde hesap yapar:
+  $ 1 " TB" = 1.000.000.000.000 " Byte" $
+
+Fakat işletim sistemleri ikilik sayı sistemine göre ölçüm yaptığı için altta ki bölme işleminin sonucu satın aldığınız diskinizin gerçek boyutu *1TB* altında olacaktır.
+  $ frac(1.000.000.000.000, 1024 times 1024 times 1024) approx 931.32 " GB" $
+
+Sizce bu disk üreticilerinin yaptığı bir hile midir?
+]
+
+
+#pagebreak()
 === İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
-1970'lerin ortalarında kişisel bilgisayar devrimini başlatan *Altair 8800* gibi sistemlerin klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğini ve hesap yaptırıldığını göstermek için somut bir örnektir.
+1970'lerin ortalarında kişisel olarak kullanılabilen *Altair 8800* gibi sistemlerin klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğini ve hesap yaptırıldığını göstermek için somut bir örnektir.
 
 #align(center)[
   #block(
@@ -298,65 +390,44 @@ Bir harfi veya sembolü temsil etmek için $4$ bit ($2^4 = 16$ olasılık) yeter
 - Programcılar her bir $8$ bitlik komutu anahtarları tek tek yukarı ($1$) ve aşağı ($0$) indirerek belleğe elle yüklüyordu.
 - İki sayıyı toplamak için bile onlarca $8$ bitlik komutu hatasız girmek gerekiyordu. Bu süreç son derece yavaş, zihinsel olarak yorucu ve hata yapmaya açıktı.
 
-#block(breakable: false)[
-  #v(2em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Tarihi Eser Bilgisayarı Programladım | Altair 8800*
+#link-box(
+url: "www.youtube.com/watch?v=1zwTRA0yaYo",
+title:"Tarihi Eser Bilgisayarı Programladım | Altair 8800",
+desc:"Ömer Bektaş'ın kanalında Altair 8800 hakkında detaylı bir video bulunmakta."
+)
 
-      Ömer Bektaş'ın kanalında Altair 8800 hakkında detaylı bir video bulunmakta.
-     
-    ],
-    kare-kod-hucresi([Altair 8800 Video], "https://www.youtube.com/watch?v=1zwTRA0yaYo", "youtube.com/@merbekta"),
-  )
-]
+#link-box(
+url: "www.s2js.com/altair/sim.html",
+title:"Altair 8800 Emulatorü",
+desc:"Altair 8800 cihazını denemek istiyorsanız tarayıcınızda kullanabileceğiniz Altair 8800 Emulator linki."
+)
 
-#block(breakable: false)[
-  #v(2em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Altair 8800 Emulatorü*
-
-      Altair 8800 cihazını denemek istiyorsanız tarayıcınızda kullanabileceğiniz Altair 8800 Emulator linki.
-     
-    ],
-    kare-kod-hucresi([Altair 8800 Emulator], "https://www.s2js.com/altair/sim.html", "www.s2js.com/altair/sim.html"),
-  )
-]
+#link-box(
+url: "www.youtube.com/@merbekta",
+title:"Ömer Bektaş'ın Youtube Kanalı",
+desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üreten bir YouTube içerik üreticisidir. Bu kanalı takip etmeniz sizin için çok faydalı olacaktır."
+)
 
 #pagebreak()
 === Assembly Dili
-Komutları $0$ ve $1$ olarak girmek yerine, işlemci komutlarını anlamlı kelimelerle eşleştiren ilk adım Assembly dile ile atıldı.
+Tahmin edeceğiniz üzere, Altair 8800 gibi erken dönem bilgisayarlarda sürekli `1` ve `0` dizilimleriyle (makine koduyla) işlem yapmak oldukça zahmetliydi ve hataya çok açıktı. Bu nedenle komutları ikili sistemde girmek yerine, işlemci talimatlarını anlamlı sembolik kısaltmalarla (mnemonik) eşleştiren Assembly dili geliştirildi.
 
+*Örneğin:*
 - [`1000 1011`] yerine $-->$ *MOV* (Veri Taşı / Kopyala)
 - [`0000 0011`] yerine $-->$ *ADD* (Topla)
 - [`0010 1011`] yerine $-->$ *SUB* (Çıkar)
 
-Assembly, işlemci mimarisiyle birebir konuşan doğal dildir. Programlar derlendiğinde bilgisayarınızda Assembly kodu halinde bulunur.
+Assembly, işlemci mimarisiyle birebir çalışan doğal dildir. Programlar derlendiğinde bilgisayarınızda Assembly kodu halinde bulunur.
 
-#block(breakable: false)[
-  #v(2em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Dillerin Atası | Assembly*
-
-      Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta.
-     
-    ],
-    kare-kod-hucresi([Altair 8800 Video], "https://www.youtube.com/watch?v=yWXuG3RLkTE", "youtube.com/@merbekta"),
+#link-box(
+  url:"www.youtube.com/watch?v=yWXuG3RLkTE",
+  title:"Dillerin Atası | Assembly",
+  desc:"Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta."
   )
-]
+
+
 #align(center)[
-  #v(0.5em)
+  #v(1em)
 *x86 Assembly: İki Sayıyı Toplama Örneği*
 
 ```x86asm
@@ -372,15 +443,17 @@ _start:
     mov eax, 1          ; sys_exit sistem çağrısı numarası
     int 0x80            ; çekirdeği çağır
 ```
+#v(1em)
 ]
 
 === Programlama Dilleri
-Her ne kadar $1$ ve $0$ ile kodlama yapmaya göre Assembly büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Bu programlama dilleri, *derleyici (compiler)* ve *yorumlayıcı (interpreter)* gibi yazılımlar kullanarak kod yazma işini büyük ölçüde kolaylaştırdı.
+Her ne kadar $1$ ve $0$ ile kodlama yapmaya göre Assembly büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Bu programlama dillerinin, *derleyici (compiler)* ve *yorumlayıcı (interpreter)* gibi yazılımlar kullanması kod yazma işini büyük ölçüde kolaylaştırdı.
 
 *Derleyici (Compiler):* programcının yazdığı kodun tamamını önce baştan sona okur, yazım hatalarını kontrol eder ve tüm kodu bir bütün olarak makine diline çevirir. Kodun yazımında (söz diziminde) bir hata varsa derleme işlemi tamamlanmaz.
 
 *Yorumlayıcı (Interpreter):* Kodu bir bütün olarak değil satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, hatanın bulunduğu satıra gelene kadar programı çalıştırır ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. *Python ve Ruby*, bu yaklaşımı kullanan dillere örnek gösterilebilir.
 
+#pagebreak()
 === Programlama Dillerinin Seviyeleri
 Düşük seviyeli programlama dilleri makine diline yakındır ve insanların anlaması daha zordur; ancak donanıma doğrudan eriştikleri için son derece yüksek performanslı programlar üretirler. *C*, *Rust* düşük seviyeli programlama dillerine örnektir. Yüksek seviyeli diller ise insanlar tarafından kolay anlaşılır ve hızlı yazılır, fakat sundukları soyutlama katmanı nedeniyle görece daha düşük performans gösterirler. *Python*, bu yüksek seviyeli dillere iyi bir örnektir.
 
