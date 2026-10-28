@@ -417,8 +417,6 @@ Tahmin edeceğiniz üzere, Altair 8800 gibi erken dönem bilgisayarlarda sürekl
 - [`0000 0011`] yerine $-->$ *ADD* (Topla)
 - [`0010 1011`] yerine $-->$ *SUB* (Çıkar)
 
-Assembly, işlemci mimarisiyle birebir çalışan doğal dildir. Programlar derlendiğinde bilgisayarınızda Assembly kodu halinde bulunur.
-
 #link-box(
   url:"www.youtube.com/watch?v=yWXuG3RLkTE",
   title:"Dillerin Atası | Assembly",
