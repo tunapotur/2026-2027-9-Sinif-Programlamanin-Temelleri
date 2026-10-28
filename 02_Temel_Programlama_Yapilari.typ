@@ -29,6 +29,8 @@
 
 *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
 
+Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlemcinin tek doğal dili olan Makine Dili (*İkilik Sistem / Binary*) kullanılıyordu. Programcılar, komutları *`1011 0000`* gibi *$0$* ve *$1$* dizileri halinde delikli kartlara veya anahtarlara işliyordu. Ancak bu yöntem insan gözü için son derece yorucuydu ve tek bir rakamın yanlış yazılması tüm programı bozuyordu.
+
 === Sayı Sistemleri ve Gruplama: 4 Bit ve Onaltılık (Hexadecimal)
 4 bit'den oluşan bir sayıyı decimal yani 0-9 rakamları kullanmak yerine 16 karakterden oluşan hexadecimal sayı düzenini kullanmak donanım üzerinde yapılan işlemler için daha pratik bir yöntemdir.
 
