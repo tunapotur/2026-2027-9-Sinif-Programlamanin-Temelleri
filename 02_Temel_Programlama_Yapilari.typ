@@ -27,86 +27,128 @@
 #v(1em)
 ]
 
-*$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
+*$1$* ve *$0$* durumunu oluşturan en küçük bilgi birimine *Bit (Binary Digit)* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
 
 Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlemcinin tek doğal dili olan Makine Dili (*İkilik Sistem / Binary*) kullanılıyordu. Programcılar, komutları *`1011 0000`* gibi *$0$* ve *$1$* dizileri halinde delikli kartlara veya anahtarlara işliyordu. Ancak bu yöntem insan gözü için son derece yorucuydu ve tek bir rakamın yanlış yazılması tüm programı bozuyordu.
 
-=== Sayı Sistemleri ve Gruplama: 4 Bit ve Onaltılık (Hexadecimal)
-4 bit'den oluşan bir sayıyı decimal yani 0-9 rakamları kullanmak yerine 16 karakterden oluşan hexadecimal sayı düzenini kullanmak donanım üzerinde yapılan işlemler için daha pratik bir yöntemdir.
-
-$2^4 = 16$ olduğu için 4 bitlik bir ikili sayı tam olarak bir hexadecimal basamağı karşılık gelir.
+=== İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
+1970'lerin ortalarında kişisel olarak kullanılabilen *Altair 8800* gibi sistemlerin klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğini ve hesap yaptırıldığını göstermek için somut bir örnektir.
 
 #align(center)[
-#block(breakable: false)[
-#grid(
-  columns: (auto, auto),
-  gutter: 15pt,
-  align: (top),
-  [
-    #table(
-    columns: (2.5cm, 2cm, 2cm),
-    rows:(4em, (2.5em)),
-    align: center + horizon,
-    stroke: (x, y) => if y == 0 { (bottom: 1.5pt + rgb("#2d3748")) } else { (bottom: 0.5pt + rgb("#e2e8f0")) },
-    fill: (col, row) => {
-      if row == 0 {
-        rgb("#edf2f7") // Başlık satırı
-      } else if calc.even(row) {
-        rgb("#f8fafc") // Zebra deseni (çift satırlar)
-      } else {
-        none
-      }
-    },
-    
-    // Tablo Başlıkları
-    [*Hexadecimal\ (16'lık)*], [*Decimal\ (10'luk)*], [*Binary\ (4 Bit)*],
-
-    // Tablo Gövdesi (0 - F)
-    [*`0`*], [0],  [`0000`],
-    [*`1`*], [1],  [`0001`],
-    [*`2`*], [2],  [`0010`],
-    [*`3`*], [3],  [`0011`],
-    [*`4`*], [4],  [`0100`],
-    [*`5`*], [5],  [`0101`],
-    [*`6`*], [6],  [`0110`],
-    [*`7`*], [7],  [`0111`],
-    
-  )
-  ],
-  [
-     #table(
-    columns: (2.5cm, 2cm, 2cm),
-    rows:(4em, (2.5em)),
-    align: center + horizon,
-    stroke: (x, y) => if y == 0 { (bottom: 1.5pt + rgb("#2d3748")) } else { (bottom: 0.5pt + rgb("#e2e8f0")) },
-    fill: (col, row) => {
-      if row == 0 {
-        rgb("#edf2f7") // Başlık satırı
-      } else if calc.even(row) {
-        rgb("#f8fafc") // Zebra deseni (çift satırlar)
-      } else {
-        none
-      }
-    },
-    
-    // Tablo Başlıkları
-    [*Hexadecimal\ (16'lık)*], [*Decimal\ (10'luk)*], [*Binary\ (4 Bit)*],
-
-    // Tablo Gövdesi (0 - F)
-    [*`8`*], [8],  [`1000`],
-    [*`9`*], [9],  [`1001`],
-    [*`A`*], [10], [`1010`],
-    [*`B`*], [11], [`1011`],
-    [*`C`*], [12], [`1100`],
-    [*`D`*], [13], [`1101`],
-    [*`E`*], [14], [`1110`],
-    [*`F`*], [15], [`1111`],
-  )
-  ]
-)
+  #block(
+    fill: rgb("#f8fafc"),
+    stroke: 1pt + rgb("#cbd5e1"),
+    radius: 4pt,
+    inset: 12pt,
+  )[
+    #set text(font: "Courier New", size: 9pt)
+    ```text
+    +-------------------------------------------------------------+
+    |                  ALTAIR 8800 ÖN PANELİ                      |
+    |                                                             |
+    |   LED'ler (Çıkış):    (O) (X) (O) (O)   (X) (X) (O) (X)     |
+    |                        0   1   0   0     1   1   0   1      |
+    |                                                             |
+    |   Anahtarlar (Giriş): [v] [^] [v] [v]   [^] [^] [v] [^]     |
+    |                        0   1   0   0     1   1   0   1      |
+    +-------------------------------------------------------------+
+    ```
   ]
 ]
 
+- Programcılar her bir $8$ bitlik komutu anahtarları tek tek yukarı ($1$) ve aşağı ($0$) indirerek belleğe elle yüklüyordu.
+- İki sayıyı toplamak için bile onlarca $8$ bitlik komutu hatasız girmek gerekiyordu. Bu süreç son derece yavaş, zihinsel olarak yorucu ve hata yapmaya açıktı.
+
+#v(1em)
+#link-box(
+url: "www.youtube.com/watch?v=1zwTRA0yaYo",
+title:"Tarihi Eser Bilgisayarı Programladım | Altair 8800",
+desc:"Ömer Bektaş'ın kanalında Altair 8800 hakkında detaylı bir video bulunmakta."
+)
+
+#link-box(
+url: "www.s2js.com/altair/sim.html",
+title:"Altair 8800 Emulatorü",
+desc:"Altair 8800 cihazını denemek istiyorsanız tarayıcınızda kullanabileceğiniz Altair 8800 Emulator linki."
+)
+
+#link-box(
+url: "www.youtube.com/@merbekta",
+title:"Ömer Bektaş'ın Youtube Kanalı",
+desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üreten bir YouTube içerik üreticisidir. Bu kanalı takip etmeniz sizin için çok faydalı olacaktır."
+)
+
+=== Sayı Sistemleri ve Gruplama: 4 Bit ve Onaltılık (Hexadecimal)
+İkilik Sistemde oluşan zorlukları aşmak için *Onaltılık (Hexadecimal)* Sayı Sistemi kullanılmaya başlandı. Dört adet ikilik (binary) basamağın tek bir hexadecimal karaktere (0-9 ve A-F arası) karşılık gelmesi sayesinde, *`1011 0000`*, *`0110 0001`* gibi karmaşık bir makine kodu *`B0`*, *`61`* şeklinde çok daha kısa ve okunabilir bir biçimde ifade edildi. Bu yöntem yazımı kısaltıp hata payını azaltsa da, programcıların hâlâ hangi sayı kodunun hangi işlemi yaptığını ezbere bilmesi gerekiyordu.\ $2^4 = 16$ olduğu için 4 bitlik bir binary sayı tam olarak bir hexadecimal basamağı karşılık gelir.
+
+#align(center)[
+  #block(breakable: false)[
+    #v(1em)
+    *4-Bit İkilik (Binary) ve Onaltılık (Hexadecimal) Karşılıklar Tablosu*
+    // Ortak tablo şablonu (Stil değişikliklerini tek yerden yapmak için)
+    #let hex-tablo(..veriler) = table(
+      columns: (auto, auto, auto), // 4 tablonun A4'e yan yana sığması için optimize edildi
+      rows: (2.2em, 2.2em),
+      inset: 4pt,
+      align: center + horizon,
+      stroke: (x, y) => if y == 0 { (bottom: 1.5pt + rgb("#2d3748")) } else { (bottom: 0.5pt + rgb("#e2e8f0")) },
+      fill: (col, row) => {
+        if row == 0 {
+          rgb("#edf2f7") // Başlık satırı
+        } else if calc.even(row) {
+          rgb("#f8fafc") // Zebra deseni (çift satırlar)
+        } else {
+          none
+        }
+      },
+      // Tablo Başlıkları
+      [*Hex*], [*Dec*], [*Binary*],
+      ..veriler
+    )
+
+    #set text(size: 9pt) // 4 sütunda taşmayı önlemek için ideal boyut
+    #grid(
+      columns: (auto, auto, auto, auto),
+      gutter: 8pt,
+      align: top,
+      
+      // 1. Sütun (0 - 3)
+      hex-tablo(
+        [*`0`*], [`0`], [`0000`],
+        [*`1`*], [`1`], [`0001`],
+        [*`2`*], [`2`], [`0010`],
+        [*`3`*], [`3`], [`0011`],
+      ),
+      
+      // 2. Sütun (4 - 7)
+      hex-tablo(
+        [*`4`*], [`4`], [`0100`],
+        [*`5`*], [`5`], [`0101`],
+        [*`6`*], [`6`], [`0110`],
+        [*`7`*], [`7`], [`0111`],
+      ),
+      
+      // 3. Sütun (8 - B)
+      hex-tablo(
+        [*`8`*], [`8`],  [`1000`],
+        [*`9`*], [`9`],  [`1001`],
+        [*`A`*], [`10`], [`1010`],
+        [*`B`*], [`11`], [`1011`],
+      ),
+      
+      // 4. Sütun (C - F)
+      hex-tablo(
+        [*`C`*], [`12`], [`1100`],
+        [*`D`*], [`13`], [`1101`],
+        [*`E`*], [`14`], [`1110`],
+        [*`F`*], [`15`], [`1111`],
+      )
+    )  
+    #align(left)[
+    *Hex:* Hexadecimal(16'lık),*Dec:* Decimal(10'luk), *Binary:* Binary(4 Bit),
+    ]
+  ]
+]
 
 #pagebreak()
 === Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
@@ -337,7 +379,7 @@ Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1
   stroke: 0.5pt + rgb("#cbd5e1"),
   align: (left + horizon, left + horizon, center + horizon, left + horizon),
    rows:(4em, (2.5em)),
-  table.header([*Birim*], [*Kapasite*], [*Kısaltma*], [*Somut Karşılığı*]),
+  table.header([*Birim*], [*Kapasite*], [*Kısaltma*], [#align(center)[*Somut Karşılığı*]]),
   [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
   [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
   [Kilobyte], [$1024 " Byte"$], [*KB*], [Düz metinden oluşan 1 sayfalık belge],
@@ -362,69 +404,29 @@ Fakat işletim sistemleri ikilik sayı sistemine göre ölçüm yaptığı için
 Sizce bu disk üreticilerinin yaptığı bir hile midir?
 ]
 
-
 #pagebreak()
-=== İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
-1970'lerin ortalarında kişisel olarak kullanılabilen *Altair 8800* gibi sistemlerin klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğini ve hesap yaptırıldığını göstermek için somut bir örnektir.
+=== Makine Kodundan Assembly Diline
+Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "bold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "bold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
+
+Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek için İngilizce kelimelerin kısaltmalarından oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı. Bu sembolik komutları kullanan dile #text(weight: "bold")[Assembly dili] adı verildi. Böylece programcılar, yalnızca `1` ve `0` dizilimleriyle uğraşmak yerine, daha anlaşılır ve hatırlanması kolay komutlarla program yazabilir hâle geldi.
 
 #align(center)[
-  #block(
-    fill: rgb("#f8fafc"),
-    stroke: 1pt + rgb("#cbd5e1"),
-    radius: 4pt,
-    inset: 12pt,
-  )[
-    #set text(font: "Courier New", size: 9pt)
-    ```text
-    +-------------------------------------------------------------+
-    |                  ALTAIR 8800 ÖN PANELİ                      |
-    |                                                             |
-    |   LED'ler (Çıkış):    (O) (X) (O) (O)   (X) (X) (O) (X)     |
-    |                        0   1   0   0     1   1   0   1      |
-    |                                                             |
-    |   Anahtarlar (Giriş): [v] [^] [v] [v]   [^] [^] [v] [^]     |
-    |                        0   1   0   0     1   1   0   1      |
-    +-------------------------------------------------------------+
-    ```
-  ]
+#v(1em)
+*Hexadecimal Yerine Assembly Kullanımı Örneği*
+#table(
+  columns: (auto, auto, auto, auto),
+  fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+  stroke: 0.5pt + rgb("#cbd5e1"),
+  align: (center + horizon, center + horizon, center + horizon, left + horizon),
+   rows:(4em, (2.5em)),
+  table.header([*Hexadecimal*], [*Yerine*], [*Assembly*], [#align(center)[*Açıklama*]]),
+  [`B0 61`], [$-->$], [`MOV AL, 61H`], [AL yazmacına *`61H`* verisi taşındı.],
+  [`04 05`], [$-->$], [`ADD AL, 05H`], [AL yazmacındaki değere *`05H`* eklendi.],
+  [`2C 02`], [$-->$], [`SUB AL, 02H`], [AL yazmacındaki değerden *`02H`* çıkarıldı.],
+)
 ]
 
-- Programcılar her bir $8$ bitlik komutu anahtarları tek tek yukarı ($1$) ve aşağı ($0$) indirerek belleğe elle yüklüyordu.
-- İki sayıyı toplamak için bile onlarca $8$ bitlik komutu hatasız girmek gerekiyordu. Bu süreç son derece yavaş, zihinsel olarak yorucu ve hata yapmaya açıktı.
-
-#link-box(
-url: "www.youtube.com/watch?v=1zwTRA0yaYo",
-title:"Tarihi Eser Bilgisayarı Programladım | Altair 8800",
-desc:"Ömer Bektaş'ın kanalında Altair 8800 hakkında detaylı bir video bulunmakta."
-)
-
-#link-box(
-url: "www.s2js.com/altair/sim.html",
-title:"Altair 8800 Emulatorü",
-desc:"Altair 8800 cihazını denemek istiyorsanız tarayıcınızda kullanabileceğiniz Altair 8800 Emulator linki."
-)
-
-#link-box(
-url: "www.youtube.com/@merbekta",
-title:"Ömer Bektaş'ın Youtube Kanalı",
-desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üreten bir YouTube içerik üreticisidir. Bu kanalı takip etmeniz sizin için çok faydalı olacaktır."
-)
-
-#pagebreak()
-=== Assembly Dili
-Tahmin edeceğiniz üzere, Altair 8800 gibi erken dönem bilgisayarlarda sürekli `1` ve `0` dizilimleriyle (makine koduyla) işlem yapmak oldukça zahmetliydi ve hataya çok açıktı. Bu nedenle komutları ikili sistemde girmek yerine, işlemci talimatlarını anlamlı sembolik kısaltmalarla (mnemonik) eşleştiren Assembly dili geliştirildi.
-
-*Örneğin:*
-- [`1000 1011`] yerine $-->$ *MOV* (Veri Taşı / Kopyala)
-- [`0000 0011`] yerine $-->$ *ADD* (Topla)
-- [`0010 1011`] yerine $-->$ *SUB* (Çıkar)
-
-#link-box(
-  url:"www.youtube.com/watch?v=yWXuG3RLkTE",
-  title:"Dillerin Atası | Assembly",
-  desc:"Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta."
-  )
-
+Bu sembolik komutlarla yazılan programlar, #text(weight: "bold")[Assembler (Çevirici)] adı verilen bir program aracılığıyla işlemcinin anlayabileceği makine koduna dönüştürüldü.
 
 #align(center)[
   #v(1em)
@@ -446,6 +448,13 @@ _start:
 #v(1em)
 ]
 
+#link-box(
+  url:"www.youtube.com/watch?v=yWXuG3RLkTE",
+  title:"Dillerin Atası | Assembly",
+  desc:"Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta."
+  )
+
+#pagebreak()
 === Programlama Dilleri
 Her ne kadar $1$ ve $0$ ile kodlama yapmaya göre Assembly büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Bu programlama dillerinin, *derleyici (compiler)* ve *yorumlayıcı (interpreter)* gibi yazılımlar kullanması kod yazma işini büyük ölçüde kolaylaştırdı.
 
@@ -455,7 +464,7 @@ Her ne kadar $1$ ve $0$ ile kodlama yapmaya göre Assembly büyük bir kolaylık
 
 #pagebreak()
 === Programlama Dillerinin Seviyeleri
-Düşük seviyeli programlama dilleri makine diline yakındır ve insanların anlaması daha zordur; ancak donanıma doğrudan eriştikleri için son derece yüksek performanslı programlar üretirler. *C*, *Rust* düşük seviyeli programlama dillerine örnektir. Yüksek seviyeli diller ise insanlar tarafından kolay anlaşılır ve hızlı yazılır, fakat sundukları soyutlama katmanı nedeniyle görece daha düşük performans gösterirler. *Python*, bu yüksek seviyeli dillere iyi bir örnektir.
+Assembly dili büyük yazılımlar geliştirmek için binlerce satır kod yazmayı gerektiriyordu. Bunun sonucunda, günlük konuşma diline/matematiğe çok yakın olan Yüksek Seviyeli Programlama Dilleri\ (*C, C++, Java, Python* vb.) doğdu. Artık iki sayıyı toplamak için işlemci yazmaçlarıyla uğraşmak yerine doğrudan *`sonuc = a + b`* yazmak yeterli hale geldi. Günümüzde yazdığımız bu yüksek seviyeli kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla arka planda tekrar makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır.Yüksek seviyeli diller ise insanlar tarafından kolay anlaşılır ve hızlı yazılır, fakat daha düşük performans gösterirler. *Python*, bu yüksek seviyeli dillere iyi bir örnektir.
 
 Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
 
