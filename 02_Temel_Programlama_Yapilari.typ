@@ -456,11 +456,78 @@ _start:
 
 #pagebreak()
 === Programlama Dilleri
-Her ne kadar $1$ ve $0$ ile kodlama yapmaya göre Assembly büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Bu programlama dillerinin, *derleyici (compiler)* ve *yorumlayıcı (interpreter)* gibi yazılımlar kullanması kod yazma işini büyük ölçüde kolaylaştırdı.
+Her ne kadar $1$, $0$ veya hexadecimal sayılar ile kodlama yapmaya göre Assembly dili büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Artık iki sayıyı toplamak için işlemci yazmaçlarıyla uğraşmak yerine doğrudan #text(weight: "bold")[`sonuc = a + b`] yazmak yeterli hale geldi. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla arka planda tekrar makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır.
 
-*Derleyici (Compiler):* programcının yazdığı kodun tamamını önce baştan sona okur, yazım hatalarını kontrol eder ve tüm kodu bir bütün olarak makine diline çevirir. Kodun yazımında (söz diziminde) bir hata varsa derleme işlemi tamamlanmaz.
+*Derleyici (Compiler):* Programcının yazdığı kodun tamamını önce baştan sona okur, yazım hatalarını kontrol eder ve tüm kodu bir bütün olarak makine diline çevirir. Kodun yazımında (söz diziminde) bir hata varsa derleme işlemi tamamlanmaz.
 
 *Yorumlayıcı (Interpreter):* Kodu bir bütün olarak değil satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, hatanın bulunduğu satıra gelene kadar programı çalıştırır ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. *Python ve Ruby*, bu yaklaşımı kullanan dillere örnek gösterilebilir.
+
+#align(center)[
+  #block(breakable: false, width: 100%)[
+    #set text(size: 9.5pt)
+    #table(
+      columns: (3.2cm, 2.8cm, 3.2cm, 1fr, 1fr),
+      inset: 7pt,
+      align: (col, row) => if row == 0 {
+        center + horizon
+      } else if col == 2 {
+        center + horizon // Örnek kod sütununu ortala
+      } else {
+        left + horizon
+      },
+      stroke: (x, y) => if y == 0 {
+        (bottom: 1.5pt + rgb("#2d3748"))
+      } else {
+        (bottom: 0.5pt + rgb("#e2e8f0"))
+      },
+      fill: (col, row) => {
+        if row == 0 {
+          rgb("#edf2f7") // Başlık satırı
+        } else if calc.even(row) {
+          rgb("#f8fafc") // Zebra deseni (çift satırlar)
+        } else {
+          none
+        }
+      },
+
+      // Tablo Başlıkları
+      [*Evrim Aşaması*], [*Temsil Biçimi*], [*Örnek Kod*], [*Temel Avantajı*], [*Temel Zorluğu*],
+
+      // 1. Satır
+      [*1. Makine Dili\ (Binary)*],
+      [`0` ve `1` dizileri],
+      [`1011 0000`\ `0110 0001`],
+      [İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.],
+      [İnsan tarafından okunması ve yazılması çok zordur.],
+
+      // 2. Satır
+      [*2. Hexadecimal\ (16'lık Sistem)*],
+      [`0-9` ve `A-F` karakterleri],
+      [`B0 61`],
+      [Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.],
+      [Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.],
+
+      // 3. Satır
+      [*3. Assembly Dili\ (Sembolik Dil)*],
+      [Sembolik kısaltmalar\ _(Mnemonics)_],
+      [`MOV AL, 61h`],
+      [Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.],
+      [Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.],
+
+      // 4. Satır
+      [*4. Yüksek Seviyeli Diller*],
+      [Günlük dil ve matematiksel ifadeler],
+      [`int a = 97;`],
+      [Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.],
+      [İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.],
+    )
+  ]
+]
+
+#pagebreak()
+#include "02_Files/TemelProgramlamaYapilariInfografig/Claude.typ"
+#include "02_Files/TemelProgramlamaYapilariInfografig/Gemini.typ"
+
 
 #pagebreak()
 === Programlama Dillerinin Seviyeleri
