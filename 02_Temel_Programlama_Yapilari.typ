@@ -150,7 +150,7 @@ desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üre
   ]
 ]
 
-#pagebreak()
+
 === Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
 Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (American Standard Code for Information Interchange)* geliştirilmiştir. *ASCII* tablosundaki her sembolün sayısal bir karşılığı bulunur.
 
@@ -404,7 +404,6 @@ Fakat işletim sistemleri ikilik sayı sistemine göre ölçüm yaptığı için
 Sizce bu disk üreticilerinin yaptığı bir hile midir?
 ]
 
-#pagebreak()
 === Makine Kodundan Assembly Diline
 Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "bold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "bold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
 
@@ -454,7 +453,7 @@ _start:
   desc:"Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta."
   )
 
-#pagebreak()
+
 === Programlama Dilleri
 Her ne kadar $1$, $0$ veya hexadecimal sayılar ile kodlama yapmaya göre Assembly dili büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Artık iki sayıyı toplamak için işlemci yazmaçlarıyla uğraşmak yerine doğrudan #text(weight: "bold")[`sonuc = a + b`] yazmak yeterli hale geldi. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla arka planda tekrar makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır.
 
@@ -466,7 +465,7 @@ Her ne kadar $1$, $0$ veya hexadecimal sayılar ile kodlama yapmaya göre Assemb
   #block(breakable: false, width: 100%)[
     #set text(size: 9.5pt)
     #table(
-      columns: (3.2cm, 2.8cm, 3.2cm, 1fr, 1fr),
+      columns: (3cm, 2.7cm, 2.3cm, 1fr, 1fr),
       inset: 7pt,
       align: (col, row) => if row == 0 {
         center + horizon
@@ -497,34 +496,34 @@ Her ne kadar $1$, $0$ veya hexadecimal sayılar ile kodlama yapmaya göre Assemb
       [*1. Makine Dili\ (Binary)*],
       [`0` ve `1` dizileri],
       [`1011 0000`\ `0110 0001`],
-      [İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.],
-      [İnsan tarafından okunması ve yazılması çok zordur.],
+      [#text(size:8pt)[İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.]],
+      [#text(size:8pt)[İnsan tarafından okunması ve yazılması çok zordur.]],
 
       // 2. Satır
       [*2. Hexadecimal\ (16'lık Sistem)*],
       [`0-9` ve `A-F` karakterleri],
       [`B0 61`],
-      [Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.],
-      [Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.],
+      [#text(size:8pt)[Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.]],
+      [#text(size:8pt)[Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.]],
 
       // 3. Satır
       [*3. Assembly Dili\ (Sembolik Dil)*],
       [Sembolik kısaltmalar\ _(Mnemonics)_],
       [`MOV AL, 61h`],
-      [Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.],
-      [Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.],
+      [#text(size:8pt)[Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.]],
+      [#text(size:8pt)[Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.]],
 
       // 4. Satır
       [*4. Yüksek Seviyeli Diller*],
       [Günlük dil ve matematiksel ifadeler],
       [`int a = 97;`],
-      [Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.],
-      [İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.],
+      [#text(size:8pt)[Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.]],
+      [#text(size:8pt)[İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.]],
     )
   ]
 ]
 
-#pagebreak()
+
 === Python Dili
 *Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
 
@@ -593,20 +592,21 @@ print(f"Toplam: {toplam}")
 ]
 ]
 
-// #pagebreak()
+#pagebreak()
 === Değişkenler ve Temel Veri Türleri
 ==== Değişken
 Değişken; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
 Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
 
 #v(1em)
-*Örnek Python Kodu*
 #block(breakable: false)[
   #grid(
-    columns: (1fr, 1fr),
+    columns: (22em, auto),
     gutter: 10pt,
      align: (top),
     [
+      *Örnek Python Kodu*
+      #v(1.8em)
 ```Python
 puan = int(input("Puan Giriniz: "))
 print("Puanı:", puan)
@@ -626,25 +626,100 @@ Güncellenmiş Puan: 75
   )
 ]
 
-+ *Tanımlama:* Kullanıcıdan veri alınır, tam sayıya çevrilir ve *puan* değişkenine atanarak bellekte saklanır.
-+ *Çağırma:* *puan* değişkeni kullanılarak RAM'deki veriye erişilir ve ekrana yazdırılır
-+ *Değer:* Güncelleme (Mevcut değer hesaplamaya katılır, yeni değer *puan* değişkenine atanır
-+ *Çağırma:* *puan* değişkeninin güncel hali tekrar çağrılır
+#let mini-ekran-ciktisi(icerik) = {
+  block(
+    fill: rgb("#eff6ff"),
+    stroke: (left: 3pt + rgb("#3b82f6")),
+    inset: (x: 10pt, y: 8pt),
+    radius: (right: 3pt),
+    width: 100%,
+  )[
+    #text(font: "DejaVu Sans Mono", size: 0.8em)[#icerik]
+  ]
+}
+
+#let kutu(icerik,yukseklik:10.5em) = block(
+  stroke: 1pt + gray,
+  inset: 8pt,
+  radius: 4pt, // Köşe yuvarlatma miktarı
+  width: 100%,
+  height: yukseklik,
+  icerik
+)
+
+#v(1em)
+#block(breakable: false)[
+  #grid(
+    columns: (18em, auto),
+    gutter: 10pt,
+     align: (left + horizon, center + horizon),
+    [#kutu[
+  *1. Değer Atama*\ Giriş yapılan *50* değeri, RAM'de *puan* ismiyle bir adrese kaydedilir.
+    #mini-ekran-ciktisi[Puan Giriniz: 50]
+    ]
+    
+    ],
+    [#kutu[#image("02_Files/Bellek Kullanımı 01.png")]
+    ]
+  
+  )
+]
 
 
 #block(breakable: false)[
   #grid(
-    columns: (1fr, 1fr),
-    gutter: 0pt,
-     align: (top),
-    [
-      #image("02_Files/Bellek Kullanımı 01.svg")
+     columns: (18em, auto),
+    gutter: 10pt,
+     align: (left + horizon, center + horizon),
+    [#kutu[
+      *2. Hafızadan Çağırma*\ *puan* değişkeni RAM'deki adresinden çağrılarak *50* değeri ekrana yazdırılır.
+    #mini-ekran-ciktisi[Puanı: 50]
+      
+    ]
     ],
     [
-      #image("02_Files/Bellek Kullanımı 02.svg")
+      #kutu[
 
+      #image("02_Files/Bellek Kullanımı 02.png")
+      ]
     ]
   
+  )
+]
+
+
+#block(breakable: false)[
+  #grid(
+     columns: (18em, auto),
+    gutter: 10pt,
+     align: (left + horizon, center + horizon),
+    [#kutu[
+      *3. Değer Güncelleme*\ Mevcut *50* değeri hafızadan alınır, *25* eklenir ve elde edilen yeni *75* değeri tekrar *puan* değişkenine atanır.
+    ]
+    ],
+    [
+      #kutu[
+      #image("02_Files/Bellek Kullanımı 03.png")
+      ]
+    ]
+  
+  )
+]
+
+#block(breakable: false)[
+  #grid(
+     columns: (18em, auto),
+    gutter: 10pt,
+     align: (left + horizon, center + horizon),   
+    [#kutu[
+      *4. Güncel Hali Çağırma*\ Güncellenen *puan* değişkeni hafızadan çağrılarak ekrana yazdırılır.
+    #mini-ekran-ciktisi[Güncellenmiş Puan: 75]
+    ]
+    ],
+    [#kutu[
+      #image("02_Files/Bellek Kullanımı 04.png",height: 8em)
+    ]
+    ]
   )
 ]
 
