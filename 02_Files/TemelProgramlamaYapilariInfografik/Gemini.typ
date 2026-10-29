@@ -12,8 +12,8 @@
       radius: 4pt,
       width: 100%,
       [
-        #text(fill: white, weight: "bold", size: 13pt)[1. TEMEL PROGRAMLAMA YAPILARI — İNFOGRAFİK ÖZET] \
-        #text(fill: rgb("#94a3b8"), size: 8pt)[1.1. Değişkenler, Sabitler ve Veri Türleri: Donanımdan Yüksek Seviyeli Dillere Evrim]
+        #text(fill: white, weight: "bold", size: 13pt)[TEMEL PROGRAMLAMA YAPILARI — İNFOGRAFİK ÖZET] \
+        // #text(fill: rgb("#94a3b8"), size: 8pt)[1.1. Değişkenler, Sabitler ve Veri Türleri: Donanımdan Yüksek Seviyeli Dillere Evrim]
       ]
     )
   ]
@@ -29,8 +29,9 @@
       radius: 4pt,
       inset: 7pt,
       width: 100%,
+      height: 12.5em,
       [
-        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[1.1.1. Transistör ve İkili Sistem (Binary)]
+        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[Transistör ve İkili Sistem (Binary)]
         #v(2pt)
         Bilgisayarın en temel donanım birimi olan *transistör*, akımı geçirerek veya keserek en küçük bilgi birimi olan *Bit*'i oluşturur:
         - *Açık (ON - 5V):* Elektrik akımı var $->$ *1 (Bit)*
@@ -43,8 +44,9 @@
       radius: 4pt,
       inset: 7pt,
       width: 100%,
+      height: 12.5em,
       [
-        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[1.1.2. İlk Bilgisayarlar: Altair 8800 (8-Bit)]
+        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[İlk Bilgisayara Örnek: Altair 8800 (8-Bit)]
         #v(2pt)
         Klavye veya ekran olmadan, komutlar ön paneldeki 8 bitlik fiziksel anahtarlarla (`^` = 1, `v` = 0) belleğe elle yükleniyordu:
         #align(center)[
@@ -55,6 +57,7 @@
             ]
           ]
         ]
+        Sadece `1` ve `0` ile işlem yapmak karmaşık ve hataya yapma olasılığı yüksekti
       ]
     )
   )
@@ -71,7 +74,7 @@
       inset: 7pt,
       width: 100%,
       [
-        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[1.1.3. Gruplama: 4 Bit ve Hexadecimal (16'lık)]
+        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[Gruplama: 4 Bit ve Hexadecimal (16'lık)]
         #v(2pt)
         Uzun 0 ve 1 dizilerini kısaltmak için $2^4 = 16$ esasına dayalı *Hexadecimal* sistem kullanılır (`1011 0000` $->$ `B0`).
         #v(2pt)
@@ -95,7 +98,7 @@
       inset: 7pt,
       width: 100%,
       [
-        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[1.1.4. Metin Temsili: 8 Bit = 1 Byte ve ASCII]
+        #text(weight: "bold", fill: rgb("#0f172a"), size: 9.5pt)[Metin Temsili: 8 Bit = 1 Byte ve ASCII]
         #v(2pt)
         - *8 Bit = 1 Byte:* Bellekte her karakter 1 Byte yer kaplar ($2^8 = 256$ durum: 0–255).
         - *0–31 ve 127 (DEL):* Basılamayan *Kontrol Karakterleri*.
@@ -150,7 +153,7 @@
       #table(
         columns: (1.5fr, 1.3fr, 1.3fr, 2.4fr, 2.4fr),
         inset: 3pt,
-        align: (left, left, center, left, left),
+        align: (left+horizon, left, center, left, left),
         fill: (x, y) => if y == 0 { rgb("#e2e8f0") },
         [*Evrim Aşaması*], [*Temsil Biçimi*], [*Örnek Kod*], [*Temel Avantajı*], [*Temel Zorluğu*],
         [*1. Makine Dili*], [0 ve 1 dizileri], [`1011 0000`], [İşlemci doğrudan çalıştırır.], [Okunması ve yazılması çok zordur.],

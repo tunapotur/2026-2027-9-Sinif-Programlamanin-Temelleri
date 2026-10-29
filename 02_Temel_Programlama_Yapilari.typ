@@ -525,20 +525,12 @@ Her ne kadar $1$, $0$ veya hexadecimal sayılar ile kodlama yapmaya göre Assemb
 ]
 
 #pagebreak()
-#include "02_Files/TemelProgramlamaYapilariInfografig/Claude.typ"
-#include "02_Files/TemelProgramlamaYapilariInfografig/Gemini.typ"
-
-
-#pagebreak()
-=== Programlama Dillerinin Seviyeleri
-Assembly dili büyük yazılımlar geliştirmek için binlerce satır kod yazmayı gerektiriyordu. Bunun sonucunda, günlük konuşma diline/matematiğe çok yakın olan Yüksek Seviyeli Programlama Dilleri\ (*C, C++, Java, Python* vb.) doğdu. Artık iki sayıyı toplamak için işlemci yazmaçlarıyla uğraşmak yerine doğrudan *`sonuc = a + b`* yazmak yeterli hale geldi. Günümüzde yazdığımız bu yüksek seviyeli kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla arka planda tekrar makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır.Yüksek seviyeli diller ise insanlar tarafından kolay anlaşılır ve hızlı yazılır, fakat daha düşük performans gösterirler. *Python*, bu yüksek seviyeli dillere iyi bir örnektir.
-
-Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
-
 === Python Dili
-Python; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
+*Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
 
 Python, sade söz dizimi ve yüksek okunabilirliği sayesinde web geliştirmeden veri analizine, robotik kontrolden yapay zekâ sistemlerine kadar çok geniş bir alanda tercih edilir. Sunduğu bu esneklik ve zengin kütüphane desteği nedeniyle Python; küresel yazılım dünyasında olduğu gibi Türkiye’deki teknoloji girişimlerinde, akıllı otomasyon sistemlerinde ve Ar-Ge projelerinde de yaygın olarak kullanılmaktadır.
+
+Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
 
 #show raw.line: it => {
   // Satır numarasını gri ve sağa dayalı göster
@@ -601,11 +593,10 @@ print(f"Toplam: {toplam}")
 ]
 ]
 
-#pagebreak()
+// #pagebreak()
 === Değişkenler ve Temel Veri Türleri
-
 ==== Değişken
-Programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
+Değişken; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
 Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
 
 #v(1em)
@@ -634,12 +625,12 @@ Güncellenmiş Puan: 75
   
   )
 ]
-#text(size:8pt)[
+
 + *Tanımlama:* Kullanıcıdan veri alınır, tam sayıya çevrilir ve *puan* değişkenine atanarak bellekte saklanır.
 + *Çağırma:* *puan* değişkeni kullanılarak RAM'deki veriye erişilir ve ekrana yazdırılır
 + *Değer:* Güncelleme (Mevcut değer hesaplamaya katılır, yeni değer *puan* değişkenine atanır
 + *Çağırma:* *puan* değişkeninin güncel hali tekrar çağrılır
-]
+
 
 #block(breakable: false)[
   #grid(

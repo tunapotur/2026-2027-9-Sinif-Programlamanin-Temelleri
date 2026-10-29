@@ -58,7 +58,7 @@
   #grid(columns: (1fr, auto), align: horizon,
     [
       #text(white, weight: "bold", size: 15pt)[Bilgisayarın Dili: Transistörden Programlamaya] \
-      #v(2pt)#text(rgb("#c9c9e0"), size: 7.5pt)[1.1 Değişkenler, Sabitler ve Veri Türleri · Programlamanın Temelleri]
+      // #v(2pt)#text(rgb("#c9c9e0"), size: 7.5pt)[1.1 Değişkenler, Sabitler ve Veri Türleri · Programlamanın Temelleri]
     ],
     text(white, size: 20pt, weight: "bold", font: "DejaVu Sans Mono")[1011],
   )
