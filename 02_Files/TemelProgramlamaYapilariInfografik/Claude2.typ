@@ -200,7 +200,7 @@
   #grid(
     columns: (1.15fr, 1fr), gutter: 8pt,
     table(
-      columns: (auto, auto, 1fr), align: left + horizon, inset: 3pt,
+      columns: (auto, auto, 1fr), align: left + horizon, inset: 3.75pt,
       fill: (_, y) => if y == 0 { c_mor.stroke } else if calc.odd(y) { white } else { c_mor.fill.lighten(40%) },
       stroke: 0.4pt + c_mor.stroke,
       table.header(..([Hex], [Assembly], [Açıklama]).map(t => text(fill: white, weight: "bold", size: 7pt, t))),
@@ -224,10 +224,12 @@
 
 // ---------- DERLEYİCİ / YORUMLAYICI ----------
 #card("7 · Programlama Dilleri: Derleyici ve Yorumlayıcı", c_mavi)[
-  Fortran, COBOL ve C gibi diller çıktı; kod arka planda yine makine koduna çevrilir.
+  Fortran, COBOL ve C gibi dillerde çıktı; makine koduna çevrilir. Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.
   #v(3pt)
+  
   #grid(
     columns: (1fr, 1fr), gutter: 6pt,
+    
     block(fill: white, stroke: 0.8pt + c_mavi.stroke, radius: 4pt, inset: 5pt, width: 100%)[
       #pill([Derleyici (Compiler)], c_mavi) \
       #v(2pt)
