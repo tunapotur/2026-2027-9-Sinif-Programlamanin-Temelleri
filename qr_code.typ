@@ -32,11 +32,11 @@
             ]
 
             // #v(3pt)
-            #text(fill: rgb("#2563eb"), weight: "semibold", size: 11.5pt, tracking: 0.6pt)[#link(url)[#url]]
+            #text(fill: rgb("#2563eb"), weight: "semibold", size: 10pt, tracking: 0.4pt)[#link(url)[#url]]
           ],
 
           // Sağ Kolon: QR Kod
-          qr-code(url, width: 3cm)
+          qr-code(url, width: 2cm)
         )
       ]
     )
