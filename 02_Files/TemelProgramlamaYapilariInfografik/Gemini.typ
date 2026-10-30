@@ -1,4 +1,3 @@
-#pagebreak()
 // Kendi belgenizin yazı boyutu büyükse taşmayı önlemek için tüm infografiği kapsayan yerel metin ayarı:
 #block[
   #set text(size: 8.5pt)

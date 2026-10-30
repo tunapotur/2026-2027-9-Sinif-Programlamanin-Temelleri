@@ -1,5 +1,5 @@
-#import "../template.typ": *
-#import "../qr_code.typ"
+#import "../../template.typ": *
+#import "../../qr_code.typ"
 
 #show: conf
 
@@ -20,11 +20,11 @@
   gutter: 15pt,
   align: (top),
   [
-    #image("Transistor On.jpg")
+    #image("../Transistor On.jpg")
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Var (Açık)],[:],[1 (Bit)])
   ],
   [
-    #image("Transistor Off.jpg")
+    #image("../Transistor Off.jpg")
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )
@@ -129,25 +129,21 @@ Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlem
         [*`F`*], [`15`], [`1111`],
       )
     )  
-    #align(left)[
-    *Hex:* Hexadecimal(16'lık),*Dec:* Decimal(10'luk), *Binary:* Binary(4 Bit),
+    #align(center)[
+    *Hex:* Hexadecimal(16'lık), *Dec:* Decimal(10'luk), *Binary:* Binary(4 Bit),
     ]
   ]
 ]
 
 === Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
-Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (American Standard Code for Information Interchange)* geliştirilmiştir. *ASCII* tablosundaki her sembolün sayısal bir karşılığı bulunur.
+Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu #text(weight: "semibold")[ASCII (American Standard Code for Information Interchange)] geliştirilmiştir. Böylelikle en temel düzeyde gerekli olan karakterlere için *ASCII* tablosundaki karakterin sayısal bir karşılığı oluşturuldu.
+- Bilgisayar mimarisinin temelinde $1$ karakter $1$ Byte ($8$ bit) yer kaplar. ASCII tablosunda $256$ karakter bulunmasının sebebi $8$ bit'in yan yana getirilerek $1$ Byte oluşturmasıdır. $1$ Byte aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
+- *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten #text(weight: "semibold")[Kontrol Karakterleri (Control / Non-printable Characters)] olarak adlandırılır.
 
-- *Karakter ve Boyut İlişkisi:* $8$ bit yan yana getirilerek $1$ Byte oluşturulur. Bilgisayar mimarisinde her temel karakter bellekte $1$ Byte ($8$ bit) yer kaplar. $8$ bit ile $2^8 = 256$ farklı durum ($0$ ile $255$ arası) ifade edilebilir.
-- *Değer Aralığı:* Standart ASCII tablosu ilk $128$ karakteri ($0$–$127$) tanımlarken, $128$–$255$ arası değerler genişletilmiş karakter seti (özel semboller, bölgesel harfler) için kullanılır.
-- *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten *Kontrol Karakterleri (Control / Non-printable Characters)* olarak adlandırılır.
-- *Pratik Bir Deney (Windows Alt Kodları):* Microsoft Windows ortamında herhangi bir metin düzenleyicide *`Alt`* tuşuna basılı tutularak bir karakterin onluk (decimal) kodu girildiğinde o karakter ekrana yazdırılır. Örneğin *`Alt + 65`* tuşlandığında ekranda *`A`* harfi belirir.
 
-#pagebreak()
 #align(center)[
-  #v(0.5em)
   *Temel ASCII Tablosu (32-127 Karakterin Kodu)*
-  #text(size:8pt)[
+  #text(size:7pt)[
 
 #block(breakable: false)[
   #grid(
@@ -157,6 +153,7 @@ Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (Ame
     [
       #table(
   columns: (auto, auto, auto, auto),
+  inset: 3pt,
   align: (center + horizon),
   stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
   fill: (col, row) => {
@@ -202,6 +199,7 @@ Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (Ame
 	#table(
   columns: (auto, auto, auto, auto),
   align: (center + horizon),
+  inset: 3pt,
   stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
   fill: (col, row) => {
     if row == 0 {
@@ -246,6 +244,7 @@ Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (Ame
 	#table(
   columns: (auto, auto, auto, auto),
   align: (center + horizon),
+  inset: 3pt,
   stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
   fill: (col, row) => {
     if row == 0 {
@@ -291,6 +290,7 @@ Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (Ame
       #table(
   columns: (auto, auto, auto, auto),
   align: (center + horizon),
+  inset: 3pt,
   stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
   fill: (col, row) => {
     if row == 0 {
@@ -337,42 +337,8 @@ Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (Ame
 ]
   ]
 
-=== Dijital Dünyanın Ölçü Birimi Bit'ten Terabayt'a Veri Büyüklükleri
-Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0$*'lardan ibaret olduğunu ve *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* dendiğini söylemiştik.  
-
-- *Bit (Binary Digit):* Bilgisayardaki en küçük mantıksal veri birimidir. Sadece *0* veya *1* değerini alabilir. Devredeki tek bir transistör lamba anahtarı gibi düşünülebilir: ya kapalıdır (0) ya da açıktır (1).
-- *Byte:* 8 adet bitin yan yana gelmesiyle oluşan veri kümesidir.
-  $ 8 " Bit" = 1 " Byte" $
-  Örneğin *"A"* harfi bellekte *1 Byte* yer kaplar gibi düşünebiliriz.
-- Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır.
-  $ 2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024 $
-Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
-
-#pagebreak()
-#align(center)[
-#v(1em)
-*Veri Büyüklüğü Basamakları*
-#table(
-  columns: (auto, auto, auto, auto),
-  fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-  stroke: 0.5pt + rgb("#cbd5e1"),
-  align: (left + horizon, left + horizon, center + horizon, left + horizon),
-   rows:(4em, (2.5em)),
-  table.header([*Birim*], [*Kapasite*], [*Kısaltma*], [#align(center)[*Somut Karşılığı*]]),
-  [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
-  [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
-  [Kilobyte], [$1024 " Byte"$], [*KB*], [Düz metinden oluşan 1 sayfalık belge],
-  [Megabyte], [$1024 " KB"$], [*MB*], [1 dakikalık MP3 ses kaydı veya telefon fotoğrafı],
-  [Gigabyte], [$1024 " MB"$], [*GB*], [Yaklaşık 1 saatlik HD kalitede film],
-  [Terabyte], [$1024 " GB"$], [*TB*], [Geniş harici yedekleme diski, çok sayıda büyük oyun],
-  [Petabyte], [$1024 " TB"$], [*PB*], [Büyük veri merkezleri veya bulut sunucu havuzları],
-  [Exabyte], [$1024 " PB"$], [*EB*], [Küresel internet trafiğinin aylık ölçekteki hacmi],
-)
-]
-
-
 === Makine Kodundan Assembly Diline
-Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "bold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "bold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
+Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "bold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
 
 Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek için İngilizce kelimelerin kısaltmalarından oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı. Bu sembolik komutları kullanan dile #text(weight: "bold")[Assembly dili] adı verildi. Böylece programcılar, yalnızca `1` ve `0` dizilimleriyle uğraşmak yerine, daha anlaşılır ve hatırlanması kolay komutlarla program yazabilir hâle geldi.
 
@@ -394,7 +360,6 @@ Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek
 
 Bu sembolik komutlarla yazılan programlar, #text(weight: "bold")[Assembler (Çevirici)] adı verilen bir program aracılığıyla işlemcinin anlayabileceği makine koduna dönüştürüldü.
 
-#pagebreak()
 #align(center)[
   #v(1em)
 *x86 Assembly: İki Sayıyı Toplama Örneği*

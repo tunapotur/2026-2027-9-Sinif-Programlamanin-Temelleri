@@ -2,6 +2,7 @@
 #show: conf
 
 
+#include "Claude2.typ"
 #include "Claude.typ"
 #include "Gemini.typ"
 #image("ChatGpt.png")

@@ -144,20 +144,17 @@ desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üre
         [*`F`*], [`15`], [`1111`],
       )
     )  
-    #align(left)[
-    *Hex:* Hexadecimal(16'lık),*Dec:* Decimal(10'luk), *Binary:* Binary(4 Bit),
+    #align(center)[
+    *Hex:* Hexadecimal(16'lık), *Dec:* Decimal(10'luk), *Binary:* Binary(4 Bit),
     ]
   ]
 ]
 
 
 === Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
-Bir harfi veya sembolü temsil etmek için standart referans tablosu *ASCII (American Standard Code for Information Interchange)* geliştirilmiştir. *ASCII* tablosundaki her sembolün sayısal bir karşılığı bulunur.
-
-- *Karakter ve Boyut İlişkisi:* $8$ bit yan yana getirilerek $1$ Byte oluşturulur. Bilgisayar mimarisinde her temel karakter bellekte $1$ Byte ($8$ bit) yer kaplar. $8$ bit ile $2^8 = 256$ farklı durum ($0$ ile $255$ arası) ifade edilebilir.
-- *Değer Aralığı:* Standart ASCII tablosu ilk $128$ karakteri ($0$–$127$) tanımlarken, $128$–$255$ arası değerler genişletilmiş karakter seti (özel semboller, bölgesel harfler) için kullanılır.
-- *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten *Kontrol Karakterleri (Control / Non-printable Characters)* olarak adlandırılır.
-- *Pratik Bir Deney (Windows Alt Kodları):* Microsoft Windows ortamında herhangi bir metin düzenleyicide *`Alt`* tuşuna basılı tutularak bir karakterin onluk (decimal) kodu girildiğinde o karakter ekrana yazdırılır. Örneğin *`Alt + 65`* tuşlandığında ekranda *`A`* harfi belirir.
+Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu #text(weight: "semibold")[ASCII (American Standard Code for Information Interchange)] geliştirilmiştir. Böylelikle en temel düzeyde gerekli olan karakterlere için *ASCII* tablosundaki karakterin sayısal bir karşılığı oluşturuldu.
+- Bilgisayar mimarisinin temelinde $1$ karakter $1$ Byte ($8$ bit) yer kaplar. ASCII tablosunda $256$ karakter bulunmasının sebebi $8$ bit'in yan yana getirilerek $1$ Byte oluşturmasıdır. $1$ Byte aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
+- *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten #text(weight: "semibold")[Kontrol Karakterleri (Control / Non-printable Characters)] olarak adlandırılır.
 
 #link-box(
   url:"www.ascii-code.com",
@@ -523,74 +520,7 @@ Her ne kadar $1$, $0$ veya hexadecimal sayılar ile kodlama yapmaya göre Assemb
   ]
 ]
 
-
-=== Python Dili
-*Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
-
-Python, sade söz dizimi ve yüksek okunabilirliği sayesinde web geliştirmeden veri analizine, robotik kontrolden yapay zekâ sistemlerine kadar çok geniş bir alanda tercih edilir. Sunduğu bu esneklik ve zengin kütüphane desteği nedeniyle Python; küresel yazılım dünyasında olduğu gibi Türkiye’deki teknoloji girişimlerinde, akıllı otomasyon sistemlerinde ve Ar-Ge projelerinde de yaygın olarak kullanılmaktadır.
-
-Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
-
-#show raw.line: it => {
-  // Satır numarasını gri ve sağa dayalı göster
-  box(width: 2em, align(right, text(fill: luma(120), str(it.number))))
-  h(1em) // Numara ile kod arasına boşluk bırak
-  it.body
-}
-
-#show raw.where(block: true): set block(
-  fill: rgb("#f6f8fa"),
-  inset: 10pt,
-  radius: 4pt,
-  stroke: 0.5pt + rgb("#d0d7de")
-)
-
-#v(1em)
-#align(center)[
-*İki Sayının Toplamını Alan Kod Örneği*
-#v(1em)
-#block(breakable: false)[
-  #grid(
-    columns: (1fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *C Dili*
-```c
-#include <stdio.h>
-
-int main() {
-    int sayi1, sayi2, toplam;
-
-    printf("Birinci sayi: ");
-    scanf("%d", &sayi1);
-
-    printf("Ikinci sayi: ");
-    scanf("%d", &sayi2);
-
-    toplam = sayi1 + sayi2;
-    printf("Toplam: %d\n", toplam);
-
-    return 0;
-}
-```
-     
-    ],
-    [
-*Python Dili*
-
-```python
-sayi1 = int(input("Birinci sayı: "))
-sayi2 = int(input("İkinci sayı: "))
-
-toplam = sayi1 + sayi2
-print(f"Toplam: {toplam}")
-```
-    ]
-  
-  )
-]
-]
+#include "02_Files/TemelProgramlamaYapilariInfografik/Claude2.typ"
 
 #pagebreak()
 === Değişkenler ve Temel Veri Türleri
@@ -745,7 +675,7 @@ türündeki verilerle doğrudan aritmetik işlem yapılamaz. Örneğin kullanici
 süreçlerinin temelini oluşturan veri türüdür. Alabileceği değerler yalnızca Doğru veya Yanlış ifadeleridir. Örneğin
 sistem_acik_mi = True, bakiye_yeterli_mi = False
 
-==== Python Değişken Tanımlama Kuralları
+==== Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
 
 *Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
@@ -938,4 +868,73 @@ print("Kod çalışıyor")
     ]
   )
 ]
+
+=== Python Dili
+*Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
+
+Python, sade söz dizimi ve yüksek okunabilirliği sayesinde web geliştirmeden veri analizine, robotik kontrolden yapay zekâ sistemlerine kadar çok geniş bir alanda tercih edilir. Sunduğu bu esneklik ve zengin kütüphane desteği nedeniyle Python; küresel yazılım dünyasında olduğu gibi Türkiye’deki teknoloji girişimlerinde, akıllı otomasyon sistemlerinde ve Ar-Ge projelerinde de yaygın olarak kullanılmaktadır.
+
+Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
+
+#show raw.line: it => {
+  // Satır numarasını gri ve sağa dayalı göster
+  box(width: 2em, align(right, text(fill: luma(120), str(it.number))))
+  h(1em) // Numara ile kod arasına boşluk bırak
+  it.body
+}
+
+#show raw.where(block: true): set block(
+  fill: rgb("#f6f8fa"),
+  inset: 10pt,
+  radius: 4pt,
+  stroke: 0.5pt + rgb("#d0d7de")
+)
+
+#v(1em)
+#align(center)[
+*İki Sayının Toplamını Alan Kod Örneği*
+#v(1em)
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *C Dili*
+```c
+#include <stdio.h>
+
+int main() {
+    int sayi1, sayi2, toplam;
+
+    printf("Birinci sayi: ");
+    scanf("%d", &sayi1);
+
+    printf("Ikinci sayi: ");
+    scanf("%d", &sayi2);
+
+    toplam = sayi1 + sayi2;
+    printf("Toplam: %d\n", toplam);
+
+    return 0;
+}
+```
+     
+    ],
+    [
+*Python Dili*
+
+```python
+sayi1 = int(input("Birinci sayı: "))
+sayi2 = int(input("İkinci sayı: "))
+
+toplam = sayi1 + sayi2
+print(f"Toplam: {toplam}")
+```
+    ]
+  
+  )
+]
+]
+
 
