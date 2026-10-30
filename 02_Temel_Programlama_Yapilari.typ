@@ -3,7 +3,7 @@
 
 
 = Temel Programlama Yapıları
-== Donanımın Temel Yapı Taşı: Transistör ve İkili Sistem (Binary)
+== Donanımın Temeli: Transistör ve İkili Sistem (Binary)
 *Transistör* elektrik akımını geçirerek ya da keserek *$1$* veya *$0$* değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 
 #align(center)[
@@ -22,7 +22,7 @@
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )
-#v(1em)
+// #v(1em)
 ]
 
 *$1$* ve *$0$* durumunu oluşturan en küçük bilgi birimine *Bit (Binary Digit)* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
@@ -30,7 +30,7 @@
 Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlemcinin tek doğal dili olan Makine Dili (*İkilik Sistem / Binary*) kullanılıyordu. Programcılar, komutları *`1011 0000`* gibi *$0$* ve *$1$* dizileri halinde delikli kartlara veya anahtarlara işliyordu. Ancak bu yöntem insan gözü için son derece yorucuydu ve tek bir rakamın yanlış yazılması tüm programı bozuyordu.
 
 == İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
-1970'lerin ortalarında kişisel olarak kullanılabilen *Altair 8800* gibi sistemlerin klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğini ve hesap yaptırıldığını göstermek için somut bir örnektir.
+Erken dönem *Altair 8800* gibi bilgisayarların klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğine ve hesap yaptırıldığına somut bir örnektir.
 
 #align(center)[
   #block(
@@ -151,6 +151,13 @@ desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üre
 Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu #text(weight: "semibold")[ASCII (American Standard Code for Information Interchange)] geliştirilmiştir. Böylelikle en temel düzeyde gerekli olan karakterlere için *ASCII* tablosundaki karakterin sayısal bir karşılığı oluşturuldu.
 - Bilgisayar mimarisinin temelinde $1$ karakter $1$ Byte ($8$ bit) yer kaplar. ASCII tablosunda $256$ karakter bulunmasının sebebi $8$ bit'in yan yana getirilerek $1$ Byte oluşturmasıdır. $1$ Byte aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
 - *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten #text(weight: "semibold")[Kontrol Karakterleri (Control / Non-printable Characters)] olarak adlandırılır.
+
+#link-box(
+  url:"www.ascii-code.com",
+  title: "ASCII Code - Karakter Kodlama Tablosu",
+  desc: "Tüm ASCII karakterlerini incelemek için bu referans tablosunu kullanabilirsiniz."
+)
+
 #pagebreak()
 #align(center)[
   #v(0.5em)
@@ -345,32 +352,24 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
 ]
   ]
 
-#link-box(
-  url:"www.ascii-code.com",
-  title: "ASCII Code - Karakter Kodlama Tablosu",
-  desc: "Tüm ASCII karakterlerini incelemek için bu referans tablosunu kullanabilirsiniz."
-)
-
 == Bit'ten Terabayt'a Veri Büyüklükleri
 Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0$*'lardan ibaret olduğunu ve *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* dendiğini söylemiştik.  
 
 - *Bit (Binary Digit):* Bilgisayardaki en küçük mantıksal veri birimidir. Sadece *0* veya *1* değerini alabilir. Devredeki tek bir transistör lamba anahtarı gibi düşünülebilir: ya kapalıdır (0) ya da açıktır (1).
-- *Byte:* 8 adet bitin yan yana gelmesiyle oluşan veri kümesidir.
-  $ 8 " Bit" = 1 " Byte" $
-  Örneğin *"A"* harfi bellekte *1 Byte* yer kaplar gibi düşünebiliriz.
-- Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır.
-  $ 2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024 $
-Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
-
-#pagebreak()
-#text(size:8pt)[#align(center)[
+- *Byte:* 8 adet bitin yan yana gelmesiyle oluşan veri kümesidir. $8 "Bit" = 1 "Byte"$\ 
+Örneğin *"A"* harfi bellekte *1 Byte* yer kaplar gibi düşünebiliriz.
+- Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır ($2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024$).\
+  Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
+#align(center)[
+#block(breakable: false)[
+#text(size:8pt)[
 *Veri Büyüklüğü Basamakları*
 #table(
   columns: (auto, auto, auto, auto),
   fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
   stroke: 0.5pt + rgb("#cbd5e1"),
   align: (left + horizon, left + horizon, center + horizon, left + horizon),
-   rows:(2.25em, (2.25em)),
+   rows:(2.25em, (2.5em)),
   table.header([*Birim*], [*Kapasite*], [*Kısaltma*], [#align(center)[*Somut Karşılığı*]]),
   [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
   [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
@@ -381,6 +380,7 @@ Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1
   [Petabyte], [$1024 " TB"$], [*PB*], [Büyük veri merkezleri veya bulut sunucu havuzları],
   [Exabyte], [$1024 " PB"$], [*EB*], [Küresel internet trafiğinin aylık ölçekteki hacmi],
 )
+]
 ]
 ]
 
@@ -419,7 +419,6 @@ Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek
 
 Bu sembolik komutlarla yazılan programlar, #text(weight: "bold")[Assembler (Çevirici)] adı verilen bir program aracılığıyla işlemcinin anlayabileceği makine koduna dönüştürüldü.
 
-#pagebreak()
 #align(center)[
 *x86 Assembly: İki Sayıyı Toplama Örneği*
 #text(size:9pt)[
@@ -453,6 +452,7 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
 
 *Yorumlayıcı (Interpreter):* Kodu bir bütün olarak değil satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, hatanın bulunduğu satıra gelene kadar programı çalıştırır ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. *Python ve Ruby*, bu yaklaşımı kullanan dillere örnek gösterilebilir.
 
+#v(1em)
 #align(center)[
   #block(breakable: false, width: 100%)[
     #set text(size: 9pt)
@@ -515,14 +515,6 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
   ]
 ]
 
-#include "02_Files/TemelProgramlamaYapilariInfografik/Claude2.typ"
-
-#pagebreak()
-=== Değişkenler ve Temel Veri Türleri
-==== Değişken
-Değişken; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
-Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
-
 #v(1em)
 #block(breakable: false)[
   #grid(
@@ -531,7 +523,9 @@ Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; k
      align: (top),
     [
       *Örnek Python Kodu*
-      #v(1.8em)
+
+      Kullanıcıdan bir değer alıp bu değere 25 ekleyerek sonucu ekrana yazdıran kod örneği.
+      
 ```Python
 puan = int(input("Puan Giriniz: "))
 print("Puanı:", puan)
@@ -550,6 +544,44 @@ Güncellenmiş Puan: 75
   
   )
 ]
+
+#include "02_Files/TemelProgramlamaYapilariInfografik/Claude3.typ"
+
+#pagebreak()
+== Değişkenler ve Temel Veri Türleri
+=== Değişken
+Değişken; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
+Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
+#v(1em)
+#block(breakable: false)[
+  #grid(
+    columns: (22em, auto),
+    gutter: 10pt,
+     align: (top),
+    [
+      *Örnek Python Kodu*
+
+      Kullanıcıdan bir değer alıp bu değere 25 ekleyerek sonucu ekrana yazdıran kod örneği.
+      
+```Python
+puan = int(input("Puan Giriniz: "))
+print("Puanı:", puan)
+puan = puan + 25
+print("Güncellenmiş Puan:", puan)
+```
+    ],
+    [
+      #output-box(title: "Python Ekran Çıktısı")[
+Puan Giriniz: 50 \
+Puanı: 50 \
+Güncellenmiş Puan: 75
+]
+
+    ]
+  
+  )
+]
+
 
 #let mini-ekran-ciktisi(icerik) = {
   block(
@@ -647,6 +679,8 @@ Güncellenmiş Puan: 75
     ]
   )
 ]
+
+#image("02_Files/DegiskenVeBellek.jpg")
 
 #pagebreak()
 ==== Temel Veri Türleri
