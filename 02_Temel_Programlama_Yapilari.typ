@@ -545,7 +545,7 @@ Güncellenmiş Puan: 75
   )
 ]
 
-#include "02_Files/TemelProgramlamaYapilariInfografik/Claude3.typ"
+#include "02_Files/infografik/Claude3.typ"
 
 #pagebreak()
 == Değişkenler ve Bellek(RAM)
@@ -685,7 +685,7 @@ Güncellenmiş Puan: 75
 
 #pagebreak()
 
-== Temel Veri Türleri
+== Veri Türleri ve RAM Kullanımı
 Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst üste dizilmiş çok sayıda küçük kutu gibi düşünebiliriz. Her kutunun boyutu 1 bayt’tır (1 bayt = 8 bit; bit yalnızca 0 ya da 1 tutabilir).
 - Bu veri *ne tür* bir veri? (sayı mı, karakter mi, doğru/yanlış mı?)
 - Bu yüzden RAM’de *kaç kutu (bayt)* ayrılmalı ve bu veriyle *hangi işlemler* yapılabilir?
@@ -833,6 +833,8 @@ Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden faz
   "01000001 01100100 01100001 00100000 01001100 01101111 01110110 01100101 01101100 01100001 01100011 01100101",
   aciklama: "Boşluk karakteri (' ') de bellekte 1 byte yer kaplar (ASCII: 32). Toplam 12 karakter = 12 byte.",
 )
+
+#include "02_Files/infografik/veri_turleri.typ"
 
 === Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine tür dönüşümü denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
