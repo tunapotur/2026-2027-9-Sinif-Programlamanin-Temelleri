@@ -681,6 +681,7 @@ Güncellenmiş Puan: 75
 ]
 
 #image("02_Files/DegiskenVeBellek.jpg")
+#include "/02_Files/degiskenler_bellek.typ"
 
 #pagebreak()
 ==== Temel Veri Türleri
