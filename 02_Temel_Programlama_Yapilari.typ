@@ -684,6 +684,7 @@ Güncellenmiş Puan: 75
 #include "/02_Files/degiskenler_bellek.typ"
 
 #pagebreak()
+
 == Temel Veri Türleri
 Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst üste dizilmiş çok sayıda küçük kutu gibi düşünebiliriz. Her kutunun boyutu 1 bayt’tır (1 bayt = 8 bit; bit yalnızca 0 ya da 1 tutabilir).
 - Bu veri *ne tür* bir veri? (sayı mı, karakter mi, doğru/yanlış mı?)
@@ -813,6 +814,26 @@ float sonuc = a / b; // sonuc = 3.5
 Bilgisayarların ilk geliştirildiği yıllarda kullanılan RAM ve işlemci donanımları, günümüz mimarilerine kıyasla oldukça sınırlı kapasiteye sahipti. O dönemin donanımlarıyla işlemleri gerçekleştirebilmek için bellek kullanımının çok iyi planlanması gerekiyordu; veri türleri de tam bu noktada etkin bir bellek yönetimi sağlıyordu. Ayrıca işlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir birim olduğu için bellekte tutulan verinin boyutu sistem performansını doğrudan etkiler. Veri boyutu ne kadar büyükse (daha fazla bayt), veri yollarında o kadar çok bilgi taşınır ve işlemcinin bu veriyi işlemesi o kadar uzun sürer. #text(weight: "semibold")[Özetle; büyük veri türleri hem RAM’de daha fazla yer kaplar hem de işlemciyi daha fazla meşgul eder.]
 #image("02_Files/ram_islemci_iliskisi.jpg")
 
+=== Karakterden Metne
+Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden fazla karakterden oluşan bir kelimeyi veya metni bellekte tutmak istediğimizde altta ki formül ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
+
+#align(left)[
+#text(size: 11pt, weight: "regular")[
+  #not_block(title: "", width: auto)[
+      Toplam Bellek Alanı = Karakter Sayısı x 1 Byte
+  ]
+]
+]
+
+#v(1em)
+#align(center)[*Ada Lovelace metni Girildiğinde RAM üzerinde nasıl saklanır?*]
+#ram-goster(
+  "char",
+  "char tam_isim[12] = {'A', 'd', 'a', ' ', 'L', 'o', 'v', 'e', 'l', 'a', 'c', 'e'};",
+  "01000001 01100100 01100001 00100000 01001100 01101111 01110110 01100101 01101100 01100001 01100011 01100101",
+  aciklama: "Boşluk karakteri (' ') de bellekte 1 byte yer kaplar (ASCII: 32). Toplam 12 karakter = 12 byte.",
+)
+
 === Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine tür dönüşümü denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
 
@@ -932,26 +953,6 @@ tam_not = int(ortalama)  # Virgülden sonrası silinir, tam_not = 85 olur
 print(tam_not)  # Çıktı: 85
   ```
 ]
-
-=== Karakterden Metne
-Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden fazla karakterden oluşan bir kelimeyi veya metni bellekte tutmak istediğimizde altta ki formül ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
-
-#align(left)[
-#text(size: 11pt, weight: "regular")[
-  #not_block(title: "", width: auto)[
-      Toplam Bellek Alanı = Karakter Sayısı x 1 Byte
-  ]
-]
-]
-
-#v(1em)
-#align(center)[*Ada Lovelace metni Girildiğinde RAM üzerinde nasıl saklanır?*]
-#ram-goster(
-  "char",
-  "char tam_isim[12] = {'A', 'd', 'a', ' ', 'L', 'o', 'v', 'e', 'l', 'a', 'c', 'e'};",
-  "01000001 01100100 01100001 00100000 01001100 01101111 01110110 01100101 01101100 01100001 01100011 01100101",
-  aciklama: "Boşluk karakteri (' ') de bellekte 1 byte yer kaplar (ASCII: 32). Toplam 12 karakter = 12 byte.",
-)
 
 == Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
