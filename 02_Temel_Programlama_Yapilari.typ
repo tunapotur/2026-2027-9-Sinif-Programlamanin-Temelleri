@@ -548,8 +548,7 @@ Güncellenmiş Puan: 75
 #include "02_Files/TemelProgramlamaYapilariInfografik/Claude3.typ"
 
 #pagebreak()
-== Değişkenler ve Temel Veri Türleri
-=== Değişken
+== Değişkenler ve Bellek(RAM)
 Değişken; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
 Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
 #v(1em)
@@ -557,21 +556,22 @@ Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; k
   #grid(
     columns: (22em, auto),
     gutter: 10pt,
-     align: (top),
+     align: (horizon),
     [
       *Örnek Python Kodu*
-
-      Kullanıcıdan bir değer alıp bu değere 25 ekleyerek sonucu ekrana yazdıran kod örneği.
-      
-```Python
-puan = int(input("Puan Giriniz: "))
-print("Puanı:", puan)
-puan = puan + 25
-print("Güncellenmiş Puan:", puan)
-```
+      Kullanıcıdan alınan tam sayı değerine 25 ekleyerek sonucu ekrana yazdıran kod örneği
+      #kod-blok[
+          ```Python
+          puan = int(input("Puan Giriniz: "))
+          print("Puanı:", puan)
+          puan = puan + 25
+          print("Güncellenmiş Puan:", puan)
+          ```
+      ]
     ],
     [
       #output-box(title: "Python Ekran Çıktısı")[
+        #v(1em)
 Puan Giriniz: 50 \
 Puanı: 50 \
 Güncellenmiş Puan: 75
@@ -684,28 +684,276 @@ Güncellenmiş Puan: 75
 #include "/02_Files/degiskenler_bellek.typ"
 
 #pagebreak()
-==== Temel Veri Türleri
+== Temel Veri Türleri
+Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst üste dizilmiş çok sayıda küçük kutu gibi düşünebiliriz. Her kutunun boyutu 1 bayt’tır (1 bayt = 8 bit; bit yalnızca 0 ya da 1 tutabilir).
+- Bu veri *ne tür* bir veri? (sayı mı, karakter mi, doğru/yanlış mı?)
+- Bu yüzden RAM’de *kaç kutu (bayt)* ayrılmalı ve bu veriyle *hangi işlemler* yapılabilir?
 
-Bilgisayar belleğine kaydedilecek verilerin nitelikleri, boyutları ve üzerlerinde hangi matematiksel veya mantıksal işlemlerin yapılabileceği veri türü (data type) kavramı ile belirlenir. Python dilinde değişkenlerin veri türleri, türetildikleri anda dinamik olarak yorumlayıcı tarafından atanır.
+#not_block(title: "")[Temel veri türleri konusunu anlatmak için C++ dili ve 16-bit sistemler (Arduino Uno, Turbo C) esas alınmıştır. Bu tercih, veri türlerinin donanımsal mantığının daha rahat anlaşılması amacıyla yapılmıştır. Derslerimizde ise Python programlama dili kullanılacak olup, Python'da veri türleri ve bellek yapısı farklı şekilde işlemektedir.
+]
 
-*Tam Sayı [Integer (int)]:* Kesirli kısmı bulunmayan; pozitif, negatif veya sıfır değerini alabilen sayısal veri
-türüdür (örneğin ogrenci_sayisi = 34, hava_sicakligi = -5).
+=== Boolean (bool): doğru / yanlış
+#block(breakable: false)[
+  #grid(
+    columns: (auto, auto),
+    gutter: 10pt,
+     align: (horizon),
+    [
+      - RAM’de en az yer kaplayan veri türüdür: *1 bayt*.
+      - Yalnızca iki değer alabilir: *true* (doğru, 1) veya *false* (yanlış, 0).
+      - Karar verme (if, while) işlemlerinde kullanılır.
 
-*Ondalıklı Sayı [Floating Point (float)]:* Kesirli veya ondalıklı kısımları bulunan, bilimsel hesaplamalarda
-ve hassas ölçümlerde kullanılan sayısal veri türüdür. Python dilinde ondalık kısımlar virgül (,) değil
-uluslararası standart gereği nokta (.) karakteriyle (örneğin urun_fiyati = 89.90, pi_sayisi = 3.14159)
-ayrılır.
+    ],
+    [
+      #kod-blok[
+  ```cpp
+  bool kapiAcik = true;
+  bool sinavGecti = false;
+  ```
+]
 
-*Metinsel Veri [String (str)]:* Tek tırnak '...' veya çift tırnak "..." işaretleri arasında tanımlanan; alfabetik
-karakterler, rakamlar ve özel sembollerden oluşan karakter dizileridir. Rakamlardan oluşsalar dahi string
-türündeki verilerle doğrudan aritmetik işlem yapılamaz. Örneğin kullanici_adi = "gok turk_9", okul_numarasi =
-"1071"
+    ]
+  
+  )
+]
 
-*Mantıksal Veri [Boolean (bool)]:* Sadece iki farklı durumun kontrolünde kullanılan, mantıksal karar
-süreçlerinin temelini oluşturan veri türüdür. Alabileceği değerler yalnızca Doğru veya Yanlış ifadeleridir. Örneğin
-sistem_acik_mi = True, bakiye_yeterli_mi = False
+#ram-goster(
+  "bool",
+  "bool kapiAcik = true;",
+  "00000001",
+  aciklama: "true değeri 1, olarak saklanır.",
+)
 
-==== Değişken Tanımlama Kuralları
+#ram-goster(
+  "bool",
+  "bool sinavGecti = false;",
+  "00000000",
+  aciklama: "false değeri 0 olarak saklanır.",
+)
+
+#not_block(title: "")[Aslında doğru/yanlış bilgisi tek bir bit ile saklanabilir; ancak RAM’e ulaşım bayt bayt yapıldığı için bilgisayar bool için de 1 tam bayt ayırır.
+]
+
+=== Karakter (char)
+- RAM’de 1 bayt yer kaplar.
+- Tek bir karakter tutar: harf, rakam karakteri, noktalama işareti. Tek tırnak içinde yazılır: 'A'.
+- Bilgisayar karakterleri ASCII tablosundaki sayı karşılığı ile saklar (örneğin 'A' karakteri 65). 
+- 1 bayt,ASCII tablosundaki 256 karakter için yeterlidir.
+- Karakterler metin için kullanılır, matematiksel işlemlere girmez. '5' karakteri ile 5 sayısı aynı şey değildir.
+
+#kod-blok(width: 100%)[
+  ```cpp
+char harf = 'A';
+char rakamKarakteri = '5'; // bu bir sayı değil, karakterdir
+  ```
+]
+
+#ram-goster(
+  "char",
+  "char harf = 'A';",
+  "01000001",
+  aciklama: "'A' karakterinin ASCII kodu 65'tir.",
+)
+
+#ram-goster(
+  "char",
+  "char karakter = '5';",
+  "00110101",
+  aciklama: "'5' karakterinin ASCII kodu 53'tür (Sayısal 5 değeri değildir). Bellekte 1 byte kaplar.",
+)
+
+=== Tam Sayı (int)
+- RAM’de 2 bayt (16 bit) yer kaplar.
+- $16$ bit ile $2^16=65536$ farklı değer saklanabilir. Negatif sayılar da dahil olduğu için aralık: $−32768$ ile $+32767$ arasındadır.
+- Virgüllü kısmı yoktur; yalnızca tam sayıları tutar.
+- Toplama, çıkarma, çarpma, bölme ve mod (kalan) işlemlerinde kullanılır.
+
+#kod-blok(width: 100%)[
+    ```cpp
+int a = 7;
+int b = 2;
+int sonuc = a / b; // sonuc = 3 (3.5 değil!)
+int kalan = a % b; // kalan = 1
+  ```
+]
+
+#ram-goster(
+  "int",
+  "int puan = 50;",
+  "00000000 00110010",
+  aciklama: "50 = 32 + 16 + 2 olduğu için son byte 00110010 olur. İlk byte'ın tamamı 0'dır.",
+)
+
+=== Ondalıklı Sayı (float)
+- RAM’de 4 bayt (32 bit) yer kaplar; yani int’ten 2 kat fazla alan ister.
+- Virgüllü sayıları tutar. Yazılımlar bu sayıyı virgülden önceki ve virgülden sonraki kısım olarak ayrı ayrı değerlendirir. Kodda nokta ile yazılır: $3.14$.
+- Çok daha geniş bir aralıkta ve küsuratlı değerler için kullanılabilir.
+- Tüm matematiksel işlemlerde kullanılabilir. Bölmenin sonucu da küsuratlı çıkar.
+
+#kod-blok(width: 100%)[
+  ```cpp
+float a = 7;
+float b = 2;
+float sonuc = a / b; // sonuc = 3.5
+  ```
+]
+
+#ram-goster(
+  "float",
+  "float pi = 3.14;",
+  "01000000 01001000 11110101 11000011",
+  aciklama: "Ondalıklı sayılar IEEE 754 biçiminde saklanır ve 4 byte yer kaplar.",
+)
+
+#not_block(title: "Ne zaman int, ne zaman float?")[
+  \ float her işlemde kullanılabilir; ancak hem daha fazla RAM kaplar hem de işlemciyi daha çok yorar. Bu yüzden *gerekmedikçe* *int* yerine *float* kullanılmamalıdır. Küsurat gerekiyorsa (ortalama, not, fiiyat, sıcaklık gibi) float tercih edilir.
+]
+
+=== RAM Kullanımı ile İşlemci İlişkisi
+Bilgisayarların ilk geliştirildiği yıllarda kullanılan RAM ve işlemci donanımları, günümüz mimarilerine kıyasla oldukça sınırlı kapasiteye sahipti. O dönemin donanımlarıyla işlemleri gerçekleştirebilmek için bellek kullanımının çok iyi planlanması gerekiyordu; veri türleri de tam bu noktada etkin bir bellek yönetimi sağlıyordu. Ayrıca işlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir birim olduğu için bellekte tutulan verinin boyutu sistem performansını doğrudan etkiler. Veri boyutu ne kadar büyükse (daha fazla bayt), veri yollarında o kadar çok bilgi taşınır ve işlemcinin bu veriyi işlemesi o kadar uzun sürer. #text(weight: "semibold")[Özetle; büyük veri türleri hem RAM’de daha fazla yer kaplar hem de işlemciyi daha fazla meşgul eder.]
+#image("02_Files/ram_islemci_iliskisi.jpg")
+
+=== Tür Dönüşümü (Type Conversion / Type Casting)
+Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine tür dönüşümü denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
+
+==== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
+Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk olarak karakter dizisi (metin / string) biçiminde ulaşır.
+
+- Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
+- Karakter tabanlı bir veriyle matematiksel işlem yapılamaz. Örneğin iki metinsel veri toplanmak istendiğinde matematiksel toplama ($25 + 10 = 35$) yerine metin birleştirme ("25" + "10" = "2510") gerçekleşir veya derleyici hata verir.
+- Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
+
+#block(breakable: false)[
+  #grid(
+    columns: (22em, auto),
+    gutter: 10pt,
+     align: (horizon),
+    [
+      *Örnek Python Kodu*
+      Kullanıcıdan alınan tam sayı değerine 25 ekleyerek sonucu ekrana yazdıran kod örneği
+      #kod-blok[
+          ```Python
+          puan = int(input("Puan Giriniz: "))
+          print("Puanı:", puan)
+          puan = puan + 25
+          print("Güncellenmiş Puan:", puan)
+          ```
+      ]
+    ],
+    [
+      #output-box(title: "Python Ekran Çıktısı")[
+        #v(1em)
+Puan Giriniz: 50 \
+Puanı: 50 \
+Güncellenmiş Puan: 75
+]
+
+    ]
+  
+  )
+]
+
+Verilen Python örneğini kullanıcı girişi açısından ele alalım: 
+#kod-satiri(no:1, size:12pt,weight: "semibold")[
+           ```Python
+          puan = int(input("Puan Giriniz: "))
+          ```
+]
+Program, kullanıcıdan "Puan Giriniz:" iletisiyle bir tam sayı değeri beklemektedir. Python'da input() fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, input() fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (string) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için int() fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
+      #kod-blok[
+    ```Python
+veri = input("Puan Giriniz: ")  # 1. Aşama: Metin olarak alındı ("50")
+puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
+    ```
+]
+
+Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda int() fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
+
+==== Hesaplamalarda Tür Dönüşümü (int $<-->$ float)
+Tür dönüşümü yalnızca kullanıcı girişlerinde değil; tam sayılar (*int*) ile ondalıklı sayılar (*float*) arasındaki matematiksel işlemlerde de sıkça kullanılır. Bu dönüşüm iki şekilde gerçekleşir:
+
+===== Otomatik (Örtük / Implicit) Dönüşüm:
+Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
+
+  #text(size: 12pt, weight: "semibold")[
+  #not_block(title: "", width: 100%)[
+    #align(center)[
+      #grid(
+        columns: (auto, auto, auto, auto),
+        gutter: 0pt,
+        align: horizon + center,
+        inset: (x: 8pt, y: 3pt),
+        // Sadece iç sütunların soluna ince dikey ayırıcı çizgi ekler
+        stroke: (x, y) => if x > 0 { (left: 0.5pt + luma(180)) },
+        [int + float $->$ float],
+        [int - float $->$ float],
+        [int \* float $->$ float],
+        [int \/ float $->$ float],
+      )
+    ]
+  ]
+]
+
+#kod-blok()[
+  ```Python
+adet = 5           # int türünde
+birim_fiyat = 2.5   # float türünde
+
+# Python arka planda 'adet' değerini 5.0 yapar
+toplam_tutar = adet * birim_fiyat  # 5.0 * 2.5 = 12.5 (float)
+
+print(toplam_tutar) # Çıktı: 12.5
+  ```
+]
+
+
+===== Bilinçli (Açık / Explicit) Dönüşüm:
+Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
+
+*Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):*\
+Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
+
+#kod-blok()[
+  ```Python
+puan = 100
+ondalikli_puan = float(puan)  # 100 -> 100.0
+
+print(ondalikli_puan)  # Çıktı: 100.0
+  ```
+]
+
+*Ondalık Kısmı Atmak İçin (float $-->$ int):*\
+Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
+#kod-blok()[
+  ```Python
+ortalama = 85.85
+tam_not = int(ortalama)  # Virgülden sonrası silinir, tam_not = 85 olur
+
+print(tam_not)  # Çıktı: 85
+  ```
+]
+
+=== Karakterden Metne
+Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden fazla karakterden oluşan bir kelimeyi veya metni bellekte tutmak istediğimizde altta ki formül ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
+
+#align(left)[
+#text(size: 11pt, weight: "regular")[
+  #not_block(title: "", width: auto)[
+      Toplam Bellek Alanı = Karakter Sayısı x 1 Byte
+  ]
+]
+]
+
+#v(1em)
+#align(center)[*Ada Lovelace metni Girildiğinde RAM üzerinde nasıl saklanır?*]
+#ram-goster(
+  "char",
+  "char tam_isim[12] = {'A', 'd', 'a', ' ', 'L', 'o', 'v', 'e', 'l', 'a', 'c', 'e'};",
+  "01000001 01100100 01100001 00100000 01001100 01101111 01110110 01100101 01101100 01100001 01100011 01100101",
+  aciklama: "Boşluk karakteri (' ') de bellekte 1 byte yer kaplar (ASCII: 32). Toplam 12 karakter = 12 byte.",
+)
+
+== Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
 
 *Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
@@ -906,20 +1154,6 @@ Python, sade söz dizimi ve yüksek okunabilirliği sayesinde web geliştirmeden
 
 Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
 
-#show raw.line: it => {
-  // Satır numarasını gri ve sağa dayalı göster
-  box(width: 2em, align(right, text(fill: luma(120), str(it.number))))
-  h(1em) // Numara ile kod arasına boşluk bırak
-  it.body
-}
-
-#show raw.where(block: true): set block(
-  fill: rgb("#f6f8fa"),
-  inset: 10pt,
-  radius: 4pt,
-  stroke: 0.5pt + rgb("#d0d7de")
-)
-
 #v(1em)
 #align(center)[
 *İki Sayının Toplamını Alan Kod Örneği*
@@ -931,36 +1165,39 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
      align: (top),
     [
       *C Dili*
-```c
-#include <stdio.h>
+      #kod-blok[
+          ```c
+          #include <stdio.h>
 
-int main() {
-    int sayi1, sayi2, toplam;
+          int main() {
+              int sayi1, sayi2, toplam;
 
-    printf("Birinci sayi: ");
-    scanf("%d", &sayi1);
+              printf("Birinci sayi: ");
+              scanf("%d", &sayi1);
 
-    printf("Ikinci sayi: ");
-    scanf("%d", &sayi2);
+              printf("Ikinci sayi: ");
+              scanf("%d", &sayi2);
 
-    toplam = sayi1 + sayi2;
-    printf("Toplam: %d\n", toplam);
+              toplam = sayi1 + sayi2;
+              printf("Toplam: %d\n", toplam);
 
-    return 0;
-}
-```
-     
+              return 0;
+          }
+          ```
+      ]
     ],
     [
 *Python Dili*
+#kod-blok[
+    ```python
+    sayi1 = int(input("Birinci sayı: "))
+    sayi2 = int(input("İkinci sayı: "))
 
-```python
-sayi1 = int(input("Birinci sayı: "))
-sayi2 = int(input("İkinci sayı: "))
+    toplam = sayi1 + sayi2
+    print(f"Toplam: {toplam}")
+    ```
+]
 
-toplam = sayi1 + sayi2
-print(f"Toplam: {toplam}")
-```
     ]
   
   )
