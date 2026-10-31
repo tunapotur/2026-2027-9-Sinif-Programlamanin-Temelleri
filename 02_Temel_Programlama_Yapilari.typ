@@ -958,7 +958,7 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 
 *Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
 
-*Başlangıç Kriteri:* Bir değişken ismi kesinlikle bir rakam ile başlayamaz. İsimler ya alfabetik bir karakterle ya da alt çizgi (*\_*) işaretiyle başlamak zorundadır. Örneğin *3etap_skor* hatalı bir söz dizimi iken, *etap_skor_3* veya *\_etap3* kurallara uygundur.
+*Başlangıç Kriteri:* Bir değişken ismi kesinlikle bir rakam ile başlayamaz. İsimler ya alfabetik bir karakterle ya da alt çizgi (*\_*) işaretiyle başlamak zorundadır. Örneğin #text(weight: "semibold", red)[3etap_skor] hatalı bir söz dizimi iken, *etap_skor_3* veya *\_etap3* kurallara uygundur.
 
 *Büyük-Küçük Harf Duyarlılığı (Case-Sensitivity):* Python dili, büyük ve küçük harfleri farklı karakterler olarak değerlendirir. Bu nedenle aynı harflerden oluşsa bile yazımında büyük-küçük harf farkı bulunan kelimeler, bellekte tutulan verilere erişmek için kullanılan farklı değişken adları olarak kabul edilir. Örneğin *asistan_adi*, *Asistan_Adi* ve *ASISTAN_ADI* ifadeleri Python yorumlayıcısı tarafından birbirinden bağımsız üç farklı değişken adı olarak değerlendirilir.
 
@@ -967,137 +967,91 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
 #align(center)[
-
-#block(breakable: false)[
-  #grid(
-    columns: (1fr, 1fr),
-    gutter: 4pt,
-    align: (top, top),
-    [
-      *Türçe Karakterlerin İngilizce Karşılıkları*
-  #table(
-  columns: (2cm, 2cm, 2cm),
-  stroke: table_Stroke,
-  inset: 8.5pt,
-  table.header(
-    table_headerCell[Türkçe Karakter],
-    table_headerCell[Doğru Kullanım],
-    table_headerCell[İngilizce Karakte],
-  ),
-  table_dataCell_middle[ç / Ç],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*c / C*],
-  
-  table_dataCell_middle[ğ / Ğ],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*g / G*],
-    
-  table_dataCell_middle[ı / İ],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*i / I*],
-    
-  table_dataCell_middle[ö / Ö],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*o / O*],
-    
-  table_dataCell_middle[ş / Ş],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*s / S*],
-    
-  table_dataCell_middle[ü / Ü],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*u / U*],
-)
-
-    ],
-    [
-*Değişken Kullanım Örnekleri*
-#table(
-  columns: (auto, 2cm, auto),
-  stroke: table_Stroke,
-  inset: 6pt,
-  table.header(
-    table_headerCell[Türkçe\ Karakter],
-    table_headerCell[Doğru Kullanım],
-    table_headerCell[İngilizce\ Karakte],
-  ),
-  table_dataCell_middle[doğumTarihi],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*dogumTarihi*],
-  
-  table_dataCell_middle[ürünFiyatı],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*urunFiyati*],
-  
-  table_dataCell_middle[şubeKodu],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*subeKodu*],
-  
-  table_dataCell_middle[kayıtDurumu],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*kayitDurumu*],  
-
-  table_dataCell_middle[şifresi],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*sifresi*],
-
-  table_dataCell_middle[öğrenci_yaşı],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*ogrenci_yasi*],
-  
-  table_dataCell_middle[ücret_miktarı],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*ucret_miktari*],
-  
-  table_dataCell_middle[ilk_değer],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*ilk_deger*],
-)
-
-    ],
-  )
+  #block(breakable: false, width: 100%)[
+    #grid(
+      columns: (1fr, 1.2fr),
+      gutter: 14pt,
+      align: (top, top),
+      [
+        #v(1em)
+        *Türkçe Karakterlerin İngilizce Karşılıkları*
+        #table(
+          columns: (auto, auto, auto),
+          fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+          stroke: 0.5pt + rgb("#cbd5e1"),
+          align: (center + horizon, center + horizon, center + horizon),
+          rows: (2.5em, 2.6em),
+          table.header([*Türkçe*], [*Dönüşüm*], [*İngilizce*]),
+          [ç / Ç], [#text(weight: "bold",size: 14pt)[$-->$]], [*c / C*],
+          [ğ / Ğ], [#text(weight: "bold",size: 14pt)[$-->$]], [*g / G*],
+          [ı / İ], [#text(weight: "bold",size: 14pt)[$-->$]], [*i / I*],
+          [ö / Ö], [#text(weight: "bold",size: 14pt)[$-->$]], [*o / O*],
+          [ş / Ş], [#text(weight: "bold",size: 14pt)[$-->$]], [*s / S*],
+          [ü / Ü], [#text(weight: "bold",size: 14pt)[$-->$]], [*u / U*],
+        )
+      ],
+      [
+        #v(1em)
+        *Değişken Kullanım Örnekleri*
+        #table(
+          columns: (auto, auto, auto),
+          fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+          stroke: 0.5pt + rgb("#cbd5e1"),
+          align: (left + horizon, center + horizon, left + horizon),
+          rows: (2.5em, 2em),
+          table.header([*Hatalı Kullanım*], [*Dönüşüm*], [*Doğru Kullanım*]),
+          [`doğumTarihi`],  [$-->$], [`dogumTarihi`],
+          [`ürünFiyatı`],    [$-->$], [`urunFiyati`],
+          [`şubeKodu`],      [$-->$], [`subeKodu`],
+          [`kayıtDurumu`],   [$-->$], [`kayitDurumu`],
+          [`şifresi`],       [$-->$], [`sifresi`],
+          [`öğrenci_yaşı`],  [$-->$], [`ogrenci_yasi`],
+          [`ücret_miktarı`], [$-->$], [`ucret_miktari`],
+          [`ilk_değer`],     [$-->$], [`ilk_deger`],
+        )
+      ]
+    )
+  ]
 ]
 
-]
-
-==== Değişken Adlandırma Standartları (Notasyonlar)
-*Yılan Gösterimi (snake_case)* 
-
+=== Değişken Adlandırma Standartları (Notasyonlar)
+==== Yılan Gösterimi (snake_case)
 Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin kullanici_giris_tarihi, asistan_bellek_kapasitesi vb.) kurumsal olarak tavsiye edilir.
 
 
-*Camel Case (Deve Notasyonu) Kuralı*
-
+==== Camel Case (Deve Notasyonu) Kuralı
 Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 *Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
 #align(center)[
-#table(
-  columns: (auto, auto, auto),
-  stroke: table_Stroke,
-  inset: 6pt,
-  table.header(
-    table_headerCell[Yanlış Biçim],
-    table_headerCell[snake_case],  
-    table_headerCell[camelCase],  
-  ),
-  table_dataCell_middle[#text(fill: red)[personelsayisi]],
-  table_dataCell_middle[#text(fill: blue.darken(30%), weight: "extrabold")[personel_sayisi]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[personelSayisi]],
-  
-  table_dataCell_middle[#text(fill: red)[dogumyil]],
-  table_dataCell_middle[#text(fill: blue.darken(30%), weight: "extrabold")[dogum_yil]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[dogumYil]],
-  
-  table_dataCell_middle[#text(fill: red)[ogrencinotortalamasi]],
-  table_dataCell_middle[#text(fill: blue.darken(30%), weight: "extrabold")[ogrenci_not_ortalamasi]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[ogrenciNotOrtalamasi]],
-)
+  #v(1em)
+  *Değişken Adlandırma Kuralları (Naming Conventions)*
+  #table(
+    columns: (auto, auto, auto),
+    fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+    stroke: 0.5pt + rgb("#cbd5e1"),
+    align: (center + horizon, center + horizon, center + horizon),
+    rows: (2.5em, 2em),
+    table.header([*Yanlış / Zor Okunan Biçim*], [*snake_case (Python)*], [*camelCase*]),
+    
+    text(fill: rgb("#dc2626"))[`personelsayisi`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],
+
+    text(fill: rgb("#dc2626"))[`dogumyil`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`dogum_yil`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`dogumYil`],
+
+    text(fill: rgb("#dc2626"))[`ogrencinotortalamasi`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`ogrenci_not_ortalamasi`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`ogrenciNotOrtalamasi`],
+  )
 ]
 
 ==== Sabitler
 Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (constant) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
 
+#kod-blok()[
 ```Python
 # Doğru Sabit Kullanım Standardı (BÜYÜK HARF)
 PI_SAYISI = 3.14159
@@ -1107,11 +1061,21 @@ VARSAYILAN_DIL = "TR"
 KARSILAMA_MESAJI = " Sisteme Hoş Geldiniz!"
 GELISTIRICI_MODU_ACIK = True
 ```
+]
+
 
 ==== Açıklama Satırı (Comment line)
 Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıların kendileri için veya diğer yazılımcılar için bıraktığı notlara açıklama satarı (comment line) denir. Python'da iki tür açıklama satırı uygulaması vardır.
 + \# ile başlayan tek satırlık açıklama satırı
 + \"\"\"...\"\"\" Çok satırlı açıklama satırları üç adet tırnak ile açılan ve yine üç adet tırnak ile kapanan alan içine yazılan açıklama ifadeleri ile yapılır.
+
+#kod-blok(width: 100%)[
+        ```Python
+# Bu tam satırlık açıklama
+x = 10  # satır içi (inline) açıklama
+```]
+
+      #v(5pt)
 
 #block(breakable: false)[
   #grid(
@@ -1119,30 +1083,29 @@ Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıları
     gutter: 10pt,
     align: top,
     [
-      #block(width: 100%)[```Python
-# Bu tam satırlık açıklama
-x = 10  # satır içi (inline) açıklama
-```]
-
-      #v(5pt)
-
-      #block(width: 100%)[```Python
+#kod-blok(width: 100%)[
+  ```Python
 # Bu fonksiyon iki sayıyı toplar,
 # ardından sonucu ekrana yazdırır
 # ve geriye döndürür.
 def topla(a, b):
     return a + b
-```]
+# fonksiyon sonlandırıldı
+```
+]
     ],
     [
-      #block(width: 100%)[```Python
+      #kod-blok(width: 100%)[
+        ```Python
 """
 Bu teknik olarak bir string değişmezidir,
 ancak bir değişkene atanmadığı için
 yorum bloğu gibi davranır.
 """
 print("Kod çalışıyor")
-```]
+```  
+      ]
+      
     ]
   )
 ]
