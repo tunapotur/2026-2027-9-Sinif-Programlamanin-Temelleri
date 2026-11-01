@@ -687,6 +687,7 @@ Güncellenmiş Puan: 75
 
 == Veri Türleri ve RAM Kullanımı
 Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst üste dizilmiş çok sayıda küçük kutu gibi düşünebiliriz. Her kutunun boyutu 1 bayt’tır (1 bayt = 8 bit; bit yalnızca 0 ya da 1 tutabilir).
+
 - Bu veri *ne tür* bir veri? (sayı mı, karakter mi, doğru/yanlış mı?)
 - Bu yüzden RAM’de *kaç kutu (bayt)* ayrılmalı ve bu veriyle *hangi işlemler* yapılabilir?
 
@@ -710,6 +711,7 @@ Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst ü
   ```cpp
   bool kapiAcik = true;
   bool sinavGecti = false;
+  bool girisYapti = true;
   ```
 ]
 
@@ -757,6 +759,10 @@ Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst ü
   ```cpp
 char harf = 'A';
 char rakamKarakteri = '5'; // bu bir sayı değil, karakterdir
+char cinsiyet = 'E'; // 'E' (Erkek) veya 'K' (Kadın) gibi tek harfli kısaltmalar
+char paraBirimi = '$'; // Özel semboller ve işaretler
+char islemTuru = '+'; // Matematiksel operatör sembolleri
+char cevapSikki = 'C'; // Çoktan seçmeli testlerde işaretlenen şık
   ```
 ]
 
@@ -802,6 +808,7 @@ char rakamKarakteri = '5'; // bu bir sayı değil, karakterdir
     ```cpp
 int a = 7;
 int b = 2;
+int toplam = a + b // toplam = 9
 int sonuc = a / b; // sonuc = 3 (3.5 değil!)
 int kalan = a % b; // kalan = 1
   ```
@@ -828,26 +835,24 @@ int kalan = a % b; // kalan = 1
 === Ondalıklı Sayı (float)
 #block(breakable: false)[
   #grid(
-    columns: (auto, 16em),
+    columns: (auto, 22em),
     gutter: 10pt,
-    align: (top),
+    align: (horizon),
     [
-- RAM’de *4 bayt (`32 bit`)* yer kaplar; yani int’ten 2 kat fazla alan ister.
+- RAM’de *4 bayt* yer kaplar; *int*’ten 2 kat fazla alan.
 - Virgüllü sayıları tutar. Kodda nokta ile yazılır: $3.14$.
-- Yazılımlar bu sayıyı virgülden önceki ve virgülden sonraki kısım olarak ayrı ayrı değerlendirir.
-- Çok daha geniş bir aralıkta ve küsuratlı değerler için kullanılabilir.
-- Tüm matematiksel işlemlerde kullanılabilir. Bölmenin sonucu da küsuratlı çıkar.
+- Tam sayı ve küsurat kısımlarını ayrı işler.
+- Küsuratlı ve geniş aralıklı sayılarda kullanılır.
+- Tüm matematiksel işlemlerde kullanılabilir.
       ],
     [
       #kod-blok(width: 100%)[
   ```cpp
 float a = 7;
 float b = 2;
-float sonuc = a / b; 
-// sonuc = 3.5
+float sonuc = a / b; // => 3.5
 float pi = 3.14;
-float alan = pi * b * b;
-// alan = 12.56
+float alan = pi * b * b; // => 12.56
   ```
 ]
 
@@ -866,23 +871,30 @@ float alan = pi * b * b;
   \ float her işlemde kullanılabilir; ancak hem daha fazla RAM kaplar hem de işlemciyi daha çok yorar. Bu yüzden *gerekmedikçe* *int* yerine *float* kullanılmamalıdır. Küsurat gerekiyorsa (ortalama, not, fiiyat, sıcaklık gibi) float tercih edilir.
 ]
 
-=== RAM Kullanımı ile İşlemci İlişkisi
-Bilgisayarların ilk geliştirildiği yıllarda kullanılan RAM ve işlemci donanımları, günümüz mimarilerine kıyasla oldukça sınırlı kapasiteye sahipti. O dönemin donanımlarıyla işlemleri gerçekleştirebilmek için bellek kullanımının çok iyi planlanması gerekiyordu; veri türleri de tam bu noktada etkin bir bellek yönetimi sağlıyordu. Ayrıca işlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir birim olduğu için bellekte tutulan verinin boyutu sistem performansını doğrudan etkiler. Veri boyutu ne kadar büyükse (daha fazla bayt), veri yollarında o kadar çok bilgi taşınır ve işlemcinin bu veriyi işlemesi o kadar uzun sürer. #text(weight: "semibold")[Özetle; büyük veri türleri hem RAM’de daha fazla yer kaplar hem de işlemciyi daha fazla meşgul eder.]
-#image("02_Files/ram_islemci_iliskisi.jpg")
+=== Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
+Bellek yönetimi, verilerin RAM'de gereksiz yer kaplamasını önlemek için her veriye yalnızca ihtiyacı kadar alan ayrılmasıdır. Veri türleri, bu alan planlamasını yaparak etkin bir bellek yönetimi sağlar. İşlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir donanım birimi olduğu için bu yönetim sistem performansını doğrudan belirler. İhtiyaçtan büyük seçilen her veri türü, RAM ile işlemci arasındaki veri yollarında gereksiz bilgi trafiği yaratır ve işlem süresini uzatır. Doğru bellek yönetimi ise taşınan veri boyutunu küçülterek işlemcinin veriyi çok daha hızlı okuyup işlemesini sağlar. #text(weight: "semibold")[Özetle; doğru veri türüyle yapılan bellek yönetimi hem RAM’de tasarruf sağlar hem de işlemcinin hızını artırır.]
 
-=== Karakterden Metne
-Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden fazla karakterden oluşan bir kelimeyi veya metni bellekte tutmak istediğimizde altta ki formül ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
+#image("02_Files/ChatGpt Bellek Yönetimi ve CPU Performansı.png")
+#image("02_Files/Gemini_Bellek Yönetimi ve CPU Performansı.jpg")
 
-#align(left)[
-#text(size: 11pt, weight: "regular")[
+=== Karakterden Metne (Karakter Dizisi)
+Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sadece bir karakteri tutabilir. Birden fazla karakterden oluşan bir kelimeyi veya metni bellekte saklamak istediğimizde ise tekil karakterler yan yana getirilerek bir *karakter dizisi* oluşturulur. Programlamada aynı türdeki verilerin bellekte peş peşe sıralanarak tek bir grup halinde tutulmasına *dizi (array)* adı verilir. Metinler de aslında karakterlerin yan yana dizildiği birer dizidir; bu nedenle aşağıdaki yapı ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
+
+#text(size: 11pt, weight: "semibold")[
   #not_block(title: "", width: auto)[
       Toplam Bellek Alanı = Karakter Sayısı x 1 Byte
   ]
 ]
-]
 
-#v(1em)
-#align(center)[*Ada Lovelace metni Girildiğinde RAM üzerinde nasıl saklanır?*]
+#align(center)[*KEMAL* Metni RAM üzerinde nasıl saklanır?]
+#ram-goster(
+  "char",
+  "char isim[5] = {'K', 'E', 'M', 'A', 'L'};",
+  "01001011 01000101 01001101 01000001 01001100",
+  aciklama: "Her bir harf ASCII karşılığı ile bellekte 1 byte yer kaplar (K:75, E:69, M:77, A:65, L:76). Toplam 5 karakter = 5 byte.",
+)
+
+#align(center)[*Ada Lovelace* Metni RAM üzerinde nasıl saklanır?]
 #ram-goster(
   "char",
   "char tam_isim[12] = {'A', 'd', 'a', ' ', 'L', 'o', 'v', 'e', 'l', 'a', 'c', 'e'};",
@@ -895,7 +907,7 @@ Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden faz
 #include "02_Files/infografik/ram_islemci_iliskisi.typ"
 
 === Tür Dönüşümü (Type Conversion / Type Casting)
-Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine tür dönüşümü denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
+Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
 
 ==== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
 Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk olarak karakter dizisi (metin / string) biçiminde ulaşır.
@@ -948,7 +960,46 @@ puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
     ```
 ]
 
-Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda int() fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
+Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *int()* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
+
+#block(breakable: false)[
+  #grid(
+    columns: (30em, auto),
+    gutter: 10pt,
+    align: (horizon),
+    [  
+      #kod-blok[
+    ```Python
+# Kullanıcı girişleri metin olarak alınır
+birinci_sayi = input("Birinci Sayıyı Girin: ")
+ikinci_sayi = input("İkinci Sayıyı Girin: ")
+ucuncu_sayi = input("Üçüncü Sayıyı Girin: ")
+
+# Girilen 3 değişken float türüne dönüştürülür
+birinci_sayi = float(birinci_sayi)
+ikinci_sayi = float(ikinci_sayi)
+ucuncu_sayi = float(ucuncu_sayi)
+
+bolum = (birinci_sayi + ikinci_sayi) / ucuncu_sayi
+print("Bölüm:", bolum)
+    ```
+]
+    ],
+    [
+      #par(leading: 0.6em)[
+      #text(size: 10pt)[
+      *Örnek Python Kodu :* 
+      Kullanıcı girişlerinin *metin türünden float* tipine dönüşümü yapılır.
+      ]]
+      #output-box(title: "Python Ekran Çıktısı")[
+Birinci Sayıyı Girin: 1.2\
+İkinci Sayıyı Girin: 1.8\
+Üçüncü Sayıyı Girin: 2.5\
+Bölüm: 1.2
+]
+    ]
+  )
+]
 
 ==== Hesaplamalarda Tür Dönüşümü (int $<-->$ float)
 Tür dönüşümü yalnızca kullanıcı girişlerinde değil; tam sayılar (*int*) ile ondalıklı sayılar (*float*) arasındaki matematiksel işlemlerde de sıkça kullanılır. Bu dönüşüm iki şekilde gerçekleşir:
@@ -991,7 +1042,7 @@ print(toplam_tutar) # Çıktı: 12.5
 ===== Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
-*Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):*\
+====== Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):
 Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
 
 #kod-blok()[
@@ -1003,7 +1054,7 @@ print(ondalikli_puan)  # Çıktı: 100.0
   ```
 ]
 
-*Ondalık Kısmı Atmak İçin (float $-->$ int):*\
+====== Ondalık Kısmı Atmak İçin (float $-->$ int):
 Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
 #kod-blok()[
   ```Python
@@ -1017,15 +1068,11 @@ print(tam_not)  # Çıktı: 85
 == Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
 
-*Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
-
-*Başlangıç Kriteri:* Bir değişken ismi kesinlikle bir rakam ile başlayamaz. İsimler ya alfabetik bir karakterle ya da alt çizgi (*\_*) işaretiyle başlamak zorundadır. Örneğin #text(weight: "semibold", red)[3etap_skor] hatalı bir söz dizimi iken, *etap_skor_3* veya *\_etap3* kurallara uygundur.
-
-*Büyük-Küçük Harf Duyarlılığı (Case-Sensitivity):* Python dili, büyük ve küçük harfleri farklı karakterler olarak değerlendirir. Bu nedenle aynı harflerden oluşsa bile yazımında büyük-küçük harf farkı bulunan kelimeler, bellekte tutulan verilere erişmek için kullanılan farklı değişken adları olarak kabul edilir. Örneğin *asistan_adi*, *Asistan_Adi* ve *ASISTAN_ADI* ifadeleri Python yorumlayıcısı tarafından birbirinden bağımsız üç farklı değişken adı olarak değerlendirilir.
-
-*Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
-
-*Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
+- *Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
+- *Başlangıç Kriteri:* Bir değişken ismi kesinlikle bir rakam ile başlayamaz. İsimler ya alfabetik bir karakterle ya da alt çizgi (*\_*) işaretiyle başlamak zorundadır. Örneğin #text(weight: "semibold", red)[3etap_skor] hatalı bir söz dizimi iken, *etap_skor_3* veya *\_etap3* kurallara uygundur.
+- *Büyük-Küçük Harf Duyarlılığı (Case-Sensitivity):* Python dili, büyük ve küçük harfleri farklı karakterler olarak değerlendirir. Bu nedenle aynı harflerden oluşsa bile yazımında büyük-küçük harf farkı bulunan kelimeler, bellekte tutulan verilere erişmek için kullanılan farklı değişken adları olarak kabul edilir.\ Örneğin *asistan_adi*, *Asistan_Adi* ve *ASISTAN_ADI* ifadeleri Python yorumlayıcısı tarafından birbirinden bağımsız üç farklı değişken adı olarak değerlendirilir.
+- *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
+- *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
 #align(center)[
   #block(breakable: false, width: 100%)[
@@ -1061,14 +1108,14 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
           align: (left + horizon, center + horizon, left + horizon),
           rows: (2.5em, 2em),
           table.header([*Hatalı Kullanım*], [*Dönüşüm*], [*Doğru Kullanım*]),
-          [`doğumTarihi`],  [$-->$], [`dogumTarihi`],
-          [`ürünFiyatı`],    [$-->$], [`urunFiyati`],
-          [`şubeKodu`],      [$-->$], [`subeKodu`],
-          [`kayıtDurumu`],   [$-->$], [`kayitDurumu`],
-          [`şifresi`],       [$-->$], [`sifresi`],
-          [`öğrenci_yaşı`],  [$-->$], [`ogrenci_yasi`],
-          [`ücret_miktarı`], [$-->$], [`ucret_miktari`],
-          [`ilk_değer`],     [$-->$], [`ilk_deger`],
+          [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
+          [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
+          [`şubeKodu`],      [$-->$], [*`subeKodu`*],
+          [`kayıtDurumu`],   [$-->$], [*`kayitDurumu`*],
+          [`şifresi`],       [$-->$], [*`sifresi`*],
+          [`öğrenci_yaşı`],  [$-->$], [*`ogrenci_yasi`*],
+          [`ücret_miktarı`], [$-->$], [*`ucret_miktari`*],
+          [`ilk_değer`],     [$-->$], [*`ilk_deger`*],
         )
       ]
     )
@@ -1077,12 +1124,12 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 
 === Değişken Adlandırma Standartları (Notasyonlar)
 ==== Yılan Gösterimi (snake_case)
-Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin kullanici_giris_tarihi, asistan_bellek_kapasitesi vb.) kurumsal olarak tavsiye edilir.
+Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin *kullanici_giris_tarihi, asistan_bellek_kapasitesi* vb.) kurumsal olarak tavsiye edilir.
 
 
 ==== Camel Case (Deve Notasyonu) Kuralı
 Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
-*Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
+İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
 #align(center)[
   #v(1em)
@@ -1092,7 +1139,7 @@ Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**
     fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
     stroke: 0.5pt + rgb("#cbd5e1"),
     align: (center + horizon, center + horizon, center + horizon),
-    rows: (2.5em, 2em),
+    rows: (2.5em, 2.25em),
     table.header([*Yanlış / Zor Okunan Biçim*], [*snake_case (Python)*], [*camelCase*]),
     
     text(fill: rgb("#dc2626"))[`personelsayisi`],
@@ -1106,13 +1153,29 @@ Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**
     text(fill: rgb("#dc2626"))[`ogrencinotortalamasi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`ogrenci_not_ortalamasi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`ogrenciNotOrtalamasi`],
+
+    text(fill: rgb("#dc2626"))[`toplamfiyat`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`toplam_fiyat`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`toplamFiyat`],
+
+    text(fill: rgb("#dc2626"))[`kullaniciadi`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`kullanici_adi`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`kullaniciAdi`],
+
+    text(fill: rgb("#dc2626"))[`maksimumhizsiniri`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`maksimum_hiz_siniri`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`maksimumHizSiniri`],
+
+    text(fill: rgb("#dc2626"))[`sonodemetarihi`],
+    text(fill: rgb("#2563eb"), weight: "bold")[`son_odeme_tarihi`],
+    text(fill: rgb("#16a34a"), weight: "bold")[`sonOdemeTarihi`],
   )
 ]
-
+#pagebreak()
 ==== Sabitler
-Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (constant) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
+Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (*constant*) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
 
-#kod-blok()[
+#kod-blok(width: 100%)[
 ```Python
 # Doğru Sabit Kullanım Standardı (BÜYÜK HARF)
 PI_SAYISI = 3.14159
@@ -1124,19 +1187,107 @@ GELISTIRICI_MODU_ACIK = True
 ```
 ]
 
-
-==== Açıklama Satırı (Comment line)
+== Açıklama Satırı (Comment line)
 Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıların kendileri için veya diğer yazılımcılar için bıraktığı notlara açıklama satarı (comment line) denir. Python'da iki tür açıklama satırı uygulaması vardır.
-+ \# ile başlayan tek satırlık açıklama satırı
-+ \"\"\"...\"\"\" Çok satırlı açıklama satırları üç adet tırnak ile açılan ve yine üç adet tırnak ile kapanan alan içine yazılan açıklama ifadeleri ile yapılır.
+- *\#* ile başlayan tek satırlık açıklama satırı
+- *\"\"\"...\"\"\"* Çok satırlı açıklama satırları üç adet tırnak ile açılan ve yine üç adet tırnak ile kapanan alan içine yazılan açıklama ifadeleri ile yapılır.
 
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+    align: top,
+    [
+      *Açıklamasız*
+      #kod-blok(width: 100%)[
+        ```Python
+a = 50
+b = 20
+c = a * b / 100
+print(c)
+```
+      ]
+    ],
+    [
+      *Açıklamalı*
+      #kod-blok(width: 100%)[
+        ```Python
+# Ürünün fiyatı
+a = 50
+# İndirim oranı (%)
+b = 20
+# İndirim miktarı
+c = a * b / 100
+print(c)
+```
+      ]
+    ]
+  )
+]
+
+
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 0pt,
+    align: top,
+    [
+        *Açıklama Satırının Kullanım Amaçları*
+      #text(size:8pt)[
+
+#kod-blok(width: 95%)[
+  ```Python
+# 1) Kodu açıklamak için
+yas = 17  # öğrencinin yaşı
+
+# 2) Kodu geçici olarak devre dışı bırakmak için
+print("Merhaba")
+# print("Bu satır çalışmaz")
+
+# 3) Yapılacakları not etmek için
+# TODO: Kullanıcıdan yaş bilgisi alınacak
+```
+      ]
+      
+]
+    ],
+    [
+      *Çok Satırlı Açıklama ile Program Başlığı*
+      #text(size:8pt)[
+
+#kod-blok(width: 100%)[
+  ```Python
+"""
+Program : Daire Alanı Hesaplama
+Yazar   : Ahmet Tuna POTUR
+Tarih   : 01.11.2026
+Açıklama: Yarıçapı verilen dairenin alanını hesaplar.
+"""
+pi = 3.14        # pi sayısı (yaklaşık değer)
+r = 5            # yarıçap
+alan = pi * r * r
+print(alan)      # Ekrana 78.5 yazar
+```
+
+      ]
+]
+
+    ]
+  )
+]
+
+#text(size: 9.25pt)[
+#not_block(title: "Dikkat: ")[
+  Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır. Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
+]]
+
+
+#text(size: 8pt)[
 #kod-blok(width: 100%)[
         ```Python
 # Bu tam satırlık açıklama
 x = 10  # satır içi (inline) açıklama
 ```]
-
-      #v(5pt)
 
 #block(breakable: false)[
   #grid(
@@ -1147,7 +1298,6 @@ x = 10  # satır içi (inline) açıklama
 #kod-blok(width: 100%)[
   ```Python
 # Bu fonksiyon iki sayıyı toplar,
-# ardından sonucu ekrana yazdırır
 # ve geriye döndürür.
 def topla(a, b):
     return a + b
@@ -1159,9 +1309,8 @@ def topla(a, b):
       #kod-blok(width: 100%)[
         ```Python
 """
-Bu teknik olarak bir string değişmezidir,
-ancak bir değişkene atanmadığı için
-yorum bloğu gibi davranır.
+Bu teknik olarak bir string değişmezidir, ancak bir 
+değişkene atanmadığı için yorum bloğu gibi davranır.
 """
 print("Kod çalışıyor")
 ```  
@@ -1170,8 +1319,9 @@ print("Kod çalışıyor")
     ]
   )
 ]
+]
 
-=== Python Dili
+== Python Dili
 *Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
 
 Python, sade söz dizimi ve yüksek okunabilirliği sayesinde web geliştirmeden veri analizine, robotik kontrolden yapay zekâ sistemlerine kadar çok geniş bir alanda tercih edilir. Sunduğu bu esneklik ve zengin kütüphane desteği nedeniyle Python; küresel yazılım dünyasında olduğu gibi Türkiye’deki teknoloji girişimlerinde, akıllı otomasyon sistemlerinde ve Ar-Ge projelerinde de yaygın olarak kullanılmaktadır.
