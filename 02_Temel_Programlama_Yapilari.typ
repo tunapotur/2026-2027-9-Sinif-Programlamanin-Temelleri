@@ -718,28 +718,39 @@ Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst ü
   )
 ]
 
-#ram-goster(
+#block(breakable: false)[
+  #grid(
+    columns: (auto, auto),
+    gutter: 5pt,
+    align: (horizon),
+    [
+      #ram-goster(
   "bool",
   "bool kapiAcik = true;",
   "00000001",
   aciklama: "true değeri 1, olarak saklanır.",
 )
-
-#ram-goster(
+    ],
+    [
+      #ram-goster(
   "bool",
   "bool sinavGecti = false;",
   "00000000",
   aciklama: "false değeri 0 olarak saklanır.",
 )
+    ]
+  )
+]
 
 #not_block(title: "")[Aslında doğru/yanlış bilgisi tek bir bit ile saklanabilir; ancak RAM’e ulaşım bayt bayt yapıldığı için bilgisayar bool için de 1 tam bayt ayırır.
 ]
 
 === Karakter (char)
 - RAM’de 1 bayt yer kaplar.
-- Tek bir karakter tutar: harf, rakam karakteri, noktalama işareti. Tek tırnak içinde yazılır: 'A'.
+- Tek bir karakter tutar: harf, rakam karakteri, noktalama işareti. 
+- Tek tırnak içinde yazılır: 'A'.
 - Bilgisayar karakterleri ASCII tablosundaki sayı karşılığı ile saklar (örneğin 'A' karakteri 65). 
-- 1 bayt,ASCII tablosundaki 256 karakter için yeterlidir.
+- 1 bayt (`8bit` $=2^16=256$), ASCII tablosundaki 256 karakter için yeterlidir.
 - Karakterler metin için kullanılır, matematiksel işlemlere girmez. '5' karakteri ile 5 sayısı aynı şey değildir.
 
 #kod-blok(width: 100%)[
@@ -749,26 +760,44 @@ char rakamKarakteri = '5'; // bu bir sayı değil, karakterdir
   ```
 ]
 
-#ram-goster(
+#block(breakable: false)[
+  #grid(
+    columns: (auto, auto),
+    gutter: 5pt,
+    align: (horizon),
+    [
+      #ram-goster(
   "char",
   "char harf = 'A';",
   "01000001",
   aciklama: "'A' karakterinin ASCII kodu 65'tir.",
 )
-
-#ram-goster(
+      ],
+    [
+      #ram-goster(
   "char",
   "char karakter = '5';",
   "00110101",
-  aciklama: "'5' karakterinin ASCII kodu 53'tür (Sayısal 5 değeri değildir). Bellekte 1 byte kaplar.",
+  aciklama: "'5' karakterinin ASCII kodu 53'tür Bellekte 1 byte kaplar.",
 )
+      ]
+  )
+]
 
+#pagebreak()
 === Tam Sayı (int)
-- RAM’de 2 bayt (16 bit) yer kaplar.
-- $16$ bit ile $2^16=65536$ farklı değer saklanabilir. Negatif sayılar da dahil olduğu için aralık: $−32768$ ile $+32767$ arasındadır.
-- Virgüllü kısmı yoktur; yalnızca tam sayıları tutar.
-- Toplama, çıkarma, çarpma, bölme ve mod (kalan) işlemlerinde kullanılır.
-
+#block(breakable: false)[
+  #grid(
+    columns: (23em, auto),
+    gutter: 5pt,
+    align: (horizon),
+    [
+- RAM’de *2 bayt* (16 bit) yer kaplar.
+- $16$ bit ile $2^16=65536$ farklı değer saklanabilir.
+- Yalnızca tam sayıları tutar.
+- Toplama, çıkarma, çarpma, bölme ve mod(kalan) işlemlerinde kullanılır.
+      ],
+    [
 #kod-blok(width: 100%)[
     ```cpp
 int a = 7;
@@ -776,6 +805,9 @@ int b = 2;
 int sonuc = a / b; // sonuc = 3 (3.5 değil!)
 int kalan = a % b; // kalan = 1
   ```
+]
+      ]
+  )
 ]
 
 #ram-goster(
@@ -785,18 +817,42 @@ int kalan = a % b; // kalan = 1
   aciklama: "50 = 32 + 16 + 2 olduğu için son byte 00110010 olur. İlk byte'ın tamamı 0'dır.",
 )
 
+#ram-goster(
+  "int",
+  "int sayi = 12377;",
+  "00110000 01011001",
+  aciklama: "12377 = 8192 + 4096 + 64 + 16 + 8 + 1 olduğu için ilk byte 00110000 (12288), son byte ise 01011001 (89) olur.",
+)
+
+
 === Ondalıklı Sayı (float)
-- RAM’de 4 bayt (32 bit) yer kaplar; yani int’ten 2 kat fazla alan ister.
-- Virgüllü sayıları tutar. Yazılımlar bu sayıyı virgülden önceki ve virgülden sonraki kısım olarak ayrı ayrı değerlendirir. Kodda nokta ile yazılır: $3.14$.
+#block(breakable: false)[
+  #grid(
+    columns: (auto, 16em),
+    gutter: 10pt,
+    align: (top),
+    [
+- RAM’de *4 bayt (`32 bit`)* yer kaplar; yani int’ten 2 kat fazla alan ister.
+- Virgüllü sayıları tutar. Kodda nokta ile yazılır: $3.14$.
+- Yazılımlar bu sayıyı virgülden önceki ve virgülden sonraki kısım olarak ayrı ayrı değerlendirir.
 - Çok daha geniş bir aralıkta ve küsuratlı değerler için kullanılabilir.
 - Tüm matematiksel işlemlerde kullanılabilir. Bölmenin sonucu da küsuratlı çıkar.
-
-#kod-blok(width: 100%)[
+      ],
+    [
+      #kod-blok(width: 100%)[
   ```cpp
 float a = 7;
 float b = 2;
-float sonuc = a / b; // sonuc = 3.5
+float sonuc = a / b; 
+// sonuc = 3.5
+float pi = 3.14;
+float alan = pi * b * b;
+// alan = 12.56
   ```
+]
+
+      ]
+  )
 ]
 
 #ram-goster(
