@@ -12,5 +12,6 @@
 
 #include "01_Algoritmik_Dusunme_ve_Tasarim.typ"
 #pagebreak() 
+#pagebreak() 
 #include "02_Temel_Programlama_Yapilari.typ"
 
