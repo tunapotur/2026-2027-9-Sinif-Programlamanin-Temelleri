@@ -834,7 +834,9 @@ Tek bir *char* verisi bellekte tam *1 Bayt* yer kaplar. Dolayısıyla birden faz
   aciklama: "Boşluk karakteri (' ') de bellekte 1 byte yer kaplar (ASCII: 32). Toplam 12 karakter = 12 byte.",
 )
 
-#include "02_Files/infografik/veri_turleri.typ"
+#include "02_Files/infografik/veri_turleri_1.typ"
+#include "02_Files/infografik/veri_turleri_2.typ"
+#include "02_Files/infografik/ram_islemci_iliskisi.typ"
 
 === Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine tür dönüşümü denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:

@@ -6,10 +6,10 @@
 
 // ---------- Ayarlanabilir ölçüler ----------
 #let h_baslik = 62pt
-#let h_ram = 90pt
-#let h_sira1 = 124pt   // bool + char
+#let h_ram = 86pt
+#let h_sira1 = 130pt   // bool + char
 #let h_sira2 = 180pt   // int + float
-#let h_metin = 96pt    // Karakterden metne
+#let h_metin = 90pt    // Karakterden metne
 #let h_islemci = 130pt // RAM-işlemci + int/float
 #let bosluk = 5pt
 
@@ -21,6 +21,32 @@
 #let r_float = rgb("#ea580c")
 #let mavi = (main: rgb("#1f6fb2"), light: rgb("#e3eefb"), border: rgb("#8db4de"))
 #let mono = "DejaVu Sans Mono"
+
+// ---------- Ders notu şablonundan: kod-satiri ----------
+#let kod-satiri(kod, no: none, size: 10pt, weight: "regular", width: auto) = {
+  // Yazı boyutu ve kalınlığını bloğa uygula
+  set text(size: size, weight: weight)
+
+  // Satır numaralandırma kuralı
+  show raw.line: it => {
+    if no != none and no != 0 {
+      box(width: 2.2em, align(right, text(fill: luma(120), weight: "regular", str(no))))
+      h(1em)
+    }
+    it.body
+  }
+
+  // Tek satırlık blok görünümü
+  show raw.where(block: true): set block(
+    fill: rgb("#f6f8fa"),
+    inset: (x: 10pt, y: 7pt),
+    radius: 4pt,
+    stroke: 0.5pt + rgb("#d0d7de"),
+    width: width,
+  )
+
+  kod
+}
 
 // ---------- Yardımcılar ----------
 #let bayt_kareleri(n, renk) = {
@@ -53,7 +79,7 @@
     #set par(leading: 0.5em)
     #list(..maddeler)
     #v(3pt)
-    #block(width: 100%, fill: luma(246), radius: 3pt, inset: (x: 7pt, y: 4pt), text(font: mono, size: 8.6pt, kod))
+    #kod-satiri(raw(kod, lang: "cpp", block: true), no: 0, size: 8.6pt, width: 100%)
     #v(3pt)
     #for (i, bt) in bitler.split(" ").enumerate() {
       bitsatiri(str(i + 1) + ". bayt", bt, renk)
@@ -72,25 +98,25 @@
 
 // ---------- RAM ÇUBUĞU (başlık sağı) ----------
 #let ram_cubuk = {
-  let w = 100pt
+  let w = 150pt
   let renkler = (r_bool, r_char, r_int, r_float)
   let boyutlar = ("1", "1", "2", "4")
   stack(
     dir: ttb, spacing: 0pt,
-    block(width: w, height: 30pt, fill: rgb("#2f8f68"), stroke: 1pt + rgb("#9be8c4"), radius: (top: 3pt), inset: 0pt)[
+    block(width: w, height: 32pt, fill: rgb("#2f8f68"), stroke: 1pt + rgb("#9be8c4"), radius: (top: 3pt), inset: 0pt)[
       #for i in range(4) {
-        place(top + left, dx: 5pt + i * 23.5pt, dy: 7pt,
-          rect(width: 19pt, height: 16pt, radius: 2pt, fill: renkler.at(i), stroke: 0.8pt + white,
-            align(center + horizon, text(font: mono, size: 8pt, weight: "bold", fill: white, boyutlar.at(i)))))
+        place(top + left, dx: 7pt + i * 36pt, dy: 7pt,
+          rect(width: 28pt, height: 18pt, radius: 2pt, fill: renkler.at(i), stroke: 0.8pt + white, inset: 0pt,
+            align(center + horizon, text(font: mono, size: 8.6pt, weight: "bold", fill: white, boyutlar.at(i)))))
       }
     ],
     block(width: w, height: 5pt, inset: 0pt)[
-      #for i in range(17) {
-        if i != 8 { place(top + left, dx: 2pt + i * 5.8pt, rect(width: 3.4pt, height: 5pt, fill: rgb("#e8b84a"), stroke: none)) }
+      #for i in range(23) {
+        if i != 11 { place(top + left, dx: 4pt + i * 6.2pt, rect(width: 3.6pt, height: 5pt, fill: rgb("#e8b84a"), stroke: none)) }
       }
     ],
     v(5pt),
-    align(center, text(size: 6.4pt, fill: rgb("#d6e4f7"))[bool · char · int · float \ (bayt cinsinden boyut)]),
+    align(center, text(size: 6.6pt, fill: rgb("#d6e4f7"))[bool · char · int · float \ (bayt cinsinden boyut)]),
   )
 }
 
@@ -100,12 +126,12 @@
 // ---------- BAŞLIK ----------
 #block(width: 100%, height: h_baslik, fill: navy, radius: 8pt, inset: (x: 14pt, y: 9pt))[
   #grid(
-    columns: (1fr, 100pt), gutter: 14pt, align: horizon,
+    columns: (1fr, 150pt), gutter: 14pt, align: horizon,
     [
       #set par(leading: 0.9em)
       #text(fill: white, weight: "bold", size: 18pt)[Veri Türleri ve RAM Kullanımı] \
       #v(3pt)
-      #text(fill: rgb("#d6e4f7"), size: 8.2pt)[Programlar verileri RAM'de bayt kutularında saklar. Verinin türü, \ kaç bayt yer ayrılacağını ve hangi işlemlerin yapılabileceğini belirler.]
+      #text(fill: rgb("#d6e4f7"), size: 8.4pt)[Programlar verileri RAM'de bayt kutularında saklar. Verinin türü, kaç \ bayt yer ayrılacağını ve hangi işlemlerin yapılabileceğini belirler.]
     ],
     ram_cubuk,
   )
@@ -174,7 +200,7 @@
   columns: (1fr, 1fr), gutter: 8pt,
   tur_karti("int", 2, r_int, h_sira2,
     ([2#super[16] = 65536 değer: −32768 … +32767], [Yalnızca tam sayı: 7 / 2 = 3, 7 % 2 = 1], [Toplama, çıkarma, çarpma, bölme, mod]),
-    "int puan = 50;\nint sonuc = 7 / 2;  // 3 (3.5 değil!)", "00000000 00110010",
+    "int puan = 50;", "00000000 00110010",
     [50 = 32 + 16 + 2 olduğu için son bayt 00110010 olur; ilk baytın tamamı 0'dır.]),
   tur_karti("float", 4, r_float, h_sira2,
     ([Virgüllü sayılar: 3.14 (kodda nokta ile)], [int'in 2 katı yer; 7 / 2 = 3.5 (küsuratlı)], [Çok daha geniş aralık, IEEE 754 biçimi]),
