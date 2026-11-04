@@ -1316,6 +1316,7 @@ print("Kod çalışıyor")
 ]
 
 #include "02_Files/operatorler.typ"
+#include "02_Files/fonksiyonlar_input_print.typ"
 
 == Python Dili
 *Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
