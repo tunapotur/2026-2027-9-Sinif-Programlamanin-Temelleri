@@ -907,7 +907,7 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
 #include "02_Files/infografik/ram_islemci_iliskisi.typ"
 
 == Tür Dönüşümü (Type Conversion / Type Casting)
-Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
+Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir.
 
 === Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
 Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk olarak karakter dizisi (metin / string) biçiminde ulaşır.
@@ -1003,10 +1003,7 @@ Bölüm: 1.2
   )
 ]
 
-=== Hesaplamalarda Tür Dönüşümü (int $<-->$ float)
-Tür dönüşümü yalnızca kullanıcı girişlerinde değil; tam sayılar (*int*) ile ondalıklı sayılar (*float*) arasındaki matematiksel işlemlerde de sıkça kullanılır. Bu dönüşüm iki şekilde gerçekleşir:
-
-==== Otomatik (Örtük / Implicit) Dönüşüm:
+=== Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 
   #text(size: 12pt, weight: "semibold")[
@@ -1041,10 +1038,10 @@ print(toplam_tutar) # Çıktı: 12.5
 ]
 
 
-==== Bilinçli (Açık / Explicit) Dönüşüm:
+=== Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
-===== Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):
+==== Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):
 Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
 
 #kod-blok()[
@@ -1056,7 +1053,7 @@ print(ondalikli_puan)  # Çıktı: 100.0
   ```
 ]
 
-===== Ondalık Kısmı Atmak İçin (float $-->$ int):
+==== Ondalık Kısmı Atmak İçin (float $-->$ int):
 Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
 #kod-blok()[
   ```Python
@@ -1317,6 +1314,8 @@ print("Kod çalışıyor")
   )
 ]
 ]
+
+#include "02_Files/operatorler.typ"
 
 == Python Dili
 *Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
