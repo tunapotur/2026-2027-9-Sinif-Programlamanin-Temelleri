@@ -871,13 +871,13 @@ float alan = pi * b * b; // => 12.56
   \ float her işlemde kullanılabilir; ancak hem daha fazla RAM kaplar hem de işlemciyi daha çok yorar. Bu yüzden *gerekmedikçe* *int* yerine *float* kullanılmamalıdır. Küsurat gerekiyorsa (ortalama, not, fiiyat, sıcaklık gibi) float tercih edilir.
 ]
 
-=== Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
+== Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
 Bellek yönetimi, verilerin RAM'de gereksiz yer kaplamasını önlemek için her veriye yalnızca ihtiyacı kadar alan ayrılmasıdır. Veri türleri, bu alan planlamasını yaparak etkin bir bellek yönetimi sağlar. İşlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir donanım birimi olduğu için bu yönetim sistem performansını doğrudan belirler. İhtiyaçtan büyük seçilen her veri türü, RAM ile işlemci arasındaki veri yollarında gereksiz bilgi trafiği yaratır ve işlem süresini uzatır. Doğru bellek yönetimi ise taşınan veri boyutunu küçülterek işlemcinin veriyi çok daha hızlı okuyup işlemesini sağlar. #text(weight: "semibold")[Özetle; doğru veri türüyle yapılan bellek yönetimi hem RAM’de tasarruf sağlar hem de işlemcinin hızını artırır.]
 
 #image("02_Files/ChatGpt Bellek Yönetimi ve CPU Performansı.png")
 #image("02_Files/Gemini_Bellek Yönetimi ve CPU Performansı.jpg")
 
-=== Karakterden Metne (Karakter Dizisi)
+== Karakterden Metne (Karakter Dizisi)
 Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sadece bir karakteri tutabilir. Birden fazla karakterden oluşan bir kelimeyi veya metni bellekte saklamak istediğimizde ise tekil karakterler yan yana getirilerek bir *karakter dizisi* oluşturulur. Programlamada aynı türdeki verilerin bellekte peş peşe sıralanarak tek bir grup halinde tutulmasına *dizi (array)* adı verilir. Metinler de aslında karakterlerin yan yana dizildiği birer dizidir; bu nedenle aşağıdaki yapı ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
 
 #text(size: 11pt, weight: "semibold")[
@@ -906,10 +906,10 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
 #include "02_Files/infografik/veri_turleri_2.typ"
 #include "02_Files/infografik/ram_islemci_iliskisi.typ"
 
-=== Tür Dönüşümü (Type Conversion / Type Casting)
+== Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir. Tür dönüşümü programlamada iki temel senaryoda zorunlu hale gelir:
 
-==== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
+=== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
 Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk olarak karakter dizisi (metin / string) biçiminde ulaşır.
 
 - Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
@@ -922,8 +922,10 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
     gutter: 10pt,
      align: (horizon),
     [
+      #text(size:9pt)[
       *Örnek Python Kodu*
-      Kullanıcıdan alınan tam sayı değerine 25 ekleyerek sonucu ekrana yazdıran kod örneği
+      Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
+      ]
       #kod-blok[
           ```Python
           puan = int(input("Puan Giriniz: "))
@@ -935,7 +937,7 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
     ],
     [
       #output-box(title: "Python Ekran Çıktısı")[
-        #v(1em)
+        
 Puan Giriniz: 50 \
 Puanı: 50 \
 Güncellenmiş Puan: 75
@@ -1001,10 +1003,10 @@ Bölüm: 1.2
   )
 ]
 
-==== Hesaplamalarda Tür Dönüşümü (int $<-->$ float)
+=== Hesaplamalarda Tür Dönüşümü (int $<-->$ float)
 Tür dönüşümü yalnızca kullanıcı girişlerinde değil; tam sayılar (*int*) ile ondalıklı sayılar (*float*) arasındaki matematiksel işlemlerde de sıkça kullanılır. Bu dönüşüm iki şekilde gerçekleşir:
 
-===== Otomatik (Örtük / Implicit) Dönüşüm:
+==== Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 
   #text(size: 12pt, weight: "semibold")[
@@ -1039,10 +1041,10 @@ print(toplam_tutar) # Çıktı: 12.5
 ]
 
 
-===== Bilinçli (Açık / Explicit) Dönüşüm:
+==== Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
-====== Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):
+===== Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):
 Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
 
 #kod-blok()[
@@ -1054,7 +1056,7 @@ print(ondalikli_puan)  # Çıktı: 100.0
   ```
 ]
 
-====== Ondalık Kısmı Atmak İçin (float $-->$ int):
+===== Ondalık Kısmı Atmak İçin (float $-->$ int):
 Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
 #kod-blok()[
   ```Python
@@ -1081,7 +1083,6 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
       gutter: 14pt,
       align: (top, top),
       [
-        #v(1em)
         *Türkçe Karakterlerin İngilizce Karşılıkları*
         #table(
           columns: (auto, auto, auto),
@@ -1090,16 +1091,15 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
           align: (center + horizon, center + horizon, center + horizon),
           rows: (2.5em, 2.6em),
           table.header([*Türkçe*], [*Dönüşüm*], [*İngilizce*]),
-          [ç / Ç], [#text(weight: "bold",size: 14pt)[$-->$]], [*c / C*],
-          [ğ / Ğ], [#text(weight: "bold",size: 14pt)[$-->$]], [*g / G*],
-          [ı / İ], [#text(weight: "bold",size: 14pt)[$-->$]], [*i / I*],
-          [ö / Ö], [#text(weight: "bold",size: 14pt)[$-->$]], [*o / O*],
-          [ş / Ş], [#text(weight: "bold",size: 14pt)[$-->$]], [*s / S*],
-          [ü / Ü], [#text(weight: "bold",size: 14pt)[$-->$]], [*u / U*],
+          [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
+          [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
+          [ı / İ], [#text(weight: "bold",size: 12pt)[$-->$]], [*i / I*],
+          [ö / Ö], [#text(weight: "bold",size: 12pt)[$-->$]], [*o / O*],
+          [ş / Ş], [#text(weight: "bold",size: 12pt)[$-->$]], [*s / S*],
+          [ü / Ü], [#text(weight: "bold",size: 12pt)[$-->$]], [*u / U*],
         )
       ],
       [
-        #v(1em)
         *Değişken Kullanım Örnekleri*
         #table(
           columns: (auto, auto, auto),
@@ -1122,17 +1122,15 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
   ]
 ]
 
-=== Değişken Adlandırma Standartları (Notasyonlar)
-==== Yılan Gösterimi (snake_case)
+== Değişken Adlandırma Standartları (Notasyonlar)
+=== Yılan Gösterimi (snake_case)
 Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin *kullanici_giris_tarihi, asistan_bellek_kapasitesi* vb.) kurumsal olarak tavsiye edilir.
 
-
-==== Camel Case (Deve Notasyonu) Kuralı
+=== Camel Case (Deve Notasyonu) Kuralı
 Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
 #align(center)[
-  #v(1em)
   *Değişken Adlandırma Kuralları (Naming Conventions)*
   #table(
     columns: (auto, auto, auto),
@@ -1171,8 +1169,7 @@ Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**
     text(fill: rgb("#16a34a"), weight: "bold")[`sonOdemeTarihi`],
   )
 ]
-#pagebreak()
-==== Sabitler
+== Sabitler
 Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (*constant*) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
 
 #kod-blok(width: 100%)[
