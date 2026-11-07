@@ -207,7 +207,8 @@
     #chip("75", rgb("#d9f1e0"), rgb("#4aa96f"), tc: rgb("#1d6b40"))
     #align(center, text(size: 5.8pt)[(yeni değer)])
   ],
-  pad(top: 2.5 * rh - 4pt, align(center)[
+  // Ok, diğer hücrelerdeki "puan →" okuyla aynı hizada: 4098 hücresinin üst kenarı
+  pad(top: 2 * rh - 5pt, align(center)[
     #text(size: 16pt, weight: "bold", fill: c_turuncu.main)[⟷] \
     #v(-3pt)
     #text(size: 6pt)[oku / yaz]
