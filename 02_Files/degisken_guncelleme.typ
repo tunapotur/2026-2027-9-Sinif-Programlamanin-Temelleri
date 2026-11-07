@@ -8,7 +8,7 @@
 
 // ---------- Ayarlanabilir ölçüler ----------
 #let h_sira1 = 242pt   // Kart 1 ve 2
-#let h_sira2 = 264pt   // Kart 3 ve 4
+#let h_sira2 = 247pt   // Kart 3 ve 4
 #let bosluk = 8pt      // Satırlar arası boşluk
 #let rh = 20pt         // RAM hücre yüksekliği
 
@@ -157,7 +157,7 @@
     ram(c_yesil, klasik(eski_yeni), sol3, w_sol: 76pt, w_ram: 66pt, ustsol: etiket3),
   ),
   kart(4, "Değişken Türü ile Güncelleme", c_mor, h_sira2,
-    [RAM'deki sayısal alan silinir, yerine metin dizisi oluşturulur. Her harf ayrı bir bellek satırına yerleşir; *puan* ilk harfi gösterir.],
+    [RAM'deki sayısal alan silinir, yerine metin dizisi oluşturulur.],
     [puan = #sd("\"elli\"")],
     // ofs: 1 -> adresler 4097'den başlar, böylece "e" harfi yine 4098'de kalır
     ram(c_mor, metin_ram, etiket("→", satir: 1), vurgu: (1, 2, 3, 4), ofs: 1),

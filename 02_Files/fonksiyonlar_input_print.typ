@@ -28,7 +28,8 @@
 #let sema-oku = text(size: 16pt)[$->$]
 // ----------------------------------------------------------------------------------
 
-== Fonksiyonlar
+== Fonksiyonların Kullanımı
+#include "fonksiyon_anatomisi.typ"
 Matematikte $f(x) = x + 1$ gibi bir fonksiyon, kendisine verilen bir değerle işlem yapıp sonuç üretir. Programlamada da fikir aynıdır:
 
 #not_block()[Fonksiyon, belirli bir işi yapmak için hazırlanmış ve kendisine isim verilmiş kod parçasıdır. İşi her seferinde baştan yazmak yerine fonksiyonun adını yazıp çağırırız.]
