@@ -1,22 +1,9 @@
 #import "/lib/template.typ": *
+#import "/02_Files/degiskenler_bellek.typ": *
 
 // ---- Bu dosyaya özel yardımcılar (isterseniz template.typ içine taşıyabilirsiniz) ----
 
-// Projedeki tablo stiliyle (gri başlık, zebra satır) başlıklı tablo
-#let ders-tablosu(baslik, sutunlar, basliklar, hizalama: center + horizon, ..satirlar) = align(center)[
-  #block(breakable: false)[
-    *#baslik*
-    #table(
-      columns: sutunlar,
-      fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-      stroke: 0.5pt + rgb("#cbd5e1"),
-      align: hizalama,
-      inset: 6pt,
-      table.header(..basliklar.map(b => [*#b*])),
-      ..satirlar,
-    )
-  ]
-]
+
 
 // Bellekteki bir değişkeni gösteren küçük kutu (isim üstte, değer kutunun içinde)
 #let degisken-kutusu(isim, deger, renk: rgb("#2563eb")) = stack(
@@ -36,32 +23,28 @@
 // ----------------------------------------------------------------------------------
 
 == Operatörler ve İşlem Önceliği
-Programlarda verileri yalnızca saklamak yetmez; onlarla *hesap yapmak*, onları *karşılaştırmak* ve çıkan sonuçlara göre *karar vermek* gerekir. Bunların hepsini operatörler sayesinde yaparız.
+*Operatör*, bir veya birden fazla değer üzerinde *matematiksel hesaplama* yapan, değerleri *karşılaştıran* veya *mantıksal işlemler* yürüterek yeni bir sonuç üreten özel *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
 
-*Operatör*, bir veya birden fazla değer üzerinde belirli bir işlemi yaptıran özel sembol (veya kelime) demektir. Operatörün üzerinde işlem yaptığı değerlere *operand* (işlenen) denir.
-
-#kod-blok(width: 100%)[
+#v(0.5em)
+#grid(
+    columns: (auto, auto),
+    gutter: 20pt,
+    align: top,
+        [
+- #show-op[`5`] ve #show-op[`3`] → *operand* (işlenen değerler)
+- #show-op[`+`] → *operatör* (işlemi yapan sembol)
+- #show-op[`=`] → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)],
+    [#text(size:14pt, weight: "semibold")[
+      #kod-blok()[
   ```python
   sonuc = 5 + 3
   ```
 ]
-
-Bu satırda:
-- `5` ve `3` → *operand* (işlenen değerler)
-- `+` → *operatör* (işlemi yapan sembol)
-- `=` → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)
-
-Operatörler, kaç operand ile çalıştıklarına göre de ikiye ayrılır:
-
-#ders-tablosu(
-  "Operatörlerin Operand Sayısına Göre Türleri",
-  (auto, 1fr, 1fr),
-  ("Tür", "Açıklama", "Örnek"),
-  hizalama: (center + horizon, left + horizon, left + horizon),
-  [*Tek operandlı (unary)*], [Tek bir değer üzerinde çalışır.], [`-5`, `not True`],
-  [*İki operandlı (binary)*], [Solundaki ve sağındaki iki değer üzerinde çalışır.], [`4 + 2`, `7 > 3`, `a and b`],
+    ]
+      ]
 )
 
+#v(0.5em)
 Python'daki operatörleri dört ana grupta inceleyeceğiz:
 
 #ders-tablosu(
@@ -69,23 +52,21 @@ Python'daki operatörleri dört ana grupta inceleyeceğiz:
   (auto, 1fr, auto),
   ("Grup", "Ne işe yarar?", "Operatörler"),
   hizalama: (center + horizon, left + horizon, left + horizon),
-  [*Atama*], [Bir değişkene değer yerleştirir.], [`=` `+=` `-=` `*=` ...],
-  [*Aritmetik*], [Matematiksel hesap yapar.], [`+` `-` `*` `/` `//` `%` `**`],
-  [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [`==` `!=` `>` `<` `>=` `<=`],
-  [*Mantıksal*], [Koşulları birleştirir veya tersine çevirir.], [`and` `or` `not`],
+  [*Atama*], [Bir değişkene değer yerleştirir.], [#show-op(size:12pt)[`= += -= *= /= //= %= **=`]],
+  [*Aritmetik*], [Matematiksel hesap yapar.], [#show-op(size:12pt)[`+ - * / // % **`]],
+  [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [#show-op(size:12pt)[`== != > < >= <=`]],
+  [*Mantıksal*], [Koşulları birleştirir veya tersine çevirir.], [#show-op(size:12pt)[`and or not`]],
 )
 
-=== Atama Operatörü (`=`)
-Matematikte `=` "eşittir" anlamına gelir. Python'da ise `=` bir eşitlik sorusu değil, bir *emirdir*: "sağdaki değeri al, soldaki değişkene yerleştir."
+=== Atama Operatörleri
+Matematikte "eşittir" anlamına gelen #show-op[=] sembolü, programlama dillerinde atama operatörüdür; sağındaki değeri alır ve soldaki değişkene aktarır.
 
-#not_block()[Atama her zaman sağdan sola çalışır: önce sağ taraf hesaplanır, sonuç soldaki değişkene yerleştirilir.]
+#not_block(title: "Atama Her Zaman Sağdan Sola Çalışır")[
+  Eğer bir hesaplama işlemi yapılıyorsa, önce operatörün sağ tarafı hesaplanır; ardından elde edilen sonuç soldaki değişkene atanır.
+]
 
-==== İlk Atama: Değişken Oluşur
-Bir değişkene ilk kez değer atadığımızda iki şey olur:
-+ Değer için bellekte (RAM) bir yer ayrılır ve değer oraya yazılır.
-+ Değişkenin adı, bu bellek alanını gösteren bir *etiket* olur.
-
-Python'da değişkeni önceden "tanımlamak" gerekmez; ilk atama değişkeni kendiliğinden oluşturur.
+==== Atama Operatörü (#show-op[`=`]): Değişken Oluşur veya Güncellenir
+Bir değişkene ilk kez değer atadığımızda, atanan değer için bellek (RAM) üzerinde bir yer ayrılır ve değer bu alana yazılır. Değişken adı ise bu bellek alanını gösteren bir *etikettir (işaretçidir)*. Python'da ilk atama otomatik olarak yapılır ve önceden bir değişken tanımlaması gerektirmez.
 
 #kod-blok(width: 100%)[
   ```python
@@ -103,8 +84,7 @@ Henüz atama yapılmamış bir değişkeni kullanmaya çalışırsak Python hata
   ```
 ]
 
-==== Değer Güncelleme
-Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken oluşmaz; değişkenin bulunduğu bellek alanına yeni değer yazılır ve eski değer kaybolur.
+Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken oluşmaz; değişkenin bulunduğu bellek alanında ki eski değerin üzerine yeni değer yazılır ve eski değer kaybolur.
 
 #block(breakable: false)[
   #grid(
@@ -132,51 +112,31 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   )
 ]
 
-#align(center)[
-  #v(0.5em)
-  *Bellekte Değerin Güncellenmesi*
-  #v(0.5em)
-  #grid(
-    columns: (auto, auto, auto),
-    gutter: 14pt,
-    align: center + horizon,
-    stack(spacing: 6pt, text(size: 9pt)[`puan = 50`], degisken-kutusu("puan", "50")),
-    text(size: 16pt)[$->$],
-    stack(spacing: 6pt, text(size: 9pt)[`puan = 75`], degisken-kutusu("puan", "75", renk: rgb("#16a34a"))),
-  )
-]
-
 Güncelleme yaparken değişkenin kendi eski değerini de kullanabiliriz. Önce sağ taraf hesaplanır, sonra sonuç değişkene yazılır:
 
 #kod-blok(width: 100%)[
   ```python
-  sayac = 10
-  sayac = sayac + 1   # önce 10 + 1 = 11 hesaplanır, sonra sayac'a yazılır
-  print(sayac)        # 11
+  puan = 50
+  puan = puan + 25 # önce 50 + 25 = 75 hesaplanır, sonra puan'a yazılır
+  print(sayac)     # 75
   ```
 ]
 
-Değişkenin türü de güncelleme ile değişebilir; Python değişkenin türünü sabitlemez:
+Bir değişkene yeni bir değer atandığında türü de değişebilir. Python'da tür bilgisi değere bağlı olduğu için, değişken yeni atanan değerin türünü alır:
 
 #kod-blok(width: 100%)[
   ```python
-  x = 5          # int
-  x = "beş"      # artık str
-  x = 5.0        # artık float
+  puan = 50     # int
+  puan = 55.43  # artık float
+  puan = "elli" # artık str
   ```
 ]
 
-#not_block(title: "Biraz daha derin: ")[
-  Aslında Python'da `x = 5` yazdığımızda `5` değeri bellekte bir *nesne* olarak durur ve `x` bu nesneyi gösteren bir isim olur. Yeniden atama yapınca eski nesnenin içi değiştirilmez; isim *başka bir nesneye* bağlanır. Bunu bellek kimliğini veren `id()` fonksiyonu ile görebiliriz:
-  #kod-blok(width: 100%)[
-    ```python
-    x = 5
-    print(id(x))   # örneğin 140712834
-    x = 6
-    print(id(x))   # farklı bir sayı: x artık başka bir nesneyi gösteriyor
-    ```
-  ]
-  Başlangıç seviyesinde "değer güncellendi" demek yeterlidir; arka planda olan budur.
+#align(center)[
+  #v(0.5em)
+  *Bellekte Değerin Güncellenmesi*
+  #v(0.5em)
+ #include "degisken_guncelleme.typ"
 ]
 
 ==== Çoklu Atama

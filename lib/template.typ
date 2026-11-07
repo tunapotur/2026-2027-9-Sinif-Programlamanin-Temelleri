@@ -188,7 +188,7 @@
 #let kod-blok(body, width:auto) = {
   // Satır numaralandırma kuralı
   show raw.line: it => {
-    box(width: 2em, align(right, text(fill: luma(120), str(it.number))))
+    box(width: 2em, align(right, text(fill: luma(120), size: 0.85em, str(it.number))))
     h(1em)
     it.body
   }
@@ -199,7 +199,8 @@
     inset: 10pt,
     radius: 4pt,
     stroke: 0.5pt + rgb("#d0d7de"),
-    width: width
+    width: width,
+    breakable: false,
   )
 
   body
@@ -316,4 +317,25 @@
     stroke: 0.6pt + luma(215),
     stack(dir: ttb, spacing: 8pt, baslik, kod-kutusu, tablo, ..alt),
   )
+}
+
+// Projedeki tablo stiliyle (gri başlık, zebra satır) başlıklı tablo
+#let ders-tablosu(baslik, sutunlar, basliklar, hizalama: center + horizon, ..satirlar) = align(center)[
+  #block(breakable: false)[
+    #block(below: 6pt)[*#baslik*]
+    #table(
+      columns: sutunlar,
+      fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      align: hizalama,
+      inset: 6pt,
+      table.header(..basliklar.map(b => [*#b*])),
+      ..satirlar,
+    )
+  ]
+]
+
+
+#let show-op(size: 14pt, weight: "semibold", body) = {
+  text(size: size, weight: weight)[#raw(body.text)]
 }
