@@ -1,5 +1,5 @@
-#import "template.typ": *
-#import "qr_code.typ": *
+#import "lib/template.typ": *
+#import "lib/qr_code.typ": *
 
 
 = Temel Programlama Yapıları

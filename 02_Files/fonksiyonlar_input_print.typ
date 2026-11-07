@@ -1,4 +1,4 @@
-#import "/template.typ": *
+#import "/lib/template.typ": *
 
 // ---- Bu dosyaya özel yardımcılar (operatorler.typ içindekiyle aynı; template.typ'ye taşıyabilirsiniz) ----
 #let ders-tablosu(baslik, sutunlar, basliklar, hizalama: center + horizon, ..satirlar) = align(center)[

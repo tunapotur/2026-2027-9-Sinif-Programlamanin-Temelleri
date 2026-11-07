@@ -1,4 +1,4 @@
-#import "/template.typ": *
+#import "/lib/template.typ": *
 
 // ---- Bu dosyaya özel yardımcılar (isterseniz template.typ içine taşıyabilirsiniz) ----
 

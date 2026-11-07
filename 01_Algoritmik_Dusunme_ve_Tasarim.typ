@@ -1,6 +1,6 @@
-#import "template.typ": *
-#import "flowchart.typ": *
-#import "qr_code.typ": *
+#import "lib/template.typ": *
+#import "lib/flowchart.typ": *
+#import "lib/qr_code.typ": *
 
 #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
 
