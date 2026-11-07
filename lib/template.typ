@@ -320,21 +320,28 @@
 }
 
 // Projedeki tablo stiliyle (gri başlık, zebra satır) başlıklı tablo
-#let ders-tablosu(baslik, sutunlar, basliklar, hizalama: center + horizon, ..satirlar) = align(center)[
+#let ders-tablosu(
+  baslik, sutunlar, basliklar,
+  hizalama: center + horizon,
+  boyut: 10pt,          // tablo içindeki yazı boyutu
+  baslik-boyut: 10pt,   // tablo başlığının (üstteki kalın yazı) boyutu
+  ..satirlar,
+) = align(center)[
   #block(breakable: false)[
-    #block(below: 6pt)[*#baslik*]
-    #table(
-      columns: sutunlar,
-      fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-      stroke: 0.5pt + rgb("#cbd5e1"),
-      align: hizalama,
-      inset: 6pt,
-      table.header(..basliklar.map(b => [*#b*])),
-      ..satirlar,
-    )
+    #block(below: 6pt)[#text(size: baslik-boyut)[*#baslik*]]
+    #text(size: boyut)[
+      #table(
+        columns: sutunlar,
+        fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
+        stroke: 0.5pt + rgb("#cbd5e1"),
+        align: hizalama,
+        inset: 6pt,
+        table.header(..basliklar.map(b => [*#b*])),
+        ..satirlar,
+      )
+    ]
   ]
 ]
-
 
 #let show-op(size: 14pt, weight: "semibold", body) = {
   text(size: size, weight: weight)[#raw(body.text)]

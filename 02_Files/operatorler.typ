@@ -139,20 +139,12 @@ Bir değişkene yeni bir değer atandığında türü de değişebilir. Python'd
  #include "degisken_guncelleme.typ"
 ]
 
-==== Çoklu Atama
-#kod-blok(width: 100%)[
-  ```python
-  a = b = c = 0        # üçüne de 0 atanır
-  x, y = 3, 7          # x = 3, y = 7
-  x, y = y, x          # iki değişkenin değerini takas et
-  print(x, y)          # 7 3
-  ```
-]
+#pagebreak()
 
 ==== Bileşik Atama Operatörleri
-`sayac = sayac + 1` gibi "değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma" işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:
+#show-op(size: 12pt)[`sayac = sayac + 1`] gibi #text(weight: "semibold")["değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma"] işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:
 
-#ders-tablosu(
+#ders-tablosu(boyut: 12pt,
   "Bileşik Atama Operatörleri",
   (auto, auto, auto, auto),
   ("Operatör", "Kısa Yazım", "Uzun Karşılığı", [`a = 10` iken sonuç]),
@@ -197,28 +189,26 @@ Bir değişkene yeni bir değer atandığında türü de değişebilir. Python'd
   )
 ]
 
-#not_block(title: "Dikkat: ")[
-  `=` değer *atar*, `==` ise iki değeri *karşılaştırır*. Bunları karıştırmak programlamada en sık yapılan hatalardan biridir. `==` operatörünü karşılaştırma operatörleri bölümünde göreceğiz.
-]
-
 === Aritmetik Operatörler
-Aritmetik operatörler matematiksel işlemleri yaptırır. Sayılarla çalışırlar; `+` ve `*` operatörlerinin metinlerle de özel bir davranışı vardır.
+Aritmetik operatörler matematiksel işlemleri yaptırır. 
 
 #ders-tablosu(
+  boyut:11pt,
   "Python Aritmetik Operatörleri",
   (auto, auto, auto, auto, 1fr),
   ("Operatör", "Adı", "Örnek", "Sonuç", "Açıklama"),
   hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
-  [`+`], [Toplama], [`10 + 3`], [`13`], [İki sayıyı toplar.],
-  [`-`], [Çıkarma], [`10 - 3`], [`7`], [Soldakinden sağdakini çıkarır.],
-  [`*`], [Çarpma], [`10 * 3`], [`30`], [İki sayıyı çarpar.],
-  [`/`], [Bölme], [`10 / 4`], [`2.5`], [Sonuç her zaman `float` olur.],
-  [`//`], [Tam bölme], [`10 // 4`], [`2`], [Bölümün tam sayı kısmını verir (küsuratı atar).],
-  [`%`], [Mod (kalan)], [`10 % 4`], [`2`], [Bölmeden kalanı verir.],
-  [`**`], [Üs alma], [`2 ** 3`], [`8`], [Soldaki sayının sağdaki kuvvetini alır.],
+  [#show-op()[`+`]], [Toplama], [`10 + 3`], [`13`], [İki sayıyı toplar.],
+  [#show-op()[`-`]], [Çıkarma], [`10 - 3`], [`7`], [Soldakinden sağdakini çıkarır.],
+  [#show-op()[`*`]], [Çarpma], [`10 * 3`], [`30`], [İki sayıyı çarpar.],
+  [#show-op()[`/`]], [Bölme], [`10 / 4`], [`2.5`], [Sonuç her zaman `float` olur.],
+  [#show-op()[`//`]], [Tam bölme], [`10 // 4`], [`2`], [Bölümün tam sayı kısmını verir (küsuratı atar).],
+  [#show-op()[`%`]], [Mod (kalan)], [`10 % 4`], [`2`], [Bölmeden kalanı verir.],
+  [#show-op()[`**`]], [Üs alma], [`2 ** 3`], [`8`], [Soldaki sayının sağdaki kuvvetini alır.],
 )
 
-==== Dört İşlem ve Diğer Aritmetik İşlemler
+#pagebreak()
+*Dört İşlem ve Diğer Aritmetik İşlemler*
 #block(breakable: false)[
   #grid(
     columns: (22em, auto),
@@ -254,19 +244,19 @@ Aritmetik operatörler matematiksel işlemleri yaptırır. Sayılarla çalışı
   )
 ]
 
-==== Bölme (`/`): Sonuç Her Zaman float
-Tam bölünen sayılarda bile sonuç `float` türünde gelir:
+#not_block()[Tam bölünen sayılarda bile sonuç `float` türüne dönüşür]
 
 #kod-blok(width: 100%)[
   ```python
   print(10 / 4)           # 2.5
   print(10 / 5)           # 2.0   (2 değil!)
-  print(type(10 / 5))     # <class 'float'>
   ```
 ]
 
-==== Tam Bölme (`//`) ve Mod (`%`)
-Bir bölme işlemini ilkokuldaki gibi düşünün: *bölünen = bölen × bölüm + kalan*. `//` operatörü bölümü, `%` operatörü kalanı verir.
+#not_block(title:"Tam Bölme (`//`) ve Mod (`%`):")[Bir bölme işlemini ilkokuldaki gibi düşünün: \ *bölünen = bölen × bölüm + kalan*. `//` operatörü bölümü, `%` operatörü kalanı verir.]
+
+
+
 
 #kod-blok(width: 100%)[
   ```python
@@ -300,8 +290,6 @@ Mod operatörünün en sık kullanıldığı iki yer:
   ```
 ]
 
-`//` ve `%` birlikte kullanıldığında birim dönüşümleri kolaylaşır:
-
 #block(breakable: false)[
   #grid(
     columns: (26em, auto),
@@ -327,18 +315,8 @@ Mod operatörünün en sık kullanıldığı iki yer:
   )
 ]
 
-#not_block(title: "Negatif sayılarla dikkat: ")[
-  `//` operatörü sonucu sıfıra değil, *aşağıya* yuvarlar. Bu davranışı şimdilik bilmeniz yeterli; ilk aşamada pozitif sayılarla çalışacağız.
-  #kod-blok(width: 100%)[
-    ```python
-    print(7 // 2)     # 3
-    print(-7 // 2)    # -4   (-3.5'in altındaki tam sayı)
-    print(-7 % 3)     # 2
-    ```
-  ]
-]
-
-==== Üs Alma (`**`)
+#pagebreak()
+*Üs Alma (`**`)*
 #kod-blok(width: 100%)[
   ```python
   print(2 ** 3)     # 8       (2 × 2 × 2)
@@ -348,8 +326,7 @@ Mod operatörünün en sık kullanıldığı iki yer:
   ```
 ]
 
-==== Metinlerle `+` ve `*`
-`+` operatörü metinleri *birleştirir*, `*` operatörü bir metni belirtilen sayı kadar *tekrarlar*:
+#not_block(title:"Metinlerle `+` ve `*`:")[\ #show-op()[`+`] operatörü metinleri birleştirir, #show-op()[`*`] operatörü bir metni belirtilen sayı kadar tekrarlar]
 
 #block(breakable: false)[
   #grid(
@@ -383,7 +360,7 @@ Mod operatörünün en sık kullanıldığı iki yer:
   Metin ile sayı doğrudan toplanamaz. `"Yaş: " + 15` ifadesi hata verir; sayıyı önce `str()` ile metne çevirmek gerekir.
 ]
 
-==== Aritmetik Operatörlerde İşlem Önceliği
+=== Aritmetik Operatörlerde İşlem Önceliği
 Bir ifadede birden fazla operatör varsa Python işlemleri matematikteki sırayla yapar. Önceliği yüksek olan işlem önce hesaplanır.
 
 #ders-tablosu(
