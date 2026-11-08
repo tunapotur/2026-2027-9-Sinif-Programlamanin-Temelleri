@@ -325,10 +325,13 @@
   hizalama: center + horizon,
   boyut: 10pt,          // tablo içindeki yazı boyutu
   baslik-boyut: 10pt,   // tablo başlığının (üstteki kalın yazı) boyutu
+  bolunebilir: false,   // true: tablo sayfa sonunda bölünebilir
   ..satirlar,
 ) = align(center)[
-  #block(breakable: false)[
-    #block(below: 6pt)[#text(size: baslik-boyut)[*#baslik*]]
+  #block(breakable: bolunebilir)[
+    #if baslik != none and baslik != "" [
+      #block(below: 6pt)[#text(size: baslik-boyut)[*#baslik*]]
+    ]
     #text(size: boyut)[
       #table(
         columns: sutunlar,

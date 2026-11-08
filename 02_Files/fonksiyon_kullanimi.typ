@@ -1,64 +1,102 @@
 #import "/lib/template.typ": *
+#import "fonksiyon-aciklama.typ":*
 
-// ---- Bu dosyaya özel yardımcılar (operatorler.typ içindekiyle aynı; template.typ'ye taşıyabilirsiniz) ----
-#let ders-tablosu(baslik, sutunlar, basliklar, hizalama: center + horizon, ..satirlar) = align(center)[
-  #block(breakable: false)[
-    *#baslik*
-    #table(
-      columns: sutunlar,
-      fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-      stroke: 0.5pt + rgb("#cbd5e1"),
-      align: hizalama,
-      inset: 6pt,
-      table.header(..basliklar.map(b => [*#b*])),
-      ..satirlar,
-    )
+== Fonksiyonların Kullanımı
+*Kod tekrarı;* bir görev için aynı kodun gerekli olduğu her yerde yeniden yazılmasıdır. Kod tekrarı yapıldığında derleyici veya yorumlayıcı hata vermez; fakat hataların düzeltilmesinin zorlaşması ve kodun okunaksız hâle gelmesi gibi birçok dezavantajı vardır. *Kod tekrarından kesinlikle kaçınılmalıdır!* Yazılım dünyasında bu ilkeyi ifade etmek için sıkça "Don't Repeat Yourself" (*DRY* - Kendini Tekrar Etme) prensibi kullanılır.
+
+Fonksiyonlar kod tekrarını önleyen en temel araçlardandır. Belirli bir görevi yerine getiren kod blokları bir fonksiyon çatısı altında toplanır ve ihtiyaç duyuldukça yalnızca fonksiyonun adı çağrılır. Fonksiyonlar, kendilerine gönderilen argümanları (girdi değerlerini) işleyerek ekrana bir çıktı verebilir veya hesaplanan sonucu geriye bir değer olarak döndürebilir.
+
+Aşağıda, kesirli bir sayının virgülden sonraki iki basamağını elde etmek için kullanılan manuel bir mantık gösterilmiştir. Bu işlem için her defasında 5 satır kod yazdığımızı varsayalım. Programın farklı yerlerinde bu işlemi yalnızca üç kez tekrar etmemiz bile 15 satırlık gereksiz bir kod kalabalığı yaratacaktır. Oysa bunun yerine Python'ın hazır `round()` fonksiyonunu kullandığımızda aynı işlem tek bir satıra iner.
+
+
+// --------------------------------------------
+
+#let ok-asagi = box(text(top-edge: "bounds", bottom-edge: "bounds", sym.arrow.b))
+
+// Üstte kod, ortada ok, altta kod; aralarındaki boşluğu bosluk belirler
+#let adim(ust, alt, bosluk: 3pt) = stack(
+  dir: ttb,
+  spacing: bosluk,
+  kod-blok(width: 100%, ust),
+  align(center, ok-asagi),
+  kod-blok(width: 100%, alt),
+)
+
+*Fonksiyonları Kullanmanın Yarattığı Fark*
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr, 1fr),
+    gutter: 10pt,
+    align: center,
+    adim(
+      ```python
+sayi = 3.14159
+sayi2 = sayi*100
+sayi3 = sayi2//1
+sayi4 = sayi3/100
+print(sayi4)  #3.14
+      ```,
+      ```python
+round(3.14159, 2) #3.14
+      ```,
+    ),
+    adim(
+      ```python
+sayi = 5.03123
+sayi2 = sayi*100
+sayi3 = sayi2//1
+sayi4 = sayi3/100
+print(sayi4)  #5.03
+      ```,
+      ```python
+round(5.03123, 2) #5.03
+      ```,
+    ),
+    adim(
+      ```python
+sayi = 7.21013
+sayi2 = sayi*100
+sayi3 = sayi2//1
+sayi4 = sayi3/100
+print(sayi4)  #7.21
+      ```,
+      ```python
+round(7.21013, 2) #7.21
+      ```,
+    ),
+  )
+]
+
+#align(center)[
+// #v(1em)
+*`round()` Fonksiyonunun Kullanımı*
+  #block(   
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: 100%
+    )[
+#fonksiyon-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14")
+#v(1em)
   ]
 ]
 
-// Şemalarda kullanılan renkli küçük kutu
-#let sema-kutusu(renk, icerik) = rect(
-  inset: 8pt,
-  radius: 4pt,
-  stroke: 1pt + renk,
-  fill: renk.lighten(88%),
-  align(center + horizon, icerik),
-)
+Yukarıdaki örnekte *`round()`* fonksiyonunun kullanımı gösterilmektedir. Bir fonksiyonu çalıştırmak (*çağırmak*) için fonksiyonun adından hemen sonra parantez açılıp kapatılır: *`round()`*.
 
-#let sema-oku = text(size: 16pt)[$->$]
-// ----------------------------------------------------------------------------------
+*`round()`* fonksiyonu dışarıdan girdi kabul eden bir fonksiyondur. Fonksiyon çağrılırken parantez içerisine yazılan bu değerlere *argüman* denir. Burada girilen:
+- *Birinci değer (`3.14159`):* İşlem yapılacak olan ondalıklı sayıyı,
+- *İkinci değer (`2`):* Bu sayının virgülden sonra kaç basamağa yuvarlanacağını belirtir.
 
-== Fonksiyonların Kullanımı
-#include "fonksiyon_anatomisi.typ"
-Matematikte $f(x) = x + 1$ gibi bir fonksiyon, kendisine verilen bir değerle işlem yapıp sonuç üretir. Programlamada da fikir aynıdır:
-
-#not_block()[Fonksiyon, belirli bir işi yapmak için hazırlanmış ve kendisine isim verilmiş kod parçasıdır. İşi her seferinde baştan yazmak yerine fonksiyonun adını yazıp çağırırız.]
-
-Fonksiyonu küçük bir makine gibi düşünebiliriz: içine bir şey verilir, makine işini yapar, gerekirse bir sonuç geri verir.
-
-#align(center)[
-  #v(0.5em)
-  #grid(
-    columns: (auto, auto, auto, auto, auto),
-    gutter: 8pt,
-    align: center + horizon,
-    sema-kutusu(rgb("#6c8ebf"))[*Girdi* \ (argüman) \ #text(size: 9pt)[`3.14159, 2`]],
-    sema-oku,
-    sema-kutusu(rgb("#a3a35c"))[*Fonksiyon* \ #text(size: 9pt)[`round( )`]],
-    sema-oku,
-    sema-kutusu(rgb("#82b366"))[*Sonuç* \ (dönüş değeri) \ #text(size: 9pt)[`3.14`]],
-  )
-  #v(0.5em)
-]
+Fonksiyonun kendi içinde hesapladığı sonucu çağrıldığı yere iletmesine *değer döndürme (return)* denir. Yukarıdaki örnekte *`round()`* fonksiyonunun döndürdüğü sonuç, #show-op()[`=`] atama operatörü kullanılarak *`sonuc`* isimli değişkene aktarılmıştır.
 
 #ders-tablosu(
-  "Fonksiyon Kavramları",
-  (auto, 1fr, auto),
-  ("Kavram", "Açıklama", "Örnek"),
-  hizalama: (center + horizon, left + horizon, left + horizon),
-  [*Fonksiyon çağırma*], [Fonksiyonun adını yazıp yanına parantez koyarak çalıştırmak.], [`print()`],
-  [*Argüman*], [Fonksiyonun parantezi içine verilen değer. Birden fazlaysa virgülle ayrılır.], [`round(3.14159, 2)`],
-  [*Dönüş değeri*], [Fonksiyonun işini bitirince geri verdiği sonuç. Bir değişkene atanabilir.], [`sonuc = round(3.14159, 2)`],
+"Fonksiyon Kavramları",
+(auto, 1fr, auto),
+("Kavram", "Açıklama", "Örnek"),
+hizalama: (center + horizon, left + horizon, left + horizon),
+[*Fonksiyon çağırma*], [Fonksiyonun adını yazıp yanına parantez koyarak çalıştırmak.], [`print()`],
+[*Argüman*], [Fonksiyonun parantezi içine verilen değer. Birden fazlaysa virgülle ayrılır.], [`round(3.14159, 2)`],
+[*Dönüş değeri*], [Fonksiyonun işini bitirince geri verdiği sonuç. Bir değişkene atanabilir.], [`sonuc = round(3.14159, 2)`],
 )
 
 #kod-blok(width: 100%)[
@@ -69,14 +107,15 @@ Fonksiyonu küçük bir makine gibi düşünebiliriz: içine bir şey verilir, m
 ]
 
 #not_block(title: "Dikkat: ")[
-  Parantez olmadan yazılan `print` ifadesi fonksiyonu çalıştırmaz. Fonksiyonun *çalışması* için `print()` biçiminde parantezle çağrılması gerekir.
+  Parantez olmadan yazılan `print` gibi bir fonksiyon ifadesi fonksiyonu çalıştırmaz. Fonksiyonun *çalışması* için `print()` biçiminde parantezle çağrılması gerekir.
 ]
 
 === Yerleşik (Built-in) Fonksiyonlar
-Python'la birlikte hazır gelen, herhangi bir şey eklemeden kullanabildiğimiz fonksiyonlara *yerleşik fonksiyon* denir. Bu konuda göreceğimiz `print()` ve `input()` de birer yerleşik fonksiyondur. Tür dönüşümünde kullandığımız `int()`, `float()` ve `str()` de öyle.
+Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu konuda göreceğimiz `print()` ve `input()` ile tür dönüşümünde kullandığımız `int()`, `float()` ve `str()` yerleşik fonksiyonlardır.
 
 #ders-tablosu(
   "Sık Kullanılan Yerleşik Fonksiyonlar",
+  bolunebilir: true,
   (auto, 1fr, auto, auto),
   ("Fonksiyon", "Ne yapar?", "Örnek", "Sonuç"),
   hizalama: (center + horizon, left + horizon, left + horizon, left + horizon),
@@ -147,20 +186,6 @@ Python'la birlikte hazır gelen, herhangi bir şey eklemeden kullanabildiğimiz 
 == input() ve print() Fonksiyonları
 Çoğu program şu üç adımı izler: *veriyi al* (girdi), *işle*, *sonucu göster* (çıktı). `input()` girdi adımını, `print()` çıktı adımını yapar.
 
-#align(center)[
-  #v(0.5em)
-  #grid(
-    columns: (auto, auto, auto, auto, auto),
-    gutter: 8pt,
-    align: center + horizon,
-    sema-kutusu(rgb("#6c8ebf"))[*Girdi* \ #text(size: 9pt)[`input()`]],
-    sema-oku,
-    sema-kutusu(rgb("#a3a35c"))[*İşlem* \ #text(size: 9pt)[hesaplama, karşılaştırma]],
-    sema-oku,
-    sema-kutusu(rgb("#82b366"))[*Çıktı* \ #text(size: 9pt)[`print()`]],
-  )
-  #v(0.5em)
-]
 
 === print(): Ekrana Yazdırma
 `print()` fonksiyonu, parantez içine verilen değerleri ekrana yazar ve ardından bir alt satıra geçer. Metinler tırnak içinde yazılır; sayılar ve değişkenler tırnaksız yazılır.
@@ -253,10 +278,6 @@ Parantez içine yazdığımız metin (`"Adınız nedir? "`) kullanıcıya göste
   )
 ]
 
-#not_block(title: "Not: ")[
-  Çıktı kutularında kullanıcının klavyeden yazdığı kısım, mesajın hemen yanında görünür. Yukarıdaki örnekte kullanıcı `Ayşe` yazmıştır.
-]
-
 ==== input() Her Zaman Metin Verir
 Kullanıcı `15` yazsa bile `input()` bunu sayı olarak değil, `"15"` *metni* olarak verir. Bu, tür dönüşümü konusunda gördüğümüz önemli bir kuraldır:
 
@@ -328,7 +349,7 @@ Metinlerde `+` toplama değil *birleştirme* yaptığı için `"15" + "15"` sonu
 === print() ile Metin ve Değişkenleri Birlikte Yazdırma
 Gerçek programlarda çoğu zaman sabit metin ile değişken değerlerini aynı satırda göstermek isteriz. Örneğin `Merhaba Ayşe, 16 yaşındasın.` Bunu yapmanın üç yolu vardır.
 
-==== 1. Virgül (,) ile Yazdırma
+==== Virgül (,) ile Yazdırma
 `print()` içindeki argümanlar virgülle ayrılır. Python aralarına *otomatik bir boşluk* koyar ve her değeri kendi türüne dokunmadan yazar. Bu yüzden sayı ile metni karıştırmak sorun çıkarmaz.
 
 #kod-blok(width: 100%)[
@@ -339,45 +360,8 @@ Gerçek programlarda çoğu zaman sabit metin ile değişken değerlerini aynı 
   ```
 ]
 
-==== 2. Artı (+) ile Birleştirme
-`+` operatörü iki *metni* yan yana yapıştırır. Araya otomatik boşluk koymaz; boşluğu kendimiz eklemeliyiz. Sayıları birleştirmeden önce `str()` ile metne çevirmek gerekir, aksi hâlde `TypeError` hatası alınır.
-
-#block(breakable: false)[
-  #grid(
-    columns: (26em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      #kod-blok[
-        ```python
-        ad = "Ayşe"
-        yas = 16
-        print("Merhaba " + ad)
-        print("Yaşın: " + str(yas))
-        # print("Yaşın: " + yas)   # HATA!
-        ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        Merhaba Ayşe \
-        Yaşın: 16
-      ]
-    ]
-  )
-]
-
-#kod-blok(width: 100%)[
-  ```python
-  print("Yaşın: " + 16)
-  # TypeError: can only concatenate str (not "int") to str
-  ```
-]
-
-==== 3. f-string (Formatlı Metin)
+==== f-string (Formatlı Metin)
 Modern ve en okunaklı yöntemdir. Metnin tırnağının hemen önüne *`f`* harfi yazılır; metnin içinde değişkenler *süslü parantez `{ }`* arasına konur. Python çalışırken süslü parantezin içindeki değişkeni değeriyle değiştirir.
-
-#not_block()[f-string yazımı: `f"... {degisken} ..."`. Tırnaktan hemen önce `f` olmalıdır.]
 
 #block(breakable: false)[
   #grid(
@@ -405,7 +389,6 @@ Modern ve en okunaklı yöntemdir. Metnin tırnağının hemen önüne *`f`* har
 
 f-string'in avantajları:
 - Boşlukları ve tırnakları tek tek düşünmeyiz; cümle nasıl görünecekse öyle yazarız.
-- Sayıları `str()` ile dönüştürmemiz gerekmez.
 - Kod, okunduğunda yazdığımız cümleye çok benzer.
 
 #kod-blok(width: 100%)[
@@ -415,25 +398,13 @@ f-string'in avantajları:
   yas = 16
 
   print("Merhaba", ad + ",", yas, "yaşındasın.")        # virgül ve + karışık
-  print("Merhaba " + ad + ", " + str(yas) + " yaşındasın.")   # sadece +
   print(f"Merhaba {ad}, {yas} yaşındasın.")             # f-string
   ```
 ]
 
-#ders-tablosu(
-  "Üç Yöntemin Karşılaştırılması",
-  (auto, 1fr, 1fr, 1fr),
-  ("Özellik", "Virgül (,)", "Artı (+)", "f-string"),
-  hizalama: (left + horizon, left + horizon, left + horizon, left + horizon),
-  [*Araya boşluk*], [Otomatik koyar.], [Koymaz, biz yazarız.], [Metinde ne yazdıysak o.],
-  [*Sayı yazdırma*], [Doğrudan yazılabilir.], [Önce `str()` gerekir.], [Doğrudan yazılabilir.],
-  [*Okunabilirlik*], [İyi], [Uzun satırlarda karışık], [En iyi],
-  [*Biçimlendirme*], [Yok], [Yok], [Var (`:.2f` gibi)],
-  [*Hata riski*], [Düşük], [`TypeError` riski yüksek], [Düşük],
-)
-
+#pagebreak()
 ==== f-string İçinde İşlem Yapmak
-Süslü parantezin içine yalnızca değişken değil, *her türlü ifade* yazabiliriz: işlem, fonksiyon çağrısı, karşılaştırma.
+Süslü parantezin içine yalnızca değişken değil, *her türlü ifade* yazabiliriz.
 
 #block(breakable: false)[
   #grid(
@@ -441,8 +412,7 @@ Süslü parantezin içine yalnızca değişken değil, *her türlü ifade* yazab
     gutter: 10pt,
     align: (horizon),
     [
-      *Örnek Python Kodu*
-      Süslü parantez içinde ifade kullanımı.
+      *Süslü parantez içinde ifade kullanımı:* 
       #kod-blok[
         ```python
         a = 8
@@ -451,7 +421,6 @@ Süslü parantezin içine yalnızca değişken değil, *her türlü ifade* yazab
 
         print(f"{a} + {b} = {a + b}")
         print(f"{a} * {b} = {a * b}")
-        print(f"{a} sayısı çift mi? {a % 2 == 0}")
         print(f"Ad: {ad.upper()}")
         print(f"Ad {len(ad)} harflidir.")
         ```
@@ -564,14 +533,13 @@ Metni belirli bir genişlikte sola (`<`), sağa (`>`) veya ortaya (`^`) hizalaya
 
 ==== f-string'de Süslü Parantez ve Tırnak Kullanımı
 - Metnin içinde süslü parantezin kendisini göstermek istersek *iki kez* yazarız: `{{` ve `}}`.
-- f-string'in içinde, f-string'in kendi tırnak türünü tekrar kullanmamak daha güvenlidir. Dışta çift tırnak varsa içeride tek tırnak kullanırız.
+- `{ }` içine doğrudan bir yazı yazacaksak, f-string'in dışındaki tırnaktan *farklı* tür tırnak kullanırız. Dışta çift tırnak varsa içeride tek tırnak kullanırız.
 
 #kod-blok(width: 100%)[
   ```python
-  print(f"Küme: {{1, 2, 3}}")           # Küme: {1, 2, 3}
+  print(f"Küme: {{1, 2, 3}}")        # Küme: {1, 2, 3}
 
-  sozluk = {"ad": "Ayşe"}
-  print(f"Ad: {sozluk['ad']}")          # Ad: Ayşe  (dışta " içeride ')
+  print(f"Ders: {'Python'}")         # Ders: Python
   ```
 ]
 
@@ -617,7 +585,7 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
 ==== sep: Değerler Arasına Ne Gelsin?
 #block(breakable: false)[
   #grid(
-    columns: (26em, auto),
+    columns: (30em, auto),
     gutter: 10pt,
     align: (horizon),
     [
@@ -645,6 +613,7 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
   )
 ]
 
+#pagebreak()
 ==== end: Satır Nasıl Bitsin?
 Normalde her `print()` işini bitirince alt satıra geçer. `end` ile bu davranışı değiştirebiliriz.
 
@@ -728,39 +697,40 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
 ]
 
 === Uygulama Örnekleri
-#ornek_baslik[Örnek 1: Daire alanı hesaplama]
 #block(breakable: false)[
   #grid(
-    columns: (30em, auto),
+    columns: (32em, auto),
     gutter: 10pt,
     align: (horizon),
     [
-      #kod-blok[
+      *Örnek 1: Daire alanı hesaplama*
+      #kod-blok(width: 100%)[
         ```python
         pi = 3.14159
         r = float(input("Yarıçap (cm): "))
         alan = pi * r * r
-        print(f"Yarıçapı {r} cm olan dairenin alanı {alan:.2f} cm²'dir.")
+        print(f"r={r}cm olan dairenin alanı {alan:.2f}cm²'dir.")
         ```
       ]
     ],
     [
       #output-box(title: "Python Ekran Çıktısı")[
         Yarıçap (cm): 5 \
-        Yarıçapı 5.0 cm olan dairenin alanı 78.54 cm²\'dir.
+        r=5.0 cm olan dairenin alanı 78.54 cm²\'dir.
       ]
     ]
   )
 ]
 
-#ornek_baslik[Örnek 2: Not ortalaması]
+
 #block(breakable: false)[
   #grid(
-    columns: (30em, auto),
+    columns: (32em, auto),
     gutter: 10pt,
     align: (horizon),
     [
-      #kod-blok[
+      *Örnek 2: Not ortalaması*
+      #kod-blok(width: 100%)[
         ```python
         ad = input("Öğrenci adı: ")
         vize = float(input("Vize notu: "))
@@ -787,14 +757,14 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
   )
 ]
 
-#ornek_baslik[Örnek 3: Market fişi]
 #block(breakable: false)[
   #grid(
-    columns: (30em, auto),
+    columns: (32em, auto),
     gutter: 10pt,
     align: (horizon),
     [
-      #kod-blok[
+      *Örnek 3: Market fişi*
+      #kod-blok(width: 100%)[
         ```python
         urun = input("Ürün adı: ")
         fiyat = float(input("Birim fiyat: "))
@@ -825,14 +795,15 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
   )
 ]
 
-#ornek_baslik[Örnek 4: Saniyeyi saat-dakika-saniyeye çevirme]
+
 #block(breakable: false)[
   #grid(
-    columns: (30em, auto),
+    columns: (32em, auto),
     gutter: 10pt,
     align: (horizon),
     [
-      #kod-blok[
+      *Saniyeyi saat-dakika-saniyeye çevirme*
+      #kod-blok(width: 100%)[
         ```python
         toplam = int(input("Saniye giriniz: "))
 
@@ -857,7 +828,5 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
 #not_block(title: "Özet: ")[
   - Fonksiyon, bir işi yapan isimli kod parçasıdır; `isim(argümanlar)` biçiminde çağrılır ve gerekirse bir dönüş değeri verir.
   - `input()` klavyeden veri alır ve *her zaman metin* döndürür. Sayı gerekiyorsa `int()` veya `float()` ile dönüştürülür.
-  - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; `+` yalnızca metinleri birleştirir; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
-  - f-string içinde işlem yapılabilir ve `:.2f`, `:,`, `:>10` gibi kalıplarla biçimlendirme yapılabilir.
-  - `sep` ayırıcıyı, `end` satır sonunu değiştirir. `\n` ve `\t` gibi kaçış karakterleri özel karakterler üretir.
+  - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
 ]

@@ -906,6 +906,62 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
 #include "02_Files/infografik/veri_turleri_2.typ"
 #include "02_Files/infografik/ram_islemci_iliskisi.typ"
 
+
+== Python Dili
+*Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
+
+Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
+
+
+#align(center)[
+*İki Sayının Toplamını Alan Kod Örneği*
+#block(breakable: false)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 10pt,
+     align: (top),
+    [
+      *C Dili*
+      #kod-blok[
+          ```c
+          #include <stdio.h>
+
+          int main() {
+              int sayi1, sayi2, toplam;
+
+              printf("Birinci sayi: ");
+              scanf("%d", &sayi1);
+
+              printf("Ikinci sayi: ");
+              scanf("%d", &sayi2);
+
+              toplam = sayi1 + sayi2;
+              printf("Toplam: %d\n", toplam);
+
+              return 0;
+          }
+          ```
+      ]
+    ],
+    [
+*Python Dili*
+#kod-blok[
+    ```python
+    sayi1 = int(input("Birinci sayı: "))
+    sayi2 = int(input("İkinci sayı: "))
+
+    toplam = sayi1 + sayi2
+    print(f"Toplam: {toplam}")
+    ```
+]
+
+    ]
+  
+  )
+]
+]
+
+
 == Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir.
 
@@ -948,7 +1004,6 @@ Güncellenmiş Puan: 75
   )
 ]
 
-Verilen Python örneğini kullanıcı girişi açısından ele alalım: 
 #kod-satiri(no:1, size:12pt,weight: "semibold")[
            ```Python
           puan = int(input("Puan Giriniz: "))
@@ -1006,37 +1061,59 @@ Bölüm: 1.2
 === Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 
-  #text(size: 12pt, weight: "semibold")[
-  #not_block(title: "", width: 100%)[
-    #align(center)[
-      #grid(
-        columns: (auto, auto, auto, auto),
-        gutter: 0pt,
-        align: horizon + center,
-        inset: (x: 8pt, y: 3pt),
-        // Sadece iç sütunların soluna ince dikey ayırıcı çizgi ekler
-        stroke: (x, y) => if x > 0 { (left: 0.5pt + luma(180)) },
-        [int + float $->$ float],
-        [int - float $->$ float],
-        [int \* float $->$ float],
-        [int \/ float $->$ float],
-      )
-    ]
-  ]
-]
+#let renk-int = rgb("#2b6cb0")
+#let renk-float = rgb("#c05621")
+#let mono-font = "DejaVu Sans Mono" // Kod bloğunuzda kullandığınız monospace fontu yazın
 
-#kod-blok()[
+// Tip adını renkli rozet olarak gösterir
+#let rozet(metin, renk) = box(
+  fill: renk.lighten(85%),
+  stroke: 0.7pt + renk,
+  radius: 3pt,
+  inset: (x: 5pt, y: 3pt),
+  text(font: mono-font, size: 0.9em, fill: renk.darken(20%), metin),
+)
+
+// Tek bir satır: int <op> float -> float
+#let donusum-satiri(op) = (
+  rozet("int", renk-int),
+  text(font: mono-font, weight: "bold", size: 1.1em, op),
+  rozet("float", renk-float),
+  $->$,
+  rozet("float", renk-float),
+)
+
+// Dört işlemi tek kartta toplar
+#let donusum-karti = block(
+  fill: luma(250),
+  stroke: 0.7pt + luma(200),
+  radius: 5pt,
+  inset: 10pt,
+  grid(
+    columns: 5,
+    column-gutter: 6pt,
+    row-gutter: 9pt,
+    align: horizon + center,
+    ..("+", "-", "*", "/").map(donusum-satiri).flatten(),
+  ),
+)
+
+#grid(
+  columns: (auto, auto),
+  gutter: 5pt,
+  align: horizon + center,
+    donusum-karti,
+  kod-blok(width: 100%)[
   ```Python
 adet = 5           # int türünde
 birim_fiyat = 2.5   # float türünde
 
 # Python arka planda 'adet' değerini 5.0 yapar
-toplam_tutar = adet * birim_fiyat  # 5.0 * 2.5 = 12.5 (float)
+toplam_tutar = adet * birim_fiyat # 5.0 * 2.5 = 12.5(float)
 
 print(toplam_tutar) # Çıktı: 12.5
-  ```
-]
-
+  ```]
+)
 
 === Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
@@ -1073,6 +1150,7 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 - *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
 - *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
+#v(1em)
 #align(center)[
   #block(breakable: false, width: 100%)[
     #grid(
@@ -1270,13 +1348,12 @@ print(alan)      # Ekrana 78.5 yazar
   )
 ]
 
-#text(size: 9.25pt)[
+
 #not_block(title: "Dikkat: ")[
   Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır. Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
-]]
+]
 
-
-#text(size: 8pt)[
+#text(size: 9.7pt)[
 #kod-blok(width: 100%)[
         ```Python
 # Bu tam satırlık açıklama
@@ -1285,8 +1362,8 @@ x = 10  # satır içi (inline) açıklama
 
 #block(breakable: false)[
   #grid(
-    columns: (auto, auto), // İki sütunun eşit veya içeriğe göre olmasını istiyorsanız (auto, auto) da kalabilir
-    gutter: 10pt,
+    columns: (21em, auto),
+    gutter: 5pt,
     align: top,
     [
 #kod-blok(width: 100%)[
@@ -1316,61 +1393,5 @@ print("Kod çalışıyor")
 ]
 
 #include "02_Files/operatorler.typ"
-#include "02_Files/fonksiyonlar_input_print.typ"
-
-== Python Dili
-*Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
-
-Python, sade söz dizimi ve yüksek okunabilirliği sayesinde web geliştirmeden veri analizine, robotik kontrolden yapay zekâ sistemlerine kadar çok geniş bir alanda tercih edilir. Sunduğu bu esneklik ve zengin kütüphane desteği nedeniyle Python; küresel yazılım dünyasında olduğu gibi Türkiye’deki teknoloji girişimlerinde, akıllı otomasyon sistemlerinde ve Ar-Ge projelerinde de yaygın olarak kullanılmaktadır.
-
-Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
-
-#v(1em)
-#align(center)[
-*İki Sayının Toplamını Alan Kod Örneği*
-#v(1em)
-#block(breakable: false)[
-  #grid(
-    columns: (1fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *C Dili*
-      #kod-blok[
-          ```c
-          #include <stdio.h>
-
-          int main() {
-              int sayi1, sayi2, toplam;
-
-              printf("Birinci sayi: ");
-              scanf("%d", &sayi1);
-
-              printf("Ikinci sayi: ");
-              scanf("%d", &sayi2);
-
-              toplam = sayi1 + sayi2;
-              printf("Toplam: %d\n", toplam);
-
-              return 0;
-          }
-          ```
-      ]
-    ],
-    [
-*Python Dili*
-#kod-blok[
-    ```python
-    sayi1 = int(input("Birinci sayı: "))
-    sayi2 = int(input("İkinci sayı: "))
-
-    toplam = sayi1 + sayi2
-    print(f"Toplam: {toplam}")
-    ```
-]
-
-    ]
-  
-  )
-]
-]
+// #pagebreak()
+#include "02_Files/fonksiyon_kullanimi.typ"

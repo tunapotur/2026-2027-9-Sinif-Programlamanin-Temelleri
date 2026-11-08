@@ -5,15 +5,11 @@
 
 == Operatörler ve İşlem Önceliği
 *Operatör*, bir veya birden fazla değer üzerinde *matematiksel hesaplama* yapan, değerleri *karşılaştıran* veya *mantıksal işlemler* yürüterek yeni bir sonuç üreten özel *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
-
+#align(center)[
 #grid(
     columns: (auto, auto),
     gutter: 20pt,
-    align: top,
-        [
-- #show-op[`5`] ve #show-op[`3`] → *operand* (işlenen değerler)
-- #show-op[`+`] → *operatör* (işlemi yapan sembol)
-- #show-op[`=`] → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)],
+    align: horizon,
     [#text(size:14pt, weight: "semibold")[
       #kod-blok()[
   ```python
@@ -21,9 +17,17 @@
   ```
 ]
     ]
-      ]
+      ],
+      
+        align(left)[
+- #show-op[`5`] ve #show-op[`3`] → *operand* (işlenen değerler)
+- #show-op[`+`] → *operatör* (işlemi yapan sembol)
+- #show-op[`=`] → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)]
 )
 
+]
+
+#v(1em)
 #ders-tablosu(
   "Python'daki operatörleri dört ana grupta inceleyeceğiz",
   (auto, 1fr, auto),
@@ -115,7 +119,6 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
     
 )
 
-#pagebreak()
 #align(center)[
   *Bellekte Değerin Güncellenmesi*
 ]
@@ -175,6 +178,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 #ders-tablosu(
   boyut:10pt,
   "Python Aritmetik Operatörleri: Matematiksel İşlemleri Yapar",
+  bolunebilir: true,
   (auto, auto, auto, auto, 1fr),
   ("Operatör", "Adı", "Örnek", "Sonuç", "Açıklama"),
   hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
@@ -293,7 +297,7 @@ Mod operatörünün en sık kullanıldığı iki yer:
   )
 ]
 
-
+#pagebreak()
 *Üs Alma (`**`)*
 #kod-blok(width: 100%)[
   ```python
@@ -402,6 +406,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
       ],
     )
 
+#pagebreak()
 #not_block(title: "İstisna: ")[
   Üs alma (#show-op()[`**`]), eşit öncelikli işlemlerin aksine *sağdan sola* çalışır.\ Eksi işareti de `**` operatöründen daha düşük önceliklidir:
 ]
@@ -498,7 +503,6 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
   [#show-op()[`<=`]], [Küçük eşittir], [`4 <= 3`], [`False`], [Soldaki küçük *veya* eşitse `True` olur.],
 )
 
-#v(0.5em)
 #block(breakable: false)[
   #grid(
     columns: (22em, auto),
@@ -532,10 +536,10 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
 
 #v(1em)
   #grid(
-    columns: (auto, auto),
+    columns: (1fr, 2fr),
     gutter: 14pt,
     align: top,
-    [Karşılaştırmanın sonucu da bir değerdir; bir değişkende saklanabilir:],
+    not_block()[Karşılaştırmanın sonucu da bir değerdir; bir değişkende saklanabilir:],
     [#kod-blok(width: 100%)[
   ```python
   yas = 16
@@ -607,16 +611,13 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   [#show-op()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
 )
 
-#pagebreak()
-
-#align(center)[
+#text(size:9pt)[
 *Doğruluk Tabloları*
   #grid(
-    columns: (auto, auto, auto),
-    gutter: 14pt,
-    align: horizon,
-    [
-      #ders-tablosu(
+    columns: (auto, auto, auto, auto),
+    gutter: 5pt,
+    align: top,
+      ders-tablosu(
         "and: Hepsi doğru olmalı",
         (auto, auto, auto),
         ("A", "B", [`A and B`]),
@@ -625,9 +626,8 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
         [`False`], [`True`], [`False`],
         [`False`], [`False`], [`False`],
       )
-    ],
-    [
-      #ders-tablosu(
+    ,
+    ders-tablosu(
         "or: Biri doğru olsa yeter",
         (auto, auto, auto),
         ("A", "B", [`A or B`]),
@@ -636,30 +636,32 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
         [`False`], [`True`], [`True`],
         [`False`], [`False`], [*`False`*],
       )
-    ],
-    [
-      #ders-tablosu(
-        "not: Tersine çevirir",
+    ,
+    ders-tablosu(
+        "not:Tersine çevirir",
         (auto, auto),
         ("A", [`not A`]),
         [`True`], [`False`],
         [`False`], [`True`],
-      )
-    ],
+      ),
+      align(center)[#text(size:8.5pt)[
+        #v(1em)
+        *Örnek Kod*
+            #kod-blok()[
+  ```python
+  print(True and True)  #True
+  print(True and False) #False
+  print(False or True) #True
+  print(False or False) #False
+  print(not True) #False
+  print(not False) #True
+  ```]
+      ]]
+      ,
   )
 ]
 
-#kod-blok(width: 100%)[
-  ```python
-  print(True and True)     # True
-  print(True and False)    # False
-  print(False or True)     # True
-  print(False or False)    # False
-  print(not True)          # False
-  print(not False)         # True
-  ```
-]
-
+#pagebreak()
 *Karşılaştırma operatörleriyle birlikte kullanım*
 #block(breakable: false)[
   #grid(
@@ -736,6 +738,7 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
 #ders-tablosu(
   "Operatörler Arası İşlem Önceliği",
   (auto, auto, auto, 1fr),
+  bolunebilir: true,
   ("Sıra", "Grup", "Operatörler", "Not"),
   hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
   [1 (en yüksek)], [Parantez], [`( )`], [Her zaman en başta işlenir.],
