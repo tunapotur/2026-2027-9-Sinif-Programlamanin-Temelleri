@@ -1,4 +1,4 @@
-#import "../../lib/template.typ": *
+#import "../../lib/2": *
 #import "../../lib/qr_code.typ"
 
 #show: conf

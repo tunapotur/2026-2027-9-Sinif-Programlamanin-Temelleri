@@ -1,5 +1,5 @@
-#import "template.typ": *
-#import "flowchart.typ": *
+#import "/lib/template.typ":*
+#import "/lib/flowchart.typ": *
 
 
 #align(center)[#text(size:18pt, weight: "bold")[Çalışma Sorularının Cevapları]]
