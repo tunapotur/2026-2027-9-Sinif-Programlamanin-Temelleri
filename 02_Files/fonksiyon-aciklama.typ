@@ -1,10 +1,20 @@
 // Fonksiyon çağrısı açıklama şeması
 // Kullanım: #fonksiyon-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14")
+//
+// İç içe çağrılar için isteğe bağlı parametreler (varsayılanlar eski davranışı korur):
+//   on:  okun hedefinden (degisken) ÖNCE gelen sabit metin   (varsayılan: "")
+//   ara: degisken ile ifade arasındaki metin                 (varsayılan: " = ")
+//   son: ifadeden SONRA gelen sabit metin                    (varsayılan: "")
+// Örnek: puan = int(input("Puan Giriniz: "))  →  ok "input(...)" altından "int" üzerine gider
+//   #fonksiyon-aciklama(on: "puan = ", degisken: "int", ara: "(", ifade: "input(\"Puan Giriniz: \")", son: ")", deger: "\"50\"")
 
 #let fonksiyon-aciklama(
   degisken: "sonuc",
   ifade: "round(3.14159, 2)",
   deger: "3.14",
+  on: "",
+  ara: " = ",
+  son: "",
   boyut: 26pt,
   renk: rgb("#5b21e6"),
   kod-fontu: ("JetBrains Mono", "DejaVu Sans Mono", "Liberation Mono"),
@@ -13,15 +23,17 @@
   // measure() için de aynı biçimi kullanmak şart: context içindeki `set` ölçüme etki etmez
   let kod(s) = text(font: kod-fontu, size: boyut, s)
 
-  let tam = degisken + " = " + ifade
-  let w1 = measure(kod(degisken)).width
-  let w2 = measure(kod(degisken + " = ")).width
-  let w3 = measure(kod(tam)).width
+  let tam = on + degisken + ara + ifade + son
+  let w0 = measure(kod(on)).width // hedefin başladığı x
+  let w1 = measure(kod(on + degisken)).width // hedefin bittiği x
+  let w2 = measure(kod(on + degisken + ara)).width // ifadenin başladığı x
+  let w3 = measure(kod(on + degisken + ara + ifade)).width // ifadenin bittiği x
+  let wt = measure(kod(tam)).width // tüm satırın genişliği
   let h = measure(kod(tam)).height
 
   let k = 2pt // çizgi kalınlığı
   let cizgi = k + black
-  let xd = w1 / 2 // değişkenin orta noktası
+  let xd = w0 + (w1 - w0) / 2 // hedefin (değişken / fonksiyon adı) orta noktası
   let xc = w2 + (w3 - w2) / 2 // ifadenin (parantezin) orta noktası
   let u-ust = h + 12pt // U şeklinin üst kenarı
   let u-yuk = 30pt // U şeklinin yüksekliği
@@ -33,7 +45,7 @@
   )
   let etiket-boyut = measure(etiket)
 
-  box(width: w3, height: u-ust + u-yuk + 10pt, {
+  box(width: wt, height: u-ust + u-yuk + 10pt, {
     // 1) Kod satırı
     place(top + left, kod(tam))
 
@@ -45,7 +57,7 @@
       radius: (bottom: 8pt),
     ))
 
-    // 3) Parantezin ortasından değişkene giden U şeklindeki yol
+    // 3) Parantezin ortasından hedefe giden U şeklindeki yol
     place(top + left, dx: xd, dy: u-ust, rect(
       width: xc - xd,
       height: u-yuk,
@@ -53,7 +65,7 @@
       radius: (bottom: 10pt),
     ))
 
-    // 4) Değişkene çıkan kısa çizgi ve ok ucu
+    // 4) Hedefe çıkan kısa çizgi ve ok ucu
     place(top + left, dx: xd, dy: h + 10pt, line(angle: 90deg, length: 4pt, stroke: cizgi))
     place(top + left, dx: xd - 5pt, dy: h + 1pt, polygon(
       fill: black,

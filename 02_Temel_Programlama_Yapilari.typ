@@ -1395,3 +1395,5 @@ print("Kod çalışıyor")
 #include "02_Files/operatorler.typ"
 // #pagebreak()
 #include "02_Files/fonksiyon_kullanimi.typ"
+#include "02_Files/type-fonksiyonu.typ"
+#include "02_Files/puan-input-int.typ"
