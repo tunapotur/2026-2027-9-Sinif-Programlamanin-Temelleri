@@ -77,7 +77,7 @@ round(7.21013, 2) #7.21
     width: 100%
     )[
 #fonksiyon-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14")
-#v(1em)
+// #v(1em)
   ]
 ]
 
@@ -346,6 +346,77 @@ Metinlerde `+` toplama değil *birleştirme* yaptığı için `"15" + "15"` sonu
   Kullanıcı `abc` gibi sayıya çevrilemeyecek bir şey yazarsa `int()` veya `float()` hata verir (`ValueError`) ve program durur. Hata yönetimini ileride göreceğiz; şimdilik kullanıcıdan doğru türde veri girildiğini varsayıyoruz.
 ]
 
+==== `int(input())` Nasıl Çalışır?
+
+#kod-satiri(no: 0, size: 14pt, weight: "semibold")[
+```python
+puan = int(input("Puan Giriniz: "))
+```
+]
+
+Bu satır *içten dışa* doğru çalışır: önce en içteki `input()`, sonra onu saran `int()`, en son da atama (#show-op(size: 12pt)[`=`]).
+
+#text(size: 12pt, weight: "semibold")[Adım 1: `input()` çalışır ve `int()` fonksiyonuna gider]
+
+Kullanıcı klavyeden `50` yazıp Enter'a basar. `input()` fonksiyonu bu değeri her zaman *metin* olarak döndürür; yani elimize geçen şey sayı değil, tırnak içinde `"50"` olur. Bu değer, dıştaki `int()` fonksiyonuna gider.
+
+#align(center)[
+   #block(   
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: 100%
+    )[
+  #fonksiyon-aciklama(
+    on: "puan = ",
+    degisken: "int",
+    ara: "(",
+    ifade: "input(\"Puan Giriniz: \")",
+    son: ")",
+    deger: "\"50\"",
+    boyut: 18pt,
+  )
+]]
+
+#text(size: 12pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine gider]
+
+`input()` çağrısı yerini döndürdüğü değere bıraktı; satır artık şu hale geldi: `puan = int("50")`.\ `int()` fonksiyonu `"50"` metnini tam sayıya çevirir ve sonuç olan `50` değeri `puan` değişkenine atanır.
+
+#align(center)[
+   #block(   
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: 100%
+    )[
+  #fonksiyon-aciklama(
+    degisken: "puan",
+    ifade: "int(\"50\")",
+    deger: "50",
+    boyut: 18pt,
+  )
+]]
+
+#kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
+  ```python
+puan = int(input("Puan Giriniz: "))
+print(puan)
+print(type(puan))
+```
+][
+```
+Puan Giriniz: 50
+50
+<class 'int'>
+```
+]
+
+
+#not_block(title: "Dikkat:")[
+  `int()` olmasaydı `puan` değişkeninde `"50"` yani *metin* olurdu ve `puan + 10` gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak `int()` (ya da ondalıklı değerler için `float()`) ile dönüştürmemiz gerekir.
+]
+
+
 === print() ile Metin ve Değişkenleri Birlikte Yazdırma
 Gerçek programlarda çoğu zaman sabit metin ile değişken değerlerini aynı satırda göstermek isteriz. Örneğin `Merhaba Ayşe, 16 yaşındasın.` Bunu yapmanın üç yolu vardır.
 
@@ -543,7 +614,7 @@ Metni belirli bir genişlikte sola (`<`), sağa (`>`) veya ortaya (`^`) hizalaya
   ```
 ]
 
-==== Hata Ayıklarken Kullanışlı: {degisken=}
+==== f"{degisken=}" Kullanımı
 Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin *adını* hem *değerini* yazar. Kodu test ederken çok işe yarar.
 
 #block(breakable: false)[
@@ -696,7 +767,7 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
   )
 ]
 
-=== Uygulama Örnekleri
+=== Örnek Uygulamalar
 #block(breakable: false)[
   #grid(
     columns: (32em, auto),

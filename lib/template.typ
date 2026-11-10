@@ -167,15 +167,18 @@
 
 #let akis-sembolu = text(size: 25pt)[→]
 
-#let output-box(title: "Ekran Çıktısı", content) = {
+#let output-box(title: "Ekran Çıktısı", width: 100%, content) = {
   block(
     fill: rgb("#F1F5F9"),
     stroke: (left: 3pt + rgb("#16A34A")),
-    inset: 12pt,
-    radius: 5pt,
-    width: 100%,
+    inset: (top: 8pt, x: 8pt, bottom: 5pt),
+    radius: 3pt,
+    width: width,
   )[
-    #text(size: 9pt, weight: "bold", fill: rgb("#166534"))[
+    #set block(spacing: 0pt)
+    #set par(spacing: 0pt, leading: 0.7em)
+
+    #text(size: 8pt, weight: "bold", fill: rgb("#166534"))[
       #title
     ]
 
@@ -183,7 +186,7 @@
 
     #block(
       fill: white,
-      inset: 10pt,
+      inset: 8pt,
       radius: 3pt,
       width: 100%,
     )[
@@ -191,6 +194,8 @@
         font: "DejaVu Sans Mono",
         size: 9pt,
         fill: rgb("#1E293B"),
+        top-edge: "cap-height",
+        bottom-edge: "baseline",
       )
       #content
     ]
@@ -214,7 +219,7 @@
 #let kod-blok(body, width:auto) = {
   // Satır numaralandırma kuralı
   show raw.line: it => {
-    box(width: 2em, align(right, text(fill: luma(120), size: 0.85em, str(it.number))))
+    box(width: 1em, align(right, text(fill: luma(120), size: 0.85em, str(it.number))))
     h(1em)
     it.body
   }
@@ -222,7 +227,7 @@
   // Blok görünümü (GitHub stilinde açık gri arka plan ve çerçeve)
   show raw.where(block: true): set block(
     fill: rgb("#f6f8fa"),
-    inset: 10pt,
+    inset: 8pt,
     radius: 4pt,
     stroke: 0.5pt + rgb("#d0d7de"),
     width: width,
@@ -374,4 +379,35 @@
 
 #let show-op(size: 14pt, weight: "semibold", body) = {
   text(size: size, weight: weight)[#raw(body.text)]
+}
+
+#let _align = align  // `align` parametresi fonksiyonu gölgelediği için kopyasını saklıyoruz
+
+#let kod-cikti(
+  baslik: none,
+  baslik-yeri: "sol",   // "sol" veya "sag"
+  columns: (auto, auto),
+  gutter: 10pt,
+  align: bottom,
+  kod,
+  cikti,
+) = {
+  let baslik-var = baslik != none and baslik != ""
+  let baslik-icerik = if baslik-var { _align(center)[*#baslik*] } else { none }
+
+  block(breakable: false)[
+    #grid(
+      columns: columns,
+      gutter: gutter,
+      align: align,
+      [
+        #if baslik-yeri == "sol" { baslik-icerik }
+        #kod-blok(width: 100%)[#kod]
+      ],
+      [
+        #if baslik-yeri == "sag" { baslik-icerik }
+        #output-box[#cikti]
+      ],
+    )
+  ]
 }
