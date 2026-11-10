@@ -61,3 +61,60 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
   )
 ]
 ]
+
+#v(1em)
+#grid(
+  columns: (1fr, 2.2fr),
+  gutter: 15pt,
+  align: horizon,
+  [
+    #align(center)[
+      #image("/02_Files/images/python-logo.jpg", width: 75%)
+    ]
+  ],
+  [
+    *Sarı ve Mavi Yılanlar:* \
+    Python ismi her ne kadar Monty Python grubundan gelse de resmi logo, Antik Yunan mitolojisindeki *"Ouroboros"* (kendini besleyen/tamamlayan döngü) esintileri taşıyan iki stilize yılandan oluşur. Sarı ve mavi renkler; dilin **esnekliğini**, farklı sistemlerle **kolay entegre olabilmesini** ve geliştirici dostu yapısını temsil eder.
+  ]
+)
+
+#v(1em)
+
+#grid(
+  columns: (1.2fr, 1fr),
+  gutter: 12pt,
+  [
+    #block(
+      fill: rgb("#f8f9fa"),
+      inset: 8pt,
+      radius: 4pt,
+      stroke: 0.5pt + rgb("#e9ecef"),
+      width: 100%,
+      height: 18em
+    )[
+      *Neden Günümüzün En Popüler Dili?*
+      
+      - *Sözdizimi Sadeliği:* C ve Java gibi dillerdeki süslü parantez (`{}`) ve noktalı virgül (`;`) kalabalığı yerine girintilere (*indentation*) dayanır. Kod, neredeyse günlük İngilizce gibi okunur.
+      - *Geniş Ekosistem:* Yapay zekâdan veri bilimine, web geliştirmeden siber güvenliğe kadar her alanda devasa kütüphane desteği sunar.
+      - *Endüstri Standardı:* TIOBE ve GitHub Octoverse gibi küresel programlama dili endekslerinde son yıllarda sürekli **1. sırada** yer almaktadır.
+    ]
+  ],
+  [
+    #block(
+      fill: rgb("#f1f5f9"),
+      inset: 8pt,
+      radius: 4pt,
+      stroke: 0.5pt + rgb("#cbd5e1"),
+      width: 100%,
+      height: 18em
+    )[
+      *Yaygın Kullanım Alanları:*
+      
+      - *Yapay Zekâ & Makine Öğrenmesi:* \ (TensorFlow, PyTorch, Scikit-learn)
+      - *Veri Analizi & Görselleştirme:* \ (Pandas, NumPy, Matplotlib)
+      - *Web Geliştirme (Backend):* \ (Django, FastAPI, Flask)
+      - *Otomasyon & Scripting:* \ (Ağ yönetimi, veri kazıma, sistem görevleri)
+      
+    ]
+  ]
+)

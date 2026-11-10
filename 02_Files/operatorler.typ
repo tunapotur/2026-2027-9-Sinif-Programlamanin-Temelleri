@@ -119,11 +119,12 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
     
 )
 
+#pagebreak()
 #align(center)[
   *Bellekte Değerin Güncellenmesi*
 ]
  
- #include "degisken_guncelleme.typ"
+#include "degisken_guncelleme.typ"
 
 ==== Bileşik Atama Operatörleri
 #show-op(size: 12pt)[`sayac = sayac + 1`] gibi #text(weight: "semibold")["değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma"] işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:

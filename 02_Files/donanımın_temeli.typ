@@ -3,6 +3,7 @@
 
 #show: conf
 
+= Temel Programlama Yapıları
 == Donanımın Temeli: Transistör ve İkili Sistem (Binary)
 *Transistör* elektrik akımını geçirerek ya da keserek *$1$* veya *$0$* değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 

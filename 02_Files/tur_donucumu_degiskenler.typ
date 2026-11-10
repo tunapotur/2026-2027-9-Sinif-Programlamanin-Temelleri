@@ -16,14 +16,13 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
 - Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
 
 #block(breakable: false)[
+  *Örnek Python Kodu: * Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
   #grid(
-    columns: (22em, auto),
+    columns: (auto, auto),
     gutter: 10pt,
      align: (horizon),
     [
       #text(size:9pt)[
-      *Örnek Python Kodu*
-      Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
       ]
       #kod-blok[
           ```Python
@@ -36,10 +35,11 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
     ],
     [
       #output-box(title: "Python Ekran Çıktısı")[
-        
-Puan Giriniz: 50 \
-Puanı: 50 \
+```
+Puan Giriniz: 50
+Puanı: 50
 Güncellenmiş Puan: 75
+```
 ]
 
     ]
@@ -47,10 +47,12 @@ Güncellenmiş Puan: 75
   )
 ]
 
+#align(center)[
 #kod-satiri(no:1, size:12pt,weight: "semibold")[
            ```Python
           puan = int(input("Puan Giriniz: "))
           ```
+]
 ]
 Program, kullanıcıdan "Puan Giriniz:" iletisiyle bir tam sayı değeri beklemektedir. Python'da input() fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, input() fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (string) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için int() fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
       #kod-blok[
