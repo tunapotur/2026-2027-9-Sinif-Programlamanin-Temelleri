@@ -45,7 +45,10 @@
   )
   let etiket-boyut = measure(etiket)
 
-  box(width: wt, height: u-ust + u-yuk + 10pt, {
+  // Kutunun alt kenarı: etiketin yatay çizgiden aşağı taşan yarısı kadar (sabit 10pt boşluk kaldırıldı)
+  let alt = calc.max(etiket-boyut.height / 2, k / 2)
+
+  box(width: wt, height: u-ust + u-yuk + alt, {
     // 1) Kod satırı
     place(top + left, kod(tam))
 

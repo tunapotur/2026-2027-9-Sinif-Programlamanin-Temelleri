@@ -1,5 +1,6 @@
 #import "/lib/template.typ": *
 #import "/lib/qr_code.typ": *
+#import "../lib/fonksiyon-aciklama.typ":*
 
 #show: conf
 
@@ -16,6 +17,7 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
 - Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
 
 #block(breakable: false)[
+  #v(1em)
   *Örnek Python Kodu: * Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
   #grid(
     columns: (auto, auto),
@@ -88,20 +90,94 @@ print("Bölüm:", bolum)
 ]
     ],
     [
-      #par(leading: 0.6em)[
+      #par(leading: 0.65em)[
       #text(size: 10pt)[
       *Örnek Python Kodu :* 
       Kullanıcı girişlerinin *metin türünden float* tipine dönüşümü yapılır.
       ]]
       #output-box(title: "Python Ekran Çıktısı")[
-Birinci Sayıyı Girin: 1.2\
-İkinci Sayıyı Girin: 1.8\
-Üçüncü Sayıyı Girin: 2.5\
+```
+Birinci Sayıyı Girin: 1.2
+İkinci Sayıyı Girin: 1.8
+Üçüncü Sayıyı Girin: 2.5
 Bölüm: 1.2
+```
 ]
     ]
   )
 ]
+
+
+==== `int(input())` Nasıl Çalışır?
+
+#kod-satiri(no: 0, size: 14pt, weight: "semibold")[
+```python
+puan = int(input("Puan Giriniz: "))
+```
+]
+
+Bu satır *içten dışa* doğru çalışır: önce en içteki `input()`, sonra onu saran `int()`, en son da atama (#show-op(size: 12pt)[`=`]).
+
+#text(size: 12pt, weight: "semibold")[Adım 1: `input()` çalışır ve `int()` fonksiyonuna gider]
+
+Kullanıcı klavyeden `50` yazıp Enter'a basar. `input()` fonksiyonu bu değeri her zaman *metin* olarak döndürür; yani elimize geçen şey sayı değil, tırnak içinde `"50"` olur. Bu değer, dıştaki `int()` fonksiyonuna gider.
+
+#align(center)[
+   #block(   
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: 100%
+    )[
+  #fonksiyon-aciklama(
+    on: "puan = ",
+    degisken: "int",
+    ara: "(",
+    ifade: "input(\"Puan Giriniz: \")",
+    son: ")",
+    deger: "\"50\"",
+    boyut: 18pt,
+  )
+]]
+
+#text(size: 12pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine gider]
+
+`input()` çağrısı yerini döndürdüğü değere bıraktı; satır artık şu hale geldi: `puan = int("50")`.\ `int()` fonksiyonu `"50"` metnini tam sayıya çevirir ve sonuç olan `50` değeri `puan` değişkenine atanır.
+
+#align(center)[
+   #block(   
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: 100%
+    )[
+  #fonksiyon-aciklama(
+    degisken: "puan",
+    ifade: "int(\"50\")",
+    deger: "50",
+    boyut: 18pt,
+  )
+]]
+
+#kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
+  ```python
+puan = int(input("Puan Giriniz: "))
+print(puan)
+print(type(puan))
+```
+][
+```
+Puan Giriniz: 50
+50
+<class 'int'>
+```
+]
+
+
+#not_block(title: "Dikkat:")[
+  `int()` olmasaydı `puan` değişkeninde `"50"` yani *metin* olurdu ve `puan + 10` gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak `int()` (ya da ondalıklı değerler için `float()`) ile dönüştürmemiz gerekir.
+]
+
 
 === Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
@@ -160,31 +236,43 @@ print(toplam_tutar) # Çıktı: 12.5
   ```]
 )
 
+#pagebreak()
 === Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
-==== Hassasiyeti Korumak İçin Tam Sayıyı Kesrli Sayıya Çevirmek (int $-->$ float):
+#grid(
+  columns: (auto, auto),
+  gutter: 5pt,
+  align: top,
+  [
+*Hassasiyeti Korumak İçin Tam Sayıyı Kesirli Sayıya Çevirmek (int $-->$ float):*
 Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
 
 #kod-blok()[
   ```Python
 puan = 100
+
 ondalikli_puan = float(puan)  # 100 -> 100.0
 
 print(ondalikli_puan)  # Çıktı: 100.0
   ```
 ]
-
-==== Ondalık Kısmı Atmak İçin (float $-->$ int):
+  ],
+  [
+*Ondalık Kısmı Atmak İçin (float $-->$ int):*
 Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
 #kod-blok()[
   ```Python
 ortalama = 85.85
-tam_not = int(ortalama)  # Virgülden sonrası silinir, tam_not = 85 olur
+# Virgülden sonrası silinir
+tam_not = int(ortalama) #tam_not = 85 olur
 
 print(tam_not)  # Çıktı: 85
   ```
 ]
+  ]
+)
+
 
 == Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
@@ -342,15 +430,8 @@ print(c)
   )
 ]
 
-
-#block(breakable: false)[
-  #grid(
-    columns: (1fr, 1fr),
-    gutter: 0pt,
-    align: top,
-    [
         *Açıklama Satırının Kullanım Amaçları*
-      #text(size:8pt)[
+      
 
 #kod-blok(width: 95%)[
   ```Python
@@ -361,16 +442,14 @@ yas = 17  # öğrencinin yaşı
 print("Merhaba")
 # print("Bu satır çalışmaz")
 
+
 # 3) Yapılacakları not etmek için
 # TODO: Kullanıcıdan yaş bilgisi alınacak
 ```
       ]
-      
-]
-    ],
-    [
-      *Çok Satırlı Açıklama ile Program Başlığı*
-      #text(size:8pt)[
+
+#v(1em)      
+*Çok Satırlı Açıklama ile Program Başlığı*
 
 #kod-blok(width: 100%)[
   ```Python
@@ -384,33 +463,19 @@ pi = 3.14        # pi sayısı (yaklaşık değer)
 r = 5            # yarıçap
 alan = pi * r * r
 print(alan)      # Ekrana 78.5 yazar
-```
-
-      ]
-]
-
-    ]
-  )
-]
-
+```]
 
 #not_block(title: "Dikkat: ")[
   Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır. Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
 ]
 
-#text(size: 9.7pt)[
+
 #kod-blok(width: 100%)[
         ```Python
 # Bu tam satırlık açıklama
 x = 10  # satır içi (inline) açıklama
 ```]
 
-#block(breakable: false)[
-  #grid(
-    columns: (21em, auto),
-    gutter: 5pt,
-    align: top,
-    [
 #kod-blok(width: 100%)[
   ```Python
 # Bu fonksiyon iki sayıyı toplar,
@@ -420,8 +485,7 @@ def topla(a, b):
 # fonksiyon sonlandırıldı
 ```
 ]
-    ],
-    [
+
       #kod-blok(width: 100%)[
         ```Python
 """
@@ -431,8 +495,3 @@ değişkene atanmadığı için yorum bloğu gibi davranır.
 print("Kod çalışıyor")
 ```  
       ]
-      
-    ]
-  )
-]
-]

@@ -1,6 +1,8 @@
 #import "/lib/template.typ": *
 #import "/02_Files/infographic_degisken_ve_bellek.typ": *
 
+#show: conf
+
 // ----------------------------------------------------------------------------------
 
 == Operatörler ve İşlem Önceliği
@@ -59,33 +61,20 @@ Bir değişkene ilk kez değer atadığımızda, atanan değer için bellek (RAM
 
 Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken oluşmaz; değişkenin bulunduğu bellek alanında ki eski değerin üzerine yeni değer yazılır ve eski değer kaybolur.
 
-#block(breakable: false)[
-  #grid(
-    columns: (22em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      *Örnek Python Kodu*
-      İki kez atama yapma.
-      #kod-blok[
-        ```python
+#kod-cikti()[
+ ```python
         puan = 50
         print("Puan:", puan)
         puan = 75
         print("Güncel puan:", puan)
         ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        Puan: 50 \
-        Güncel puan: 75
-      ]
-    ]
-  )
+][
+  ```
+  Puan: 50 
+  Güncel puan: 75
+  ```
 ]
-
-  #grid(
+#grid(
     columns: (1fr,2fr),
     gutter: 8pt,
     align: top,
@@ -119,12 +108,12 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
     
 )
 
-#pagebreak()
 #align(center)[
-  *Bellekte Değerin Güncellenmesi*
+  #block(breakable: false)[
+    *Bellekte Değerin Güncellenmesi*
+    #include "degisken_guncelleme.typ"
+  ]
 ]
- 
-#include "degisken_guncelleme.typ"
 
 ==== Bileşik Atama Operatörleri
 #show-op(size: 12pt)[`sayac = sayac + 1`] gibi #text(weight: "semibold")["değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma"] işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:
@@ -142,14 +131,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   [`**=`], [`a **= 2`], [`a = a ** 2`], [`100`],
 )
 
-#v(0.5em)
-#block(breakable: false)[
-  #grid(
-    columns: (22em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      #kod-blok[
+#kod-cikti(baslik: [Bileşik Atama Operatörleri Örnekleri], baslik-yeri: "sag")[
         ```python
         bakiye = 100
         bakiye += 50
@@ -161,17 +143,11 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
         mesaj += " Dünya"
         print(mesaj)
         ```
-      ]
-    ],
-    [
-      *Örnek Python Kodu*
-      Bakiye üzerinde bileşik atama operatörleri kullanılır.
-      #output-box(title: "Python Ekran Çıktısı")[
-        Bakiye: 240 \
+][
+        ```
+        Bakiye: 240 
         Merhaba Dünya
-      ]
-    ]
-  )
+        ```
 ]
 
 === Aritmetik Operatörler
@@ -192,15 +168,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   [#show-op()[`**`]], [Üs alma], [`2 ** 3`], [`8`], [Soldaki sayının sağdaki kuvvetini alır.],
 )
 
-#block(breakable: false)[
-  #grid(
-    columns: (35em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      *Örnek Python Kodu*
-      İki sayı üzerinde aritmetik operatörlerin sonuçları.
-      #kod-blok[
+#kod-cikti(baslik: [Aritmetik operatörlerin sonuçları], baslik-yeri: "sag")[
         ```python
         a = 17
         b = 5
@@ -212,19 +180,15 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
         print("Tam bölüm:", a // b)
         print("Kalan:", a % b)
         ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        Toplam: 22 \
-        Fark: 12 \
-        Çarpım: 85 \
-        Bölüm: 3.4 \
-        Tam bölüm: 3 \
-        Kalan: 2
-      ]
-    ]
-  )
+][
+  ```
+  Toplam: 22
+  Fark: 12
+  Çarpım: 85
+  Bölüm: 3.4
+  Tam bölüm: 3
+  Kalan: 2
+  ```
 ]
 
 #grid(
@@ -258,8 +222,6 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   [`100` ve `30`], [`3`], [`10`], [`3 * 30 + 10 = 100`],
 )
 
-Mod operatörünün en sık kullanıldığı iki yer:
-
 #kod-blok(width: 100%)[
   ```python
   # 1) Tek mi çift mi?
@@ -273,32 +235,19 @@ Mod operatörünün en sık kullanıldığı iki yer:
   ```
 ]
 
-#block(breakable: false)[
-  #grid(
-    columns: (26em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      *Örnek Python Kodu*
-      Dakikayı saat ve dakikaya çevirir.
-      #kod-blok[
-        ```python
-        toplam_dakika = 135
-        saat = toplam_dakika // 60
-        dakika = toplam_dakika % 60
-        print(saat, "saat", dakika, "dakika")
-        ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        2 saat 15 dakika
-      ]
-    ]
-  )
+#kod-cikti(baslik: [Dakikayı saat ve dakikayı çevirme], baslik-yeri: "sag",columns: (30em,auto))[
+```python
+toplam_dakika = 135
+saat = toplam_dakika // 60
+dakika = toplam_dakika % 60
+print(saat, "saat", dakika, "dakika")
+```
+][
+```
+2 saat 15 dakika
+```   
 ]
 
-#pagebreak()
 *Üs Alma (`**`)*
 #kod-blok(width: 100%)[
   ```python
@@ -310,15 +259,8 @@ Mod operatörünün en sık kullanıldığı iki yer:
 
 #not_block(title:"Metinlerle `+` ve `*`:")[\ #show-op()[`+`] operatörü metinleri birleştirir, #show-op()[`*`] operatörü bir metni belirtilen sayı kadar tekrarlar]
 
-#block(breakable: false)[
-  #grid(
-    columns: (26em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      *Örnek Python Kodu*
-      Dakikayı saat ve dakikaya çevirir.
-      #kod-blok[
+#kod-cikti()[
+  
         ```python
         ad = "Ali"
         soyad = "Yılmaz"
@@ -327,17 +269,13 @@ Mod operatörünün en sık kullanıldığı iki yer:
         print("-" * 20)
         print("Yaş: " + str(15))
         ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        Ali Yılmaz \
-        HaHaHa \
-        #("-" * 20) \
-        Yaş: 15
-      ]
-    ]
-  )
+][
+  ```
+Ali Yılmaz
+HaHaHa
+#("-" * 20)
+Yaş: 15
+```
 ]
 
 === Aritmetik Operatörlerde İşlem Önceliği
@@ -407,7 +345,6 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
       ],
     )
 
-#pagebreak()
 #not_block(title: "İstisna: ")[
   Üs alma (#show-op()[`**`]), eşit öncelikli işlemlerin aksine *sağdan sola* çalışır.\ Eksi işareti de `**` operatöründen daha düşük önceliklidir:
 ]
@@ -425,13 +362,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
   Sıradan emin değilseniz *parantez kullanın*. Parantez hem hatayı önler hem de kodu okuyan kişiye niyetinizi gösterir.
 ]
 
-#block(breakable: false)[
-  #grid(
-    columns: (26em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      #kod-blok[
+#kod-cikti(baslik: [Not ortalaması ve sıcaklık dönüşümü], baslik-yeri: "sag")[
         ```python
         n1 = 80
         n2 = 90
@@ -443,17 +374,11 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
         f = c * 9 / 5 + 32
         print("Fahrenheit:", f)
         ```
-      ]
-    ],
-    [
-      *Örnek Python Kodu*
-      Not ortalaması ve sıcaklık dönüşümü.
-      #output-box(title: "Python Ekran Çıktısı")[
-        Ortalama: 80.0 \
-        Fahrenheit: 77.0
-      ]
-    ]
-  )
+][
+  ```
+  Ortalama: 80.0
+  Fahrenheit: 77.0
+  ```
 ]
 
 #block(breakable: false)[
@@ -505,14 +430,8 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
 )
 
 #block(breakable: false)[
-  #grid(
-    columns: (22em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      *Örnek Python Kodu*
-      Bir sayının çeşitli karşılaştırma sonuçları.
-      #kod-blok[
+*Bir sayının çeşitli karşılaştırma sonuçları*
+#kod-cikti()[
         ```python
         sayi = 15
         print(sayi > 10)
@@ -521,21 +440,17 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
         print(sayi <= 14)
         print(sayi % 2 == 0)
         ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        True \
-        True \
-        False \
-        False \
+][
+        ```
+        True
+        True
         False
-      ]
-    ]
-  )
+        False
+        False
+        ```
+]
 ]
 
-#v(1em)
   #grid(
     columns: (1fr, 2fr),
     gutter: 14pt,
@@ -612,8 +527,10 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   [#show-op()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
 )
 
-#text(size:9pt)[
-*Doğruluk Tabloları*
+#block(breakable: false)[
+
+
+  #align(center)[*Doğruluk Tabloları*]
   #grid(
     columns: (auto, auto, auto, auto),
     gutter: 5pt,
@@ -662,16 +579,7 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   )
 ]
 
-#pagebreak()
-*Karşılaştırma operatörleriyle birlikte kullanım*
-#block(breakable: false)[
-  #grid(
-    columns: (26em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [
-      Yaş ve ehliyet durumuna göre koşul kontrolü.
-      #kod-blok[
+#kod-cikti(baslik: [Karşılaştırma operatörleriyle birlikte kullanım], baslik-yeri: "sag")[
         ```python
         yas = 20
         ehliyet = True
@@ -680,18 +588,15 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
         print(yas < 18 or yas > 60)
         print(not ehliyet)
         ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
-        True \
-        False \
+][
+        ```
+        True
         False
-      ]
-    ]
-  )
+        False
+        ```
 ]
 
+*Örnek: Aritmetik ve Mantıksal Koşulların Birlikte Kullanımı*
 #kod-blok(width: 100%)[
   ```python
   sayi = 15
@@ -725,11 +630,21 @@ Bu özellik, hataya yol açabilecek bir işlemi önce kontrol etmek için çok k
 #kod-blok(width: 100%)[
   ```python
   x = 0
-  print(x != 0 and 10 / x > 2)   # False
-  # x != 0 zaten False -> 10 / x hiç çalışmaz, sıfıra bölme hatası oluşmaz
+sayi = 12
+metin = ""
 
-  print(x == 0 or 10 / x > 2)    # True
-  # x == 0 zaten True -> sağ taraf hiç çalışmaz
+# 1. Sıfıra bölme koruması: x != 0 False olduğu için sağdaki 20/x hiç çalışmaz (Hata vermez)
+print(x != 0 and 20 / x > 2)          # False
+# 2. or koruması: x == 0 True olduğu için sağdaki 100/x çalıştırılmaz
+print(x == 0 or 100 / x == 5)         # True
+# 3. Boş metin kontrolü: len(metin) > 0 False olduğu için metin[0] index hatası vermez
+print(len(metin) > 0 and metin[0] == "A")  # False
+# 4. Sol taraf True olunca and devam eder: Bu kez sağ taraf çalışır ve hesaplanır
+print(sayi > 10 and sayi % 3 == 0)    # True
+# 5. or ilk doğruyu bulunca durur: sayi > 5 True olduğundan sağdaki ağır koşula bakılmaz
+print(sayi > 5 or sayi / x == 1)      # True
+# 6. and zinciri: Sol taraf False olursa sonraki hiçbir işlem çalışmaz
+print(x > 0 and sayi > 10 and 50 / x > 1)  # False
   ```
 ]
 
@@ -776,4 +691,8 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
   - Aritmetik operatörler sayısal sonuç, karşılaştırma ve mantıksal operatörler `bool` sonuç üretir.
   - Öncelik sırası: *parantez $->$ aritmetik $->$ karşılaştırma $->$ `not` $->$ `and` $->$ `or`*.
   - Emin olmadığınız yerde parantez kullanın.
+]
+
+#align(center)[
+#image("images/python_operators.jpg", width: 80%)
 ]

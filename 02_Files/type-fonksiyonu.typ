@@ -1,5 +1,5 @@
 #import "/lib/template.typ": *
-#import "fonksiyon-aciklama.typ": fonksiyon-aciklama
+#import "../lib/fonksiyon-aciklama.typ": fonksiyon-aciklama
 
 #show: conf
 
@@ -17,27 +17,17 @@ Altaki şemada *`type(10)`* çağrısının sonucu *`type()`* fonksiyonu *`int`*
     stroke: 1pt + rgb("#d0d7de"),
     width: 100%
     )[
-  #fonksiyon-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 22pt)
+  #fonksiyon-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 24pt)
 ]]
 
-
-#block(breakable: false)[
-  #grid(
-    columns: (auto,auto),
-    gutter: 10pt,
-    align: (bottom),
-    [
-      #align(center)[*Temel kullanım*]
-      #kod-blok(width: 100%)[
+#kod-cikti(baslik: [Temel kullanım])[
 ```python
 print(type(10))
 print(type(3.14))
 print(type("Merhaba"))
 print(type(True))
 ```
-]
-    ],
-    output-box[
+][
 ```
 <class 'int'>
 <class 'float'>
@@ -45,14 +35,12 @@ print(type(True))
 <class 'bool'>
 ```
 ]
-  )
-]
 
 Çıktıdaki *`<class 'int'>`* ifadesi şu anlama gelir: "Bu değer, *`int`* sınıfından bir nesnedir."
 
 #ders-tablosu(
   "Sık Karşılaşılan Türler",
-  (3cm, 3.5cm, 6cm),
+  (3cm, 3.5cm, 6cm),boyut:11pt,
   ("Değer", "type() sonucu", "Açıklama"),
   hizalama: (center + horizon, center + horizon, left + horizon),
   [`42`], [`int`], [Tam sayı],
@@ -65,8 +53,6 @@ print(type(True))
   [`{1, 2, 3}`], [`set`], [Küme],
   [`None`], [`NoneType`], [Değer yokluğu],
 )
-
-
 
 Python *dinamik tipli* bir dildir. Bir değişkenin türünü önceden yazmayız; Python değere bakarak türü kendisi belirler. Üstelik aynı değişken sonradan başka türde bir değer alabilir.
 
@@ -111,6 +97,16 @@ Yaşınız: 15
 === `isinstance()` Fonksiyonu
 Veri veya değişken türünü görmek için `type()` fonksiyonu kullanılır. Kullanıcının girdiği veri türünü kontrol etmek için *`isinstance()`* fonksiyonu çok kullanışlı bir araçtır.
 
+#align(center)[
+   #block(   
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: 100%
+    )[
+  #fonksiyon-aciklama(degisken: "tamsayi", ifade: "isinstance(3, int)", deger: "True", boyut: 24pt)
+]]
+
 #kod-cikti(baslik:[`isinstance()` Fonksiyonun Kullanımı],baslik-yeri: "sag")[
 ```python
 deger = 3
@@ -134,8 +130,17 @@ Değer Bir Sayıdır!
 
 `isinstance()` fonksiyonu, değişkenlerin ve fonksiyon parametrelerinin tür kontrolü için oldukça uygundur. Aşağıdaki kodda `isinstance()` fonksiyonu, verilen değerin hem tam sayı (`int`) hem de ondalıklı sayı (`float`) olması durumunda `True` döndürecektir. Birden fazla tür kontrolü yapmanız gereken durumlar için `isinstance()` fonksiyonunu bu şekilde kullanabilirsiniz.
 
-#kod-satiri(no:0, size: 12pt, weight: "semibold")[
+#align(center)[
+  #v(1em)
+#kod-satiri(no:0, size: 14pt, weight: "semibold")[
   ```python
   isinstance(deger, (int, float))
   ```
+]
+]
+
+
+#align(center)[
+  #v(1em)
+  #image("images/python_type,isinstance.jpg", width: 100%)
 ]

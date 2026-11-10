@@ -36,6 +36,7 @@
   #show heading.where(level: 1): it => {
     set align(center)
     set text(size: 18pt)
+    
     block(above: 1.5em, below: 1em)[
       #if it.numbering != none [
         #counter(heading).display("I")#h(0.4em)
@@ -202,15 +203,15 @@
   ]
 }
 
-#let not_block(body, title: "Not:",width:100%) = {
+#let not_block(body, title: "Not:", width: 100%, boyut: 10pt) = {
   block(
     fill: rgb("#eff6ff"),
     stroke: (left: 3pt + rgb("#3b82f6")),
-    inset: (x: 10pt, y: 8pt),
+    inset: (x: boyut, y: boyut * 0.8),
     radius: (right: 3pt),
     width: width,
   )[
-
+    #set text(size: boyut)
     #if title != "" [*#title* ]
     #body
   ]
