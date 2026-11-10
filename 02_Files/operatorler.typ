@@ -1,5 +1,5 @@
 #import "/lib/template.typ": *
-#import "/02_Files/degiskenler_bellek.typ": *
+#import "/02_Files/infographic_degisken_ve_bellek.typ": *
 
 // ----------------------------------------------------------------------------------
 
