@@ -14,11 +14,11 @@
   gutter: 15pt,
   align: (top),
   [
-    #image("02_Files/Transistor On.jpg",width: 80%)
+    #image("02_Files/images/Transistor On.jpg",width: 80%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Var (Açık)],[:],[1 (Bit)])
   ],
   [
-    #image("02_Files/Transistor Off.jpg",width: 80%)
+    #image("02_Files/images/Transistor Off.jpg",width: 80%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )
@@ -545,7 +545,7 @@ Güncellenmiş Puan: 75
   )
 ]
 
-#include "02_Files/infografik/Claude3.typ"
+#include "02_Files/Claude3.typ"
 
 #pagebreak()
 == Değişkenler ve Bellek(RAM)
@@ -616,7 +616,7 @@ Güncellenmiş Puan: 75
     ]
     
     ],
-    [#kutu[#image("02_Files/Bellek Kullanımı 01.png")]
+    [#kutu[#image("02_Files/images/Bellek Kullanımı 01.png")]
     ]
   
   )
@@ -637,7 +637,7 @@ Güncellenmiş Puan: 75
     [
       #kutu[
 
-      #image("02_Files/Bellek Kullanımı 02.png")
+      #image("02_Files/images/Bellek Kullanımı 02.png")
       ]
     ]
   
@@ -656,7 +656,7 @@ Güncellenmiş Puan: 75
     ],
     [
       #kutu[
-      #image("02_Files/Bellek Kullanımı 03.png")
+      #image("02_Files/images/Bellek Kullanımı 03.png")
       ]
     ]
   
@@ -674,13 +674,13 @@ Güncellenmiş Puan: 75
     ]
     ],
     [#kutu[
-      #image("02_Files/Bellek Kullanımı 04.png",height: 8em)
+      #image("02_Files/images/Bellek Kullanımı 04.png",height: 8em)
     ]
     ]
   )
 ]
 
-#image("02_Files/DegiskenVeBellek.jpg")
+#image("02_Files/images/DegiskenVeBellek.jpg")
 #include "02_Files/degiskenler_bellek.typ"
 
 #pagebreak()
@@ -874,8 +874,8 @@ float alan = pi * b * b; // => 12.56
 == Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
 Bellek yönetimi, verilerin RAM'de gereksiz yer kaplamasını önlemek için her veriye yalnızca ihtiyacı kadar alan ayrılmasıdır. Veri türleri, bu alan planlamasını yaparak etkin bir bellek yönetimi sağlar. İşlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir donanım birimi olduğu için bu yönetim sistem performansını doğrudan belirler. İhtiyaçtan büyük seçilen her veri türü, RAM ile işlemci arasındaki veri yollarında gereksiz bilgi trafiği yaratır ve işlem süresini uzatır. Doğru bellek yönetimi ise taşınan veri boyutunu küçülterek işlemcinin veriyi çok daha hızlı okuyup işlemesini sağlar. #text(weight: "semibold")[Özetle; doğru veri türüyle yapılan bellek yönetimi hem RAM’de tasarruf sağlar hem de işlemcinin hızını artırır.]
 
-#image("02_Files/ChatGpt Bellek Yönetimi ve CPU Performansı.png")
-#image("02_Files/Gemini_Bellek Yönetimi ve CPU Performansı.jpg")
+#image("02_Files/images/ChatGpt Bellek Yönetimi ve CPU Performansı.png")
+#image("02_Files/images/Gemini_Bellek Yönetimi ve CPU Performansı.jpg")
 
 == Karakterden Metne (Karakter Dizisi)
 Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sadece bir karakteri tutabilir. Birden fazla karakterden oluşan bir kelimeyi veya metni bellekte saklamak istediğimizde ise tekil karakterler yan yana getirilerek bir *karakter dizisi* oluşturulur. Programlamada aynı türdeki verilerin bellekte peş peşe sıralanarak tek bir grup halinde tutulmasına *dizi (array)* adı verilir. Metinler de aslında karakterlerin yan yana dizildiği birer dizidir; bu nedenle aşağıdaki yapı ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
@@ -902,9 +902,9 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   aciklama: "Boşluk karakteri (' ') de bellekte 1 byte yer kaplar (ASCII: 32). Toplam 12 karakter = 12 byte.",
 )
 
-#include "02_Files/infografik/veri_turleri_1.typ"
-#include "02_Files/infografik/veri_turleri_2.typ"
-#include "02_Files/infografik/ram_islemci_iliskisi.typ"
+#include "02_Files/veri_turleri_1.typ"
+#include "02_Files/veri_turleri_2.typ"
+#include "02_Files/ram_islemci_iliskisi.typ"
 
 
 == Python Dili
