@@ -5,41 +5,57 @@
 
 == Python Uygulama Soruları: Cevap Anahtarı
 
-Cevaplar örnek çözümlerdir; öğrencilerin değişken adları ve yazım biçimi farklı olabilir, çıktılar aynıysa doğru kabul edilebilir.
+Öğrencilerin değişken adları ve yazım biçimi farklı olabilir, çıktılar aynıysa doğru kabul edilebilir.
 
 === Tanışma ve yaş hesabı
 
+#iki_hucreli_satir(columns: (auto,auto))[
 #kod-blok(width: 100%)[
 ```python
 BU_YIL = 2026
 ad = input("Adınız: ")
 dogum_yili = int(input("Doğum yılınız: "))
+```
+]
+][
+#kod-blok(width: 100%,ilk-satir: 4)[
+```python
 yas = BU_YIL - dogum_yili
+
 print(f"Merhaba {ad}, {yas} yaşındasın.")
 ```
 ]
+]
 
-#not_block(title: "Sık hata:")[`int()` kullanmayıp `"2026" - "2010"` işlemini denemek (`TypeError`). `input()` her zaman metin döndürür.]
+#not_block(title: "Sık hata:")[`int()` kullanmayıp `"2026" - "2010"` işlemini yapmak `TypeError` hatası verir.]
 
 === Dikdörtgenin alanı ve çevresi
 
+#grid(
+  columns: (26em, auto), 
+  gutter: 10pt,
+  align: top
+)[
 #kod-blok(width: 100%)[
 ```python
 kisa_kenar = float(input("Kısa kenar (cm): "))
 uzun_kenar = float(input("Uzun kenar (cm): "))
 
 alan = kisa_kenar * uzun_kenar
+```]
+][
+#kod-blok(width: 100%,ilk-satir: 5)[
+```python
 cevre = 2 * (kisa_kenar + uzun_kenar)
 
 print(f"Alan: {alan:.2f} cm²")
 print(f"Çevre: {cevre:.2f} cm")
-```
+```]
 ]
 
 #not_block(title: "Sık hata:")[Çevre formülünde parantez unutmak (`2 * kisa + uzun` yanlış sonuç verir).]
 
 === Not ortalaması
-
 #kod-blok(width: 100%)[
 ```python
 yazili1 = float(input("1. yazılı: "))
@@ -59,8 +75,8 @@ print(f"Takdir mi: {takdir_mi}")
 #not_block(title: "Sık hata:")[`gecti_mi = ortalama = 50` yazmak (karşılaştırma yerine atama).]
 
 === Tür dönüşümü
-
-#kod-blok(width: 100%)[
+#iki_hucreli_satir(columns: (auto,auto))[
+  #kod-blok(width: 100%)[
 ```python
 veri = input("Bir sayı girin: ")
 print(veri, type(veri))
@@ -73,15 +89,22 @@ print(ondalikli, type(ondalikli))
 
 kesilmis = int(85.85)
 print(kesilmis, type(kesilmis))
+```]
+][
+  #kod-blok(width: 100%,ilk-satir: 12)[
+```python
+kesilmis = int(85.85)
+print(kesilmis, type(kesilmis))
 
 print(veri + veri)
 print(sayi + sayi)
 
 adet = 5
 birim_fiyat = 2.5
+
 toplam_tutar = adet * birim_fiyat
 print(toplam_tutar, type(toplam_tutar))
-```
+```]
 ]
 
 #not_block(title: "Vurgulanacak noktalar:")[Metinle toplama birleştirme yapar (`2525`); `int` ile `float` çarpılınca sonuç `float` olur; `int(85.85)` yuvarlamaz, ondalık kısmı atar.]
@@ -101,23 +124,35 @@ print(toplam_tutar, type(toplam_tutar))
   [`print(Toplam-Puan)`], [Tire çıkarma işlemi gibi okunur], [`print(toplam_puan)`],
 )
 
+#iki_hucreli_satir(columns: (auto,auto))[
 #kod-blok(width: 100%)[
 ```python
 etap3_skor = 80
 urun_fiyati = 45.5
 sinif = "9-A"
 toplam_puan = etap3_skor + 20
+```
+]
+][
+#kod-blok(width: 100%, ilk-satir:5)[
+```python
 print(toplam_puan)
 
 KDV_ORANI = 0.20
 MAKSIMUM_DENEME_SAYISI = 3
 ```
 ]
+]
 
 #not_block(title: "Not:")[`class` bir anahtar kelime olduğu için değişken adı olamaz; yerine herhangi bir geçerli ad (`sinif`) kullanılabilir. Öğrenci her satırın hatasını doğru adlandırıyorsa tam puan verilebilir.]
 
-=== Kod izleme
 
+=== Kod izleme
+#grid(
+  columns: (auto,auto,auto),
+  gutter:10pt,
+  align: horizon
+)[
 #output-box[
 ```text
 18
@@ -125,11 +160,21 @@ MAKSIMUM_DENEME_SAYISI = 3
 2.5
 2
 2
+```
+]
+][
+#output-box[
+```text
 512
 -9
 False
 True
 3
+```
+]
+][
+#output-box[
+```text
 240
 HaHaHa!
 13
@@ -137,6 +182,8 @@ True
 3 2
 ```
 ]
+]
+
 
 #not_block(title: "Tartışılacak noktalar:")[
 - `a + b * 2` → önce çarpma: `10 + 8 = 18`.
@@ -148,7 +195,7 @@ True
 ]
 
 === Çıktı biçimlendirme
-
+#iki_hucreli_satir(columns: (30em,auto))[
 #kod-blok(width: 100%)[
 ```python
 gun = input("Gün: ")
@@ -158,7 +205,7 @@ yil = input("Yıl: ")
 print(gun, ay, yil, sep="/", end=" <- tarih biçimi\n")
 ```
 ]
-
+][
 #kod-blok(width: 100%)[
 ```python
 print("Yükleniyor", end="...")
@@ -168,11 +215,15 @@ print("Yol: C:\\Okul")
 print("O \"evet\" dedi")
 ```
 ]
+]
+
+
+
 
 #not_block(title: "Not:")[`end` verilmezse her `print()` alt satıra geçer; `sep` yalnızca virgülle ayrılan değerlerin arasını etkiler. Ters eğik çizgiyi yazdırmak için `\\`, çift tırnağı yazdırmak için `\"` gerekir.]
 
 === Dakikayı gün, saat ve dakikaya çevirme
-
+#iki_hucreli_satir(align: top, columns: (auto,23em))[
 #kod-blok(width: 100%)[
 ```python
 toplam_dakika = int(input("Toplam dakika: "))
@@ -185,12 +236,16 @@ dakika = kalan % 60
 print(f"{gun} gün {saat} saat {dakika} dakika")
 ```
 ]
-
+][
 #not_block(title: "Kontrol:")[4000 = 2 × 1440 + 1120 ve 1120 = 18 × 60 + 40. Ders notundaki "135 dakika → 2 saat 15 dakika" örneğinin bir adım genişletilmiş halidir.]
+]
+
+
+
 
 === Basamaklarına ayırma
-
-#kod-blok(width: 100%)[
+#iki_hucreli_satir(align: top, columns: (auto,16em))[
+  #kod-blok(width: 100%)[
 ```python
 sayi = int(input("3 basamaklı bir sayı girin: "))
 
@@ -206,27 +261,32 @@ print(f"Basamaklar toplamı: {basamak_toplami}")
 print(f"Ters sayı: {ters_sayi}")
 ```
 ]
-
+][
 #not_block(title: "Not:")[Onlar basamağı için önce `// 10` ile son basamak atılır (487 → 48), sonra `% 10` ile son basamak alınır (8). Bu, ders notundaki "son basamağı al / at" örneğinin devamıdır.]
+]
+
+
+
 
 === ATM para dağıtımı
 
+#iki_hucreli_satir(columns: (28em, auto))[
 #kod-blok(width: 100%)[
 ```python
 tutar = int(input("Çekilecek tutar (TL): "))
-
 yuzluk = tutar // 100
 kalan = tutar % 100
-
 ellilik = kalan // 50
 kalan = kalan % 50
-
 yirmilik = kalan // 20
 kalan = kalan % 20
-
 onluk = kalan // 10
 kalan = kalan % 10
-
+```
+]
+][
+#kod-blok(width: 100%, ilk-satir: 10)[
+```python
 beslik = kalan // 5
 birlik = kalan % 5
 
@@ -238,36 +298,42 @@ print(f"5 TL  : {beslik} adet")
 print(f"1 TL  : {birlik} adet")
 ```
 ]
+]
 
 #not_block(title: "Kontrol:")[2×100 + 50 + 20 + 10 + 5 + 2×1 = 287. Bu soru, `kalan` değişkeninin her adımda yeniden atanarak güncellendiğini göstermek için iyi bir fırsattır.]
 
 === Market fişi
-
+#iki_hucreli_satir(columns: (20.3em,auto),gutter: 4pt)[
 #kod-blok(width: 100%)[
 ```python
 KDV_ORANI = 0.20
 
-urun = input("Ürün adı: ")
-fiyat = float(input("Birim fiyat: "))
-adet = int(input("Adet: "))
+urun = input("Ürün adı:")
+fiyat = float(input("Birim fiyat:"))
+adet = int(input("Adet:"))
 
 ara_toplam = fiyat * adet
 kdv = ara_toplam * KDV_ORANI
 genel_toplam = ara_toplam + kdv
-
+```
+]
+][
+#kod-blok(width: 100%, ilk-satir: 10)[
+```python
 print("-" * 28)
+
 print(f"{urun:<12}{adet:>3} x {fiyat:>7.2f}")
 print(f"{'Ara toplam':<14}{ara_toplam:>9.2f} TL")
+
 print(f"{'KDV (%20)':<14}{kdv:>9.2f} TL")
 print(f"{'GENEL TOPLAM':<14}{genel_toplam:>9.2f} TL")
+
 print("-" * 28)
 ```
 ]
-
-#not_block(title: "Not:")[Biçimde `<` sola, `>` sağa yaslar; `:>7.2f` ise "7 karakter genişliği, sağa yaslı, 2 ondalık" demektir. Metnin kendisini süslü parantez içine koyarken dış tırnak çift, iç tırnak tek olmalıdır (`{'Ara toplam':<14}`).]
+]
 
 === Sinema bileti
-
 #kod-blok(width: 100%)[
 ```python
 yas = int(input("Yaşınız: "))

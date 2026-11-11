@@ -422,30 +422,28 @@
 #let _align = align  // `align` parametresi bu fonksiyonu gölgelediği için yedekliyorum
 
 #let iki_hucreli_satir(
-  baslik: none,
-  baslik-yeri: "sol",   // "sol" veya "sag"
-  columns: (auto, auto),
+  columns: (2fr, 1fr),
   gutter: 10pt,
-  align: bottom,
+  align: horizon,
   sol,
   sag,
 ) = {
-  let baslik-var = baslik != none and baslik != ""
-  let baslik-icerik = if baslik-var { _align(center)[*#baslik*] } else { none }
-
   block(breakable: false)[
     #grid(
       columns: columns,
       gutter: gutter,
       align: align,
       [
-        #if baslik-yeri == "sol" { baslik-icerik }
         #sol
       ],
       [
-        #if baslik-yeri == "sag" { baslik-icerik }
         #sag
       ],
     )
   ]
 }
+
+#let soru_bilgi(body, ust_bolluk:-0.75em) = text(size: 9pt, fill: luma(110))[
+  #v(ust_bolluk)
+  #body
+]
