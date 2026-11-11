@@ -28,3 +28,6 @@
 #include "02_Files/operatorler.typ"
 #include "02_Files/fonksiyon_kullanimi.typ"
 #include "02_Files/type-fonksiyonu.typ"
+
+#include "02_Files/bolum_sorular.typ"
+#include "02_Files/bolum_sorulari_cevaplari.typ"
