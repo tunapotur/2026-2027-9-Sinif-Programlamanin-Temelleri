@@ -3,11 +3,11 @@
 #import "/lib/template.typ": *
 #show: conf
 
-= Python Uygulama Soruları: Cevap Anahtarı
+== Python Uygulama Soruları: Cevap Anahtarı
 
 Cevaplar örnek çözümlerdir; öğrencilerin değişken adları ve yazım biçimi farklı olabilir, çıktılar aynıysa doğru kabul edilebilir.
 
-== Tanışma ve yaş hesabı
+=== Tanışma ve yaş hesabı
 
 #kod-blok(width: 100%)[
 ```python
@@ -21,7 +21,7 @@ print(f"Merhaba {ad}, {yas} yaşındasın.")
 
 #not_block(title: "Sık hata:")[`int()` kullanmayıp `"2026" - "2010"` işlemini denemek (`TypeError`). `input()` her zaman metin döndürür.]
 
-== Dikdörtgenin alanı ve çevresi
+=== Dikdörtgenin alanı ve çevresi
 
 #kod-blok(width: 100%)[
 ```python
@@ -38,7 +38,7 @@ print(f"Çevre: {cevre:.2f} cm")
 
 #not_block(title: "Sık hata:")[Çevre formülünde parantez unutmak (`2 * kisa + uzun` yanlış sonuç verir).]
 
-== Not ortalaması
+=== Not ortalaması
 
 #kod-blok(width: 100%)[
 ```python
@@ -58,7 +58,7 @@ print(f"Takdir mi: {takdir_mi}")
 
 #not_block(title: "Sık hata:")[`gecti_mi = ortalama = 50` yazmak (karşılaştırma yerine atama).]
 
-== Tür dönüşümü
+=== Tür dönüşümü
 
 #kod-blok(width: 100%)[
 ```python
@@ -86,7 +86,7 @@ print(toplam_tutar, type(toplam_tutar))
 
 #not_block(title: "Vurgulanacak noktalar:")[Metinle toplama birleştirme yapar (`2525`); `int` ile `float` çarpılınca sonuç `float` olur; `int(85.85)` yuvarlamaz, ondalık kısmı atar.]
 
-== Hatalı kodu düzeltin
+=== Hatalı kodu düzeltin
 
 #ders-tablosu(
   none,
@@ -116,7 +116,7 @@ MAKSIMUM_DENEME_SAYISI = 3
 
 #not_block(title: "Not:")[`class` bir anahtar kelime olduğu için değişken adı olamaz; yerine herhangi bir geçerli ad (`sinif`) kullanılabilir. Öğrenci her satırın hatasını doğru adlandırıyorsa tam puan verilebilir.]
 
-== Kod izleme
+=== Kod izleme
 
 #output-box[
 ```text
@@ -147,7 +147,7 @@ True
 - `x = 7 + 3 * 2` işleminin sonucu 13'tür; `13 % 5` 3 olduğundan sonuç `True`.
 ]
 
-== Çıktı biçimlendirme
+=== Çıktı biçimlendirme
 
 #kod-blok(width: 100%)[
 ```python
@@ -171,7 +171,7 @@ print("O \"evet\" dedi")
 
 #not_block(title: "Not:")[`end` verilmezse her `print()` alt satıra geçer; `sep` yalnızca virgülle ayrılan değerlerin arasını etkiler. Ters eğik çizgiyi yazdırmak için `\\`, çift tırnağı yazdırmak için `\"` gerekir.]
 
-== Dakikayı gün, saat ve dakikaya çevirme
+=== Dakikayı gün, saat ve dakikaya çevirme
 
 #kod-blok(width: 100%)[
 ```python
@@ -188,7 +188,7 @@ print(f"{gun} gün {saat} saat {dakika} dakika")
 
 #not_block(title: "Kontrol:")[4000 = 2 × 1440 + 1120 ve 1120 = 18 × 60 + 40. Ders notundaki "135 dakika → 2 saat 15 dakika" örneğinin bir adım genişletilmiş halidir.]
 
-== Basamaklarına ayırma
+=== Basamaklarına ayırma
 
 #kod-blok(width: 100%)[
 ```python
@@ -209,7 +209,7 @@ print(f"Ters sayı: {ters_sayi}")
 
 #not_block(title: "Not:")[Onlar basamağı için önce `// 10` ile son basamak atılır (487 → 48), sonra `% 10` ile son basamak alınır (8). Bu, ders notundaki "son basamağı al / at" örneğinin devamıdır.]
 
-== ATM para dağıtımı
+=== ATM para dağıtımı
 
 #kod-blok(width: 100%)[
 ```python
@@ -241,7 +241,7 @@ print(f"1 TL  : {birlik} adet")
 
 #not_block(title: "Kontrol:")[2×100 + 50 + 20 + 10 + 5 + 2×1 = 287. Bu soru, `kalan` değişkeninin her adımda yeniden atanarak güncellendiğini göstermek için iyi bir fırsattır.]
 
-== Market fişi
+=== Market fişi
 
 #kod-blok(width: 100%)[
 ```python
@@ -266,7 +266,7 @@ print("-" * 28)
 
 #not_block(title: "Not:")[Biçimde `<` sola, `>` sağa yaslar; `:>7.2f` ise "7 karakter genişliği, sağa yaslı, 2 ondalık" demektir. Metnin kendisini süslü parantez içine koyarken dış tırnak çift, iç tırnak tek olmalıdır (`{'Ara toplam':<14}`).]
 
-== Sinema bileti
+=== Sinema bileti
 
 #kod-blok(width: 100%)[
 ```python
@@ -299,7 +299,7 @@ print(round(0.1 + 0.2, 2) == 0.3)
 
 #not_block(title: "Not:")[Son iki satır her zaman `False` ve `True` yazar: ondalıklı sayılar tam kesinlikle saklanamadığı için `0.1 + 0.2` ifadesi `0.30000000000000004` olur. Bu, ders notu 18.4'teki uyarının uygulamasıdır.]
 
-== Üç sayının istatistiği
+=== Üç sayının istatistiği
 
 #kod-blok(width: 100%)[
 ```python
