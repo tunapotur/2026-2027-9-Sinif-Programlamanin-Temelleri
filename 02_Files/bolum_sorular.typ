@@ -7,14 +7,15 @@ Aşağıdaki sorular, temel programlama yapıları konusundaki bilgilere göre h
 === Tanışma ve yaş hesabı
 #text(size: 9pt, fill: luma(110))[Konu: `input()`, `int()`, sabit, f-string · Zorluk: Kolay]
 
-Kullanıcıdan adını ve doğum yılını alan, yaşını hesaplayıp ekrana yazan bir program yazın. Programın en üstünde `BU_YIL` adında bir sabit (2026) tanımlayın ve çıktıyı f-string ile yazdırın.
-
-#output-box(title: "Örnek Ekran Çıktısı")[
+#iki_hucreli_satir()[
+  Kullanıcıdan adını ve doğum yılını alan, yaşını hesaplayıp ekrana yazan bir program yazın. Programın en üstünde `BU_YIL` adında bir sabit (2026) tanımlayın ve çıktıyı f-string ile yazdırın.][
+  #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Adınız: Ayşe
 Doğum yılınız: 2010
 Merhaba Ayşe, 16 yaşındasın.
 ```
+]
 ]
 
 === Dikdörtgenin alanı ve çevresi

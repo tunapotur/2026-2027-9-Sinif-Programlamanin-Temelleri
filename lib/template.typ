@@ -217,11 +217,17 @@
   ]
 }
 
-#let kod-blok(body, width:auto) = {
-  // Satır numaralandırma kuralı
+#let kod-blok(body, ilk-satir: 1, satir-no: true, width: auto) = {
+  // Satır numaralandırma (kapatılabilir, başlangıç değeri ayarlanabilir)
   show raw.line: it => {
-    box(width: 1em, align(right, text(fill: luma(120), size: 0.85em, str(it.number))))
-    h(1em)
+    if satir-no {
+      let son = ilk-satir + it.count - 1
+      box(
+        width: str(son).len() * 0.6em,
+        align(right, text(fill: luma(120), size: 0.85em, str(it.number + ilk-satir - 1))),
+      )
+      h(1em)
+    }
     it.body
   }
 
@@ -408,6 +414,37 @@
       [
         #if baslik-yeri == "sag" { baslik-icerik }
         #output-box[#cikti]
+      ],
+    )
+  ]
+}
+
+#let _align = align  // `align` parametresi bu fonksiyonu gölgelediği için yedekliyorum
+
+#let iki_hucreli_satir(
+  baslik: none,
+  baslik-yeri: "sol",   // "sol" veya "sag"
+  columns: (auto, auto),
+  gutter: 10pt,
+  align: bottom,
+  sol,
+  sag,
+) = {
+  let baslik-var = baslik != none and baslik != ""
+  let baslik-icerik = if baslik-var { _align(center)[*#baslik*] } else { none }
+
+  block(breakable: false)[
+    #grid(
+      columns: columns,
+      gutter: gutter,
+      align: align,
+      [
+        #if baslik-yeri == "sol" { baslik-icerik }
+        #sol
+      ],
+      [
+        #if baslik-yeri == "sag" { baslik-icerik }
+        #sag
       ],
     )
   ]
