@@ -9,7 +9,7 @@
 // #pagebreak(to: "odd")
 // #counter(page).update(1)
 
-// #set page(numbering: "1")
+#set page(numbering: "1")
 
 #include "02_Files/donanımın_temeli.typ"
 #include "02_Files/infographic_bilgisayarin_dili.typ"

@@ -532,5 +532,5 @@ Güncellenmiş Puan: 75
 
 #align(center)[
   
-#image("images/programlama_evrim.jpg",width: 80%)
+#image("images/programlama_evrim.jpg",width: 53%)
 ]

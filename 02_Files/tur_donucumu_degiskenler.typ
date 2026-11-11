@@ -433,7 +433,7 @@ print(c)
         *Açıklama Satırının Kullanım Amaçları*
       
 
-#kod-blok(width: 95%)[
+#kod-blok(width: 100%)[
   ```Python
 # 1) Kodu açıklamak için
 yas = 17  # öğrencinin yaşı
