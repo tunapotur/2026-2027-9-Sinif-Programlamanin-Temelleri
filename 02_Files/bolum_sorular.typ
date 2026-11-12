@@ -493,7 +493,7 @@ print(gun, ay, yil, sep="/", end=" <- tarih biçimi\n")
 ```
 ]
 ][
-#kod-blok(width: 100%)[
+#kod-blok(width: 100%, ilk-satir: 6)[
 ```python
 print("Yükleniyor", end="...")
 print("Tamam")
@@ -576,7 +576,7 @@ kalan = kalan % 10
 ```
 ]
 ][
-#kod-blok(width: 100%, ilk-satir: 10)[
+#kod-blok(width: 100%, ilk-satir: 14)[
 ```python
 beslik = kalan // 5
 birlik = kalan % 5
