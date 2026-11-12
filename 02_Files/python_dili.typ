@@ -11,6 +11,7 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 
 "Notlarımızın bundan sonraki bölümlerinde vereceğimiz örnekler *Python programlama dili* için olacaktır."
 
+#v(1em)
 
 #align(center)[
 #block(breakable: false)[
@@ -63,13 +64,14 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 ]
 
 #v(1em)
+
 #grid(
   columns: (1fr, 2.2fr),
   gutter: 15pt,
   align: horizon,
   [
     #align(center)[
-      #image("/02_Files/images/python-logo.jpg", width: 75%)
+      #image("/02_Files/images/python-logo.jpg", width: 100%)
     ]
   ],
   [

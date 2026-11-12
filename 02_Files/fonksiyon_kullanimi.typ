@@ -172,7 +172,11 @@ Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu ko
 ]
 
 // #image("images/python_functions.jpg")
-#pagebreak()
+
+#align(center)[
+  #image("images/sayfa_alt_bosluklar/19_fonksiyonlar_kullanim.jpg")
+]
+
 
 == input() ve print() Fonksiyonları
 Çoğu program şu üç adımı izler: *veriyi al* (girdi), *işle*, *sonucu göster* (çıktı). `input()` girdi adımını, `print()` çıktı adımını yapar.
@@ -465,6 +469,7 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
 === print() Fonksiyonunun sep ve end Parametreleri
 `print()` fonksiyonunun, biz yazmasak da varsayılan değerlerle çalışan iki isteğe bağlı parametresi vardır. Bunları yazarak çıktının biçimini değiştirebiliriz.
 
+#v(1em)
 #ders-tablosu(
   "print() Parametreleri",
   (auto, auto, 1fr),
@@ -474,6 +479,7 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
   [`end`], [`"\n"` (alt satıra geç)], [Yazdırma bittikten sonra satırın nasıl sonlanacağını belirler.],
 )
 
+#v(1em)
 ==== sep: Değerler Arasına Ne Gelsin?
 #kod-cikti(baslik: [Farklı ayırıcılarla yazdırma], baslik-yeri: "sol", columns: (2fr, 1fr))[
 ```python
@@ -495,6 +501,7 @@ PazartesiSalıÇarşamba
 
 ==== end: Satır Nasıl Bitsin?
 Normalde her `print()` işini bitirince alt satıra geçer. `end` ile bu davranışı değiştirebiliriz.
+#v(1em)
 
 #kod-cikti(baslik: [Aynı satırda yazdırmaya devam etme], baslik-yeri: "sag")[
 ```python
@@ -551,12 +558,14 @@ Yol: C:\\Okul
 O \"evet\" dedi
 ```
 ]
-
+#let eksi_bosluk = -0.5em
+#v(eksi_bosluk)
 === Örnek Uygulamalar
+#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Daire alanı hesaplama",
   columns: (32em, auto),
-  align: horizon,
+  align: bottom,
   [
     ```python
     pi = 3.14159
@@ -566,15 +575,18 @@ O \"evet\" dedi
     ```
   ],
   [
+    ```text
     Yarıçap (cm): 5 \
     r=5.0 cm olan dairenin alanı 78.54 cm²\'dir.
+    ```
   ],
 )
 
+#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Not ortalaması",baslik-yeri: "sag",
   columns: (32em, auto),
-  align: horizon,
+  align: bottom,
   [
     ```python
     ad = input("Öğrenci adı: ")
@@ -600,11 +612,12 @@ O \"evet\" dedi
   ],
 )
 
+#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Market fişi",
   baslik-yeri: "sag",
   columns: (32em, auto),
-  align: horizon,
+  align: bottom,
   [
     ```python
     urun = input("Ürün adı: ")
@@ -632,19 +645,18 @@ O \"evet\" dedi
   ],
 )
 
+#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Saniyeyi saat-dakika-saniyeye çevirme",baslik-yeri: "sag",
   columns: (32em, auto),
-  align: horizon,
+  align: bottom,
   [
     ```python
     toplam = int(input("Saniye giriniz: "))
-
     saat = toplam // 3600
     kalan = toplam % 3600
     dakika = kalan // 60
     saniye = kalan % 60
-
     print(f"{saat:02d}:{dakika:02d}:{saniye:02d}")
     ```
   ],
@@ -656,13 +668,13 @@ O \"evet\" dedi
   ],
 )
 
-#not_block(title: "Özet: ", boyut: 8.35pt)[
-  - Fonksiyon, bir işi yapan isimli kod parçasıdır; `fonksiyon(argümanlar)` biçiminde çağrılır ve gerekirse bir dönüş değeri verir.
-  - `input()` klavyeden veri alır ve *her zaman metin* döndürür. Sayı gerekiyorsa `int()` veya `float()` ile dönüştürülür.
-  - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
-]
+// #not_block(title: "Özet: ", boyut: 8.35pt)[
+//   - Fonksiyon, bir işi yapan isimli kod parçasıdır; `fonksiyon(argümanlar)` biçiminde çağrılır ve gerekirse bir dönüş değeri verir.
+//   - `input()` klavyeden veri alır ve *her zaman metin* döndürür. Sayı gerekiyorsa `int()` veya `float()` ile dönüştürülür.
+//   - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
+// ]
 
-#pagebreak()
+
 // #align(center)[
 //   #image("images/python_functions2.jpg", width: 87%)
 // ]

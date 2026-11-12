@@ -6,20 +6,19 @@
 == Python Tür Kontrolü: `type()` ve `isinstance()` Fonksiyonları
 === `type()` Fonksiyonu
 Python'da her değerin bir türü vardır; *`type()`* fonksiyonu bu türü bize söyler. Python'da her değer (sayı, metin, liste, hatta fonksiyonlar) bir *nesnedir* ve her nesne bir *türe (sınıfa)* aittir. `type()` fonksiyonu, kendisine verilen nesnenin türünü döndürür.
+\ Altaki şemada *`type(10)`* çağrısının sonucu *`type()`* fonksiyonu *`int`* sınıfını döndürerek *`tur`* değişkenine atıyor.
 
-Altaki şemada *`type(10)`* çağrısının sonucu *`type()`* fonksiyonu *`int`* sınıfını döndürerek *`tur`* değişkenine atıyor.
-
-
-#align(center)[
+#iki_hucreli_satir(columns: (auto,auto))[
+  #align(center)[
    #block(   
     inset: 10pt,
     radius: 4pt,
     stroke: 1pt + rgb("#d0d7de"),
-    width: 100%
+    width: auto
     )[
-  #fonksiyon-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 24pt)
+  #fonksiyon-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 20pt)
 ]]
-
+][
 #kod-cikti(baslik: [Temel kullanım])[
 ```python
 print(type(10))
@@ -35,6 +34,8 @@ print(type(True))
 <class 'bool'>
 ```
 ]
+]
+
 
 Çıktıdaki *`<class 'int'>`* ifadesi şu anlama gelir: "Bu değer, *`int`* sınıfından bir nesnedir."
 

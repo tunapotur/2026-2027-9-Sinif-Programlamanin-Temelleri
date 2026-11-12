@@ -15,7 +15,7 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
 - Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
 - Karakter tabanlı bir veriyle matematiksel işlem yapılamaz. Örneğin iki metinsel veri toplanmak istendiğinde matematiksel toplama ($25 + 10 = 35$) yerine metin birleştirme ("25" + "10" = "2510") gerçekleşir veya derleyici hata verir.
 - Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
-
+#v(1em)
 #block(breakable: false)[
   #v(1em)
   *Örnek Python Kodu: * Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
@@ -56,16 +56,20 @@ Güncellenmiş Puan: 75
           ```
 ]
 ]
+#v(1em)
 Program, kullanıcıdan "Puan Giriniz:" iletisiyle bir tam sayı değeri beklemektedir. Python'da input() fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, input() fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (string) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için int() fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
+#v(1em)
       #kod-blok[
     ```Python
 veri = input("Puan Giriniz: ")  # 1. Aşama: Metin olarak alındı ("50")
 puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
     ```
 ]
+#v(1em)
 
 Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *int()* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
 
+#v(1em)
 #block(breakable: false)[
   #grid(
     columns: (30em, auto),
@@ -122,6 +126,8 @@ Bu satır *içten dışa* doğru çalışır: önce en içteki `input()`, sonra 
 
 Kullanıcı klavyeden `50` yazıp Enter'a basar. `input()` fonksiyonu bu değeri her zaman *metin* olarak döndürür; yani elimize geçen şey sayı değil, tırnak içinde `"50"` olur. Bu değer, dıştaki `int()` fonksiyonuna gider.
 
+#v(1em)
+
 #align(center)[
    #block(   
     inset: 10pt,
@@ -136,13 +142,17 @@ Kullanıcı klavyeden `50` yazıp Enter'a basar. `input()` fonksiyonu bu değeri
     ifade: "input(\"Puan Giriniz: \")",
     son: ")",
     deger: "\"50\"",
-    boyut: 18pt,
+    boyut: 22pt,
   )
 ]]
+
+#v(1em)
 
 #text(size: 12pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine gider]
 
 `input()` çağrısı yerini döndürdüğü değere bıraktı; satır artık şu hale geldi: `puan = int("50")`.\ `int()` fonksiyonu `"50"` metnini tam sayıya çevirir ve sonuç olan `50` değeri `puan` değişkenine atanır.
+
+#v(1em)
 
 #align(center)[
    #block(   
@@ -155,10 +165,11 @@ Kullanıcı klavyeden `50` yazıp Enter'a basar. `input()` fonksiyonu bu değeri
     degisken: "puan",
     ifade: "int(\"50\")",
     deger: "50",
-    boyut: 18pt,
+    boyut: 28pt,
   )
 ]]
 
+#v(1em)
 #kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
   ```python
 puan = int(input("Puan Giriniz: "))
@@ -181,6 +192,8 @@ Puan Giriniz: 50
 
 === Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
+
+#v(1em)
 
 #let renk-int = rgb("#2b6cb0")
 #let renk-float = rgb("#c05621")
@@ -240,6 +253,8 @@ print(toplam_tutar) # Çıktı: 12.5
 === Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
+#v(1em)
+
 #grid(
   columns: (auto, auto),
   gutter: 5pt,
@@ -247,7 +262,7 @@ Programcının veri kaybını göze alarak veya işlemi yönlendirmek için tür
   [
 *Hassasiyeti Korumak İçin Tam Sayıyı Kesirli Sayıya Çevirmek (int $-->$ float):*
 Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
-
+#v(1em)
 #kod-blok()[
   ```Python
 puan = 100
@@ -261,6 +276,7 @@ print(ondalikli_puan)  # Çıktı: 100.0
   [
 *Ondalık Kısmı Atmak İçin (float $-->$ int):*
 Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
+#v(1em)
 #kod-blok()[
   ```Python
 ortalama = 85.85
@@ -273,6 +289,7 @@ print(tam_not)  # Çıktı: 85
   ]
 )
 
+#v(1em)
 
 == Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
@@ -283,7 +300,7 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 - *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
 - *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
-// #v(1em)
+#v(1em)
 #align(center)[
   #block(breakable: false, width: 100%)[
     #grid(
@@ -339,13 +356,15 @@ Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**
 İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
 #align(center)[
+  #v(1em)
   *Değişken Adlandırma Kuralları (Naming Conventions)*
+  
   #table(
     columns: (auto, auto, auto),
     fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
     stroke: 0.5pt + rgb("#cbd5e1"),
     align: (center + horizon, center + horizon, center + horizon),
-    rows: (2.5em, 2.25em),
+    rows: (2.5em, 2.5em),
     table.header([*Yanlış / Zor Okunan Biçim*], [*snake_case (Python)*], [*camelCase*]),
     
     text(fill: rgb("#dc2626"))[`personelsayisi`],
@@ -376,7 +395,8 @@ Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**
     text(fill: rgb("#2563eb"), weight: "bold")[`son_odeme_tarihi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`sonOdemeTarihi`],
   )
-]
+  ]
+
 == Sabitler
 Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (*constant*) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
 

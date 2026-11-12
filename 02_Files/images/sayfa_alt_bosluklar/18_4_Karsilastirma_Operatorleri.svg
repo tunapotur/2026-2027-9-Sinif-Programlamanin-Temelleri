@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="51 27 1698 246" width="1698" height="246">
+<rect x="51" y="27" width="1698" height="246" fill="#ffffff"/>
+<rect x="54" y="30" width="262" height="240" rx="24" fill="#fbfcff" stroke="#2f80ed" stroke-width="6"/>
+<rect x="70" y="44" width="230" height="42" rx="21" fill="#2f80ed"/>
+<text x="185.0" y="73" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">Eşittir</text>
+<text x="185.0" y="172" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="88" fill="#1b2a49">==</text>
+<text x="84" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#2f80ed" opacity="0.45">+</text>
+<text x="264" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#2f80ed" opacity="0.45">&lt;&gt;</text>
+<rect x="68" y="194" width="136" height="46" rx="12" fill="#14213d"/>
+<text x="136" y="225" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="25" fill="#ffffff">5 == 5</text>
+<rect x="212" y="194" width="90" height="46" rx="23" fill="#2ecc71" stroke="#1e9e53" stroke-width="3"/>
+<text x="257" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">True</text>
+<rect x="340" y="30" width="262" height="240" rx="24" fill="#fbfcff" stroke="#27ae60" stroke-width="6"/>
+<rect x="356" y="44" width="230" height="42" rx="21" fill="#27ae60"/>
+<text x="471.0" y="73" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">Eşit değildir</text>
+<text x="471.0" y="172" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="88" fill="#1b2a49">!=</text>
+<text x="370" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#27ae60" opacity="0.45">+</text>
+<text x="550" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#27ae60" opacity="0.45">&lt;&gt;</text>
+<rect x="354" y="194" width="136" height="46" rx="12" fill="#14213d"/>
+<text x="422" y="225" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="25" fill="#ffffff">5 != 3</text>
+<rect x="498" y="194" width="90" height="46" rx="23" fill="#2ecc71" stroke="#1e9e53" stroke-width="3"/>
+<text x="543" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">True</text>
+<rect x="626" y="30" width="262" height="240" rx="24" fill="#fbfcff" stroke="#8e44ad" stroke-width="6"/>
+<rect x="642" y="44" width="230" height="42" rx="21" fill="#8e44ad"/>
+<text x="757.0" y="73" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">Büyüktür</text>
+<text x="757.0" y="172" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="88" fill="#1b2a49">&gt;</text>
+<text x="656" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#8e44ad" opacity="0.45">+</text>
+<text x="836" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#8e44ad" opacity="0.45">&lt;&gt;</text>
+<rect x="640" y="194" width="136" height="46" rx="12" fill="#14213d"/>
+<text x="708" y="225" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="25" fill="#ffffff">7 &gt; 3</text>
+<rect x="784" y="194" width="90" height="46" rx="23" fill="#2ecc71" stroke="#1e9e53" stroke-width="3"/>
+<text x="829" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">True</text>
+<rect x="912" y="30" width="262" height="240" rx="24" fill="#fbfcff" stroke="#f2994a" stroke-width="6"/>
+<rect x="928" y="44" width="230" height="42" rx="21" fill="#f2994a"/>
+<text x="1043.0" y="73" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">Küçüktür</text>
+<text x="1043.0" y="172" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="88" fill="#1b2a49">&lt;</text>
+<text x="942" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#f2994a" opacity="0.45">+</text>
+<text x="1122" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#f2994a" opacity="0.45">&lt;&gt;</text>
+<rect x="926" y="194" width="136" height="46" rx="12" fill="#14213d"/>
+<text x="994" y="225" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="25" fill="#ffffff">7 &lt; 3</text>
+<rect x="1070" y="194" width="90" height="46" rx="23" fill="#e74c3c" stroke="#b93a2e" stroke-width="3"/>
+<text x="1115" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">False</text>
+<rect x="1198" y="30" width="262" height="240" rx="24" fill="#fbfcff" stroke="#16a5a5" stroke-width="6"/>
+<rect x="1214" y="44" width="230" height="42" rx="21" fill="#16a5a5"/>
+<text x="1329.0" y="73" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">Büyük eşittir</text>
+<text x="1329.0" y="172" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="88" fill="#1b2a49">&gt;=</text>
+<text x="1228" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#16a5a5" opacity="0.45">+</text>
+<text x="1408" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#16a5a5" opacity="0.45">&lt;&gt;</text>
+<rect x="1212" y="194" width="136" height="46" rx="12" fill="#14213d"/>
+<text x="1280" y="225" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="25" fill="#ffffff">5 &gt;= 5</text>
+<rect x="1356" y="194" width="90" height="46" rx="23" fill="#2ecc71" stroke="#1e9e53" stroke-width="3"/>
+<text x="1401" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">True</text>
+<rect x="1484" y="30" width="262" height="240" rx="24" fill="#fbfcff" stroke="#e0b400" stroke-width="6"/>
+<rect x="1500" y="44" width="230" height="42" rx="21" fill="#e0b400"/>
+<text x="1615.0" y="73" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">Küçük eşittir</text>
+<text x="1615.0" y="172" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="88" fill="#1b2a49">&lt;=</text>
+<text x="1514" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#e0b400" opacity="0.45">+</text>
+<text x="1694" y="126" font-family="DejaVu Sans Mono, monospace" font-size="20" font-weight="700" fill="#e0b400" opacity="0.45">&lt;&gt;</text>
+<rect x="1498" y="194" width="136" height="46" rx="12" fill="#14213d"/>
+<text x="1566" y="225" text-anchor="middle" font-family="DejaVu Sans Mono, Consolas, monospace" font-weight="700" font-size="25" fill="#ffffff">4 &lt;= 3</text>
+<rect x="1642" y="194" width="90" height="46" rx="23" fill="#e74c3c" stroke="#b93a2e" stroke-width="3"/>
+<text x="1687" y="225" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-weight="700" font-size="25" fill="#ffffff">False</text>
+</svg>

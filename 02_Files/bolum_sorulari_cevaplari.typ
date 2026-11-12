@@ -274,12 +274,16 @@ print(f"Ters sayı: {ters_sayi}")
 #kod-blok(width: 100%)[
 ```python
 tutar = int(input("Çekilecek tutar (TL): "))
+
 yuzluk = tutar // 100
 kalan = tutar % 100
+
 ellilik = kalan // 50
 kalan = kalan % 50
+
 yirmilik = kalan // 20
 kalan = kalan % 20
+
 onluk = kalan // 10
 kalan = kalan % 10
 ```
@@ -291,9 +295,13 @@ beslik = kalan // 5
 birlik = kalan % 5
 
 print(f"100 TL: {yuzluk} adet")
+
 print(f"50 TL : {ellilik} adet")
+
 print(f"20 TL : {yirmilik} adet")
+
 print(f"10 TL : {onluk} adet")
+
 print(f"5 TL  : {beslik} adet")
 print(f"1 TL  : {birlik} adet")
 ```

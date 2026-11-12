@@ -7,6 +7,8 @@
 
 == Operatörler ve İşlem Önceliği
 *Operatör*, bir veya birden fazla değer üzerinde *matematiksel hesaplama* yapan, değerleri *karşılaştıran* veya *mantıksal işlemler* yürüterek yeni bir sonuç üreten özel *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
+
+#v(1em)
 #align(center)[
 #grid(
     columns: (auto, auto),
@@ -50,7 +52,7 @@ Matematikte "eşittir" anlamına gelen #show-op[=] sembolü, programlama dilleri
 
 ==== Atama Operatörü (#show-op[`=`]): Değişken Oluşur veya Güncellenir
 Bir değişkene ilk kez değer atadığımızda, atanan değer için bellek (RAM) üzerinde bir yer ayrılır ve değer bu alana yazılır. Değişken adı ise bu bellek alanını gösteren bir *etikettir (işaretçidir)*.
-
+#v(1em)
 #kod-blok(width: 100%)[
   ```python
   yas = 15          # yas değişkeni oluştu, bellekte 15 değeri saklandı
@@ -58,9 +60,9 @@ Bir değişkene ilk kez değer atadığımızda, atanan değer için bellek (RAM
   pi_sayisi = 3.14  # pi_sayisi değişkeni oluştu
   ```
 ]
-
+#v(1em)
 Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken oluşmaz; değişkenin bulunduğu bellek alanında ki eski değerin üzerine yeni değer yazılır ve eski değer kaybolur.
-
+#v(1em)
 #kod-cikti()[
  ```python
         puan = 50
@@ -74,6 +76,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   Güncel puan: 75
   ```
 ]
+#v(1em)
 #grid(
     columns: (1fr,2fr),
     gutter: 8pt,
@@ -167,7 +170,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   [#show-op()[`%`]], [Mod (kalan)], [`10 % 4`], [`2`], [Bölmeden kalanı verir.],
   [#show-op()[`**`]], [Üs alma], [`2 ** 3`], [`8`], [Soldaki sayının sağdaki kuvvetini alır.],
 )
-
+#v(1em)
 #kod-cikti(baslik: [Aritmetik operatörlerin sonuçları], baslik-yeri: "sag")[
         ```python
         a = 17
@@ -205,7 +208,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 )
 
 #not_block(title:"Tam Bölme (`//`) ve Mod (`%`):")[Bir bölme işlemini ilkokuldaki gibi düşünün: \ *bölünen = bölen × bölüm + kalan*. `//` operatörü bölümü, `%` operatörü kalanı verir.]
-
+#v(1em)
 #kod-blok(width: 100%)[
   ```python
   print(17 // 5)   # 3   (17 içinde 3 tane 5 var)
@@ -213,6 +216,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   ```
 ]
 
+#v(1em)
 #ders-tablosu(
   "Tam Bölme ve Mod Örnekleri",
   (auto, auto, auto, auto),
@@ -235,6 +239,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   ```
 ]
 
+#v(1em)
 #kod-cikti(baslik: [Dakikayı saat ve dakikayı çevirme], baslik-yeri: "sag",columns: (30em,auto))[
 ```python
 toplam_dakika = 135
@@ -248,6 +253,7 @@ print(saat, "saat", dakika, "dakika")
 ```   
 ]
 
+#v(1em)
 *Üs Alma (`**`)*
 #kod-blok(width: 100%)[
   ```python
@@ -428,6 +434,9 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
   [#show-op()[`>=`]], [Büyük eşittir], [`5 >= 5`], [`True`], [Soldaki büyük *veya* eşitse `True` olur.],
   [#show-op()[`<=`]], [Küçük eşittir], [`4 <= 3`], [`False`], [Soldaki küçük *veya* eşitse `True` olur.],
 )
+#align(center)[
+#image("images/sayfa_alt_bosluklar/18_4_Karsilastirma_Operatorleri.svg", width: 100%)
+]
 
 #block(breakable: false)[
 *Bir sayının çeşitli karşılaştırma sonuçları*
@@ -526,10 +535,11 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   [#show-op()[`or`]], [Veya], [En az bir koşul `True` ise.], ["Param *veya* kartım varsa alışveriş yapabilirim."],
   [#show-op()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
 )
+#align(center)[
+#image("images/sayfa_alt_bosluklar/18_5_Mantiksal_Operatorler.svg",width: 97%)
+]
 
 #block(breakable: false)[
-
-
   #align(center)[*Doğruluk Tabloları*]
   #grid(
     columns: (auto, auto, auto, auto),
@@ -693,6 +703,6 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
   - Emin olmadığınız yerde parantez kullanın.
 ]
 
-// #align(center)[
-// #image("images/python_operators.jpg", width: 80%)
-// ]
+ #align(center)[
+#image("images/sayfa_alt_bosluklar/18_6_Operatorler_Arasi_Islemler.jpg",width: 80%)
+ ]

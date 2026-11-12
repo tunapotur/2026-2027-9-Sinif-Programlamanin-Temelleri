@@ -7,6 +7,8 @@
 Değişken; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. \
 Değişkenler yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
 
+#v(1em)
+
 #kod-cikti(baslik: [Örnek Python Kodu])[
 ```Python
 puan = int(input("Puan Giriniz: "))
@@ -22,6 +24,7 @@ Güncellenmiş Puan: 75
 ```
 ]
 
+#v(1em)
 
 #grid(
   columns: (auto,auto),
@@ -31,6 +34,8 @@ Güncellenmiş Puan: 75
   image("/02_Files/images/02-Hafizadan-Cagirma.png"),
 )
 
+#v(1em)
+
 #grid(
   columns: (auto,auto),
   gutter: 10pt,
@@ -38,5 +43,7 @@ Güncellenmiş Puan: 75
   image("/02_Files/images/03-Deger-Guncelleme.png"),
   image("/02_Files/images/04-Guncel-Hali-Cagirma.png"),
 )
+
+#v(1em)
 
 #not_block(title:"Kısacası:")[Değişkenler, değerleri geçici olarak RAM'de tutan etiketlerdir. Program çalıştığı sürece bu değerler kullanılabilir ve güncellenebilir.]

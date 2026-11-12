@@ -530,6 +530,6 @@ Güncellenmiş Puan: 75
 ```
 ]
 
-// #align(center)[  
-// #image("images/programlama_evrim.jpg",width: 53%)
-// ]
+#align(center)[  
+#image("images/sayfa_alt_bosluklar/07_programlama_dilleri.jpg",width: 100%)
+]
