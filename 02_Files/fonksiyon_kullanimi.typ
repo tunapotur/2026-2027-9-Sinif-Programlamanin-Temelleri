@@ -171,7 +171,8 @@ Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu ko
   Bir fonksiyonun ekrana yazdığı şey ile geri verdiği değer farklı kavramlardır. Ekrandaki yazıyı değişkende saklayamayız; ancak dönüş değerini saklayabiliriz.
 ]
 
-#image("images/python_functions.jpg")
+// #image("images/python_functions.jpg")
+#pagebreak()
 
 == input() ve print() Fonksiyonları
 Çoğu program şu üç adımı izler: *veriyi al* (girdi), *işle*, *sonucu göster* (çıktı). `input()` girdi adımını, `print()` çıktı adımını yapar.
@@ -661,6 +662,7 @@ O \"evet\" dedi
   - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
 ]
 
-#align(center)[
-  #image("images/python_functions2.jpg", width: 87%)
-]
+#pagebreak()
+// #align(center)[
+//   #image("images/python_functions2.jpg", width: 87%)
+// ]

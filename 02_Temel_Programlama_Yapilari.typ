@@ -5,9 +5,9 @@
 
 
 
-// #outline(title: "İçindekiler")
-// #pagebreak(to: "odd")
-// #counter(page).update(1)
+#outline(title: "İçindekiler")
+#pagebreak(to: "odd")
+#counter(page).update(1)
 
 #set page(numbering: "1")
 

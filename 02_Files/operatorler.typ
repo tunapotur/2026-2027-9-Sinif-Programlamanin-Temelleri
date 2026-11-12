@@ -693,6 +693,6 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
   - Emin olmadığınız yerde parantez kullanın.
 ]
 
-#align(center)[
-#image("images/python_operators.jpg", width: 80%)
-]
+// #align(center)[
+// #image("images/python_operators.jpg", width: 80%)
+// ]

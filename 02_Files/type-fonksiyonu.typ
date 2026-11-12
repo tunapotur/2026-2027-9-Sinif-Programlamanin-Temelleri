@@ -138,9 +138,9 @@ Değer Bir Sayıdır!
   ```
 ]
 ]
+#pagebreak()
 
-
-#align(center)[
-  #v(1em)
-  #image("images/python_type,isinstance.jpg", width: 100%)
-]
+// #align(center)[
+//   #v(1em)
+//   #image("images/python_type,isinstance.jpg", width: 100%)
+// ]
