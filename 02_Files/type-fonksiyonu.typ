@@ -132,16 +132,14 @@ Değer Bir Sayıdır!
 `isinstance()` fonksiyonu, değişkenlerin ve fonksiyon parametrelerinin tür kontrolü için oldukça uygundur. Aşağıdaki kodda `isinstance()` fonksiyonu, verilen değerin hem tam sayı (`int`) hem de ondalıklı sayı (`float`) olması durumunda `True` döndürecektir. Birden fazla tür kontrolü yapmanız gereken durumlar için `isinstance()` fonksiyonunu bu şekilde kullanabilirsiniz.
 
 #align(center)[
-  #v(1em)
+  // #v(1em)
 #kod-satiri(no:0, size: 14pt, weight: "semibold")[
   ```python
   isinstance(deger, (int, float))
   ```
 ]
 ]
-#pagebreak()
 
-// #align(center)[
-//   #v(1em)
-//   #image("images/python_type,isinstance.jpg", width: 100%)
-// ]
+#align(center)[
+  #image("images/sayfa_alt_bosluklar/sy37.jpg", width: 98%)
+]

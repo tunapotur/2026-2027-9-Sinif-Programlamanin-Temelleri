@@ -680,7 +680,7 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
 )
 
 *Gerçek hayat, kampa katılım kuralı*
-#kod-blok[
+#kod-blok(width: 100%)[
         ```python
         yas = 15
         veli_izni = True
