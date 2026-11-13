@@ -111,11 +111,11 @@ char cevapSikki = 'C'; // Çoktan seçmeli testlerde işaretlenen şık
   )
 ]
 
-#pagebreak()
+// #pagebreak()
 === Tam Sayı (int)
 #block(breakable: false)[
   #grid(
-    columns: (23em, auto),
+    columns: (25em, auto),
     gutter: 5pt,
     align: (horizon),
     [
@@ -138,6 +138,7 @@ int kalan = a % b; // kalan = 1
   )
 ]
 
+#v(0.5em)
 #ram-goster(
   "int",
   "int puan = 50;",
@@ -156,7 +157,7 @@ int kalan = a % b; // kalan = 1
 === Ondalıklı Sayı (float)
 #block(breakable: false)[
   #grid(
-    columns: (auto, 22em),
+    columns: (25em, auto),
     gutter: 10pt,
     align: (horizon),
     [
@@ -181,6 +182,7 @@ float alan = pi * b * b; // => 12.56
   )
 ]
 
+#v(0.5em)
 #ram-goster(
   "float",
   "float pi = 3.14;",
@@ -188,23 +190,27 @@ float alan = pi * b * b; // => 12.56
   aciklama: "Ondalıklı sayılar IEEE 754 biçiminde saklanır ve 4 byte yer kaplar.",
 )
 
-#not_block(title: "Ne zaman int, ne zaman float?")[
+// #v(1em)
+#not_block(title: "Ne zaman int, ne zaman float?", boyut:12pt)[
   \ float her işlemde kullanılabilir; ancak hem daha fazla RAM kaplar hem de işlemciyi daha çok yorar. Bu yüzden *gerekmedikçe* *int* yerine *float* kullanılmamalıdır. Küsurat gerekiyorsa (ortalama, not, fiiyat, sıcaklık gibi) float tercih edilir.
 ]
 
 == Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
 Bellek yönetimi, verilerin RAM'de gereksiz yer kaplamasını önlemek için her veriye yalnızca ihtiyacı kadar alan ayrılmasıdır. Veri türleri, bu alan planlamasını yaparak etkin bir bellek yönetimi sağlar. İşlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazan bir donanım birimi olduğu için bu yönetim sistem performansını doğrudan belirler. İhtiyaçtan büyük seçilen her veri türü, RAM ile işlemci arasındaki veri yollarında gereksiz bilgi trafiği yaratır ve işlem süresini uzatır. Doğru bellek yönetimi ise taşınan veri boyutunu küçülterek işlemcinin veriyi çok daha hızlı okuyup işlemesini sağlar. #text(weight: "semibold")[Özetle; doğru veri türüyle yapılan bellek yönetimi hem RAM’de tasarruf sağlar hem de işlemcinin hızını artırır.]
 
+#v(0.5em)
 #image("/02_Files/images/ChatGpt Bellek Yönetimi ve CPU Performansı.png")
+#v(0.5em)
 #image("/02_Files/images/Gemini_Bellek Yönetimi ve CPU Performansı.jpg")
 
 == Karakterden Metne (Karakter Dizisi)
 Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sadece bir karakteri tutabilir. Birden fazla karakterden oluşan bir kelimeyi veya metni bellekte saklamak istediğimizde ise tekil karakterler yan yana getirilerek bir *karakter dizisi* oluşturulur. Programlamada aynı türdeki verilerin bellekte peş peşe sıralanarak tek bir grup halinde tutulmasına *dizi (array)* adı verilir. Metinler de aslında karakterlerin yan yana dizildiği birer dizidir; bu nedenle aşağıdaki yapı ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
-
-#text(size: 11pt, weight: "semibold")[
+#align(center)[
+#text(size: 14pt, weight: "semibold")[
   #not_block(title: "", width: auto)[
       Toplam Bellek Alanı = Karakter Sayısı x 1 Byte
   ]
+]
 ]
 
 #align(center)[*KEMAL* Metni RAM üzerinde nasıl saklanır?]
@@ -215,6 +221,7 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   aciklama: "Her bir harf ASCII karşılığı ile bellekte 1 byte yer kaplar (K:75, E:69, M:77, A:65, L:76). Toplam 5 karakter = 5 byte.",
 )
 
+#v(0.75em)
 #align(center)[*Ada Lovelace* Metni RAM üzerinde nasıl saklanır?]
 #ram-goster(
   "char",

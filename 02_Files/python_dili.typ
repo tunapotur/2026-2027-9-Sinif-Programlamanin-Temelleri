@@ -44,7 +44,7 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
       ]
     ],
     [
-      // #v(2em)
+      #v(5em)
       *İki Sayının Toplamını Alan Kod Örneği*
       #v(2em)
 *Python Dili*
@@ -84,14 +84,14 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 #v(1em)
 
 #grid(
-  columns: (1.2fr, 1fr),
+  columns: (1.4fr, 1fr),
   gutter: 12pt,
   [
     #block(
-      fill: rgb("#f8f9fa"),
+      fill: rgb("#f1f5f9"),
       inset: 8pt,
       radius: 4pt,
-      stroke: 0.5pt + rgb("#e9ecef"),
+      stroke: 0.5pt + rgb("#cbd5e1"),
       width: 100%,
       height: 18em
     )[

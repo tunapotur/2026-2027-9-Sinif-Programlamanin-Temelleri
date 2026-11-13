@@ -48,4 +48,5 @@ Güncellenmiş Puan: 75
 
 #v(1em)
 
-#not_block(title:"Kısacası:")[Değişkenler, değerleri geçici olarak RAM'de tutan etiketlerdir. Program çalıştığı sürece bu değerler kullanılabilir ve güncellenebilir.]
+#not_block(title:"Kısacası:",boyut: 12.5pt, width: 100%)[Değişkenler, değerleri geçici olarak RAM'de tutan etiketlerdir. Program çalıştığı sürece bu değerler kullanılabilir ve güncellenebilir.]
+

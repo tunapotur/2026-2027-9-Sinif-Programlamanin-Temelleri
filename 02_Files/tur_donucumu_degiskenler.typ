@@ -4,6 +4,7 @@
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/yardimcilar.typ": *
+#import "/lib/icerik-tablo.typ": *
 
 #show: conf
 
@@ -18,7 +19,7 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
 - Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
 - Karakter tabanlı bir veriyle matematiksel işlem yapılamaz. Örneğin iki metinsel veri toplanmak istendiğinde matematiksel toplama ($25 + 10 = 35$) yerine metin birleştirme ("25" + "10" = "2510") gerçekleşir veya derleyici hata verir.
 - Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
-#v(1em)
+// #v(1em)
 #block(breakable: false)[
   #v(1em)
   *Örnek Python Kodu: * Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
@@ -74,7 +75,7 @@ Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değ
 
 #v(1em)
 
-#kod-cikti(columns: (30em,auto), baslik: [Kullanıcı girişlerinin #underline(stroke: 1.5pt, offset: 2pt)[metin] türünden #underline(stroke: 1.5pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(0em)], baslik-yeri: "sag")[
+#kod-cikti(columns: (30em,auto), baslik: [Kullanıcı girişlerinin #underline(stroke: 1.5pt, offset: 2pt)[metin] türünden #underline(stroke: 1.5pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(2em)], baslik-yeri: "sag")[
 ```Python
 # Kullanıcı girişleri metin olarak alınır
 birinci_sayi = input("Birinci Sayıyı Girin: ")
@@ -171,7 +172,7 @@ Puan Giriniz: 50
 ]
 
 
-#not_block(title: "Dikkat:")[
+#not_block(title: "Dikkat:", boyut: 11pt)[
   `int()` olmasaydı `puan` değişkeninde `"50"` yani *metin* olurdu ve `puan + 10` gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak `int()` (ya da ondalıklı değerler için `float()`) ile dönüştürmemiz gerekir.
 ]
 
@@ -179,7 +180,7 @@ Puan Giriniz: 50
 === Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 
-#v(1em)
+// #v(1em)
 
 #let renk-int = rgb("#2b6cb0")
 #let renk-float = rgb("#c05621")
@@ -286,52 +287,41 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 - *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
 - *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
-#v(1em)
+#v(0.5em)
 #align(center)[
   #block(breakable: false, width: 100%)[
     #grid(
       columns: (1fr, 1.2fr),
       gutter: 14pt,
       align: (top, top),
-      [
-        *Türkçe Karakterlerin İngilizce Karşılıkları*
-        #table(
-          columns: (auto, auto, auto),
-          fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-          stroke: 0.5pt + rgb("#cbd5e1"),
-          align: (center + horizon, center + horizon, center + horizon),
-          rows: (2.5em, 2.6em),
-          table.header([*Türkçe*], [*Dönüşüm*], [*İngilizce*]),
-          [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
-          [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
-          [ı / İ], [#text(weight: "bold",size: 12pt)[$-->$]], [*i / I*],
-          [ö / Ö], [#text(weight: "bold",size: 12pt)[$-->$]], [*o / O*],
-          [ş / Ş], [#text(weight: "bold",size: 12pt)[$-->$]], [*s / S*],
-          [ü / Ü], [#text(weight: "bold",size: 12pt)[$-->$]], [*u / U*],
-        )
-      ],
-      [
-        *Değişken Kullanım Örnekleri*
-        #table(
-          columns: (auto, auto, auto),
-          fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-          stroke: 0.5pt + rgb("#cbd5e1"),
-          align: (left + horizon, center + horizon, left + horizon),
-          rows: (2.5em, 2em),
-          table.header([*Hatalı Kullanım*], [*Dönüşüm*], [*Doğru Kullanım*]),
-          [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
-          [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
-          [`şubeKodu`],      [$-->$], [*`subeKodu`*],
-          [`kayıtDurumu`],   [$-->$], [*`kayitDurumu`*],
-          [`şifresi`],       [$-->$], [*`sifresi`*],
-          [`öğrenci_yaşı`],  [$-->$], [*`ogrenci_yasi`*],
-          [`ücret_miktarı`], [$-->$], [*`ucret_miktari`*],
-          [`ilk_değer`],     [$-->$], [*`ilk_deger`*],
-        )
-      ]
-    )
-  ]
-]
+icerik-tablo(
+  sutunlar:(auto, auto, auto),
+  tablo_baslik:[Türkçe Karakterlerin İngilizce Karşılıkları],
+  sutun-baslik-bosluk: (x:6pt, y:10pt),
+  hucre-bosluk: (x:8pt, y:10pt),
+  sutun_basliklari: ([Türkçe], [Dönüşüm], [İngilizce]),
+  [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
+  [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
+  [ı / İ], [#text(weight: "bold",size: 12pt)[$-->$]], [*i / I*],
+  [ö / Ö], [#text(weight: "bold",size: 12pt)[$-->$]], [*o / O*],
+  [ş / Ş], [#text(weight: "bold",size: 12pt)[$-->$]], [*s / S*],
+  [ü / Ü], [#text(weight: "bold",size: 12pt)[$-->$]], [*u / U*],
+),
+icerik-tablo(
+  sutunlar:(auto, auto, auto),
+  tablo_baslik:[Değişken Kullanım Örnekleri],
+  sutun-baslik-bosluk: (x:6pt, y:10pt),
+  hucre-bosluk: (x:8pt, y:7.2pt),
+  sutun_basliklari: ([Hatalı Kullanım],[Dönüşüm],[Doğru Kullanım]),
+  [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
+  [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
+  [`şubeKodu`],      [$-->$], [*`subeKodu`*],
+  [`kayıtDurumu`],   [$-->$], [*`kayitDurumu`*],
+  [`şifresi`],       [$-->$], [*`sifresi`*],
+  [`öğrenci_yaşı`],  [$-->$], [*`ogrenci_yasi`*],
+  [`ücret_miktarı`], [$-->$], [*`ucret_miktari`*],
+  [`ilk_değer`],     [$-->$], [*`ilk_deger`*],
+))]]
 
 == Değişken Adlandırma Standartları (Notasyonlar)
 === Yılan Gösterimi (snake_case)
@@ -341,18 +331,11 @@ Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) k
 Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
-#align(center)[
-  #v(1em)
-  *Değişken Adlandırma Kuralları (Naming Conventions)*
-  
-  #table(
-    columns: (auto, auto, auto),
-    fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-    stroke: 0.5pt + rgb("#cbd5e1"),
-    align: (center + horizon, center + horizon, center + horizon),
-    rows: (2.5em, 2.5em),
-    table.header([*Yanlış / Zor Okunan Biçim*], [*snake_case (Python)*], [*camelCase*]),
-    
+#icerik-tablo(
+  tablo_baslik: "Değişken Adlandırma Kuralları (Naming Conventions)",
+  sutunlar: (auto, auto, auto),
+  sutun_basliklari: ([Yanlış / Zor Okunan Biçim],[snake_case (Python)],[camelCase]),
+  dikey-bosluk: 10pt,
     text(fill: rgb("#dc2626"))[`personelsayisi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],
@@ -380,8 +363,7 @@ Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**
     text(fill: rgb("#dc2626"))[`sonodemetarihi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`son_odeme_tarihi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`sonOdemeTarihi`],
-  )
-  ]
+)
 
 == Sabitler
 Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (*constant*) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.

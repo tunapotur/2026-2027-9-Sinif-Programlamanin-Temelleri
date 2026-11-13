@@ -19,9 +19,13 @@
   baslik_boyut: auto,          // snake_case alternatifi
   sutun_baslik_boyut: auto,    // sütun başlıklarına özel boyut
   tablo_baslik_boyut: auto,    // tablo üst başlığına özel boyut
+  tablo_baslik_alt_bosluk: 10pt, // tablo üst başlığı ile tablo arasındaki boşluk
+  tablo-baslik-alt-bosluk: auto,
   bolunebilir: false,          // true: tablo sayfa sonunda bölünebilir
   hucre_bosluk: auto,          // hücre içi genel boşluk (örn: 5pt veya (x: 4pt, y: 2pt))
   hucre-bosluk: auto,
+  sutun_baslik_bosluk: auto,   // sütun başlıklarına özel hücre içi boşluk (örn: 5pt veya (x: 4pt, y: 2pt))
+  sutun-baslik-bosluk: auto,   // kebab-case alternatifi
   inset: auto,                 // Typst table standart inset parametresi
   dikey_bosluk: auto,          // hücre içi dikey boşluk (y)
   dikey-bosluk: auto,
@@ -57,6 +61,24 @@
     ortak_baslik
   } else {
     10pt
+  }
+
+  // Tablo üst başlığı alt boşluğu (tablo ile arasındaki mesafe)
+  let t_baslik_alt_bosluk = if tablo-baslik-alt-bosluk != auto {
+    tablo-baslik-alt-bosluk
+  } else if tablo_baslik_alt_bosluk != auto {
+    tablo_baslik_alt_bosluk
+  } else {
+    10pt
+  }
+
+  // Sütun başlıkları hücre içi boşluğu (sutun_baslik_bosluk veya sutun-baslik-bosluk)
+  let s_baslik_bosluk = if sutun_baslik_bosluk != auto {
+    sutun_baslik_bosluk
+  } else if sutun-baslik-bosluk != auto {
+    sutun-baslik-bosluk
+  } else {
+    auto
   }
 
   // Hücre içi boşluk (inset) hesaplama
@@ -151,7 +173,11 @@
 
   let baslik-hucreleri = if sutun_basliklari.len() > 0 {
     (table.header(..sutun_basliklari.enumerate().map(((col, b)) => {
-      table.cell(align: hucre-hizala(baslik_hiz, col))[#text(size: s_baslik_boyut, weight: "bold")[#b]]
+      if s_baslik_bosluk != auto and s_baslik_bosluk != none {
+        table.cell(align: hucre-hizala(baslik_hiz, col), inset: s_baslik_bosluk)[#text(size: s_baslik_boyut, weight: "bold")[#b]]
+      } else {
+        table.cell(align: hucre-hizala(baslik_hiz, col))[#text(size: s_baslik_boyut, weight: "bold")[#b]]
+      }
     })),)
   } else {
     ()
@@ -160,7 +186,8 @@
   align(center)[
     #block(breakable: bolunebilir)[
       #if tablo_baslik != none and tablo_baslik != "" [
-        #block(below: 6pt)[#text(size: t_baslik_boyut, weight: "bold")[#tablo_baslik]]
+        // Tablo başlığı ile tablo arasındaki boşluk: below parametresi (varsayılan: t_baslik_alt_bosluk)
+        #block(below: t_baslik_alt_bosluk)[#text(size: t_baslik_boyut, weight: "bold")[#tablo_baslik]]
       ]
       #text(size: boyut)[
         #table(

@@ -15,7 +15,7 @@
       stroke: 0.5pt + rgb("#cbd5e1"),
       radius: 6pt,
       fill: rgb("#f8fafc"),
-      inset: 12pt,
+      inset: 14pt,
       [
         #grid(
           columns: (1fr, auto),
@@ -36,7 +36,7 @@
           ],
 
           // Sağ Kolon: QR Kod
-          qr-code(url, width: 2cm)
+          qr-code(url, width: 2.1cm)
         )
       ]
     )

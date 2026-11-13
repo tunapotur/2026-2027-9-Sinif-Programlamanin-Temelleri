@@ -11,7 +11,6 @@
 *Transistör* elektrik akımını geçirerek ya da keserek *$1$* veya *$0$* değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 
 #align(center)[
-#v(1em)
 *Bir Transistör Elektrik Akını Geçirir veya Keser*  
 #grid(
   columns: (auto, auto),
@@ -26,7 +25,7 @@
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )
-// #v(1em)
+
 ]
 
 *$1$* ve *$0$* durumunu oluşturan en küçük bilgi birimine *Bit (Binary Digit)* denir. Bilgisayar dünyasındaki tüm yazılımlar, videolar, oyunlar ve metinler fiziksel temelde sadece *$1$* ve *$0$*'lardan ibarettir.
@@ -151,7 +150,7 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
 #let table-content-size=8pt
 #let hucre_bosluk = (x:5pt, y:4.5pt)
 *Temel ASCII Tablosu (32-127 Karakterin Kodu)*
-#v(-0.5em)
+// #v(-0.5em)
 #grid(
     columns: (auto, auto, auto, auto),
     gutter: 6pt,
@@ -290,7 +289,7 @@ Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0
 - Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır ($2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024$).\
   Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
 
-#icerik-tablo(boyut: 9pt, baslik-boyut: 9pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
+#icerik-tablo(boyut: 8.5pt, baslik-boyut: 8.5pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
 icerik_hizalama: (left+horizon,left+horizon,center+horizon,left+horizon),
 sutun_baslik_hizalama: (left+horizon,left+horizon,center+horizon,center+horizon),
 sutun_basliklari: ([Birim], [Kapasite], [Kısaltma], [Somut Karşılığı]),
@@ -367,68 +366,43 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
 
 *Yorumlayıcı (Interpreter):* Kodu bir bütün olarak değil satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, hatanın bulunduğu satıra gelene kadar programı çalıştırır ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. *Python ve Ruby*, bu yaklaşımı kullanan dillere örnek gösterilebilir.
 
-#v(1em)
-#align(center)[
-  #block(breakable: false, width: 100%)[
-    #set text(size: 9pt)
-    #table(
-      columns: (3cm, 2.7cm, 2.3cm, 1fr, 1fr),
-      inset: 7pt,
-      align: (col, row) => if row == 0 {
-        center + horizon
-      } else if col == 2 {
-        center + horizon // Örnek kod sütununu ortala
-      } else {
-        left + horizon
-      },
-      stroke: (x, y) => if y == 0 {
-        (bottom: 1.5pt + rgb("#2d3748"))
-      } else {
-        (bottom: 0.5pt + rgb("#e2e8f0"))
-      },
-      fill: (col, row) => {
-        if row == 0 {
-          rgb("#edf2f7") // Başlık satırı
-        } else if calc.even(row) {
-          rgb("#f8fafc") // Zebra deseni (çift satırlar)
-        } else {
-          none
-        }
-      },
-
-      // Tablo Başlıkları
-      [*Evrim Aşaması*], [*Temsil Biçimi*], [*Örnek Kod*], [*Temel Avantajı*], [*Temel Zorluğu*],
-
-      // 1. Satır
-      [*1. Makine Dili\ (Binary)*],
+#icerik-tablo(
+  sutunlar: (1.1fr, 1fr, 1fr, 2fr, 2fr),
+  tablo_baslik: [Programlama Dillerinin Evrimi: Makine Dilinden Yüksek Seviyeli Dillere],
+  sutun_basliklari: ([Evrim Aşaması], [Temsil Biçimi], [Örnek Kod], [Temel Avantajı], [Temel Zorluğu],),
+  boyut: 8pt,
+  sutun_baslik_bosluk: (x: 8pt, y: 10pt),
+  hucre_bosluk: (x:8pt, y:7pt),
+  icerik_hizalama: (center+horizon, center+horizon, center+horizon, left+horizon, left+horizon),
+  sutun_baslik_hizalama:  (center+horizon),
+ // 1. Satır
+      text(weight: "semibold")[1.Makine Dili\ (Binary)],
       [`0` ve `1` dizileri],
-      [`1011 0000`\ `0110 0001`],
-      [#text(size:8pt)[İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.]],
-      [#text(size:8pt)[İnsan tarafından okunması ve yazılması çok zordur.]],
+      text(weight: "semibold")[`1011 0000`\ `0110 0001`],
+      [İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.],
+      [İnsan tarafından okunması ve yazılması çok zordur.],
 
       // 2. Satır
-      [*2. Hexadecimal\ (16'lık Sistem)*],
+      text(weight: "semibold")[2.Hexadecimal\ (16'lık Sistem)],
       [`0-9` ve `A-F` karakterleri],
-      [`B0 61`],
-      [#text(size:8pt)[Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.]],
-      [#text(size:8pt)[Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.]],
+      text(weight: "semibold")[`B0 61`],
+      [Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.],
+      [Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.],
 
       // 3. Satır
-      [*3. Assembly Dili\ (Sembolik Dil)*],
+      text(weight: "semibold")[3.Assembly Dili\ (Sembolik Dil)],
       [Sembolik kısaltmalar\ _(Mnemonics)_],
-      [`MOV AL, 61h`],
-      [#text(size:8pt)[Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.]],
-      [#text(size:8pt)[Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.]],
+      text(weight: "semibold")[`MOV AL, 61h`],
+      [Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.],
+      [Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.],
 
       // 4. Satır
-      [*4. Yüksek Seviyeli Diller*],
+      text(weight: "semibold")[4.Yüksek Seviyeli Diller],
       [Günlük dil ve matematiksel ifadeler],
-      [`int a = 97;`],
-      [#text(size:8pt)[Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.]],
-      [#text(size:8pt)[İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.]],
-    )
-  ]
-]
+      text(weight: "semibold")[`int a = 97;`],
+      [Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.],
+      [İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.],
+  )
 
 #kod-cikti(baslik: [Örnek Python Kodu])[
   ```Python
