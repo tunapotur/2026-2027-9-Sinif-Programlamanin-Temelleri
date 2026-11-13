@@ -87,7 +87,7 @@ Yukarıdaki örnekte *`round()`* fonksiyonunun kullanımı gösterilmektedir. Bi
 
 *`round()`* fonksiyonu dışarıdan girdi kabul eden bir fonksiyondur. Fonksiyon çağrılırken parantez içerisine yazılan bu değerlere *argüman* denir. Burada girilen: *Birinci değer (`3.14159`):* İşlem yapılacak olan ondalıklı sayıyı, *İkinci değer (`2`):* Bu sayının virgülden sonra kaç basamağa yuvarlanacağını belirtir.
 
-Fonksiyonun kendi içinde hesapladığı sonucu çağrıldığı yere iletmesine *değer döndürme (return)* denir. Yukarıdaki örnekte *`round()`* fonksiyonunun döndürdüğü sonuç, #show-op()[`=`] atama operatörü kullanılarak *`sonuc`* isimli değişkene aktarılmıştır.
+Fonksiyonun kendi içinde hesapladığı sonucu çağrıldığı yere iletmesine *değer döndürme (return)* denir. Yukarıdaki örnekte *`round()`* fonksiyonunun döndürdüğü sonuç, #oprt-goster()[`=`] atama operatörü kullanılarak *`sonuc`* isimli değişkene aktarılmıştır.
 
 
 #icerik-tablo(

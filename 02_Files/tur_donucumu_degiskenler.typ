@@ -106,7 +106,7 @@ puan = int(input("Puan Giriniz: "))
 ```
 ]
 
-Bu satır *içten dışa* doğru çalışır: önce en içteki `input()`, sonra onu saran `int()`, en son da atama (#show-op(size: 12pt)[`=`]).
+Bu satır *içten dışa* doğru çalışır: önce en içteki `input()`, sonra onu saran `int()`, en son da atama (#oprt-goster(size: 12pt)[`=`]).
 
 #text(size: 12pt, weight: "semibold")[Adım 1: `input()` çalışır ve `int()` fonksiyonuna gider]
 

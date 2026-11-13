@@ -28,9 +28,9 @@
       ],
       
         align(left)[
-- #show-op[`5`] ve #show-op[`3`] → *operand* (işlenen değerler)
-- #show-op[`+`] → *operatör* (işlemi yapan sembol)
-- #show-op[`=`] → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)]
+- #oprt-goster[`5`] ve #oprt-goster[`3`] → *operand* (işlenen değerler)
+- #oprt-goster[`+`] → *operatör* (işlemi yapan sembol)
+- #oprt-goster[`=`] → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)]
 )
 
 ]
@@ -41,20 +41,20 @@
   sutunlar: (auto, 1fr, auto),
   sutun_basliklari: ("Grup", "Ne işe yarar?", "Operatörler"),
   icerik_hizalama: (center + horizon, left + horizon, left + horizon),
-  [*Atama*], [Bir değişkene değer yerleştirir.], [#show-op(size:12pt)[`= += -= *= /= //= %= **=`]],
-  [*Aritmetik*], [Matematiksel hesap yapar.], [#show-op(size:12pt)[`+ - * / // % **`]],
-  [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [#show-op(size:12pt)[`== != > < >= <=`]],
-  [*Mantıksal*], [Koşulları birleştirir veya tersine çevirir.], [#show-op(size:12pt)[`and or not`]],
+  [*Atama*], [Bir değişkene değer yerleştirir.], [#oprt-goster(size:12pt)[`= += -= *= /= //= %= **=`]],
+  [*Aritmetik*], [Matematiksel hesap yapar.], [#oprt-goster(size:12pt)[`+ - * / // % **`]],
+  [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [#oprt-goster(size:12pt)[`== != > < >= <=`]],
+  [*Mantıksal*], [Koşulları birleştirir veya tersine çevirir.], [#oprt-goster(size:12pt)[`and or not`]],
 )
 
 === Atama Operatörleri
-Matematikte "eşittir" anlamına gelen #show-op[=] sembolü, programlama dillerinde atama operatörüdür; sağındaki değeri alır ve soldaki değişkene aktarır.
+Matematikte "eşittir" anlamına gelen #oprt-goster[=] sembolü, programlama dillerinde atama operatörüdür; sağındaki değeri alır ve soldaki değişkene aktarır.
 
 #not_block(title: "Atama Her Zaman Sağdan Sola Çalışır")[
   Eğer bir hesaplama işlemi yapılıyorsa, önce operatörün sağ tarafı hesaplanır; ardından elde edilen sonuç soldaki değişkene atanır.
 ]
 
-==== Atama Operatörü (#show-op[`=`]): Değişken Oluşur veya Güncellenir
+==== Atama Operatörü (#oprt-goster[`=`]): Değişken Oluşur veya Güncellenir
 Bir değişkene ilk kez değer atadığımızda, atanan değer için bellek (RAM) üzerinde bir yer ayrılır ve değer bu alana yazılır. Değişken adı ise bu bellek alanını gösteren bir *etikettir (işaretçidir)*.
 #v(1em)
 #kod-blok(width: 100%)[
@@ -123,7 +123,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 ]
 
 ==== Bileşik Atama Operatörleri
-#show-op(size: 12pt)[`sayac = sayac + 1`] gibi #text(weight: "semibold")["değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma"] işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:
+#oprt-goster(size: 12pt)[`sayac = sayac + 1`] gibi #text(weight: "semibold")["değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma"] işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:
 
 #icerik-tablo(
   tablo_baslik: "Bileşik Atama Operatörleri",
@@ -167,13 +167,13 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
   icerik_hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
   boyut: 10pt,
   bolunebilir: true,
-  [#show-op()[`+`]], [Toplama], [`10 + 3`], [`13`], [İki sayıyı toplar.],
-  [#show-op()[`-`]], [Çıkarma], [`10 - 3`], [`7`], [Soldakinden sağdakini çıkarır.],
-  [#show-op()[`*`]], [Çarpma], [`10 * 3`], [`30`], [İki sayıyı çarpar.],
-  [#show-op()[`/`]], [Bölme], [`10 / 4`], [`2.5`], [Sonuç her zaman `float` olur.],
-  [#show-op()[`//`]], [Tam bölme], [`10 // 4`], [`2`], [Bölümün tam sayı kısmını verir (küsuratı atar).],
-  [#show-op()[`%`]], [Mod (kalan)], [`10 % 4`], [`2`], [Bölmeden kalanı verir.],
-  [#show-op()[`**`]], [Üs alma], [`2 ** 3`], [`8`], [Soldaki sayının sağdaki kuvvetini alır.],
+  [#oprt-goster()[`+`]], [Toplama], [`10 + 3`], [`13`], [İki sayıyı toplar.],
+  [#oprt-goster()[`-`]], [Çıkarma], [`10 - 3`], [`7`], [Soldakinden sağdakini çıkarır.],
+  [#oprt-goster()[`*`]], [Çarpma], [`10 * 3`], [`30`], [İki sayıyı çarpar.],
+  [#oprt-goster()[`/`]], [Bölme], [`10 / 4`], [`2.5`], [Sonuç her zaman `float` olur.],
+  [#oprt-goster()[`//`]], [Tam bölme], [`10 // 4`], [`2`], [Bölümün tam sayı kısmını verir (küsuratı atar).],
+  [#oprt-goster()[`%`]], [Mod (kalan)], [`10 % 4`], [`2`], [Bölmeden kalanı verir.],
+  [#oprt-goster()[`**`]], [Üs alma], [`2 ** 3`], [`8`], [Soldaki sayının sağdaki kuvvetini alır.],
 )
 #v(1em)
 #kod-cikti(baslik: [Aritmetik operatörlerin sonuçları], baslik-yeri: "sag")[
@@ -268,7 +268,7 @@ print(saat, "saat", dakika, "dakika")
   ```
 ]
 
-#not_block(title:"Metinlerle `+` ve `*`:")[\ #show-op()[`+`] operatörü metinleri birleştirir, #show-op()[`*`] operatörü bir metni belirtilen sayı kadar tekrarlar]
+#not_block(title:"Metinlerle `+` ve `*`:")[\ #oprt-goster()[`+`] operatörü metinleri birleştirir, #oprt-goster()[`*`] operatörü bir metni belirtilen sayı kadar tekrarlar]
 
 #kod-cikti()[
   
@@ -357,7 +357,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
     )
 
 #not_block(title: "İstisna: ")[
-  Üs alma (#show-op()[`**`]), eşit öncelikli işlemlerin aksine *sağdan sola* çalışır.\ Eksi işareti de `**` operatöründen daha düşük önceliklidir:
+  Üs alma (#oprt-goster()[`**`]), eşit öncelikli işlemlerin aksine *sağdan sola* çalışır.\ Eksi işareti de `**` operatöründen daha düşük önceliklidir:
 ]
 
 #kod-blok(width: 100%)[
@@ -432,12 +432,12 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
   sutunlar: (auto, auto, auto, auto, 1fr),
   sutun_basliklari: ("Operatör", "Anlamı", "Örnek", "Sonuç", "Açıklama"),
   icerik_hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
-  [#show-op()[`==`]], [Eşittir], [`5 == 5`], [`True`], [İki değer eşitse `True` olur.],
-  [#show-op()[`!=`]], [Eşit değildir], [`5 != 3`], [`True`], [İki değer farklıysa `True` olur.],
-  [#show-op()[`>`]], [Büyüktür], [`7 > 3`], [`True`], [Soldaki, sağdakinden büyükse `True` olur.],
-  [#show-op()[`<`]], [Küçüktür], [`7 < 3`], [`False`], [Soldaki, sağdakinden küçükse `True` olur.],
-  [#show-op()[`>=`]], [Büyük eşittir], [`5 >= 5`], [`True`], [Soldaki büyük *veya* eşitse `True` olur.],
-  [#show-op()[`<=`]], [Küçük eşittir], [`4 <= 3`], [`False`], [Soldaki küçük *veya* eşitse `True` olur.],
+  [#oprt-goster()[`==`]], [Eşittir], [`5 == 5`], [`True`], [İki değer eşitse `True` olur.],
+  [#oprt-goster()[`!=`]], [Eşit değildir], [`5 != 3`], [`True`], [İki değer farklıysa `True` olur.],
+  [#oprt-goster()[`>`]], [Büyüktür], [`7 > 3`], [`True`], [Soldaki, sağdakinden büyükse `True` olur.],
+  [#oprt-goster()[`<`]], [Küçüktür], [`7 < 3`], [`False`], [Soldaki, sağdakinden küçükse `True` olur.],
+  [#oprt-goster()[`>=`]], [Büyük eşittir], [`5 >= 5`], [`True`], [Soldaki büyük *veya* eşitse `True` olur.],
+  [#oprt-goster()[`<=`]], [Küçük eşittir], [`4 <= 3`], [`False`], [Soldaki küçük *veya* eşitse `True` olur.],
 )
 #align(center)[
 #image("images/sayfa_alt_bosluklar/18_4_Karsilastirma_Operatorleri.svg", width: 100%)
@@ -536,9 +536,9 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   sutunlar: (auto, auto, 1fr, 1fr),
   sutun_basliklari: ("Operatör", "Anlamı", "Ne zaman True olur?", "Günlük Hayattan Örnek"),
   icerik_hizalama: (center + horizon, center + horizon, left + horizon, left + horizon),
-  [#show-op()[`and`]], [Ve], [İki koşul da `True` ise.], ["Hava güzel *ve* ödevim bitti ise parka giderim."],
-  [#show-op()[`or`]], [Veya], [En az bir koşul `True` ise.], ["Param *veya* kartım varsa alışveriş yapabilirim."],
-  [#show-op()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
+  [#oprt-goster()[`and`]], [Ve], [İki koşul da `True` ise.], ["Hava güzel *ve* ödevim bitti ise parka giderim."],
+  [#oprt-goster()[`or`]], [Veya], [En az bir koşul `True` ise.], ["Param *veya* kartım varsa alışveriş yapabilirim."],
+  [#oprt-goster()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
 )
 #align(center)[
 #image("images/sayfa_alt_bosluklar/18_5_Mantiksal_Operatorler.svg",width: 97%)
@@ -637,8 +637,8 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
 
 #not_block(title:"Kısa Devre (Short-Circuit): ")[
   Python mantıksal ifadeyi *gereksiz yere sonuna kadar hesaplamaz*:
-- #show-op()[`and`] ifadesinde soldaki `False` ise sonuç kesindir (`False`); sağ taraf hiç değerlendirilmez.
-- #show-op()[`or`] ifadesinde soldaki `True` ise sonuç kesindir (`True`); sağ taraf hiç değerlendirilmez.
+- #oprt-goster()[`and`] ifadesinde soldaki `False` ise sonuç kesindir (`False`); sağ taraf hiç değerlendirilmez.
+- #oprt-goster()[`or`] ifadesinde soldaki `True` ise sonuç kesindir (`True`); sağ taraf hiç değerlendirilmez.
 Bu özellik, hataya yol açabilecek bir işlemi önce kontrol etmek için çok kullanışlıdır.
 ]
 
@@ -702,7 +702,7 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
 
 #not_block(title: "Özet: ")[
   - Operatör, değerler üzerinde işlem yapan semboldür.
-  - #show-op()[`=`] bir *atama* operatörüdür: ilk atamada değişken oluşur, sonraki atamalarda değeri güncellenir.
+  - #oprt-goster()[`=`] bir *atama* operatörüdür: ilk atamada değişken oluşur, sonraki atamalarda değeri güncellenir.
   - Aritmetik operatörler sayısal sonuç, karşılaştırma ve mantıksal operatörler `bool` sonuç üretir.
   - Öncelik sırası: *parantez $->$ aritmetik $->$ karşılaştırma $->$ `not` $->$ `and` $->$ `or`*.
   - Emin olmadığınız yerde parantez kullanın.

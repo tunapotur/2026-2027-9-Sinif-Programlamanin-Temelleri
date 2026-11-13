@@ -1,6 +1,6 @@
 #let _align = align
 
-#let show-op(size: 14pt, weight: "semibold", body) = {
+#let oprt-goster(size: 14pt, weight: "semibold", body) = {
   text(size: size, weight: weight)[#raw(body.text)]
 }
 
