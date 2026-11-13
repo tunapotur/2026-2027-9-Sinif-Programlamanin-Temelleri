@@ -38,8 +38,9 @@
 #v(1em)
 #icerik-tablo(
   tablo_baslik: "Python'daki operatörleri dört ana grupta inceleyeceğiz",
-  sutunlar: (auto, 1fr, auto),
+  sutunlar: (auto, auto, auto),
   sutun_basliklari: ("Grup", "Ne işe yarar?", "Operatörler"),
+  sutun_baslik_hizalama: (center + horizon),
   icerik_hizalama: (center + horizon, left + horizon, left + horizon),
   [*Atama*], [Bir değişkene değer yerleştirir.], [#oprt-goster(size:12pt)[`= += -= *= /= //= %= **=`]],
   [*Aritmetik*], [Matematiksel hesap yapar.], [#oprt-goster(size:12pt)[`+ - * / // % **`]],

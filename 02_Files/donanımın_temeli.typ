@@ -2,6 +2,7 @@
 #import "/lib/qr_code.typ": *
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
+#import "/lib/icerik-tablo.typ": *
 
 #show: conf
 
@@ -82,71 +83,45 @@ desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üre
 İkilik Sistemde oluşan zorlukları aşmak için *Onaltılık (Hexadecimal)* Sayı Sistemi kullanılmaya başlandı. Dört adet ikilik (binary) basamağın tek bir hexadecimal karaktere (0-9 ve A-F arası) karşılık gelmesi sayesinde, *`1011 0000`*, *`0110 0001`* gibi karmaşık bir makine kodu *`B0`*, *`61`* şeklinde çok daha kısa ve okunabilir bir biçimde ifade edildi. Bu yöntem yazımı kısaltıp hata payını azaltsa da, programcıların hâlâ hangi sayı kodunun hangi işlemi yaptığını ezbere bilmesi gerekiyordu.\ $2^4 = 16$ olduğu için 4 bitlik bir binary sayı tam olarak bir hexadecimal basamağı karşılık gelir.
 
 #align(center)[
-  #block(breakable: false)[
-    #v(1em)
-    *4-Bit İkilik (Binary) ve Onaltılık (Hexadecimal) Karşılıklar Tablosu*
-    #let hex-tablo(..veriler) = table(
-      columns: (auto, auto, auto), // 4 tablonun A4'e yan yana sığması için optimize edildi
-      rows: (2.2em, 2.2em),
-      inset: 4pt,
-      align: center + horizon,
-      stroke: (x, y) => if y == 0 { (bottom: 1.5pt + rgb("#2d3748")) } else { (bottom: 0.5pt + rgb("#e2e8f0")) },
-      fill: (col, row) => {
-        if row == 0 {
-          rgb("#edf2f7") // Başlık satırı
-        } else if calc.even(row) {
-          rgb("#f8fafc") // Zebra deseni (çift satırlar)
-        } else {
-          none
-        }
-      },
-      // Tablo Başlıkları
-      [*Hex*], [*Dec*], [*Binary*],
-      ..veriler
-    )
-
-    #set text(size: 9pt) 
-    #grid(
+  #v(1em)
+      *4-Bit İkilik (Binary) ve Onaltılık (Hexadecimal) Karşılıklar Tablosu*
+#grid(
       columns: (auto, auto, auto, auto),
-      gutter: 8pt,
+      gutter: 10pt,
       align: top,
-      
-      // 1. Sütun (0 - 3)
-      hex-tablo(
-        [*`0`*], [`0`], [`0000`],
+icerik-tablo(
+sutunlar: (auto,auto,auto),
+sutun_basliklari: ("Hex","Dec","Binary"),
+      [*`0`*], [`0`], [`0000`],
         [*`1`*], [`1`], [`0001`],
         [*`2`*], [`2`], [`0010`],
         [*`3`*], [`3`], [`0011`],
-      ),
-      
-      // 2. Sütun (4 - 7)
-      hex-tablo(
-        [*`4`*], [`4`], [`0100`],
+),
+icerik-tablo(
+sutunlar: (auto,auto,auto),
+sutun_basliklari: ("Hex","Dec","Binary"),
+              [*`4`*], [`4`], [`0100`],
         [*`5`*], [`5`], [`0101`],
         [*`6`*], [`6`], [`0110`],
         [*`7`*], [`7`], [`0111`],
-      ),
-      
-      // 3. Sütun (8 - B)
-      hex-tablo(
-        [*`8`*], [`8`],  [`1000`],
+),
+icerik-tablo(
+sutunlar: (auto,auto,auto),
+sutun_basliklari: ("Hex","Dec","Binary"),
+              [*`8`*], [`8`],  [`1000`],
         [*`9`*], [`9`],  [`1001`],
         [*`A`*], [`10`], [`1010`],
         [*`B`*], [`11`], [`1011`],
-      ),
-      
-      // 4. Sütun (C - F)
-      hex-tablo(
-        [*`C`*], [`12`], [`1100`],
+),
+icerik-tablo(
+sutunlar: (auto,auto,auto),
+sutun_basliklari: ("Hex","Dec","Binary"),
+                      [*`C`*], [`12`], [`1100`],
         [*`D`*], [`13`], [`1101`],
         [*`E`*], [`14`], [`1110`],
         [*`F`*], [`15`], [`1111`],
-      )
-    )  
-    #align(center)[
-    *Hex:* Hexadecimal(16'lık), *Dec:* Decimal(10'luk), *Binary:* Binary(4 Bit),
-    ]
-  ]
+),
+  )
 ]
 
 == Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
@@ -362,29 +337,18 @@ Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0
 Örneğin *"A"* harfi bellekte *1 Byte* yer kaplar gibi düşünebiliriz.
 - Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır ($2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024$).\
   Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
-#align(center)[
-#block(breakable: false)[
-#text(size:8pt)[
-*Veri Büyüklüğü Basamakları*
-#table(
-  columns: (auto, auto, auto, auto),
-  fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-  stroke: 0.5pt + rgb("#cbd5e1"),
-  align: (left + horizon, left + horizon, center + horizon, left + horizon),
-   rows:(2.25em, (2.5em)),
-  table.header([*Birim*], [*Kapasite*], [*Kısaltma*], [#align(center)[*Somut Karşılığı*]]),
-  [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
+
+#icerik-tablo(boyut: 8pt, baslik-boyut: 8pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
+icerik_hizalama: (left+horizon,left+horizon,center+horizon,left+horizon),
+sutun_basliklari: ([*Birim*], [*Kapasite*], [*Kısaltma*], [#align(center)[*Somut Karşılığı*]]),
+[Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
   [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
   [Kilobyte], [$1024 " Byte"$], [*KB*], [Düz metinden oluşan 1 sayfalık belge],
   [Megabyte], [$1024 " KB"$], [*MB*], [1 dakikalık MP3 ses kaydı veya telefon fotoğrafı],
   [Gigabyte], [$1024 " MB"$], [*GB*], [Yaklaşık 1 saatlik HD kalitede film],
   [Terabyte], [$1024 " GB"$], [*TB*], [Geniş harici yedekleme diski, çok sayıda büyük oyun],
   [Petabyte], [$1024 " TB"$], [*PB*], [Büyük veri merkezleri veya bulut sunucu havuzları],
-  [Exabyte], [$1024 " PB"$], [*EB*], [Küresel internet trafiğinin aylık ölçekteki hacmi],
-)
-]
-]
-]
+  [Exabyte], [$1024 " PB"$], [*EB*], [Küresel internet trafiğinin aylık ölçekteki hacmi],)
 
 #not_block(title: "Donanım Üreticisi vs. İşletim Sistemi Farkı: ")[
 Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara takıldığında, depolama alanı genellikle yaklaşık *931 GB* görünür. Bu durum donanım hatası değildir:
@@ -402,6 +366,8 @@ Sizce bu disk üreticilerinin yaptığı bir hile midir?
 Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "semibold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
 
 Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek için İngilizce kelimelerin kısaltmalarından oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı. Bu sembolik komutları kullanan dile #text(weight: "bold")[Assembly dili] adı verildi. Böylece programcılar, yalnızca #text(weight: "semibold")[`1` ve `0`] dizilimleriyle uğraşmak yerine, daha anlaşılır ve hatırlanması kolay komutlarla program yazabilir hâle geldi.
+
+#icerik-tablo(sutunlar: (auto,auto,auto,auto))
 
 #align(center)[
 #v(1em)
