@@ -43,11 +43,12 @@ print(type(True))
 
 Çıktıdaki *`<class 'int'>`* ifadesi şu anlama gelir: "Bu değer, *`int`* sınıfından bir nesnedir."
 
-#ders-tablosu(
-  "Sık Karşılaşılan Türler",
-  (3cm, 3.5cm, 6cm),boyut:11pt,
-  ("Değer", "type() sonucu", "Açıklama"),
-  hizalama: (center + horizon, center + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Sık Karşılaşılan Türler",
+  sutunlar: (3cm, 3.5cm, 6cm),
+  sutun_basliklari: ("Değer", "type() sonucu", "Açıklama"),
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon),
+  boyut: 11pt,
   [`42`], [`int`], [Tam sayı],
   [`3.14`], [`float`], [Ondalıklı sayı],
   [`"Python"`], [`str`], [Metin (string)],

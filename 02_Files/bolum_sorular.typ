@@ -402,11 +402,10 @@ print(toplam_tutar, type(toplam_tutar))
 
 === Hatalı kodu düzeltin
 
-#ders-tablosu(
-  none,
-  (auto, 1fr, auto),
-  ("Satır", "Hata nedeni", "Düzeltme"),
-  hizalama: left + horizon,
+#icerik-tablo(
+  sutunlar: (auto, 1fr, auto),
+  sutun_basliklari: ("Satır", "Hata nedeni", "Düzeltme"),
+  icerik_hizalama: left + horizon,
   boyut: 9pt,
   [`3etap_skor = 80`], [Değişken adı rakamla başlayamaz], [`etap3_skor`],
   [`urun fiyati = 45.5`], [Adın içinde boşluk olamaz], [`urun_fiyati`],
@@ -654,10 +653,9 @@ print(round(0.1 + 0.2, 2) == 0.3)
 
 Çıktı öğrencinin girdiği değerlere göre değişir. Üç farklı deneme:
 #v(-0.5em)
-#ders-tablosu(
-  none,
-  (auto, auto, auto, auto),
-  ("Yaş", "Öğrenci", "İndirimli bilet", "Tam fiyat"),
+#icerik-tablo(
+  sutunlar: (auto, auto, auto, auto),
+  sutun_basliklari: ("Yaş", "Öğrenci", "İndirimli bilet", "Tam fiyat"),
   boyut: 9pt,
   [16], [E], [True], [False],
   [70], [H], [True], [False],

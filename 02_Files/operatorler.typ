@@ -36,11 +36,11 @@
 ]
 
 #v(1em)
-#ders-tablosu(
-  "Python'daki operatörleri dört ana grupta inceleyeceğiz",
-  (auto, 1fr, auto),
-  ("Grup", "Ne işe yarar?", "Operatörler"),
-  hizalama: (center + horizon, left + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Python'daki operatörleri dört ana grupta inceleyeceğiz",
+  sutunlar: (auto, 1fr, auto),
+  sutun_basliklari: ("Grup", "Ne işe yarar?", "Operatörler"),
+  icerik_hizalama: (center + horizon, left + horizon, left + horizon),
   [*Atama*], [Bir değişkene değer yerleştirir.], [#show-op(size:12pt)[`= += -= *= /= //= %= **=`]],
   [*Aritmetik*], [Matematiksel hesap yapar.], [#show-op(size:12pt)[`+ - * / // % **`]],
   [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [#show-op(size:12pt)[`== != > < >= <=`]],
@@ -125,10 +125,11 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 ==== Bileşik Atama Operatörleri
 #show-op(size: 12pt)[`sayac = sayac + 1`] gibi #text(weight: "semibold")["değişkeni kendi değeriyle işleme sokup tekrar kendisine yazma"] işlemi o kadar sık yapılır ki bunun için kısaltmalar vardır:
 
-#ders-tablosu(boyut: 12pt,
-  "Bileşik Atama Operatörleri",
-  (auto, auto, auto, auto),
-  ("Operatör", "Kısa Yazım", "Uzun Karşılığı", [`a = 10` iken sonuç]),
+#icerik-tablo(
+  tablo_baslik: "Bileşik Atama Operatörleri",
+  sutunlar: (auto, auto, auto, auto),
+  sutun_basliklari: ("Operatör", "Kısa Yazım", "Uzun Karşılığı", [`a = 10` iken sonuç]),
+  boyut: 12pt,
   [`+=`], [`a += 3`], [`a = a + 3`], [`13`],
   [`-=`], [`a -= 3`], [`a = a - 3`], [`7`],
   [`*=`], [`a *= 3`], [`a = a * 3`], [`30`],
@@ -159,13 +160,13 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 
 === Aritmetik Operatörler
 
-#ders-tablosu(
-  boyut:10pt,
-  "Python Aritmetik Operatörleri: Matematiksel İşlemleri Yapar",
+#icerik-tablo(
+  tablo_baslik: "Python Aritmetik Operatörleri: Matematiksel İşlemleri Yapar",
+  sutunlar: (auto, auto, auto, auto, 1fr),
+  sutun_basliklari: ("Operatör", "Adı", "Örnek", "Sonuç", "Açıklama"),
+  icerik_hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
+  boyut: 10pt,
   bolunebilir: true,
-  (auto, auto, auto, auto, 1fr),
-  ("Operatör", "Adı", "Örnek", "Sonuç", "Açıklama"),
-  hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
   [#show-op()[`+`]], [Toplama], [`10 + 3`], [`13`], [İki sayıyı toplar.],
   [#show-op()[`-`]], [Çıkarma], [`10 - 3`], [`7`], [Soldakinden sağdakini çıkarır.],
   [#show-op()[`*`]], [Çarpma], [`10 * 3`], [`30`], [İki sayıyı çarpar.],
@@ -221,10 +222,10 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 ]
 
 #v(1em)
-#ders-tablosu(
-  "Tam Bölme ve Mod Örnekleri",
-  (auto, auto, auto, auto),
-  ("Bölünen ve Bölen", [`//` (bölüm)], [`%` (kalan)], "Kontrol"),
+#icerik-tablo(
+  tablo_baslik: "Tam Bölme ve Mod Örnekleri",
+  sutunlar: (auto, auto, auto, auto),
+  sutun_basliklari: ("Bölünen ve Bölen", [`//` (bölüm)], [`%` (kalan)], "Kontrol"),
   [`17` ve `5`], [`3`], [`2`], [`3 * 5 + 2 = 17`],
   [`20` ve `4`], [`5`], [`0`], [`5 * 4 + 0 = 20`],
   [`100` ve `30`], [`3`], [`10`], [`3 * 30 + 10 = 100`],
@@ -291,11 +292,11 @@ Yaş: 15
 === Aritmetik Operatörlerde İşlem Önceliği
 Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine göre matematikteki sırayla yapar. Önceliği yüksek olan işlem önce hesaplanır.
 
-#ders-tablosu(
-  "Aritmetik Operatörlerin İşlem Önceliği",
-  (auto, auto, 1fr),
-  ("Öncelik", "Operatör", "Açıklama"),
-  hizalama: (center + horizon, center + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Aritmetik Operatörlerin İşlem Önceliği",
+  sutunlar: (auto, auto, 1fr),
+  sutun_basliklari: ("Öncelik", "Operatör", "Açıklama"),
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon),
   [1 (en yüksek)], [`( )`], [Parantez içi her zaman önce hesaplanır.],
   [2], [`**`], [Üs alma],
   [3], [`-x`], [Tek operandlı eksi (negatif işareti)],
@@ -426,11 +427,11 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
 === Karşılaştırma Operatörleri
 Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman `True` (doğru) veya `False` (yanlış) üretir. Bu iki değer `bool` (mantıksal) veri türündedir.
 
-#ders-tablosu(
-  "Python Karşılaştırma Operatörleri",
-  (auto, auto, auto, auto, 1fr),
-  ("Operatör", "Anlamı", "Örnek", "Sonuç", "Açıklama"),
-  hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Python Karşılaştırma Operatörleri",
+  sutunlar: (auto, auto, auto, auto, 1fr),
+  sutun_basliklari: ("Operatör", "Anlamı", "Örnek", "Sonuç", "Açıklama"),
+  icerik_hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
   [#show-op()[`==`]], [Eşittir], [`5 == 5`], [`True`], [İki değer eşitse `True` olur.],
   [#show-op()[`!=`]], [Eşit değildir], [`5 != 3`], [`True`], [İki değer farklıysa `True` olur.],
   [#show-op()[`>`]], [Büyüktür], [`7 > 3`], [`True`], [Soldaki, sağdakinden büyükse `True` olur.],
@@ -530,11 +531,11 @@ Metinler de karşılaştırılabilir. `==` operatörü büyük/küçük harfe du
 === Mantıksal Operatörler
 Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonuçlarını birleştirmek veya tersine çevirmek için kullanılır. Üç tanedir: `and` (ve), `or` (veya), `not` (değil).
 
-#ders-tablosu(
-  "Python Mantıksal Operatörleri",
-  (auto, auto, 1fr, 1fr),
-  ("Operatör", "Anlamı", "Ne zaman True olur?", "Günlük Hayattan Örnek"),
-  hizalama: (center + horizon, center + horizon, left + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Python Mantıksal Operatörleri",
+  sutunlar: (auto, auto, 1fr, 1fr),
+  sutun_basliklari: ("Operatör", "Anlamı", "Ne zaman True olur?", "Günlük Hayattan Örnek"),
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon, left + horizon),
   [#show-op()[`and`]], [Ve], [İki koşul da `True` ise.], ["Hava güzel *ve* ödevim bitti ise parka giderim."],
   [#show-op()[`or`]], [Veya], [En az bir koşul `True` ise.], ["Param *veya* kartım varsa alışveriş yapabilirim."],
   [#show-op()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
@@ -549,30 +550,30 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
     columns: (auto, auto, auto, auto),
     gutter: 5pt,
     align: top,
-      ders-tablosu(
-        "and: Hepsi doğru olmalı",
-        (auto, auto, auto),
-        ("A", "B", [`A and B`]),
+      icerik-tablo(
+        tablo_baslik: "and: Hepsi doğru olmalı",
+        sutunlar: (auto, auto, auto),
+        sutun_basliklari: ("A", "B", [`A and B`]),
         [`True`], [`True`], [*`True`*],
         [`True`], [`False`], [`False`],
         [`False`], [`True`], [`False`],
         [`False`], [`False`], [`False`],
       )
     ,
-    ders-tablosu(
-        "or: Biri doğru olsa yeter",
-        (auto, auto, auto),
-        ("A", "B", [`A or B`]),
+    icerik-tablo(
+        tablo_baslik: "or: Biri doğru olsa yeter",
+        sutunlar: (auto, auto, auto),
+        sutun_basliklari: ("A", "B", [`A or B`]),
         [`True`], [`True`], [`True`],
         [`True`], [`False`], [`True`],
         [`False`], [`True`], [`True`],
         [`False`], [`False`], [*`False`*],
       )
     ,
-    ders-tablosu(
-        "not:Tersine çevirir",
-        (auto, auto),
-        ("A", [`not A`]),
+    icerik-tablo(
+        tablo_baslik: "not:Tersine çevirir",
+        sutunlar: (auto, auto),
+        sutun_basliklari: ("A", [`not A`]),
         [`True`], [`False`],
         [`False`], [`True`],
       ),
@@ -665,12 +666,12 @@ print(x > 0 and sayi > 10 and 50 / x > 1)  # False
 === Operatörler Arası İşlem Önceliği
 Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bulunabilir. Python bunları şu sırayla işler: *önce aritmetik, sonra karşılaştırma, en son mantıksal*.
 
-#ders-tablosu(
-  "Operatörler Arası İşlem Önceliği",
-  (auto, auto, auto, 1fr),
+#icerik-tablo(
+  tablo_baslik: "Operatörler Arası İşlem Önceliği",
+  sutunlar: (auto, auto, auto, 1fr),
+  sutun_basliklari: ("Sıra", "Grup", "Operatörler", "Not"),
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
   bolunebilir: true,
-  ("Sıra", "Grup", "Operatörler", "Not"),
-  hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
   [1 (en yüksek)], [Parantez], [`( )`], [Her zaman en başta işlenir.],
   [2], [Aritmetik], [`**`], [Sağdan sola işlenir.],
   [3], [Aritmetik], [`-x`], [Tek operandlı eksi.],

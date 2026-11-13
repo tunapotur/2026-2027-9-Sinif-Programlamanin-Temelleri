@@ -90,14 +90,15 @@ Yukarıdaki örnekte *`round()`* fonksiyonunun kullanımı gösterilmektedir. Bi
 Fonksiyonun kendi içinde hesapladığı sonucu çağrıldığı yere iletmesine *değer döndürme (return)* denir. Yukarıdaki örnekte *`round()`* fonksiyonunun döndürdüğü sonuç, #show-op()[`=`] atama operatörü kullanılarak *`sonuc`* isimli değişkene aktarılmıştır.
 
 
-#ders-tablosu(boyut:8.5pt,
-"Fonksiyon Kavramları",
-(auto, 1fr, auto),
-("Kavram", "Açıklama", "Örnek"),
-hizalama: (center + horizon, left + horizon, left + horizon),
-[*Fonksiyon çağırma*], [Fonksiyonun adını yazıp yanına parantez koyarak çalıştırmak.], [`print()`],
-[*Argüman*], [Fonksiyonun parantezi içine verilen değer. Birden fazlaysa virgülle ayrılır.], [`round(3.14159, 2)`],
-[*Dönüş değeri*], [Fonksiyonun işini bitirince geri verdiği sonuç. Bir değişkene atanabilir.], [`sonuc = round(3.14159, 2)`],
+#icerik-tablo(
+  tablo_baslik: "Fonksiyon Kavramları",
+  sutunlar: (auto, 1fr, auto),
+  sutun_basliklari: ("Kavram", "Açıklama", "Örnek"),
+  icerik_hizalama: (center + horizon, left + horizon, left + horizon),
+  boyut: 8.5pt,
+  [*Fonksiyon çağırma*], [Fonksiyonun adını yazıp yanına parantez koyarak çalıştırmak.], [`print()`],
+  [*Argüman*], [Fonksiyonun parantezi içine verilen değer. Birden fazlaysa virgülle ayrılır.], [`round(3.14159, 2)`],
+  [*Dönüş değeri*], [Fonksiyonun işini bitirince geri verdiği sonuç. Bir değişkene atanabilir.], [`sonuc = round(3.14159, 2)`],
 )
 
 
@@ -115,12 +116,12 @@ hizalama: (center + horizon, left + horizon, left + horizon),
 === Yerleşik (Built-in) Fonksiyonlar
 Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu konuda göreceğimiz `print()` ve `input()` ile tür dönüşümünde kullandığımız `int()`, `float()` ve `str()` yerleşik fonksiyonlardır.
 
-#ders-tablosu(
-  "Sık Kullanılan Yerleşik Fonksiyonlar",
+#icerik-tablo(
+  tablo_baslik: "Sık Kullanılan Yerleşik Fonksiyonlar",
+  sutunlar: (auto, 1fr, auto, auto),
+  sutun_basliklari: ("Fonksiyon", "Ne yapar?", "Örnek", "Sonuç"),
+  icerik_hizalama: (center + horizon, left + horizon, left + horizon, left + horizon),
   bolunebilir: true,
-  (auto, 1fr, auto, auto),
-  ("Fonksiyon", "Ne yapar?", "Örnek", "Sonuç"),
-  hizalama: (center + horizon, left + horizon, left + horizon, left + horizon),
   [`print()`], [Değerleri ekrana yazdırır.], [`print("Merhaba")`], [Ekrana `Merhaba` yazar],
   [`input()`], [Kullanıcıdan klavyeyle veri alır.], [`input("Adınız: ")`], [Yazılan metin],
   [`int()`], [Değeri tam sayıya çevirir.], [`int("25")`], [`25`],
@@ -289,11 +290,11 @@ Metinlerde `+` toplama değil *birleştirme* yaptığı için `"15" + "15"` sonu
         ```
 ]
 
-#ders-tablosu(
-  "Girilen Veriye Göre Dönüştürme",
-  (auto, auto, 1fr),
-  ("Beklenen veri", "Kullanılacak yazım", "Örnek"),
-  hizalama: (left + horizon, left + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Girilen Veriye Göre Dönüştürme",
+  sutunlar: (auto, auto, 1fr),
+  sutun_basliklari: ("Beklenen veri", "Kullanılacak yazım", "Örnek"),
+  icerik_hizalama: (left + horizon, left + horizon, left + horizon),
   [Metin (ad, şehir, mesaj)], [`input("...")`], [`sehir = input("Şehir: ")`],
   [Tam sayı (yaş, adet)], [`int(input("..."))`], [`adet = int(input("Adet: "))`],
   [Ondalıklı sayı (not, fiyat, boy)], [`float(input("..."))`], [`boy = float(input("Boy (m): "))`],
@@ -375,11 +376,11 @@ Süslü parantezin içine yalnızca değişken değil, *her türlü ifade* yazab
 ==== f-string ile Sayıları Biçimlendirme
 Süslü parantezin içinde değişkenin yanına `:` (iki nokta) koyup nasıl gösterileceğini belirtebiliriz. En çok kullanılanlar:
 
-#ders-tablosu(
-  "f-string Biçimlendirme Kalıpları",
-  (auto, auto, auto, 1fr),
-  ("Kalıp", "Örnek", "Sonuç", "Açıklama"),
-  hizalama: (center + horizon, left + horizon, center + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "f-string Biçimlendirme Kalıpları",
+  sutunlar: (auto, auto, auto, 1fr),
+  sutun_basliklari: ("Kalıp", "Örnek", "Sonuç", "Açıklama"),
+  icerik_hizalama: (center + horizon, left + horizon, center + horizon, left + horizon),
   [`:.2f`], [`f"{3.14159:.2f}"`], [`3.14`], [Virgülden sonra 2 basamak göster (yuvarlar).],
   [`:.0f`], [`f"{2.5678:.0f}"`], [`3`], [Virgülden sonra basamak gösterme.],
   [`:,`], [`f"{1234567:,}"`], [`1,234,567`], [Binlik ayırıcı koy.],
@@ -413,11 +414,11 @@ Süslü parantezin içinde değişkenin yanına `:` (iki nokta) koyup nasıl gö
 ==== f-string ile Hizalama
 Tablo gibi düzenli çıktılar için metni belirli bir genişlikte sola (`<`), sağa (`>`) veya ortaya (`^`) hizalar.
 
-#ders-tablosu(
-  "f-string Hizalama Kalıpları",
-  (auto, auto, auto, 1fr),
-  ("Kalıp", "Örnek", "Sonuç (| işaretleri sınırı gösterir)", "Açıklama"),
-  hizalama: (center + horizon, left + horizon, left + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "f-string Hizalama Kalıpları",
+  sutunlar: (auto, auto, auto, 1fr),
+  sutun_basliklari: ("Kalıp", "Örnek", "Sonuç (| işaretleri sınırı gösterir)", "Açıklama"),
+  icerik_hizalama: (center + horizon, left + horizon, left + horizon, left + horizon),
   [`:<10`], [`f"{'Elma':<10}"`], [`|Elma      |`], [10 karakterlik alanda sola yasla.],
   [`:>10`], [`f"{'Elma':>10}"`], [`|      Elma|`], [10 karakterlik alanda sağa yasla.],
   [`:^10`], [`f"{'Elma':^10}"`], [`|   Elma   |`], [10 karakterlik alanda ortala.],
@@ -474,11 +475,11 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
 `print()` fonksiyonunun, biz yazmasak da varsayılan değerlerle çalışan iki isteğe bağlı parametresi vardır. Bunları yazarak çıktının biçimini değiştirebiliriz.
 
 #v(1em)
-#ders-tablosu(
-  "print() Parametreleri",
-  (auto, auto, 1fr),
-  ("Parametre", "Varsayılan değer", "Ne işe yarar?"),
-  hizalama: (center + horizon, center + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "print() Parametreleri",
+  sutunlar: (auto, auto, 1fr),
+  sutun_basliklari: ("Parametre", "Varsayılan değer", "Ne işe yarar?"),
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon),
   [`sep` (separator)], [`" "` (bir boşluk)], [Virgülle ayrılan değerlerin arasına ne konacağını belirler.],
   [`end`], [`"\n"` (alt satıra geç)], [Yazdırma bittikten sonra satırın nasıl sonlanacağını belirler.],
 )
@@ -534,11 +535,11 @@ A B C
 === Kaçış Karakterleri (Escape Characters)
 Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakterler kullanmak için ters eğik çizgi `\` ile başlayan *kaçış karakterleri* kullanılır.
 
-#ders-tablosu(
-  "Sık Kullanılan Kaçış Karakterleri",
-  (auto, 1fr, auto),
-  ("Karakter", "Anlamı", "Örnek"),
-  hizalama: (center + horizon, left + horizon, left + horizon),
+#icerik-tablo(
+  tablo_baslik: "Sık Kullanılan Kaçış Karakterleri",
+  sutunlar: (auto, 1fr, auto),
+  sutun_basliklari: ("Karakter", "Anlamı", "Örnek"),
+  icerik_hizalama: (center + horizon, left + horizon, left + horizon),
   [`\n`], [Yeni satıra geç.], [`print("A\nB")`],
   [`\t`], [Sekme (tab) boşluğu bırak.], [`print("A\tB")`],
   [`\\`], [Ters eğik çizgi karakterini yazdır.], [`print("C:\\Okul")`],

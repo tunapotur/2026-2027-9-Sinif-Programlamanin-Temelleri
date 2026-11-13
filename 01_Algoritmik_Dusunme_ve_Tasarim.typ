@@ -824,7 +824,7 @@ Aşağıdaki tabloda büyük ve küçük Türkçe karakterlerin yerine İngilizc
 
 *Camel Case (Deve Notasyonu) Kuralı*
 
-Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
+Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 *Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
 #table(
