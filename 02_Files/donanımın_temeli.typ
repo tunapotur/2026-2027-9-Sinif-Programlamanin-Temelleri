@@ -36,6 +36,8 @@ Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlem
 == İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
 Erken dönem *Altair 8800* gibi bilgisayarların klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğine ve hesap yaptırıldığına somut bir örnektir.
 
+#v(1em)
+
 #align(center)[
   #block(
     fill: rgb("#f8fafc"),
@@ -61,6 +63,7 @@ Erken dönem *Altair 8800* gibi bilgisayarların klavyesi veya ekranı yoktu. Ö
 - Programcılar her bir $8$ bitlik komutu anahtarları tek tek yukarı ($1$) ve aşağı ($0$) indirerek belleğe elle yüklüyordu.
 - İki sayıyı toplamak için bile onlarca $8$ bitlik komutu hatasız girmek gerekiyordu. Bu süreç son derece yavaş, zihinsel olarak yorucu ve hata yapmaya açıktı.
 
+#v(1em)
 #link-box(
 url: "www.youtube.com/watch?v=1zwTRA0yaYo",
 title:"Tarihi Eser Bilgisayarı Programladım | Altair 8800",
@@ -83,6 +86,7 @@ desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üre
 İkilik Sistemde oluşan zorlukları aşmak için *Onaltılık (Hexadecimal)* Sayı Sistemi kullanılmaya başlandı. Dört adet ikilik (binary) basamağın tek bir hexadecimal karaktere (0-9 ve A-F arası) karşılık gelmesi sayesinde, *`1011 0000`*, *`0110 0001`* gibi karmaşık bir makine kodu *`B0`*, *`61`* şeklinde çok daha kısa ve okunabilir bir biçimde ifade edildi. Bu yöntem yazımı kısaltıp hata payını azaltsa da, programcıların hâlâ hangi sayı kodunun hangi işlemi yaptığını ezbere bilmesi gerekiyordu.\ $2^4 = 16$ olduğu için 4 bitlik bir binary sayı tam olarak bir hexadecimal basamağı karşılık gelir.
 
 #align(center)[
+  #let hucre-bosluk=(x:6pt, y:7pt)
   #v(1em)
       *4-Bit İkilik (Binary) ve Onaltılık (Hexadecimal) Karşılıklar Tablosu*
 #grid(
@@ -92,15 +96,17 @@ desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üre
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
+hucre-bosluk: hucre-bosluk,
       [*`0`*], [`0`], [`0000`],
-        [*`1`*], [`1`], [`0001`],
-        [*`2`*], [`2`], [`0010`],
-        [*`3`*], [`3`], [`0011`],
+      [*`1`*], [`1`], [`0001`],
+      [*`2`*], [`2`], [`0010`],
+      [*`3`*], [`3`], [`0011`],
 ),
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
-              [*`4`*], [`4`], [`0100`],
+hucre-bosluk: hucre-bosluk,
+        [*`4`*], [`4`], [`0100`],
         [*`5`*], [`5`], [`0101`],
         [*`6`*], [`6`], [`0110`],
         [*`7`*], [`7`], [`0111`],
@@ -108,7 +114,8 @@ sutun_basliklari: ("Hex","Dec","Binary"),
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
-              [*`8`*], [`8`],  [`1000`],
+hucre-bosluk: hucre-bosluk,
+        [*`8`*], [`8`],  [`1000`],
         [*`9`*], [`9`],  [`1001`],
         [*`A`*], [`10`], [`1010`],
         [*`B`*], [`11`], [`1011`],
@@ -116,7 +123,8 @@ sutun_basliklari: ("Hex","Dec","Binary"),
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
-                      [*`C`*], [`12`], [`1100`],
+hucre-bosluk: hucre-bosluk,
+        [*`C`*], [`12`], [`1100`],
         [*`D`*], [`13`], [`1101`],
         [*`E`*], [`14`], [`1110`],
         [*`F`*], [`15`], [`1111`],
@@ -126,44 +134,33 @@ sutun_basliklari: ("Hex","Dec","Binary"),
 
 == Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
 Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu #text(weight: "semibold")[ASCII (American Standard Code for Information Interchange)] geliştirilmiştir. Böylelikle en temel düzeyde gerekli olan karakterlere için *ASCII* tablosundaki karakterin sayısal bir karşılığı oluşturuldu.
-- Bilgisayar mimarisinin temelinde $1$ karakter $1$ Byte ($8$ bit) yer kaplar. ASCII tablosunda $256$ karakter bulunmasının sebebi $8$ bit'in yan yana getirilerek $1$ Byte oluşturmasıdır. $1$ Byte aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
+#v(1em)
+- Bilgisayar mimarisinin temelinde $1$ karakter *$1$ Byte ($8$ bit)* yer kaplar. ASCII tablosunda *$256$* karakter bulunmasının sebebi *$8$* bit'in yan yana getirilerek *$1$ Byte* oluşturmasıdır. *$1$ Byte* aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
 - *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten #text(weight: "semibold")[Kontrol Karakterleri (Control / Non-printable Characters)] olarak adlandırılır.
 
+#v(1em)
 #link-box(
   url:"www.ascii-code.com",
   title: "ASCII Code - Karakter Kodlama Tablosu",
   desc: "Tüm ASCII karakterlerini incelemek için bu referans tablosunu kullanabilirsiniz."
 )
 
-#pagebreak()
 #align(center)[
-  #v(0.5em)
-  *Temel ASCII Tablosu (32-127 Karakterin Kodu)*
-  #text(size:8pt)[
-
 #block(breakable: false)[
-  #grid(
-    columns: (1fr, 1fr, 1fr, 1fr),
-    gutter: 4pt,
-     align: (top),
-    [#table(
-  columns: (auto, auto, auto, auto),
-  inset: 4pt,
-  align: (center + horizon),
-  stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
-  fill: (col, row) => {
-    if row == 0 {
-      rgb("#f1f5f9")
-    } else if calc.even(row) {
-      rgb("#f8fafc")
-    } else {
-      none
-    }
-  },
-
-  // Başlık Satırı
-  [*Dec*], [*Hex*], [*Binary*], [*Chr*],
-
+// #let binary-size=6em
+#let table-content-size=8pt
+#let hucre_bosluk = (x:5pt, y:4.5pt)
+*Temel ASCII Tablosu (32-127 Karakterin Kodu)*
+#v(-0.5em)
+#grid(
+    columns: (auto, auto, auto, auto),
+    gutter: 6pt,
+    align: (top),
+    icerik-tablo(
+      sutunlar: (auto,auto,auto,auto),
+      sutun_basliklari: ([Dec],[Hex],[Binary],[Chr]),
+      boyut: table-content-size,
+      hucre_bosluk: hucre_bosluk,
   [`32`], [`20`], [`0010 0000`], [_SP_],
   [`33`], [`21`], [`0010 0001`], [`!`],
   [`34`], [`22`], [`0010 0010`], [`"`],
@@ -188,26 +185,12 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
   [`53`], [`35`], [`0011 0101`], [`5`],
   [`54`], [`36`], [`0011 0110`], [`6`],
   [`55`], [`37`], [`0011 0111`], [`7`],  
-)
-    ],
-    [#table(
-  columns: (auto, auto, auto, auto),
-  inset: 4pt,
-  align: (center + horizon),
-  stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
-  fill: (col, row) => {
-    if row == 0 {
-      rgb("#f1f5f9")
-    } else if calc.even(row) {
-      rgb("#f8fafc")
-    } else {
-      none
-    }
-  },
-
-  // Başlık Satırı
-  [*Dec*], [*Hex*], [*Binary*], [*Chr*],
-
+    ),
+      icerik-tablo(
+            sutunlar: (auto,auto,auto,auto),
+      sutun_basliklari: ([Dec],[Hex],[Binary],[Chr]),
+      boyut: table-content-size,
+      hucre_bosluk: hucre_bosluk,
   [`56`], [`38`], [`0011 1000`], [`8`],
   [`57`], [`39`], [`0011 1001`], [`9`],
   [`58`], [`3A`], [`0011 1010`], [`:`],
@@ -232,26 +215,12 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
   [`77`], [`4D`], [`0100 1101`], [`M`],
   [`78`], [`4E`], [`0100 1110`], [`N`],
   [`79`], [`4F`], [`0100 1111`], [`O`],
-)
-	],
-	  [#table(
-  columns: (auto, auto, auto, auto),
-  align: (center + horizon),
-  inset: 4pt,
-  stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
-  fill: (col, row) => {
-    if row == 0 {
-      rgb("#f1f5f9")
-    } else if calc.even(row) {
-      rgb("#f8fafc")
-    } else {
-      none
-    }
-  },
-
-  // Başlık Satırı
-  [*Dec*], [*Hex*], [*Binary*], [*Chr*],
-
+    ),
+      icerik-tablo(
+      sutunlar: (auto,auto,auto,auto),
+      sutun_basliklari: ([Dec],[Hex],[Binary],[Chr]),
+      boyut: table-content-size,
+      hucre_bosluk: hucre_bosluk,
   [`80`], [`50`], [`0101 0000`], [`P`],
   [`81`], [`51`], [`0101 0001`], [`Q`],
   [`82`], [`52`], [`0101 0010`], [`R`],
@@ -276,27 +245,12 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
   [`101`], [`65`], [`0110 0101`], [`e`],
   [`102`], [`66`], [`0110 0110`], [`f`],
   [`103`], [`67`], [`0110 0111`], [`g`],
-  
-)
-	],
-    [#table(
-  columns: (auto, auto, auto, auto),
-  inset: 4pt,
-  align: (center + horizon),
-  stroke: (x, y) => if y == 0 { (bottom: 1.2pt + rgb("#334155")) } else { (bottom: 0.3pt + rgb("#e2e8f0")) },
-  fill: (col, row) => {
-    if row == 0 {
-      rgb("#f1f5f9")
-    } else if calc.even(row) {
-      rgb("#f8fafc")
-    } else {
-      none
-    }
-  },
-
-  // Başlık Satırı
-  [*Dec*], [*Hex*], [*Binary*], [*Chr*],
-
+    ),
+      icerik-tablo(
+      sutunlar: (auto,auto,auto,auto),
+      sutun_basliklari: ([Dec],[Hex],[Binary],[Chr]),
+      boyut: table-content-size,
+      hucre_bosluk: hucre_bosluk,
   [`104`], [`68`], [`0110 1000`], [`h`],
   [`105`], [`69`], [`0110 1001`], [`i`],
   [`106`], [`6A`], [`0110 1010`], [`j`],
@@ -321,13 +275,11 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
   [`125`], [`7D`], [`0111 1101`], [`}`],
   [`126`], [`7E`], [`0111 1110`], [`~`],
   [`127`], [`7F`], [`0111 1111`], [_DEL_],
-  
+    ),
 )
-    ],
-  )
 ]
+
 ]
-  ]
 
 == Bit'ten Terabayt'a Veri Büyüklükleri
 Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0$*'lardan ibaret olduğunu ve *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* dendiğini söylemiştik.  
@@ -338,9 +290,10 @@ Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0
 - Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır ($2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024$).\
   Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
 
-#icerik-tablo(boyut: 8pt, baslik-boyut: 8pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
+#icerik-tablo(boyut: 9pt, baslik-boyut: 9pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
 icerik_hizalama: (left+horizon,left+horizon,center+horizon,left+horizon),
-sutun_basliklari: ([*Birim*], [*Kapasite*], [*Kısaltma*], [#align(center)[*Somut Karşılığı*]]),
+sutun_baslik_hizalama: (left+horizon,left+horizon,center+horizon,center+horizon),
+sutun_basliklari: ([Birim], [Kapasite], [Kısaltma], [Somut Karşılığı]),
 [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
   [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
   [Kilobyte], [$1024 " Byte"$], [*KB*], [Düz metinden oluşan 1 sayfalık belge],
@@ -367,23 +320,17 @@ Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sü
 
 Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek için İngilizce kelimelerin kısaltmalarından oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı. Bu sembolik komutları kullanan dile #text(weight: "bold")[Assembly dili] adı verildi. Böylece programcılar, yalnızca #text(weight: "semibold")[`1` ve `0`] dizilimleriyle uğraşmak yerine, daha anlaşılır ve hatırlanması kolay komutlarla program yazabilir hâle geldi.
 
-#icerik-tablo(sutunlar: (auto,auto,auto,auto))
-
-#align(center)[
-#v(1em)
-*Hexadecimal Yerine Assembly Kullanımı Örneği*
-#table(
-  columns: (auto, auto, auto, auto),
-  fill: (x, y) => if y == 0 { rgb("#e2e8f0") } else if calc.even(y) { rgb("#f8fafc") } else { none },
-  stroke: 0.5pt + rgb("#cbd5e1"),
-  align: (center + horizon, center + horizon, center + horizon, left + horizon),
-   rows:(2.5em, (2em)),
-  table.header([*Hexadecimal*], [*Yerine*], [*Assembly*], [#align(center)[*Açıklama*]]),
+#icerik-tablo(
+  sutunlar: (auto,auto,auto,auto),
+  tablo_baslik: [Hexadecimal Yerine Assembly Kullanımı Örneği],
+  sutun_basliklari: ([Hexadecimal], [Yerine], [Assembly], [Açıklama]),
+  hucre_bosluk: (x:8pt, y:9pt),
+  icerik_hizalama: (center+horizon, center+horizon, center+horizon, left+horizon),
+  sutun_baslik_hizalama:  (center+horizon, center+horizon, center+horizon, center+horizon),
   [`B0 61`], [$-->$], [`MOV AL, 61H`], [AL yazmacına *`61H`* verisi taşındı.],
   [`04 05`], [$-->$], [`ADD AL, 05H`], [AL yazmacındaki değere *`05H`* eklendi.],
   [`2C 02`], [$-->$], [`SUB AL, 02H`], [AL yazmacındaki değerden *`02H`* çıkarıldı.],
-)
-]
+  )
 
 Bu sembolik komutlarla yazılan programlar, #text(weight: "bold")[Assembler (Çevirici)] adı verilen bir program aracılığıyla işlemcinin anlayabileceği makine koduna dönüştürüldü.
 
