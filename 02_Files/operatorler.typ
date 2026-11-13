@@ -1,5 +1,5 @@
 #import "/pageGeneralConfig.typ": *
-#import "/02_Files/infographic_degisken_ve_bellek.typ": *
+#import "/02_Files/infographic/degisken_ve_bellek.typ": *
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/ders-tablo.typ": *
@@ -118,7 +118,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 #align(center)[
   #block(breakable: false)[
     *Bellekte Değerin Güncellenmesi*
-    #include "degisken_guncelleme.typ"
+    #include "infographic/degisken_guncelleme.typ"
   ]
 ]
 
