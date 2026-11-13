@@ -23,7 +23,7 @@ Telefonla açmak için kare kodu okutabilirsiniz:
 | Dosya | Açıklama |
 |---|---|
 | `main.typ` | Ana dosya. Başlık, içindekiler ve bölümleri bir araya getirir |
-| `template.typ` | Sayfa düzeni, yazı tipi, bilgi kutuları ve tablo stilleri |
+| `pageGeneralConfig.typ` | Genel sayfa yapılandırması, yazı tipi ve başlık stilleri |
 | `flowchart.typ` | Akış şeması düğümleri ve renkleri (fletcher paketi) |
 | `qr_code.typ` | Kare kod yardımcı fonksiyonu |
 | `qr-kod.png` | README'deki PDF bağlantısının kare kodu |

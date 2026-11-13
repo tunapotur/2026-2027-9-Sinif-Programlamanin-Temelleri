@@ -1,6 +1,9 @@
-#import "/lib/template.typ": *
+#import "/pageGeneralConfig.typ": *
 #import "/lib/qr_code.typ": *
-#import "../lib/fonksiyon-aciklama.typ":*
+#import "../lib/fonksiyon-aciklama.typ": *
+#import "/lib/not-block.typ": *
+#import "/lib/kod-bloklari.typ": *
+#import "/lib/yardimcilar.typ": *
 
 #show: conf
 

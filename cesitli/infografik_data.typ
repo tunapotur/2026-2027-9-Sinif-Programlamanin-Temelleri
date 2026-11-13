@@ -1,4 +1,4 @@
-#import "../../lib/2": *
+#import "../../pageGeneralConfig.typ": *
 #import "../../lib/qr_code.typ"
 
 #show: conf

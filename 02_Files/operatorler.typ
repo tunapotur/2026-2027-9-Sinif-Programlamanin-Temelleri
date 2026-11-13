@@ -1,5 +1,9 @@
-#import "/lib/template.typ": *
+#import "/pageGeneralConfig.typ": *
 #import "/02_Files/infographic_degisken_ve_bellek.typ": *
+#import "/lib/not-block.typ": *
+#import "/lib/kod-bloklari.typ": *
+#import "/lib/ders-tablo.typ": *
+#import "/lib/yardimcilar.typ": *
 
 #show: conf
 

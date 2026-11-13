@@ -1,4 +1,4 @@
-#import "../../lib/template.typ": *
+#import "../../pageGeneralConfig.typ": *
 #show: conf
 
 

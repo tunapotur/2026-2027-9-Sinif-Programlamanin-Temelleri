@@ -1,5 +1,9 @@
-#import "/lib/template.typ": *
-#import "../lib/fonksiyon-aciklama.typ":*
+#import "/pageGeneralConfig.typ": *
+#import "../lib/fonksiyon-aciklama.typ": *
+#import "/lib/not-block.typ": *
+#import "/lib/kod-bloklari.typ": *
+#import "/lib/ders-tablo.typ": *
+#import "/lib/yardimcilar.typ": *
 
 == Fonksiyonların Kullanımı
 "Kod tekrarı; aynı kodun farklı yerlerde yeniden yazılmasıdır. Hata vermez fakat kodun bakımını ve okunmasını zorlaştırır. Bu durumdan kaçınma ilkesine DRY (Don't Repeat Yourself - Kendini Tekrar Etme) denir."

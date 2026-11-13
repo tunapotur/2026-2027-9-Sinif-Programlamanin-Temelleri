@@ -1,4 +1,8 @@
-#import "/lib/template.typ": *
+#import "/pageGeneralConfig.typ": *
+#import "/lib/not-block.typ": *
+#import "/lib/kod-bloklari.typ": *
+#import "/lib/ders-tablo.typ": *
+#import "/lib/yardimcilar.typ": *
 #show: conf
 
 == Temel Programlama Yapıları Python Uygulama Soruları

@@ -1,6 +1,9 @@
-#import "../lib/template.typ": *
+#import "../pageGeneralConfig.typ": *
 #import "../lib/flowchart.typ": *
 #import "../lib/qr_code.typ": *
+#import "../lib/bilgi-kutusu.typ": *
+#import "../lib/ders-tablo.typ": *
+#import "../lib/akis-sembolleri.typ": *
 
 #set page(numbering: "1")
 

@@ -1,4 +1,4 @@
-#import "lib/template.typ": *
+#import "pageGeneralConfig.typ": *
 #show: conf
 
 #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
