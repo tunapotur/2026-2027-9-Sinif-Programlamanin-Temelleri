@@ -2,7 +2,7 @@
 #import "../lib/fonksiyon-aciklama.typ": *
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
-#import "/lib/ders-tablo.typ": *
+#import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
 
 == Fonksiyonların Kullanımı

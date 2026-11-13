@@ -2,7 +2,7 @@
 #import "lib/flowchart.typ": *
 #import "lib/qr_code.typ": *
 #import "lib/bilgi-kutusu.typ": *
-#import "lib/ders-tablo.typ": *
+#import "lib/icerik-tablo.typ": *
 #import "lib/akis-sembolleri.typ": *
 
 #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")

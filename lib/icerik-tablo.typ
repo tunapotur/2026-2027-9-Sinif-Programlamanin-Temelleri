@@ -69,5 +69,4 @@
   ]
 }
 
-// Geriye dönük uyumluluk
-#let ders-tablosu = icerik-tablo
+
