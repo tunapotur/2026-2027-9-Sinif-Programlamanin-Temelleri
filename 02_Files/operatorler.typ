@@ -643,7 +643,7 @@ Bu özellik, hataya yol açabilecek bir işlemi önce kontrol etmek için çok k
 
 #kod-blok(width: 100%)[
   ```python
-  x = 0
+x = 0
 sayi = 12
 metin = ""
 

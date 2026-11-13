@@ -73,14 +73,9 @@ puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
 Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *int()* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
 
 #v(1em)
-#block(breakable: false)[
-  #grid(
-    columns: (30em, auto),
-    gutter: 10pt,
-    align: (horizon),
-    [  
-      #kod-blok[
-    ```Python
+
+#kod-cikti(columns: (30em,auto), baslik: [Kullanıcı girişlerinin #underline(stroke: 1.5pt, offset: 2pt)[metin] türünden #underline(stroke: 1.5pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(0em)], baslik-yeri: "sag")[
+```Python
 # Kullanıcı girişleri metin olarak alınır
 birinci_sayi = input("Birinci Sayıyı Girin: ")
 ikinci_sayi = input("İkinci Sayıyı Girin: ")
@@ -93,27 +88,15 @@ ucuncu_sayi = float(ucuncu_sayi)
 
 bolum = (birinci_sayi + ikinci_sayi) / ucuncu_sayi
 print("Bölüm:", bolum)
-    ```
-]
-    ],
-    [
-      #par(leading: 0.65em)[
-      #text(size: 10pt)[
-      *Örnek Python Kodu :* 
-      Kullanıcı girişlerinin *metin türünden float* tipine dönüşümü yapılır.
-      ]]
-      #output-box(title: "Python Ekran Çıktısı")[
 ```
+][
+```text
 Birinci Sayıyı Girin: 1.2
 İkinci Sayıyı Girin: 1.8
 Üçüncü Sayıyı Girin: 2.5
 Bölüm: 1.2
 ```
 ]
-    ]
-  )
-]
-
 
 ==== `int(input())` Nasıl Çalışır?
 

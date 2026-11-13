@@ -546,7 +546,7 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
   [`\'`], [Tek tırnak karakterini yazdır.], [`print('Ali\'nin kitabı')`],
 )
 
-#kod-cikti(baslik: [Kaçış Karakteri Örneği])[
+#kod-cikti(baslik: [Kaçış Karakteri Örneği],columns: (32em, auto),)[
    ```python
         print("Birinci\nİkinci")
         print("Ad:\tAyşe")
