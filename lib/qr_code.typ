@@ -11,15 +11,15 @@
 #let link-box(url:"", title: "Faydalı Bağlantı", desc: none) = {
   align(center)[
     #rect(
-      width: 95%,
+      width: 100%,
       stroke: 0.5pt + rgb("#cbd5e1"),
-      radius: 6pt,
+      radius: 4pt,
       fill: rgb("#f8fafc"),
-      inset: 14pt,
+      inset: 8pt,
       [
         #grid(
           columns: (1fr, auto),
-          gutter: 14pt,
+          gutter: 10pt,
           align: (left + horizon, center + horizon),
           
           // Sol Kolon: Başlık, Açıklama ve URL
@@ -36,7 +36,7 @@
           ],
 
           // Sağ Kolon: QR Kod
-          qr-code(url, width: 2.1cm)
+          qr-code(url, width: 2cm)
         )
       ]
     )

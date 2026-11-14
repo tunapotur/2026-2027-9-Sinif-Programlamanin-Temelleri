@@ -6,9 +6,7 @@
 #import "/lib/yardimcilar.typ": *
 #import "/lib/icerik-tablo.typ": *
 
-#show: conf
-
-
+// #show: conf
 
 == Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir.
@@ -19,63 +17,100 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
 - Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
 - Karakter tabanlı bir veriyle matematiksel işlem yapılamaz. Örneğin iki metinsel veri toplanmak istendiğinde matematiksel toplama ($25 + 10 = 35$) yerine metin birleştirme ("25" + "10" = "2510") gerçekleşir veya derleyici hata verir.
 - Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
-// #v(1em)
-#block(breakable: false)[
-  #v(1em)
-  *Örnek Python Kodu: * Kullanıcının girdiği tam sayı değere 25 ekleyerek sonucu ekrana yazdıran kod.
-  #grid(
-    columns: (auto, auto),
-    gutter: 10pt,
-     align: (horizon),
-    [
-      #text(size:9pt)[
-      ]
-      #kod-blok[
-          ```Python
-          puan = int(input("Puan Giriniz: "))
-          print("Puanı:", puan)
-          puan = puan + 25
-          print("Güncellenmiş Puan:", puan)
-          ```
-      ]
-    ],
-    [
-      #output-box(title: "Python Ekran Çıktısı")[
+
+#kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
+  ```python
+puan = int(input("Puan Giriniz: "))
+print(puan)
+print(type(puan))
+```
+][
 ```
 Puan Giriniz: 50
-Puanı: 50
-Güncellenmiş Puan: 75
+50
+<class 'int'>
 ```
 ]
 
-    ]
-  
-  )
-]
+Program, kullanıcıdan "*`Puan Giriniz:`*" iletisiyle bir tam sayı değeri beklemektedir. Python'da *`input()`* fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, *`input()`* fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (*`string`*) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için *`int()`* fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
 
+==== `int(input())` Nasıl Çalışır?
 #align(center)[
-#kod-satiri(no:1, size:12pt,weight: "semibold")[
+#kod-satiri(no:1, size:10pt,weight: "semibold")[
            ```Python
           puan = int(input("Puan Giriniz: "))
           ```
 ]
 ]
-#v(1em)
-Program, kullanıcıdan "Puan Giriniz:" iletisiyle bir tam sayı değeri beklemektedir. Python'da input() fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, input() fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (string) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için int() fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
-#v(1em)
+Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonra onu saran *`int()`*, en son da atama (#oprt-goster(size: 12pt)[`=`]).
+
+#align(center)[
+  #grid(
+    columns: (auto, auto),
+    gutter: 8pt,
+    align: top,
+    [
+      #stack(
+        dir: ttb,
+        spacing: 5pt, // Başlık ile kutu arasındaki boşluk (0pt yapabilirsin)
+        align(center)[#text(weight: "semibold")[Adım 1]],
+        block(
+          inset: 10pt,
+          radius: 4pt,
+          stroke: 1pt + rgb("#d0d7de"),
+          width: auto
+        )[
+          #fonksiyon-aciklama(
+            on: "puan = ",
+            degisken: "int",
+            ara: "(",
+            ifade: "input(\"Puan Giriniz: \")",
+            son: ")",
+            deger: "\"50\"",
+            boyut: 14pt,
+          )
+        ]
+      )
+    ],
+    [
+      #stack(
+        dir: ttb,
+        spacing: 5pt, // Başlık ile kutu arasındaki boşluk
+        align(center)[#text(weight: "semibold")[Adım 2]],
+        block(
+          inset: 10pt,
+          radius: 4pt,
+          stroke: 1pt + rgb("#d0d7de"),
+          width: auto
+        )[
+          #fonksiyon-aciklama(
+            degisken: "puan",
+            ifade: "int(\"50\")",
+            deger: "50",
+            boyut: 14pt,
+          )
+        ]
+      )
+    ]
+  )
+]
+#text(size: 10pt, weight: "semibold")[Adım 1: `input()` çalışır ve `int()` fonksiyonuna değer döner]\
+Kullanıcı klavyeden *`50`* yazıp Enter'a basar. *`input()`* fonksiyonu bu değeri her zaman *metin* olarak döndürür; yani elimize geçen şey sayı değil, tırnak içinde *`"50"`* olur. Bu değer, dıştaki *`int()`* fonksiyonuna gider.
+
+#text(size: 10pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine atanır]\
+*`input()`* fonksiyonu metin *`"50"`* değerin döndürür; *`puan = int("50")`*. *`int()`* fonksiyonu *`"50"`* metnini tam sayıya çevirir ve sonuç olan *`50`* değeri *`puan`* değişkenine atanır.
+
       #kod-blok[
     ```Python
 veri = input("Puan Giriniz: ")  # 1. Aşama: Metin olarak alındı ("50")
 puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
     ```
 ]
-#v(1em)
 
-Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *int()* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
-
-#v(1em)
-
-#kod-cikti(columns: (30em,auto), baslik: [Kullanıcı girişlerinin #underline(stroke: 1.5pt, offset: 2pt)[metin] türünden #underline(stroke: 1.5pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(2em)], baslik-yeri: "sag")[
+#text(size:8pt)[
+#kod-cikti(
+  columns: (30em,auto), 
+  baslik: [Kullanıcı girişlerinin #underline(stroke: 1.25pt, offset: 2pt)[metin] türünden \ #underline(stroke: 1.25pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(1em)], baslik-yeri: "sag")[
 ```Python
 # Kullanıcı girişleri metin olarak alınır
 birinci_sayi = input("Birinci Sayıyı Girin: ")
@@ -98,85 +133,14 @@ Birinci Sayıyı Girin: 1.2
 Bölüm: 1.2
 ```
 ]
-
-==== `int(input())` Nasıl Çalışır?
-
-#kod-satiri(no: 0, size: 14pt, weight: "semibold")[
-```python
-puan = int(input("Puan Giriniz: "))
-```
 ]
 
-Bu satır *içten dışa* doğru çalışır: önce en içteki `input()`, sonra onu saran `int()`, en son da atama (#oprt-goster(size: 12pt)[`=`]).
+Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *`int()`* veya *`float()`* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
 
-#text(size: 12pt, weight: "semibold")[Adım 1: `input()` çalışır ve `int()` fonksiyonuna gider]
 
-Kullanıcı klavyeden `50` yazıp Enter'a basar. `input()` fonksiyonu bu değeri her zaman *metin* olarak döndürür; yani elimize geçen şey sayı değil, tırnak içinde `"50"` olur. Bu değer, dıştaki `int()` fonksiyonuna gider.
-
-#v(1em)
-
-#align(center)[
-   #block(   
-    inset: 10pt,
-    radius: 4pt,
-    stroke: 1pt + rgb("#d0d7de"),
-    width: 100%
-    )[
-  #fonksiyon-aciklama(
-    on: "puan = ",
-    degisken: "int",
-    ara: "(",
-    ifade: "input(\"Puan Giriniz: \")",
-    son: ")",
-    deger: "\"50\"",
-    boyut: 22pt,
-  )
-]]
-
-#v(1em)
-
-#text(size: 12pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine gider]
-
-`input()` çağrısı yerini döndürdüğü değere bıraktı; satır artık şu hale geldi: `puan = int("50")`.\ `int()` fonksiyonu `"50"` metnini tam sayıya çevirir ve sonuç olan `50` değeri `puan` değişkenine atanır.
-
-#v(1em)
-
-#align(center)[
-   #block(   
-    inset: 10pt,
-    radius: 4pt,
-    stroke: 1pt + rgb("#d0d7de"),
-    width: 100%
-    )[
-  #fonksiyon-aciklama(
-    degisken: "puan",
-    ifade: "int(\"50\")",
-    deger: "50",
-    boyut: 28pt,
-  )
-]]
-
-#v(1em)
-#kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
-  ```python
-puan = int(input("Puan Giriniz: "))
-print(puan)
-print(type(puan))
-```
-][
-```
-Puan Giriniz: 50
-50
-<class 'int'>
-```
+#not_block(title: "Dikkat:")[
+  *`int()`* olmasaydı *`puan`* değişkeninde *`"50"`* yani *metin* olurdu ve *`puan + 10`* gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak *`int()`* (ya da ondalıklı değerler için *`float()`*) ile dönüştürmemiz gerekir.
 ]
-
-
-#not_block(title: "Dikkat:", boyut: 11pt)[
-  `int()` olmasaydı `puan` değişkeninde `"50"` yani *metin* olurdu ve `puan + 10` gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak `int()` (ya da ondalıklı değerler için `float()`) ile dönüştürmemiz gerekir.
-]
-
-
 === Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 
@@ -226,7 +190,8 @@ Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek 
     donusum-karti,
   kod-blok(width: 100%)[
   ```Python
-adet = 5           # int türünde
+adet = 5            # int türünde
+
 birim_fiyat = 2.5   # float türünde
 
 # Python arka planda 'adet' değerini 5.0 yapar
@@ -236,20 +201,17 @@ print(toplam_tutar) # Çıktı: 12.5
   ```]
 )
 
-#pagebreak()
 === Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
-#v(1em)
-
 #grid(
   columns: (auto, auto),
-  gutter: 5pt,
+  gutter: 20pt,
   align: top,
   [
-*Hassasiyeti Korumak İçin Tam Sayıyı Kesirli Sayıya Çevirmek (int $-->$ float):*
+*Hassasiyeti Korumak İçin Tam Sayıyı Kesirli Sayıya Çevirmek (int $-->$ float):*\
 Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerlere dönüştürülebilir.
-#v(1em)
+// #v(1em)
 #kod-blok()[
   ```Python
 puan = 100
@@ -261,9 +223,9 @@ print(ondalikli_puan)  # Çıktı: 100.0
 ]
   ],
   [
-*Ondalık Kısmı Atmak İçin (float $-->$ int):*
+*Ondalık Kısmı Atmak İçin (float $-->$ int):*\
 Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kısmını elde etmek gerektiğinde bu dönüşümden yararlanılır.
-#v(1em)
+// #v(1em)
 #kod-blok()[
   ```Python
 ortalama = 85.85
@@ -276,8 +238,6 @@ print(tam_not)  # Çıktı: 85
   ]
 )
 
-#v(1em)
-
 == Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
 
@@ -287,7 +247,6 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 - *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
 - *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
-#v(0.5em)
 #align(center)[
   #block(breakable: false, width: 100%)[
     #grid(
@@ -298,7 +257,7 @@ icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Türkçe Karakterlerin İngilizce Karşılıkları],
   sutun-baslik-bosluk: (x:6pt, y:10pt),
-  hucre-bosluk: (x:8pt, y:10pt),
+  hucre-bosluk: (x:8pt, y:8.5pt),
   sutun_basliklari: ([Türkçe], [Dönüşüm], [İngilizce]),
   [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
   [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
@@ -311,7 +270,7 @@ icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Değişken Kullanım Örnekleri],
   sutun-baslik-bosluk: (x:6pt, y:10pt),
-  hucre-bosluk: (x:8pt, y:7.2pt),
+  hucre-bosluk: (x:8pt, y:6.1pt),
   sutun_basliklari: ([Hatalı Kullanım],[Dönüşüm],[Doğru Kullanım]),
   [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
   [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
@@ -328,14 +287,14 @@ icerik-tablo(
 Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin *kullanici_giris_tarihi, asistan_bellek_kapasitesi* vb.) kurumsal olarak tavsiye edilir.
 
 === Camel Case (Deve Notasyonu) Kuralı
-Değişken adları tanımlanırken kelimeler arasında **boşluk bırakılamaz**. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
+Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
 #icerik-tablo(
   tablo_baslik: "Değişken Adlandırma Kuralları (Naming Conventions)",
   sutunlar: (auto, auto, auto),
   sutun_basliklari: ([Yanlış / Zor Okunan Biçim],[snake_case (Python)],[camelCase]),
-  dikey-bosluk: 10pt,
+  dikey-bosluk: 6pt,
     text(fill: rgb("#dc2626"))[`personelsayisi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],
@@ -418,9 +377,12 @@ print(c)
   )
 ]
 
-        *Açıklama Satırının Kullanım Amaçları*
-      
-
+*Açıklama Satırının Kullanım Amaçları*
+#grid(
+  columns: (26em,auto),
+  gutter: 10pt,
+  align: top,
+  [
 #kod-blok(width: 100%)[
   ```Python
 # 1) Kodu açıklamak için
@@ -430,34 +392,12 @@ yas = 17  # öğrencinin yaşı
 print("Merhaba")
 # print("Bu satır çalışmaz")
 
-
 # 3) Yapılacakları not etmek için
 # TODO: Kullanıcıdan yaş bilgisi alınacak
 ```
       ]
-
-#v(1em)      
-*Çok Satırlı Açıklama ile Program Başlığı*
-
-#kod-blok(width: 100%)[
-  ```Python
-"""
-Program : Daire Alanı Hesaplama
-Yazar   : Ahmet Tuna POTUR
-Tarih   : 01.11.2026
-Açıklama: Yarıçapı verilen dairenin alanını hesaplar.
-"""
-pi = 3.14        # pi sayısı (yaklaşık değer)
-r = 5            # yarıçap
-alan = pi * r * r
-print(alan)      # Ekrana 78.5 yazar
-```]
-
-#not_block(title: "Dikkat: ")[
-  Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır. Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
-]
-
-
+  ],
+  [
 #kod-blok(width: 100%)[
         ```Python
 # Bu tam satırlık açıklama
@@ -473,13 +413,30 @@ def topla(a, b):
 # fonksiyon sonlandırıldı
 ```
 ]
+  ]
+  )
 
-      #kod-blok(width: 100%)[
-        ```Python
+*Çok Satırlı Açıklama ile Program Başlığı*
+#grid(
+  columns: (auto,auto),
+  gutter: 10pt,
+  align: top,
+  [
+#kod-blok(width: 100%)[
+  ```Python
 """
-Bu teknik olarak bir string değişmezidir, ancak bir 
-değişkene atanmadığı için yorum bloğu gibi davranır.
+Program : Daire Alanı Hesaplama
+Yazar   : Ahmet Tuna POTUR
 """
-print("Kod çalışıyor")
-```  
-      ]
+pi = 3.14        # pi sayısı (yaklaşık değer)
+r = 5            # yarıçap
+alan = pi * r * r
+print(alan)      # Ekrana 78.5 yazar
+```]
+  ],
+  [
+    #not_block(title: "Dikkat: ")[
+  Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır.\ Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
+]
+  ]
+)

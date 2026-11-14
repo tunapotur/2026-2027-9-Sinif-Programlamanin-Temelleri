@@ -40,7 +40,7 @@
 
   let etiket = box(
     fill: white,
-    inset: (x: 6pt, y: 2pt),
+    inset: (x: 6pt, y: 0pt),
     text(font: etiket-fontu, weight: "bold", size: boyut * 0.7, deger),
   )
   let etiket-boyut = measure(etiket)

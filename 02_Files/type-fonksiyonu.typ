@@ -5,7 +5,7 @@
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
 
-#show: conf
+// #show: conf
 
 == Python Tür Kontrolü: `type()` ve `isinstance()` Fonksiyonları
 === `type()` Fonksiyonu

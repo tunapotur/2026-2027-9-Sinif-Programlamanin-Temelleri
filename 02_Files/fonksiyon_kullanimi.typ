@@ -5,6 +5,8 @@
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
 
+// #show: conf
+
 == Fonksiyonların Kullanımı
 "Kod tekrarı; aynı kodun farklı yerlerde yeniden yazılmasıdır. Hata vermez fakat kodun bakımını ve okunmasını zorlaştırır. Bu durumdan kaçınma ilkesine DRY (Don't Repeat Yourself - Kendini Tekrar Etme) denir."
 
@@ -348,7 +350,6 @@ f-string'in avantajları:
   ```
 ]
 
-#pagebreak()
 ==== f-string İçinde İşlem Yapmak
 Süslü parantezin içine yalnızca değişken değil, *her türlü ifade* yazabiliriz.
 
@@ -474,7 +475,6 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
 === print() Fonksiyonunun sep ve end Parametreleri
 `print()` fonksiyonunun, biz yazmasak da varsayılan değerlerle çalışan iki isteğe bağlı parametresi vardır. Bunları yazarak çıktının biçimini değiştirebiliriz.
 
-#v(1em)
 #icerik-tablo(
   tablo_baslik: "print() Parametreleri",
   sutunlar: (auto, auto, 1fr),
@@ -484,7 +484,6 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
   [`end`], [`"\n"` (alt satıra geç)], [Yazdırma bittikten sonra satırın nasıl sonlanacağını belirler.],
 )
 
-#v(1em)
 ==== sep: Değerler Arasına Ne Gelsin?
 #kod-cikti(baslik: [Farklı ayırıcılarla yazdırma], baslik-yeri: "sol", columns: (2fr, 1fr))[
 ```python
@@ -506,7 +505,6 @@ PazartesiSalıÇarşamba
 
 ==== end: Satır Nasıl Bitsin?
 Normalde her `print()` işini bitirince alt satıra geçer. `end` ile bu davranışı değiştirebiliriz.
-#v(1em)
 
 #kod-cikti(baslik: [Aynı satırda yazdırmaya devam etme], baslik-yeri: "sag")[
 ```python
@@ -563,10 +561,9 @@ Yol: C:\\Okul
 O \"evet\" dedi
 ```
 ]
-#let eksi_bosluk = -0.5em
-#v(eksi_bosluk)
+
 === Örnek Uygulamalar
-#v(eksi_bosluk)
+
 #kod-cikti(
   baslik: "Daire alanı hesaplama",
   columns: (32em, auto),
@@ -587,7 +584,6 @@ O \"evet\" dedi
   ],
 )
 
-#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Not ortalaması",baslik-yeri: "sag",
   columns: (32em, auto),
@@ -617,7 +613,6 @@ O \"evet\" dedi
   ],
 )
 
-#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Market fişi",
   baslik-yeri: "sag",
@@ -650,7 +645,6 @@ O \"evet\" dedi
   ],
 )
 
-#v(eksi_bosluk)
 #kod-cikti(
   baslik: "Saniyeyi saat-dakika-saniyeye çevirme",baslik-yeri: "sag",
   columns: (32em, auto),

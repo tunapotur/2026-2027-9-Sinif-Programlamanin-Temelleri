@@ -4,7 +4,7 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 
-#show: conf
+// #show: conf
 
 = Temel Programlama Yapıları
 == Donanımın Temeli: Transistör ve İkili Sistem (Binary)
@@ -14,14 +14,14 @@
 *Bir Transistör Elektrik Akını Geçirir veya Keser*  
 #grid(
   columns: (auto, auto),
-  gutter: 15pt,
+  gutter: 5pt,
   align: (top),
   [
-    #image("/02_Files/images/Transistor On.jpg",width: 80%)
+    #image("/02_Files/images/Transistor On.jpg",width: 90%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Var (Açık)],[:],[1 (Bit)])
   ],
   [
-    #image("/02_Files/images/Transistor Off.jpg",width: 80%)
+    #image("/02_Files/images/Transistor Off.jpg",width: 90%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )
@@ -35,8 +35,11 @@ Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlem
 == İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
 Erken dönem *Altair 8800* gibi bilgisayarların klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğine ve hesap yaptırıldığına somut bir örnektir.
 
-#v(1em)
-
+#grid(
+  columns: (30em, auto),
+  gutter: 5pt,
+  align: horizon,
+  [
 #align(center)[
   #block(
     fill: rgb("#f8fafc"),
@@ -58,11 +61,13 @@ Erken dönem *Altair 8800* gibi bilgisayarların klavyesi veya ekranı yoktu. Ö
     ```
   ]
 ]
-
+  ],
+  [
 - Programcılar her bir $8$ bitlik komutu anahtarları tek tek yukarı ($1$) ve aşağı ($0$) indirerek belleğe elle yüklüyordu.
 - İki sayıyı toplamak için bile onlarca $8$ bitlik komutu hatasız girmek gerekiyordu. Bu süreç son derece yavaş, zihinsel olarak yorucu ve hata yapmaya açıktı.
+  ]
+)
 
-#v(1em)
 #link-box(
 url: "www.youtube.com/watch?v=1zwTRA0yaYo",
 title:"Tarihi Eser Bilgisayarı Programladım | Altair 8800",
@@ -72,22 +77,22 @@ desc:"Ömer Bektaş'ın kanalında Altair 8800 hakkında detaylı bir video bulu
 #link-box(
 url: "www.s2js.com/altair/sim.html",
 title:"Altair 8800 Emulatorü",
-desc:"Altair 8800 cihazını denemek istiyorsanız tarayıcınızda kullanabileceğiniz Altair 8800 Emulator linki."
+desc:"Altair 8800 cihazını denemek istiyorsanız Altair 8800 Emulator linki."
 )
 
 #link-box(
 url: "www.youtube.com/@merbekta",
 title:"Ömer Bektaş'ın Youtube Kanalı",
-desc:"Ömer Bektaş, bilişim dünyasına yönelik çok faydalı içerikler üreten bir YouTube içerik üreticisidir. Bu kanalı takip etmeniz sizin için çok faydalı olacaktır."
+desc:"Ömer Bektaş'ın YouTube kanalı. Takip etmenizi öneririm."
 )
 
 == Onaltılık Sayı Sistemi (Hexadecimal)
 İkilik Sistemde oluşan zorlukları aşmak için *Onaltılık (Hexadecimal)* Sayı Sistemi kullanılmaya başlandı. Dört adet ikilik (binary) basamağın tek bir hexadecimal karaktere (0-9 ve A-F arası) karşılık gelmesi sayesinde, *`1011 0000`*, *`0110 0001`* gibi karmaşık bir makine kodu *`B0`*, *`61`* şeklinde çok daha kısa ve okunabilir bir biçimde ifade edildi. Bu yöntem yazımı kısaltıp hata payını azaltsa da, programcıların hâlâ hangi sayı kodunun hangi işlemi yaptığını ezbere bilmesi gerekiyordu.\ $2^4 = 16$ olduğu için 4 bitlik bir binary sayı tam olarak bir hexadecimal basamağı karşılık gelir.
 
 #align(center)[
-  #let hucre-bosluk=(x:6pt, y:7pt)
-  #v(1em)
-      *4-Bit İkilik (Binary) ve Onaltılık (Hexadecimal) Karşılıklar Tablosu*
+#let hucre-bosluk=(x:6pt, y:7pt)
+*4-Bit İkilik (Binary) ve Onaltılık (Hexadecimal) Karşılıklar Tablosu*
+#v(-0.4em)
 #grid(
       columns: (auto, auto, auto, auto),
       gutter: 10pt,
@@ -96,48 +101,47 @@ icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
 hucre-bosluk: hucre-bosluk,
-      [*`0`*], [`0`], [`0000`],
-      [*`1`*], [`1`], [`0001`],
-      [*`2`*], [`2`], [`0010`],
-      [*`3`*], [`3`], [`0011`],
+      text(weight: "semibold", size: 11pt)[`0`], [`0`], [`0000`],
+      text(weight: "semibold", size: 11pt)[`1`], [`1`], [`0001`],
+      text(weight: "semibold", size: 11pt)[`2`], [`2`], [`0010`],
+      text(weight: "semibold", size: 11pt)[`3`], [`3`], [`0011`],
 ),
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
 hucre-bosluk: hucre-bosluk,
-        [*`4`*], [`4`], [`0100`],
-        [*`5`*], [`5`], [`0101`],
-        [*`6`*], [`6`], [`0110`],
-        [*`7`*], [`7`], [`0111`],
+        text(weight: "semibold", size: 11pt)[`4`], [`4`], [`0100`],
+        text(weight: "semibold", size: 11pt)[`5`], [`5`], [`0101`],
+        text(weight: "semibold", size: 11pt)[`6`], [`6`], [`0110`],
+        text(weight: "semibold", size: 11pt)[`7`], [`7`], [`0111`],
 ),
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
 hucre-bosluk: hucre-bosluk,
-        [*`8`*], [`8`],  [`1000`],
-        [*`9`*], [`9`],  [`1001`],
-        [*`A`*], [`10`], [`1010`],
-        [*`B`*], [`11`], [`1011`],
+        text(weight: "semibold", size: 11pt)[`8`], [`8`],  [`1000`],
+        text(weight: "semibold", size: 11pt)[`9`], [`9`],  [`1001`],
+        text(weight: "semibold", size: 11pt)[`A`], [`10`], [`1010`],
+        text(weight: "semibold", size: 11pt)[`B`], [`11`], [`1011`],
 ),
 icerik-tablo(
 sutunlar: (auto,auto,auto),
 sutun_basliklari: ("Hex","Dec","Binary"),
 hucre-bosluk: hucre-bosluk,
-        [*`C`*], [`12`], [`1100`],
-        [*`D`*], [`13`], [`1101`],
-        [*`E`*], [`14`], [`1110`],
-        [*`F`*], [`15`], [`1111`],
+        text(weight: "semibold", size: 11pt)[`C`], [`12`], [`1100`],
+        text(weight: "semibold", size: 11pt)[`D`], [`13`], [`1101`],
+        text(weight: "semibold", size: 11pt)[`E`], [`14`], [`1110`],
+        text(weight: "semibold", size: 11pt)[`F`], [`15`], [`1111`],
 ),
   )
 ]
 
 == Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
 Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu #text(weight: "semibold")[ASCII (American Standard Code for Information Interchange)] geliştirilmiştir. Böylelikle en temel düzeyde gerekli olan karakterlere için *ASCII* tablosundaki karakterin sayısal bir karşılığı oluşturuldu.
-#v(1em)
+
 - Bilgisayar mimarisinin temelinde $1$ karakter *$1$ Byte ($8$ bit)* yer kaplar. ASCII tablosunda *$256$* karakter bulunmasının sebebi *$8$* bit'in yan yana getirilerek *$1$ Byte* oluşturmasıdır. *$1$ Byte* aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
 - *Kontrol Karakterleri:* Tablodaki $0$ ile $31$ arasındaki ilk $32$ karakter ve $127$ numaralı *`DEL`* karakteri ekranda basılabilir bir harf veya sembol değildir. Bunlar cihazlar arası iletişimi ve imleç hareketlerini yöneten #text(weight: "semibold")[Kontrol Karakterleri (Control / Non-printable Characters)] olarak adlandırılır.
 
-#v(1em)
 #link-box(
   url:"www.ascii-code.com",
   title: "ASCII Code - Karakter Kodlama Tablosu",
@@ -147,10 +151,10 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
 #align(center)[
 #block(breakable: false)[
 // #let binary-size=6em
-#let table-content-size=8pt
-#let hucre_bosluk = (x:5pt, y:4.5pt)
-*Temel ASCII Tablosu (32-127 Karakterin Kodu)*
-// #v(-0.5em)
+#let table-content-size=7.5pt
+#let hucre_bosluk = (x:5pt, y:4.1pt)
+#text(size:8pt)[*Temel ASCII Tablosu (32-127 Karakterin Kodu)*]
+#v(-0.4em)
 #grid(
     columns: (auto, auto, auto, auto),
     gutter: 6pt,
@@ -302,61 +306,84 @@ sutun_basliklari: ([Birim], [Kapasite], [Kısaltma], [Somut Karşılığı]),
   [Petabyte], [$1024 " TB"$], [*PB*], [Büyük veri merkezleri veya bulut sunucu havuzları],
   [Exabyte], [$1024 " PB"$], [*EB*], [Küresel internet trafiğinin aylık ölçekteki hacmi],)
 
-#not_block(title: "Donanım Üreticisi vs. İşletim Sistemi Farkı: ")[
-Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara takıldığında, depolama alanı genellikle yaklaşık *931 GB* görünür. Bu durum donanım hatası değildir:
+#not_block(title: "Donanım Üreticisi vs. İşletim Sistemi Farkı: ", boyut: 9pt)[
+Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara takıldığında, depolama alanı genellikle yaklaşık *931 GB* görünür. Bu durum donanım hatası değildir: 
+#grid(
+  columns: (auto, auto),
+  gutter: 5pt,
+  align: horizon,
+  [
+    Disk Üreticileri *Onluk* sayı birimini kullanarak $1 "KB" = 10^3 "Byte"$ şeklinde hesap yapar:
+  ],
+  [
+    $ 1 "TB"=1.000.000.000.000 "Byte"$
+  ]
+)
 
-Donanım Üreticileri *Onluk* sayı birimini kullanarak $1 " KB" = 10^3 " Byte"$ şeklinde hesap yapar:
-  $ 1 " TB" = 1.000.000.000.000 " Byte" $
-
-Fakat işletim sistemleri ikilik sayı sistemine göre ölçüm yaptığı için altta ki bölme işleminin sonucu satın aldığınız diskinizin gerçek boyutu *1TB* altında olacaktır.
-  $ frac(1.000.000.000.000, 1024 times 1024 times 1024) approx 931.32 " GB" $
-
-Sizce bu disk üreticilerinin yaptığı bir hile midir?
+#grid(
+  columns: (auto, auto),
+  gutter: 5pt,
+  align: horizon,
+  [
+    Fakat işletim sistemleri ikilik sayı sistemine göre ölçüm yaptığı için yandaki ki bölme işleminin sonucu satın aldığınız diskinizin gerçek boyutu *1TB* altında olacaktır.    
+  ],
+  [
+    $ frac(1.000.000.000.000, 1024 times 1024 times 1024) approx 931.32 " GB" $   
+  ]
+)
 ]
 
 == Makine Kodundan Assembly Diline
 Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "semibold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
 
 Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek için İngilizce kelimelerin kısaltmalarından oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı. Bu sembolik komutları kullanan dile #text(weight: "bold")[Assembly dili] adı verildi. Böylece programcılar, yalnızca #text(weight: "semibold")[`1` ve `0`] dizilimleriyle uğraşmak yerine, daha anlaşılır ve hatırlanması kolay komutlarla program yazabilir hâle geldi.
-
-#icerik-tablo(
-  sutunlar: (auto,auto,auto,auto),
+#grid(
+  columns: (auto, auto),
+  gutter: 10pt,
+  align: top,
+  [
+    #icerik-tablo(
+  sutunlar: (auto,auto,auto),
   tablo_baslik: [Hexadecimal Yerine Assembly Kullanımı Örneği],
-  sutun_basliklari: ([Hexadecimal], [Yerine], [Assembly], [Açıklama]),
-  hucre_bosluk: (x:8pt, y:9pt),
-  icerik_hizalama: (center+horizon, center+horizon, center+horizon, left+horizon),
+  sutun_basliklari: ([Hex], [Assembly], [Açıklama]),
+  hucre_bosluk: (x:7pt, y:6pt),
+  boyut: 9pt,
+  icerik_hizalama: (center+horizon, center+horizon, left+horizon),
   sutun_baslik_hizalama:  (center+horizon, center+horizon, center+horizon, center+horizon),
-  [`B0 61`], [$-->$], [`MOV AL, 61H`], [AL yazmacına *`61H`* verisi taşındı.],
-  [`04 05`], [$-->$], [`ADD AL, 05H`], [AL yazmacındaki değere *`05H`* eklendi.],
-  [`2C 02`], [$-->$], [`SUB AL, 02H`], [AL yazmacındaki değerden *`02H`* çıkarıldı.],
+  [`B0 61`], [`MOV AL, 61H`], [AL yazmacına *`61H`* verisi taşındı.],
+  [`04 05`], [`ADD AL, 05H`], [AL yazmacındaki değere *`05H`* eklendi.],
+  [`2C 02`], [`SUB AL, 02H`], [AL yazmacındaki değerden *`02H`* çıkarıldı.],
   )
-
-Bu sembolik komutlarla yazılan programlar, #text(weight: "bold")[Assembler (Çevirici)] adı verilen bir program aracılığıyla işlemcinin anlayabileceği makine koduna dönüştürüldü.
-
-#align(center)[
-*x86 Assembly: İki Sayıyı Toplama Örneği*
+  Bu sembolik komutlarla yazılan programlar, #text(weight: "bold")[Assembler (Çevirici)] adı verilen bir program aracılığıyla işlemcinin anlayabileceği makine koduna dönüştürüldü.
+  ],
+  [
+    #align(center)[
+#text(size: 9pt, weight: "bold")[x86 Assembly: İki Sayıyı Toplama Örneği]
 #text(size:9pt)[
 ```x86asm
 section .text
 global _start
 
 _start:
-    mov eax, 5          ; ilk sayı
-    mov ebx, 7          ; ikinci sayı
-    add eax, ebx        ; eax = eax + ebx  (5 + 7 = 12)
+    mov eax, 5    ; ilk sayı
+    mov ebx, 7    ; ikinci sayı
+    add eax, ebx  ; eax = eax + ebx  (5 + 7 = 12)
 
-    mov ebx, eax        ; sonucu ebx'e al (exit kodu ebx'ten okunur)
-    mov eax, 1          ; sys_exit sistem çağrısı numarası
-    int 0x80            ; çekirdeği çağır
+    mov ebx, eax  ; sonucu ebx'e al
+    mov eax, 1    ; sys_exit sistem çağrısı numarası
+    int 0x80      ; çekirdeği çağır
 ```
 ]
-]
+]     
+  ]
+)
 
 #link-box(
   url:"www.youtube.com/watch?v=yWXuG3RLkTE",
   title:"Dillerin Atası | Assembly",
   desc:"Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta."
   )
+
 == Programlama Dilleri
 Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold")[hexadecimal sayılar] ile kodlama yapmaya göre #text(weight: "semibold")[Assembly] dili büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. Ayrıca Assembly kodları işlemciden işlemciye farklılık gösteriyor, bu da her yeni işlemci için kodların yeniden yazılması zorunluluğunu doğuruyordu. Bu duruma #text(weight: "semibold")[donanım bağımlılığı] deniyordu.
 
@@ -367,41 +394,41 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
 *Yorumlayıcı (Interpreter):* Kodu bir bütün olarak değil satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, hatanın bulunduğu satıra gelene kadar programı çalıştırır ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. *Python ve Ruby*, bu yaklaşımı kullanan dillere örnek gösterilebilir.
 
 #icerik-tablo(
-  sutunlar: (1.1fr, 1fr, 1fr, 2fr, 2fr),
+  sutunlar: (1fr, 0.65fr, 0.7fr, 2fr, 2fr),
   tablo_baslik: [Programlama Dillerinin Evrimi: Makine Dilinden Yüksek Seviyeli Dillere],
-  sutun_basliklari: ([Evrim Aşaması], [Temsil Biçimi], [Örnek Kod], [Temel Avantajı], [Temel Zorluğu],),
+  sutun_basliklari: ([Evrim Aşaması], [Temsil\ Biçimi], [Örnek Kod], [Temel Avantajı], [Temel Zorluğu],),
   boyut: 8pt,
-  sutun_baslik_bosluk: (x: 8pt, y: 10pt),
-  hucre_bosluk: (x:8pt, y:7pt),
+  sutun_baslik_bosluk: (x: 6pt, y: 4pt),
+  hucre_bosluk: (x:4pt, y:5pt),
   icerik_hizalama: (center+horizon, center+horizon, center+horizon, left+horizon, left+horizon),
   sutun_baslik_hizalama:  (center+horizon),
  // 1. Satır
       text(weight: "semibold")[1.Makine Dili\ (Binary)],
-      [`0` ve `1` dizileri],
+      [`0` ve `1`],
       text(weight: "semibold")[`1011 0000`\ `0110 0001`],
-      [İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.],
-      [İnsan tarafından okunması ve yazılması çok zordur.],
+      text()[İşlemci hiçbir çeviriye ihtiyaç duymadan doğrudan çalıştırır.],
+      text()[İnsan tarafından okunması ve yazılması çok zordur.],
 
       // 2. Satır
       text(weight: "semibold")[2.Hexadecimal\ (16'lık Sistem)],
-      [`0-9` ve `A-F` karakterleri],
+      [`0-9` ve `A-F`],
       text(weight: "semibold")[`B0 61`],
-      [Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.],
-      [Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.],
+      text()[Uzun 0 ve 1 dizilerini 4'lü gruplar halinde kısaltarak yazım kolaylığı sağlar.],
+      text()[Komutların sayısal karşılıklarını akılda tutmak gerekiyordu.],
 
       // 3. Satır
       text(weight: "semibold")[3.Assembly Dili\ (Sembolik Dil)],
-      [Sembolik kısaltmalar\ _(Mnemonics)_],
+      [Mnemonics],
       text(weight: "semibold")[`MOV AL, 61h`],
-      [Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.],
-      [Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.],
+      text()[Komutlar (`MOV`, `ADD`, `SUB`) anlamlı kelimelerle ifade edilir.],
+      text()[Her işlemci mimarisi için farklıdır; büyük projelerde kod çok uzar.],
 
       // 4. Satır
-      text(weight: "semibold")[4.Yüksek Seviyeli Diller],
-      [Günlük dil ve matematiksel ifadeler],
+      text(weight: "semibold")[4.Yüksek\ Seviyeli Diller],
+      [Günlük Dil],
       text(weight: "semibold")[`int a = 97;`],
-      [Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.],
-      [İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.],
+      text()[Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.],
+      text()[İşlemcide çalışabilmesi için derleyici veya yorumlayıcı ile çevrilmesi gerekir.],
   )
 
 #kod-cikti(baslik: [Örnek Python Kodu])[
@@ -419,6 +446,10 @@ Güncellenmiş Puan: 75
 ```
 ]
 
-#align(center)[  
-#image("images/sayfa_alt_bosluklar/07_programlama_dilleri.jpg",width: 100%)
-]
+// #align(center)[  
+// #image("images/sayfa_alt_bosluklar/07_programlama_dilleri.jpg",width: 100%)
+// ]
+
+// TODO: Burada ki boşluk için daha uygun bir resim koy
+
+// #pagebreak()

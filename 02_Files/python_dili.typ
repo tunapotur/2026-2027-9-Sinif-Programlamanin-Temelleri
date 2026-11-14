@@ -2,8 +2,7 @@
 #import "/lib/qr_code.typ": *
 #import "/lib/kod-bloklari.typ": *
 
-#show: conf
-
+// #show: conf
 
 == Python Dili
 *Python*; yüksek seviyeli, yorumlanan, nesne yönelimli ve geniş bir kütüphane ekosistemine sahip bir programlama dilidir. 1991 yılında Guido van Rossum tarafından geliştirilen bu dil, adını van Rossum'un beğeniyle takip ettiği İngiliz komedi grubu Monty Python’ın Monty Python’s Flying Circus adlı televizyon programından almıştır.
@@ -11,8 +10,6 @@
 Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıktığı dönemlere kıyasla inanılmaz bir kapasiteye ulaşmıştır. Bu sayede Python gibi dillerin getirdiği çalışma zamanı maliyeti modern donanımlarla büyük ölçüde tolere edilmekte; çoğu uygulama için fazlasıyla yeterli ve pratik bir performans sunmaktadır.
 
 "Notlarımızın bundan sonraki bölümlerinde vereceğimiz örnekler *Python programlama dili* için olacaktır."
-
-#v(1em)
 
 #align(center)[
 #block(breakable: false)[
@@ -64,15 +61,13 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 ]
 ]
 
-#v(1em)
-
 #grid(
-  columns: (1fr, 2.2fr),
-  gutter: 15pt,
+  columns: (15em,auto),
+  gutter: 5pt,
   align: horizon,
   [
     #align(center)[
-      #image("/02_Files/images/python-logo.jpg", width: 100%)
+      #image("/02_Files/images/python-logo.jpg", width: 80%)
     ]
   ],
   [
@@ -80,8 +75,6 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
     Python ismi her ne kadar Monty Python grubundan gelse de resmi logo, Antik Yunan mitolojisindeki *"Ouroboros"* (kendini besleyen/tamamlayan döngü) esintileri taşıyan iki stilize yılandan oluşur. Sarı ve mavi renkler; dilin **esnekliğini**, farklı sistemlerle **kolay entegre olabilmesini** ve geliştirici dostu yapısını temsil eder.
   ]
 )
-
-#v(1em)
 
 #grid(
   columns: (1.4fr, 1fr),
@@ -93,7 +86,7 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
       radius: 4pt,
       stroke: 0.5pt + rgb("#cbd5e1"),
       width: 100%,
-      height: 18em
+      height: auto
     )[
       *Neden Günümüzün En Popüler Dili?*
       
@@ -109,7 +102,7 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
       radius: 4pt,
       stroke: 0.5pt + rgb("#cbd5e1"),
       width: 100%,
-      height: 18em
+      height: 15.8em,
     )[
       *Yaygın Kullanım Alanları:*
       

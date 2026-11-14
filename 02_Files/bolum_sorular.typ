@@ -3,7 +3,8 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
-#show: conf
+
+// #show: conf
 
 == Temel Programlama Yapıları Python Uygulama Soruları
 Aşağıdaki sorular, temel programlama yapıları konusundaki bilgilere göre hazırlanmıştır. Her soruda kodun çalıştırıldığı ekran çıktısı verilmiş olup kullanıcının girdiği değerler örnek niteliğindedir. Siz de yazdığınız kodu kendi değerlerinizle deneyiniz.
@@ -287,11 +288,9 @@ Ortalama: 6.58
 
 
 == Python Uygulama Soruları: Cevap Anahtarı
-#v(-0.5em)
 Öğrencilerin değişken adları ve yazım biçimi farklı olabilir, çıktılar aynıysa doğru kabul edilebilir.
 
 === Tanışma ve yaş hesabı
-#v(-0.5em)
 #iki_hucreli_satir(columns: (auto,auto))[
 #kod-blok(width: 100%)[
 ```python
@@ -313,7 +312,6 @@ print(f"Merhaba {ad}, {yas} yaşındasın.")
 #not_block(title: "Sık hata:")[`int()` kullanmayıp `"2026" - "2010"` işlemini yapmak `TypeError` hatası verir.]
 
 === Dikdörtgenin alanı ve çevresi
-#v(-0.5em)
 #grid(
   columns: (26em, auto), 
   gutter: 10pt,
@@ -601,7 +599,6 @@ print(f"1 TL  : {birlik} adet")
 #not_block(title: "Kontrol:")[2×100 + 50 + 20 + 10 + 5 + 2×1 = 287. Bu soru, `kalan` değişkeninin her adımda yeniden atanarak güncellendiğini göstermek için iyi bir fırsattır.]
 
 === Market fişi
-#v(-0.5em)
 #iki_hucreli_satir(columns: (20.3em,auto),gutter: 4pt)[
 #kod-blok(width: 100%)[
 ```python
@@ -633,7 +630,6 @@ print("-" * 28)
 ]
 
 === Sinema bileti
-#v(-0.5em)
 #kod-blok(width: 100%)[
 ```python
 yas = int(input("Yaşınız: "))
@@ -652,7 +648,7 @@ print(round(0.1 + 0.2, 2) == 0.3)
 ]
 
 Çıktı öğrencinin girdiği değerlere göre değişir. Üç farklı deneme:
-#v(-0.5em)
+
 #icerik-tablo(
   sutunlar: (auto, auto, auto, auto),
   sutun_basliklari: ("Yaş", "Öğrenci", "İndirimli bilet", "Tam fiyat"),
@@ -661,11 +657,10 @@ print(round(0.1 + 0.2, 2) == 0.3)
   [70], [H], [True], [False],
   [30], [H], [False], [True],
 )
-#v(-0.5em)
+
 #not_block(title: "Not:")[Son iki satır her zaman `False` ve `True` yazar: ondalıklı sayılar tam kesinlikle saklanamadığı için `0.1 + 0.2` ifadesi `0.30000000000000004` olur. Bu, ders notu 18.4'teki uyarının uygulamasıdır.]
-#v(-1em)
+
 === Üç sayının istatistiği
-#v(-0.5em)
 #kod-blok(width: 100%)[
 ```python
 isim = input("İsminiz: ")

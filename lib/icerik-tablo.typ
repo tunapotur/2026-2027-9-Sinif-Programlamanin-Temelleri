@@ -19,7 +19,7 @@
   baslik_boyut: auto,          // snake_case alternatifi
   sutun_baslik_boyut: auto,    // sütun başlıklarına özel boyut
   tablo_baslik_boyut: auto,    // tablo üst başlığına özel boyut
-  tablo_baslik_alt_bosluk: 10pt, // tablo üst başlığı ile tablo arasındaki boşluk
+  tablo_baslik_alt_bosluk: 5pt, // tablo üst başlığı ile tablo arasındaki boşluk
   tablo-baslik-alt-bosluk: auto,
   bolunebilir: false,          // true: tablo sayfa sonunda bölünebilir
   hucre_bosluk: auto,          // hücre içi genel boşluk (örn: 5pt veya (x: 4pt, y: 2pt))
