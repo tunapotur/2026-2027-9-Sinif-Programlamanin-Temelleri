@@ -540,7 +540,7 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
     align: top,
       icerik-tablo(
         tablo_baslik: "and: Hepsi doğru olmalı",
-        tablo_baslik_boyut: 9pt,
+        tablo_baslik_boyut: 8pt,
         sutunlar: (auto, auto, auto),
         sutun_basliklari: ("A", "B", [`A and B`]),
         [`True`], [`True`], [*`True`*],
@@ -551,7 +551,7 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
     ,
     icerik-tablo(
         tablo_baslik: "or: Biri doğru olsa yeter",
-        tablo_baslik_boyut: 9pt,
+        tablo_baslik_boyut: 8pt,
         sutunlar: (auto, auto, auto),
         sutun_basliklari: ("A", "B", [`A or B`]),
         [`True`], [`True`], [`True`],
@@ -562,7 +562,7 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
     ,
     icerik-tablo(
         tablo_baslik: "not:Tersine çevirir",
-        tablo_baslik_boyut: 9pt,
+        tablo_baslik_boyut: 8pt,
         sutunlar: (auto, auto),
         sutun_basliklari: ("A", [`not A`]),
         [`True`], [`False`],
@@ -621,7 +621,6 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   ```python
   not_degeri = 65
   devam = 20
-
   gecti = not_degeri >= 50 and devam <= 30
   # 1) not_degeri >= 50  ->  65 >= 50  ->  True
   # 2) devam <= 30       ->  20 <= 30  ->  True
@@ -642,7 +641,6 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
 x = 0
 sayi = 12
 metin = ""
-
 # 1. Sıfıra bölme koruması: x != 0 False olduğu için sağdaki 20/x hiç çalışmaz (Hata vermez)
 print(x != 0 and 20 / x > 2)          # False
 # 2. or koruması: x == 0 True olduğu için sağdaki 100/x çalıştırılmaz
