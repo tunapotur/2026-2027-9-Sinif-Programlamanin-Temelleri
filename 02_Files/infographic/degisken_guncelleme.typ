@@ -7,7 +7,8 @@
 // #set page(width: 17.5cm + 16pt, height: auto, margin: 8pt)
 
 // ---------- Ayarlanabilir ölçüler ----------
-#let h_kart = 200pt    // Tüm kartların yüksekliği (4 kart da aynı)
+#let kod_y = 6pt       // Kod kutusunun üst/alt iç boşluğu (kutu yüksekliği; eski değer: 3.5pt)
+#let h_kart = 200pt + 2 * (kod_y - 3.5pt)   // Tüm kartların yüksekliği (kod kutusu büyürse otomatik uzar)
 #let h_acik = 22pt     // Açıklama alanı yüksekliği (kod kutuları hizalı kalsın)
 #let bosluk = 8pt      // Satırlar arası boşluk
 #let rh = 17pt         // RAM hücre yüksekliği
@@ -62,7 +63,7 @@
 
 // ---------- Kod kutusu ve kart ----------
 #let kodkutu(c, t) = block(
-  width: 100%, fill: c.light.lighten(45%), stroke: (left: 3pt + c.main), radius: 2pt, inset: (x: 8pt, y: 3.5pt),
+  width: 100%, fill: c.light.lighten(45%), stroke: (left: 3pt + c.main), radius: 2pt, inset: (x: 8pt, y: kod_y),
   text(font: mono, size: 9.5pt, t),
 )
 

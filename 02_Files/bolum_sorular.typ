@@ -6,9 +6,9 @@
 
 // #show: conf
 
+#pagebreak()
 == Temel Programlama Yapıları Python Uygulama Soruları
-Aşağıdaki sorular, temel programlama yapıları konusundaki bilgilere göre hazırlanmıştır. Her soruda kodun çalıştırıldığı ekran çıktısı verilmiş olup kullanıcının girdiği değerler örnek niteliğindedir. Siz de yazdığınız kodu kendi değerlerinizle deneyiniz.
-
+Aşağıdaki sorular, temel programlama yapıları konusundaki bilgilere göre hazırlanmıştır. Kullanıcının girdiği değerler örnek niteliğindedir. Siz de yazdığınız kodu kendi değerlerinizle deneyiniz.
 
 #iki_hucreli_satir[
 === Tanışma ve yaş hesabı
@@ -286,7 +286,7 @@ Ortalama: 6.58
 ]
 ]
 
-
+// #pagebreak()
 == Python Uygulama Soruları: Cevap Anahtarı
 Öğrencilerin değişken adları ve yazım biçimi farklı olabilir, çıktılar aynıysa doğru kabul edilebilir.
 
@@ -321,14 +321,12 @@ print(f"Merhaba {ad}, {yas} yaşındasın.")
 ```python
 kisa_kenar = float(input("Kısa kenar (cm): "))
 uzun_kenar = float(input("Uzun kenar (cm): "))
-
 alan = kisa_kenar * uzun_kenar
 ```]
 ][
 #kod-blok(width: 100%,ilk-satir: 5)[
 ```python
 cevre = 2 * (kisa_kenar + uzun_kenar)
-
 print(f"Alan: {alan:.2f} cm²")
 print(f"Çevre: {cevre:.2f} cm")
 ```]
@@ -338,7 +336,7 @@ print(f"Çevre: {cevre:.2f} cm")
 
 === Not ortalaması
 #iki_hucreli_satir(columns: (auto,auto))[
-  #kod-blok()[
+  #kod-blok(width: 100%)[
 ```python
 yazili1 = float(input("1. yazılı: "))
 yazili2 = float(input("2. yazılı: "))
@@ -349,7 +347,7 @@ ortalama += perf * 0.4
 ```
   ]
 ][
-  #kod-blok(ilk-satir: 7)[
+  #kod-blok(ilk-satir: 7, width: 100%)[
 ```python
 gecti_mi = ortalama >= 50
 takdir_mi = ortalama >= 85
@@ -399,19 +397,6 @@ print(toplam_tutar, type(toplam_tutar))
 #not_block(title: "Vurgulanacak noktalar:")[Metinle toplama birleştirme yapar (`2525`); `int` ile `float` çarpılınca sonuç `float` olur; `int(85.85)` yuvarlamaz, ondalık kısmı atar.]
 
 === Hatalı kodu düzeltin
-
-#icerik-tablo(
-  sutunlar: (auto, 1fr, auto),
-  sutun_basliklari: ("Satır", "Hata nedeni", "Düzeltme"),
-  icerik_hizalama: left + horizon,
-  boyut: 9pt,
-  [`3etap_skor = 80`], [Değişken adı rakamla başlayamaz], [`etap3_skor`],
-  [`urun fiyati = 45.5`], [Adın içinde boşluk olamaz], [`urun_fiyati`],
-  [`class = "9-A"`], [`class` Python'un anahtar kelimesidir], [`sinif`],
-  [`Toplam-Puan = ...`], [Tire (`-`) kullanılamaz; ayrıca `3etap_skor` adı hatalıdır], [`toplam_puan = etap3_skor + 20`],
-  [`print(Toplam-Puan)`], [Tire çıkarma işlemi gibi okunur], [`print(toplam_puan)`],
-)
-
 #iki_hucreli_satir(columns: (auto,auto))[
 #kod-blok(width: 100%)[
 ```python
@@ -431,6 +416,19 @@ MAKSIMUM_DENEME_SAYISI = 3
 ```
 ]
 ]
+
+#icerik-tablo(
+  sutunlar: (auto, auto, auto),
+  sutun_basliklari: ("Satır", "Hata nedeni", "Düzeltme"),
+  icerik_hizalama: left + horizon,
+  boyut: 10pt,
+  dikey-bosluk: 10pt,
+  [`3etap_skor = 80`], [Değişken adı rakamla başlayamaz], [`etap3_skor`],
+  [`urun fiyati = 45.5`], [Adın içinde boşluk olamaz], [`urun_fiyati`],
+  [`class = "9-A"`], [`class` Python'un anahtar kelimesidir], [`sinif`],
+  [`Toplam-Puan = ...`], [Tire (`-`) kullanılamaz; ayrıca `3etap_skor` adı hatalıdır], [`toplam_puan = etap3_skor + 20`],
+  [`print(Toplam-Puan)`], [Tire çıkarma işlemi gibi okunur], [`print(toplam_puan)`],
+)
 
 #not_block(title: "Not:")[`class` bir anahtar kelime olduğu için değişken adı olamaz; yerine herhangi bir geçerli ad (`sinif`) kullanılabilir. Öğrenci her satırın hatasını doğru adlandırıyorsa tam puan verilebilir.]
 
@@ -630,6 +628,12 @@ print("-" * 28)
 ]
 
 === Sinema bileti
+
+#grid(
+  columns: (2fr, 1fr),
+  gutter: 10pt,
+  align: horizon,
+  [
 #kod-blok(width: 100%)[
 ```python
 yas = int(input("Yaşınız: "))
@@ -646,24 +650,37 @@ print(0.1 + 0.2 == 0.3)
 print(round(0.1 + 0.2, 2) == 0.3)
 ```
 ]
-
+  ],
+  [
 Çıktı öğrencinin girdiği değerlere göre değişir. Üç farklı deneme:
 
 #icerik-tablo(
   sutunlar: (auto, auto, auto, auto),
-  sutun_basliklari: ("Yaş", "Öğrenci", "İndirimli bilet", "Tam fiyat"),
-  boyut: 9pt,
+  sutun_basliklari: ([Yaş], [Öğrenci], [İndirimli\ Bilet], [Tam\ Fiyat]),
+  baslik-boyut: 9pt,
+  dikey-bosluk: 8pt,
   [16], [E], [True], [False],
   [70], [H], [True], [False],
   [30], [H], [False], [True],
 )
+  ]
+)
 
-#not_block(title: "Not:")[Son iki satır her zaman `False` ve `True` yazar: ondalıklı sayılar tam kesinlikle saklanamadığı için `0.1 + 0.2` ifadesi `0.30000000000000004` olur. Bu, ders notu 18.4'teki uyarının uygulamasıdır.]
+
+
+
+
+#not_block(title: "Not:")[Son iki satır her zaman `False` ve `True` yazar: ondalıklı sayılar tam kesinlikle saklanamadığı için `0.1 + 0.2` ifadesi `0.30000000000000004` olur.]
 
 === Üç sayının istatistiği
-#kod-blok(width: 100%)[
+#grid(
+  columns: (auto,auto,auto),
+  gutter: 10pt,
+  align: horizon,
+kod-blok(width: 100%)[
 ```python
 isim = input("İsminiz: ")
+
 a = float(input("1. sayı: "))
 b = float(input("2. sayı: "))
 c = float(input("3. sayı: "))
@@ -671,6 +688,10 @@ c = float(input("3. sayı: "))
 en_buyuk = max(a, b, c)
 en_kucuk = min(a, b, c)
 aralik = en_buyuk - en_kucuk
+```
+],
+ kod-blok(width: 100%, ilk-satir: 10)[
+```python
 ortalama = round((a + b + c) / 3, 2)
 fark = abs(a - b)
 
@@ -682,5 +703,8 @@ print(f"Ortalama: {ortalama}")
 print(f"|1. sayı - 2. sayı| = {fark}")
 ```
 ]
+  
+)
+
 
 #not_block(title: "Not:")[Girdiler `float()` ile çevrildiği için `3` değeri `3.0` olarak yazılır; öğrenciler bunu hata sanabilir.]

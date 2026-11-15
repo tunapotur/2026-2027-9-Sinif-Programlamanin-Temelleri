@@ -350,9 +350,10 @@ Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıları
   #grid(
   columns: (sutun1Genislik,auto),
   gutter: 10pt,
-    align: horizon,
+    align: top,
     [
-      *Açıklamasız*
+      #align(center)[*Açıklamasız*]
+      #v(1.5em)
       #kod-blok(width: 100%)[
         ```Python
 a = 50
@@ -363,7 +364,7 @@ print(c)
       ]
     ],
     [
-      *Açıklamalı*
+      #align(center)[*Açıklamalı*]
       #kod-blok(width: 100%)[
         ```Python
 # Ürünün fiyatı
@@ -420,7 +421,7 @@ def topla(a, b):
 
 *Çok Satırlı Açıklama ile Program Başlığı*
 #grid(
-  columns: (sutun1Genislik,auto),
+  columns: (sutun1Genislik+6em,auto),
   gutter: 15pt,
   align: horizon,
   [
@@ -428,7 +429,13 @@ def topla(a, b):
   ```Python
 """
 Program : Daire Alanı Hesaplama
+Ders    : Programlamanın Temelleri (9. Sınıf)
 Yazar   : Ahmet Tuna POTUR
+Sürüm   : 1.0
+Açıklama: Sabit olarak tanımlanan pi sayısı ve yarıçap (r) 
+değerini kullanarak dairenin alanını (π * r²) hesaplar
+ve ekrana yazdırır. Girdiler: pi (float), r (int).
+Çıktı   : alan (float) - Hesaplanan daire alanı
 """
 pi = 3.14        # pi sayısı (yaklaşık değer)
 r = 5            # yarıçap

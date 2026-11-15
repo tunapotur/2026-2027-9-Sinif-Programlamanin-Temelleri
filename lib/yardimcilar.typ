@@ -26,7 +26,6 @@
   ]
 }
 
-#let soru_bilgi(body, ust_bolluk: -0.75em) = text(size: 9pt, fill: luma(110))[
-  #v(ust_bolluk)
+#let soru_bilgi(body) = text(size: 9pt, fill: luma(110))[
   #body
 ]

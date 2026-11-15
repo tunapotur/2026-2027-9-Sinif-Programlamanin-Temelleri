@@ -144,7 +144,3 @@ Değer Bir Sayıdır!
   ```
 ]
 ]
-
-#align(center)[
-  #image("images/sayfa_alt_bosluklar/sy37.jpg", width: 98%)
-]
