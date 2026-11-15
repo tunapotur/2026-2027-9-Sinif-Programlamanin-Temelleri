@@ -29,6 +29,10 @@
 #include "02_Files/fonksiyon_kullanimi.typ"
 #include "02_Files/type-fonksiyonu.typ"
 
+#pagebreak()
 #include "02_Files/bolum_sorular.typ"
+
+#pagebreak()
+#include "02_Files/bolum_sorulari_cevaplari.typ"
 
 // TODO: infografikler için en sonda bir bölüm oluştur
