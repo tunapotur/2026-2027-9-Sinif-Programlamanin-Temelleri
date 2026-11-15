@@ -45,25 +45,26 @@
   [*Mantıksal*], [Koşulları birleştirir veya tersine çevirir.], [#oprt-goster(size:12pt)[`and or not`]],
 )
 
-=== Atama Operatörleri Değişken Oluşur veya Güncellenir
-Sağındaki değeri veya işlemin sonucunu solundaki değişkene aktarır. Değişken daha önce tanımlanmamışsa bellekte oluşturup ilk değerini atar; zaten mevcutsa içindeki değeri günceller.
+=== Atama Operatörleri: Değişken Oluşturma ve Güncelleme
+Atama operatörü, sağ tarafındaki değeri veya işlemin sonucunu sol tarafındaki değişkene aktarır. Değişken daha önce tanımlanmamışsa bellekte yeni bir alan açar ve ilk değeri buraya yerleştirir.
 
 #kod-blok(width: 100%)[
   ```python
   yas = 15          # yas değişkeni oluştu, bellekte 15 değeri saklandı
   isim = "Ayşe"     # isim değişkeni oluştu, bellekte "Ayşe" saklandı
-  pi_sayisi = 3.14  # pi_sayisi değişkeni oluştu
+  pi_sayisi = 3.14  # pi_sayisi değişkeni oluştu, bellekte 3.14 saklandı
+  ogrenci_mi = True # ogrenci_mi değişkeni oluştu, bellekte True saklandı
   ```
 ]
 
 Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken oluşmaz; değişkenin bulunduğu bellek alanında ki eski değerin üzerine yeni değer yazılır ve eski değer kaybolur.
 
-#kod-cikti()[
+#kod-cikti(columns: (auto, 10em))[
  ```python
-        puan = 50
-        print("Puan:", puan)
-        puan = 75
-        print("Güncel puan:", puan)
+puan = 50  # puan değişkeni oluşturuldu, bellekte 50 değeri saklandı
+print("Puan:", puan)  # puan değişkeninin gösterdiği 50 değeri bellekten çağrıldı
+puan = 75  # puan değişkeninin gösterdiği alana 75 değeri yazıldı (güncellendi)
+print("Güncel puan:", puan)  # puan değişkeninin gösterdiği 75 değeri bellekten çağrıldı
         ```
 ][
   ```
@@ -74,7 +75,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 
 #grid(
     columns: (19em,auto),
-    gutter: 8pt,
+    gutter: 16pt,
     align: horizon,
     [Güncelleme yaparken sağ tarafta değişkenin önceki değeri ile hesaplama yapılır, sonra sonuç değişkene atanır.
     ],
@@ -91,7 +92,7 @@ Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken olu�
 
   #grid(
     columns: (19em,auto),
-    gutter: 8pt,
+    gutter: 16pt,
     align: horizon,
     [Python'da tür bilgisi değere bağlı olduğu için, değişken yeni atanan değerin türünü alır:],
     [

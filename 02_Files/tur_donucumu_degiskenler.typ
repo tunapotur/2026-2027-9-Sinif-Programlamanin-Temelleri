@@ -107,10 +107,10 @@ puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
     ```
 ]
 
-#text(size:8pt)[
+#text(size:10pt)[
 #kod-cikti(
   columns: (30em,auto), 
-  baslik: [Kullanıcı girişlerinin #underline(stroke: 1.25pt, offset: 2pt)[metin] türünden \ #underline(stroke: 1.25pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(1em)], baslik-yeri: "sag")[
+  baslik: [Kullanıcı girişlerinin #underline(stroke: 1.25pt, offset: 2pt)[metin] türünden \ #underline(stroke: 1.25pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(1.5em)], baslik-yeri: "sag")[
 ```Python
 # Kullanıcı girişleri metin olarak alınır
 birinci_sayi = input("Birinci Sayıyı Girin: ")
@@ -244,7 +244,7 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 - *Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
 - *Başlangıç Kriteri:* Bir değişken ismi kesinlikle bir rakam ile başlayamaz. İsimler ya alfabetik bir karakterle ya da alt çizgi (*\_*) işaretiyle başlamak zorundadır. Örneğin #text(weight: "semibold", red)[3etap_skor] hatalı bir söz dizimi iken, *etap_skor_3* veya *\_etap3* kurallara uygundur.
 - *Büyük-Küçük Harf Duyarlılığı (Case-Sensitivity):* Python dili, büyük ve küçük harfleri farklı karakterler olarak değerlendirir. Bu nedenle aynı harflerden oluşsa bile yazımında büyük-küçük harf farkı bulunan kelimeler, bellekte tutulan verilere erişmek için kullanılan farklı değişken adları olarak kabul edilir.\ Örneğin *asistan_adi*, *Asistan_Adi* ve *ASISTAN_ADI* ifadeleri Python yorumlayıcısı tarafından birbirinden bağımsız üç farklı değişken adı olarak değerlendirilir.
-- *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz. Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
+- *Resmî Dil Anahtarları (Reserved Words):* Python dilinin kendi iç mekanizmasını yönetmek ve komutları işletmek adına kendine ayırdığı bazı özel kelimeler (keywords) değişken adı olarak kullanılamaz.\ Örneğin *if*, *else*, *True*, *False*, *while*, *for* gibi kelimeler Python için özel bir anlam ifade ettiğinden doğrudan değişken ismi yapılamaz.
 - *Türkçe Karakter Kullanımı: * Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değişken isimlendirirken * Türkçe'ye özgü harfleri kullanmaktan kesinlikle kaçınınız!*.
 
 #align(center)[
@@ -294,7 +294,7 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
   tablo_baslik: "Değişken Adlandırma Kuralları (Naming Conventions)",
   sutunlar: (auto, auto, auto),
   sutun_basliklari: ([Yanlış / Zor Okunan Biçim],[snake_case (Python)],[camelCase]),
-  dikey-bosluk: 6pt,
+  dikey-bosluk: 9pt,
     text(fill: rgb("#dc2626"))[`personelsayisi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],
@@ -344,11 +344,13 @@ Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıları
 - *\#* ile başlayan tek satırlık açıklama satırı
 - *\"\"\"...\"\"\"* Çok satırlı açıklama satırları üç adet tırnak ile açılan ve yine üç adet tırnak ile kapanan alan içine yazılan açıklama ifadeleri ile yapılır.
 
+#let sutun1Genislik = 26em
+
 #block(breakable: false)[
   #grid(
-    columns: (1fr, 1fr),
-    gutter: 10pt,
-    align: top,
+  columns: (sutun1Genislik,auto),
+  gutter: 10pt,
+    align: horizon,
     [
       *Açıklamasız*
       #kod-blok(width: 100%)[
@@ -379,7 +381,7 @@ print(c)
 
 *Açıklama Satırının Kullanım Amaçları*
 #grid(
-  columns: (26em,auto),
+  columns: (sutun1Genislik,auto),
   gutter: 10pt,
   align: top,
   [
@@ -418,9 +420,9 @@ def topla(a, b):
 
 *Çok Satırlı Açıklama ile Program Başlığı*
 #grid(
-  columns: (auto,auto),
-  gutter: 10pt,
-  align: top,
+  columns: (sutun1Genislik,auto),
+  gutter: 15pt,
+  align: horizon,
   [
 #kod-blok(width: 100%)[
   ```Python

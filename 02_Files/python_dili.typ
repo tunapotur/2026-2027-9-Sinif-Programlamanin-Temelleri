@@ -66,7 +66,7 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 
 
 === Sarı ve Mavi Yılanlar
-Python ismi her ne kadar Monty Python grubundan gelse de resmi logo, Antik Yunan mitolojisindeki *"Ouroboros"* (kendini besleyen/tamamlayan döngü) esintileri taşıyan iki stilize yılandan oluşur. Sarı ve mavi renkler; dilin *esnekliğini*, farklı sistemlerle *kolay entegre olabilmesini* ve geliştirici dostu yapısını temsil eder.
+Python resmi logosu, Antik Yunan mitolojisindeki kendini besleyen yılandan oluşur. Sarı ve mavi renkler; dilin *esnekliğini*, farklı sistemlerle *kolay entegre olabilmesini* ve geliştirici dostu yapısını temsil eder.
 
 === Neden Günümüzün En Popüler Dili?
 - *Sözdizimi Sadeliği:* C ve Java gibi dillerdeki süslü parantez (`{}`) ve noktalı virgül (`;`) kalabalığı yerine girintilere (*indentation*) dayanır. Kod, neredeyse günlük İngilizce gibi okunur.
@@ -74,9 +74,19 @@ Python ismi her ne kadar Monty Python grubundan gelse de resmi logo, Antik Yunan
 - *Endüstri Standardı:* TIOBE ve GitHub Octoverse gibi küresel programlama dili endekslerinde son yıllarda sürekli *1. sırada* yer almaktadır.
 
 
-=== "Yaygın Kullanım Alanları:"
-- *Yapay Zekâ & Makine Öğrenmesi:* (TensorFlow, PyTorch, Scikit-learn)
-- *Veri Analizi & Görselleştirme:* (Pandas, NumPy, Matplotlib)
-- *Web Geliştirme (Backend):* (Django, FastAPI, Flask)
-- *Otomasyon & Scripting:* (Ağ yönetimi, veri kazıma, sistem görevleri)
+=== Yaygın Kullanım Alanları
+#grid(
+  columns: (auto, auto),
+  gutter: 25pt,
+  align: top + left,
+  [
+    - *Yapay Zekâ & Makine Öğrenmesi:* (TensorFlow, PyTorch, Scikit-learn)
+    - *Veri Analizi & Görselleştirme:* (Pandas, NumPy, Matplotlib)
+  ],
+  [
+    - *Web Geliştirme (Backend):* (Django, FastAPI, Flask)
+    - *Otomasyon & Scripting:* (Ağ yönetimi, veri kazıma, sistem görevleri)
+  ]
+)
+
 
