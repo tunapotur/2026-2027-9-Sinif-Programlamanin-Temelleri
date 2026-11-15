@@ -59,12 +59,12 @@ Atama operatörü, sağ tarafındaki değeri veya işlemin sonucunu sol tarafın
 
 Var olan bir değişkene yeniden atama yaptığımızda yeni bir değişken oluşmaz; değişkenin bulunduğu bellek alanında ki eski değerin üzerine yeni değer yazılır ve eski değer kaybolur.
 
-#kod-cikti(columns: (auto, 10em))[
+#kod-cikti(columns: (auto, 9.8em))[
  ```python
-puan = 50  # puan değişkeni oluşturuldu, bellekte 50 değeri saklandı
-print("Puan:", puan)  # puan değişkeninin gösterdiği 50 değeri bellekten çağrıldı
-puan = 75  # puan değişkeninin gösterdiği alana 75 değeri yazıldı (güncellendi)
-print("Güncel puan:", puan)  # puan değişkeninin gösterdiği 75 değeri bellekten çağrıldı
+puan = 50 # puan oluşturuldu, bellekte 50 değeri saklandı
+print("Puan:", puan) # puan'ın gösterdiği 50 değeri bellekten çağrıldı
+puan = 75 # puan'ın gösterdiği alana 75 değeri yazıldı (güncellendi)
+print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağrıldı
         ```
 ][
   ```
