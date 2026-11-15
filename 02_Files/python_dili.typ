@@ -1,6 +1,7 @@
 #import "/pageGeneralConfig.typ": *
 #import "/lib/qr_code.typ": *
 #import "/lib/kod-bloklari.typ": *
+#import "/lib/not-block.typ": *
 
 // #show: conf
 
@@ -13,9 +14,10 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 
 #align(center)[
 #block(breakable: false)[
+  *İki Sayının Toplamını Alan Kod Örneği*
   #grid(
     columns: (1fr, 1fr),
-    gutter: 10pt,
+    gutter: 5pt,
      align: (top),
     [
       *C Dili*
@@ -41,9 +43,6 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
       ]
     ],
     [
-      #v(5em)
-      *İki Sayının Toplamını Alan Kod Örneği*
-      #v(2em)
 *Python Dili*
 #kod-blok[
     ```python
@@ -54,6 +53,10 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
     print(f"Toplam: {toplam}")
     ```
 ]
+#align(center)[
+  #v(1em)
+      #image("/02_Files/images/python-logo.jpg", width: 40%) 
+  ]
 
     ]
   
@@ -61,56 +64,19 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 ]
 ]
 
-#grid(
-  columns: (15em,auto),
-  gutter: 5pt,
-  align: horizon,
-  [
-    #align(center)[
-      #image("/02_Files/images/python-logo.jpg", width: 80%)
-    ]
-  ],
-  [
-    *Sarı ve Mavi Yılanlar:* \
-    Python ismi her ne kadar Monty Python grubundan gelse de resmi logo, Antik Yunan mitolojisindeki *"Ouroboros"* (kendini besleyen/tamamlayan döngü) esintileri taşıyan iki stilize yılandan oluşur. Sarı ve mavi renkler; dilin **esnekliğini**, farklı sistemlerle **kolay entegre olabilmesini** ve geliştirici dostu yapısını temsil eder.
-  ]
-)
 
-#grid(
-  columns: (1.4fr, 1fr),
-  gutter: 12pt,
-  [
-    #block(
-      fill: rgb("#f1f5f9"),
-      inset: 8pt,
-      radius: 4pt,
-      stroke: 0.5pt + rgb("#cbd5e1"),
-      width: 100%,
-      height: auto
-    )[
-      *Neden Günümüzün En Popüler Dili?*
-      
-      - *Sözdizimi Sadeliği:* C ve Java gibi dillerdeki süslü parantez (`{}`) ve noktalı virgül (`;`) kalabalığı yerine girintilere (*indentation*) dayanır. Kod, neredeyse günlük İngilizce gibi okunur.
-      - *Geniş Ekosistem:* Yapay zekâdan veri bilimine, web geliştirmeden siber güvenliğe kadar her alanda devasa kütüphane desteği sunar.
-      - *Endüstri Standardı:* TIOBE ve GitHub Octoverse gibi küresel programlama dili endekslerinde son yıllarda sürekli **1. sırada** yer almaktadır.
-    ]
-  ],
-  [
-    #block(
-      fill: rgb("#f1f5f9"),
-      inset: 8pt,
-      radius: 4pt,
-      stroke: 0.5pt + rgb("#cbd5e1"),
-      width: 100%,
-      height: 15.8em,
-    )[
-      *Yaygın Kullanım Alanları:*
-      
-      - *Yapay Zekâ & Makine Öğrenmesi:* \ (TensorFlow, PyTorch, Scikit-learn)
-      - *Veri Analizi & Görselleştirme:* \ (Pandas, NumPy, Matplotlib)
-      - *Web Geliştirme (Backend):* \ (Django, FastAPI, Flask)
-      - *Otomasyon & Scripting:* \ (Ağ yönetimi, veri kazıma, sistem görevleri)
-      
-    ]
-  ]
-)
+=== Sarı ve Mavi Yılanlar
+Python ismi her ne kadar Monty Python grubundan gelse de resmi logo, Antik Yunan mitolojisindeki *"Ouroboros"* (kendini besleyen/tamamlayan döngü) esintileri taşıyan iki stilize yılandan oluşur. Sarı ve mavi renkler; dilin *esnekliğini*, farklı sistemlerle *kolay entegre olabilmesini* ve geliştirici dostu yapısını temsil eder.
+
+=== Neden Günümüzün En Popüler Dili?
+- *Sözdizimi Sadeliği:* C ve Java gibi dillerdeki süslü parantez (`{}`) ve noktalı virgül (`;`) kalabalığı yerine girintilere (*indentation*) dayanır. Kod, neredeyse günlük İngilizce gibi okunur.
+- *Geniş Ekosistem:* Yapay zekâdan veri bilimine, web geliştirmeden siber güvenliğe kadar her alanda devasa kütüphane desteği sunar.
+- *Endüstri Standardı:* TIOBE ve GitHub Octoverse gibi küresel programlama dili endekslerinde son yıllarda sürekli *1. sırada* yer almaktadır.
+
+
+=== "Yaygın Kullanım Alanları:"
+- *Yapay Zekâ & Makine Öğrenmesi:* (TensorFlow, PyTorch, Scikit-learn)
+- *Veri Analizi & Görselleştirme:* (Pandas, NumPy, Matplotlib)
+- *Web Geliştirme (Backend):* (Django, FastAPI, Flask)
+- *Otomasyon & Scripting:* (Ağ yönetimi, veri kazıma, sistem görevleri)
+
