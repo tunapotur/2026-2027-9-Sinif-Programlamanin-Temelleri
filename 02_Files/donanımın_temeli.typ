@@ -445,11 +445,3 @@ Puanı: 50
 Güncellenmiş Puan: 75
 ```
 ]
-
-// #align(center)[  
-// #image("images/sayfa_alt_bosluklar/07_programlama_dilleri.jpg",width: 100%)
-// ]
-
-// TODO: Burada ki boşluk için daha uygun bir resim koy
-
-// #pagebreak()
