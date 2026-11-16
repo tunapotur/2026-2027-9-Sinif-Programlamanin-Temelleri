@@ -26,14 +26,10 @@ print(f"Merhaba {ad}, {yas} yaşındasın.")
 ]
 ]
 
-#not_block(title: "Sık hata:")[`int()` kullanmayıp `"2026" - "2010"` işlemini yapmak `TypeError` hatası verir.]
+#not_block(title: "Sık hata:")[Kullanıcıdan alınan veri metin (`str`) olduğundan `int()` ile dönüştürülmezse `2026 - "2010"` işlemi `TypeError` hatası verir.]
 
 === Dikdörtgenin alanı ve çevresi
-#grid(
-  columns: (26em, auto), 
-  gutter: 10pt,
-  align: top
-)[
+#iki_hucreli_satir(columns: (auto, auto))[
 #kod-blok(width: 100%)[
 ```python
 kisa_kenar = float(input("Kısa kenar (cm): "))
@@ -41,7 +37,7 @@ uzun_kenar = float(input("Uzun kenar (cm): "))
 alan = kisa_kenar * uzun_kenar
 ```]
 ][
-#kod-blok(width: 100%,ilk-satir: 5)[
+#kod-blok(width: 100%, ilk-satir: 4)[
 ```python
 cevre = 2 * (kisa_kenar + uzun_kenar)
 print(f"Alan: {alan:.2f} cm²")
@@ -49,7 +45,7 @@ print(f"Çevre: {cevre:.2f} cm")
 ```]
 ]
 
-#not_block(title: "Sık hata:")[Çevre formülünde parantez unutmak (`2 * kisa + uzun` yanlış sonuç verir).]
+#not_block(title: "Sık hata:")[Çevre formülünde parantez unutulursa (`2 * kisa_kenar + uzun_kenar`), işlem önceliğinden dolayı önce çarpma yapılır ve yanlış sonuç bulunur.]
 
 === Not ortalaması
 #iki_hucreli_satir(columns: (auto,auto))[
@@ -87,51 +83,28 @@ print(veri, type(veri))
 
 sayi = int(veri)
 print(sayi, type(sayi))
-
+```]
+][
+  #kod-blok(width: 100%, ilk-satir: 6)[
+```python
 ondalikli = float(sayi)
 print(ondalikli, type(ondalikli))
 
 kesilmis = int(85.85)
 print(kesilmis, type(kesilmis))
 ```]
-][
-  #kod-blok(width: 100%,ilk-satir: 12)[
-```python
-kesilmis = int(85.85)
-print(kesilmis, type(kesilmis))
-
-print(veri + veri)
-print(sayi + sayi)
-
-adet = 5
-birim_fiyat = 2.5
-
-toplam_tutar = adet * birim_fiyat
-print(toplam_tutar, type(toplam_tutar))
-```]
 ]
 
-// #not_block(title: "Vurgulanacak noktalar:")[Metinle toplama birleştirme yapar (`2525`); `int` ile `float` çarpılınca sonuç `float` olur; `int(85.85)` yuvarlamaz, ondalık kısmı atar.]
+#not_block(title: "Vurgulanacak noktalar:")[Klavyeden okunan değer başlangıçta her zaman `str` türündedir. `int()` ve `float()` ile bilinçli (açık) tür dönüşümü yapılır. `int(85.85)` yuvarlama yapmaz, ondalık kısmı atarak tam sayıya (`85`) dönüştürür.]
 
 === Hatalı kodu düzeltin
-#iki_hucreli_satir(columns: (auto,auto))[
 #kod-blok(width: 100%)[
 ```python
 etap3_skor = 80
 urun_fiyati = 45.5
-sinif = "9-A"
 toplam_puan = etap3_skor + 20
-```
-]
-][
-#kod-blok(width: 100%, ilk-satir:5)[
-```python
 print(toplam_puan)
-
-KDV_ORANI = 0.20
-MAKSIMUM_DENEME_SAYISI = 3
 ```
-]
 ]
 
 #icerik-tablo(
@@ -140,61 +113,63 @@ MAKSIMUM_DENEME_SAYISI = 3
   icerik_hizalama: left + horizon,
   boyut: 9pt,
   dikey-bosluk: 7.5pt,
-  [`3etap_skor = 80`], [Değişken adı rakamla başlayamaz], [`etap3_skor`],
-  [`urun fiyati = 45.5`], [Adın içinde boşluk olamaz], [`urun_fiyati`],
-  [`class = "9-A"`], [`class` Python'un anahtar kelimesidir], [`sinif`],
-  [`Toplam-Puan = ...`], [Tire (`-`) kullanılamaz; ayrıca `3etap_skor` adı hatalıdır], [`toplam_puan = etap3_skor + 20`],
-  [`print(Toplam-Puan)`], [Tire çıkarma işlemi gibi okunur], [`print(toplam_puan)`],
+  [`3etap_skor = 80`], [Değişken adı rakamla başlayamaz], [`etap3_skor = 80`],
+  [`urun fiyati = 45.5`], [Değişken adında boşluk olamaz], [`urun_fiyati = 45.5`],
+  [`Toplam-Puan = 3etap_skor + 20`], [Değişken adında tire (`-`) kullanılamaz; `snake_case` kuralına uyulmalı ve `3etap_skor` adı düzeltilmelidir], [`toplam_puan = etap3_skor + 20`],
+  [`print(Toplam-Puan)`], [Tire çıkarma işlemi gibi algılanır; tanımlanan geçerli değişken adı yazılmalıdır], [`print(toplam_puan)`],
 )
 
-#not_block(title: "Not:")[`class` bir anahtar kelime olduğu için değişken adı olamaz; yerine herhangi bir geçerli ad (`sinif`) kullanılabilir. Öğrenci her satırın hatasını doğru adlandırıyorsa tam puan verilebilir.]
+#not_block(title: "Not:")[Öğrenci değişken adlandırma kurallarını (`snake_case`, rakamla başlamama, boşluk ve tire içermeme) doğru uyguladığı sürece farklı geçerli adlandırmalar da kabul edilebilir.]
 
 
 === Kod izleme
 #grid(
   columns: (auto,auto,auto),
   gutter:10pt,
-  align: horizon
+  align: top
 )[
-#output-box[
+#output-box(title: "1-10. Satırlar")[
 ```text
 18
 28
 2.5
 2
 2
-```
-]
-][
-#output-box[
-```text
-512
--9
 False
 True
-3
 ```
 ]
 ][
-#output-box[
+#output-box(title: "11-20. Satırlar")[
 ```text
 240
 HaHaHa!
+```
+]
+][
+#output-box(title: "21-30. Satırlar")[
+```text
 13
 True
 3 2
+512
+-9
+3
 ```
 ]
 ]
 
 
 #not_block(title: "Tartışılacak noktalar:")[
-- `a + b * 2` → önce çarpma: `10 + 8 = 18`.
-- `2 ** 3 ** 2` → üs alma sağdan sola: `2 ** 9 = 512`.
-- `-3 ** 2` → üs alma eksi işaretinden önce: `-(3 ** 2) = -9`.
-- `not a == 10 or b == 4` → karşılaştırmalar önce: `(not True) or True` = `True`.
-- `bakiye`: 100 → 150 → 120 → 240.
-- `x = 7 + 3 * 2` işleminin sonucu 13'tür; `13 % 5` 3 olduğundan sonuç `True`.
+- `a + b * 2` → önce çarpma yapılır: `10 + 8 = 18`.
+- `a / b` vs `a // b` → bölme (`/`) her zaman `float` (`2.5`), tam bölme (`//`) ise tam sayı (`2`) üretir.
+- `2 ** 3 ** 2` → üs alma sağdan sola çalışır: `2 ** (3 ** 2) = 2 ** 9 = 512`.
+- `-3 ** 2` → üs alma eksi işaretinden önceliklidir: `-(3 ** 2) = -9`.
+- `10 - 4 - 3` → aynı öncelikli çıkarma işlemleri soldan sağa yapılır: `(10 - 4) - 3 = 3`.
+- `not a == 10 or b == 4` → karşılaştırmalar önce yapılır: `(not True) or True` = `False or True` = `True`.
+- `bakiye`: `100` → `150` → `120` → `240`.
+- `mesaj *= 3` ve `mesaj += "!"` → metinlerle çarpma tekrarlama (`"HaHaHa"`), toplama ise birleştirme yapar.
+- `x = 7 + 3 * 2` işleminin sonucu `13`'tür; `13 % 5` değeri `3` olduğundan `x % 5 == 3` karşılaştırması `True` verir.
 ]
 
 === Çıktı biçimlendirme
@@ -265,11 +240,8 @@ print(f"Ters sayı: {ters_sayi}")
 ```
 ]
 ][
-#not_block(title: "Not:")[Onlar basamağı için önce `// 10` ile son basamak atılır (487 → 48), sonra `% 10` ile son basamak alınır (8). Bu, ders notundaki "son basamağı al / at" örneğinin devamıdır.]
+#not_block(title: "Not:")[Onlar basamağı için önce `// 10` ile son basamak atılır (487 → 48), sonra `% 10` ile son basamak alınır (8). Alternatif olarak `(sayi % 100) // 10` ifadesi de aynı sonucu verir.]
 ]
-
-
-
 
 === ATM para dağıtımı
 
@@ -288,7 +260,7 @@ kalan = kalan % 10
 ```
 ]
 ][
-#kod-blok(width: 100%, ilk-satir: 14)[
+#kod-blok(width: 100%, ilk-satir: 10)[
 ```python
 beslik = kalan // 5
 birlik = kalan % 5
@@ -303,7 +275,7 @@ print(f"1 TL  : {birlik} adet")
 ]
 ]
 
-// #not_block(title: "Kontrol:")[2×100 + 50 + 20 + 10 + 5 + 2×1 = 287. Bu soru, `kalan` değişkeninin her adımda yeniden atanarak güncellendiğini göstermek için iyi bir fırsattır.]
+#not_block(title: "Kontrol:")[2 × 100 + 50 + 20 + 10 + 5 + 2 × 1 = 287. Bu soru, `kalan` değişkeninin her adımda yeniden atanarak güncellendiğini göstermek için iyi bir örnektir.]
 
 === Market fişi
 #iki_hucreli_satir(columns: (20.3em,auto),gutter: 4pt)[
@@ -311,9 +283,9 @@ print(f"1 TL  : {birlik} adet")
 ```python
 KDV_ORANI = 0.20
 
-urun = input("Ürün adı:")
-fiyat = float(input("Birim fiyat:"))
-adet = int(input("Adet:"))
+urun = input("Ürün adı: ")
+fiyat = float(input("Birim fiyat: "))
+adet = int(input("Adet: "))
 
 ara_toplam = fiyat * adet
 kdv = ara_toplam * KDV_ORANI
@@ -335,6 +307,8 @@ print("-" * 28)
 ```
 ]
 ]
+
+#not_block(title: "Not:")[f-string içinde `<` sola yaslama, `>` sağa yaslama, `:.2f` ise ondalık sayıyı virgülden sonra 2 basamakla göstermeyi sağlar. `"-" * 28` ifadesi 28 adet tire karakterini art arda yazdırır.]
 
 === Sinema bileti
 
@@ -372,3 +346,37 @@ print(f"Tam fiyat: {tam_fiyat}")
 )
   ]
 )
+
+#not_block(title: "Not:")[Koşul ifadelerinde `if` kullanmadan mantıksal operatörlerin (`or`, `not`) doğrudan `bool` sonuç üretmesi sağlanmıştır. `input(...) == "E"` karşılaştırması kullanıcı "E" girdiğinde doğrudan `True`, aksi halde `False` üretir.]
+
+=== Sayı ve İsim İstatistiği
+#iki_hucreli_satir(columns: (auto, auto))[
+#kod-blok(width: 100%)[
+```python
+isim = input("İsminizi girin: ")
+sayi1 = float(input("1. Sayı: "))
+sayi2 = float(input("2. Sayı: "))
+
+harf_sayisi = len(isim)
+en_buyuk = max(sayi1, sayi2)
+```
+]
+][
+#kod-blok(width: 100%, ilk-satir: 7)[
+```python
+en_kucuk = min(sayi1, sayi2)
+ortalama = round((sayi1 + sayi2) / 2, 2)
+mutlak_fark = round(abs(sayi1 - sayi2), 2)
+
+print(f"İsminiz {harf_sayisi} harflidir.")
+print(f"En büyük: {en_buyuk}")
+print(f"En küçük: {en_kucuk}")
+print(f"Ortalama: {ortalama}")
+print(f"Mutlak fark: {mutlak_fark}")
+```
+]
+]
+
+#not_block(title: "Not:")[
+`len()` fonksiyonu metnin karakter (harf) sayısını, `max()` ve `min()` en büyük ve en küçük sayıyı, `abs()` mutlak farkı, `round()` ise ondalıklı sayıyı istenen basamak sayısına (örnekte 2 basamak) yuvarlamayı sağlar.
+]

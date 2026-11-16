@@ -30,8 +30,8 @@ Merhaba Ayşe, 16 yaşındasın.
   Kullanıcıdan bir dikdörtgenin kısa ve uzun kenar uzunluklarını alın. Alanı ve çevreyi hesaplayıp virgülden sonra 2 basamakla yazdırın.][
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
-Kısa kenar (cm): 6.5
-Uzun kenar (cm): 4.3
+Kısa kenar (cm): 4.3
+Uzun kenar (cm): 6.5
 Alan: 27.95 cm²
 Çevre: 21.60 cm
 ```
@@ -57,9 +57,9 @@ Takdir mi: False
 
 #iki_hucreli_satir[
 === Tür dönüşümü
-#soru_bilgi[Konu: `type()`, `int()`, `float()`, otomatik dönüşüm · Zorluk: Kolay]
+#soru_bilgi[Konu: `type()`, `int()`, `float()`, açık tür dönüşümü · Zorluk: Kolay]
 
-  Kullanıcıdan bir tam sayı alın ve aşağıdaki değerleri sırayla yazdıran bir program yazın.
+  Kullanıcıdan bir tam sayı alın ve her değerin yanına `type()` fonksiyonu ile türünü de göstererek aşağıdaki değerleri sırayla yazdıran bir kod yazın.
   + Girilen değer, `input()`'tan geldiği haliyle
   + Aynı değerin tam sayıya çevrilmiş hali
   + Tam sayının ondalıklı sayıya çevrilmiş hali
@@ -70,15 +70,16 @@ Bir sayı girin: 25
 25 <class 'str'>
 25 <class 'int'>
 25.0 <class 'float'>
+85 <class 'int'>
 ```
 ]
 ]
 
 #iki_hucreli_satir(columns: (auto, 18em))[
 === Hatalı kodu düzeltin
-#soru_bilgi[Konu: değişken tanımlama kuralları, adlandırma, sabitler · Zorluk: Kolay]
+#soru_bilgi[Konu: değişken tanımlama kuralları, `snake_case` · Zorluk: Kolay]
 
-Aşağıdaki kodda değişken tanımlama kurallarına aykırı hatalı 4 satır vardır. Değişkenleri `snake_case` yazımına uygun olacak şekilde yazarak hataları düzeltin. Program çalıştığında ekrana `100` yazmalıdır.
+Aşağıdaki kodda hatalı 4 satır bulunmaktadır. Değişken adlarını kurallara ve `snake_case` yazımına uygun olacak şekilde düzelterek hataları giderin. Program çalıştığında ekrana `100` yazmalıdır.
 ][
 #kod-blok(width: 100%)[
 ```python
@@ -244,7 +245,7 @@ GENEL TOPLAM     117.60 TL
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Yaşınız: 16
-Öğrenci misiniz?(E/H):E
+Öğrenci misiniz? (E/H): E
 yas=16
 ogrenci=True
 İndirimli bilet: True
@@ -254,16 +255,16 @@ Tam fiyat: False
 ]
 
 #iki_hucreli_satir[
-=== Üç Sayının İstatistiği
-#soru_bilgi[Konu: yerleşik fonksiyonlar len, max, min, abs, round · Zorluk: Orta]
+=== Sayı ve İsim İstatistiği
+#soru_bilgi[Konu: yerleşik fonksiyonlar `len()`, `max()`, `min()`, `abs()`, `round()` · Zorluk: Orta]
 
 Kullanıcıdan ismini ve 2 ondalıklı sayı alın. Yerleşik fonksiyonları kullanarak ismin kaç harfli olduğunu, en büyük ve en küçük sayıyı, iki sayının ortalamasını (2 basamağa yuvarlanmış) ve birinci ile ikinci sayının arasındaki mutlak farkı yazdırın.
   ][
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 İsminizi girin: Mehmet
-1.Sayı: 7.5
-2.Sayı: 9.25
+1. Sayı: 7.5
+2. Sayı: 9.25
 İsminiz 6 harflidir.
 En büyük: 9.25
 En küçük: 7.5
