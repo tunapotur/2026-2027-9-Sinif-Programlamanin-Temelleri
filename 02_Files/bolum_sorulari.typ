@@ -5,10 +5,9 @@
 #import "/lib/yardimcilar.typ": *
 
 == Temel Programlama Yapıları Bölüm Değerlendirme Soruları
-Aşağıdaki sorular, 2. Bölüm boyunca işlenen donanım temelleri, sayı sistemleri, bellek mimarisi, veri türleri, Python dili esasları, operatörler ve fonksiyonlar konularındaki teorik ve kavramsal öğrenmeleri ölçmek amacıyla hazırlanmıştır.
+Aşağıdaki sorular, donanım temelleri, sayı sistemleri, bellek mimarisi, veri türleri, Python dili esasları, operatörler ve fonksiyonlar konularındaki teorik ve kavramsal öğrenmeleri ölçmek amacıyla hazırlanmıştır.
 
 === A. Çoktan Seçmeli Sorular
-Aşağıdaki çoktan seçmeli soruların doğru seçeneğini işaretleyiniz.
 
 #let siklar2(a, b, c, d) = grid(
   columns: (1fr, 1fr),
@@ -31,10 +30,12 @@ Aşağıdaki çoktan seçmeli soruların doğru seçeneğini işaretleyiniz.
   Onaltılık (Hexadecimal) sayı sisteminde tek bir basamak, ikilik (binary) sistemde tam olarak kaç bite karşılık gelir?
   #siklar4([2 bit], [4 bit], [8 bit], [16 bit])
 
+// TODO bu soruyu sil
 + #soru_bilgi[Konu: ASCII Karakter Tablosu]\
   ASCII tablosunda $0$ ile $31$ arasındaki karakterler ve $127$ numaralı `DEL` karakteri ekranda görünür bir harf veya sembol üretmez. Bu karakter grubuna ne ad verilir?
   #siklar2([Yazdırılabilir Karakterler], [Kontrol Karakterleri], [Genişletilmiş Karakterler], [Aritmetik Karakterler])
 
+// TODO bu soruyu sil
 + #soru_bilgi[Konu: Veri Büyüklükleri ve Bellek Hesabı]\
   Piyasadan satın alınan 1 TB kapasiteli bir SSD bilgisayara takıldığında işletim sisteminde yaklaşık 931 GB olarak görünür. Bu durumun temel sebebi aşağıdakilerden hangisidir?
   #siklar2(
@@ -65,6 +66,7 @@ Aşağıdaki çoktan seçmeli soruların doğru seçeneğini işaretleyiniz.
   Temel veri türlerinin bellek kullanımları düşünüldüğünde, yalnızca `True` veya `False` değerlerini saklayan ve RAM'de 1 bayt yer kaplayan mantıksal veri türü hangisidir?
   #siklar4([int], [float], [bool], [char])
 
+// TODO bu soruyu sil
 + #soru_bilgi[Konu: Python Dili Özellikleri]\
   Python programlama dilini C ve Java gibi dillerden ayıran ve kod bloklarını (kapsamları) belirlemek için kullanılan temel söz dizimi kuralı nedir?
   #siklar2(
@@ -75,7 +77,7 @@ Aşağıdaki çoktan seçmeli soruların doğru seçeneğini işaretleyiniz.
   )
 
 + #soru_bilgi[Konu: input() Fonksiyonu ve Tür Dönüşümü]\
-  Python'da klavyeden veri almak için kullanılan `input()` fonksiyonu, kullanıcı rakam girse dahi veriyi hangi türde teslim eder?
+  Python'da klavyeden veri almak için kullanılan `input()` fonksiyonu, kullanıcı rakam girse dahi veriyi hangi türde döndürür?
   #siklar4([int], [float], [str], [bool])
 
 + #soru_bilgi[Konu: Bilinçli Tür Dönüşümü]\
@@ -86,23 +88,26 @@ Aşağıdaki çoktan seçmeli soruların doğru seçeneğini işaretleyiniz.
   Aşağıdaki değişken adlarından hangisi Python değişken tanımlama kurallarına *aykırıdır*?
   #siklar4([`okul_no`], [`_toplam`], [`1yazili`], [`ogrenciNotu`])
 
+// TODO burada sayi //= 4 yerine başka bir işlem düşün.
 + #soru_bilgi[Konu: Bileşik Atama Operatörleri]\
   Başlangıçta `sayi = 20` iken sırasıyla `sayi += 10` ve `sayi //= 4` satırları çalıştırılırsa `sayi` değişkeninin son değeri ne olur?
   #siklar4([7.5], [7], [8], [30])
 
+// TODO bu sorunun cevabı düzeltilecek
 + #soru_bilgi[Konu: Aritmetik Operatörler ve İşlem Önceliği]\
-  Python'da `2 ** 3 ** 2` işleminin sonucu kaçtır? (İpucu: Üs alma sağdan sola çalışır).
+  Python'da `2 ** 6` işleminin sonucu kaçtır? (İpucu: Üs alma sağdan sola çalışır).
   #siklar4([64], [512], [36], [18])
 
 + #soru_bilgi[Konu: print() Fonksiyonu Parametreleri]\
-  `print("2026", "11", "16", sep="-")` komutunun ekran çıktısı aşağıdakilerden hangisidir?
-  #siklar4([2026 11 16], [2026-11-16], [20261116], ["2026-11-16"])
+  `print("16","11","2026", sep="-")` komutunun ekran çıktısı aşağıdakilerden hangisidir?
+  #siklar4([16 11 2026], [16-11-2026], [16112026], [16/11/2026])
 
 + #soru_bilgi[Konu: Tür Kontrolü (`isinstance`)]\
   `isinstance(7.5, (int, float))` ifadesinin çalışma sonucu nedir?
   #siklar4([True], [False], [float], [int])
 
 #pagebreak()
+// Bu bölüm komple silinecek
 === B. Boşluk Doldurma Soruları
 Aşağıdaki cümlelerde yer alan boşlukları, cümlenin anlamına ve derste öğrenilen kavramlara uygun şekilde doldurunuz.
 
@@ -123,9 +128,9 @@ Aşağıdaki cümlelerde yer alan boşlukları, cümlenin anlamına ve derste ö
 + `print()` fonksiyonunda yazdırılan değerlerin arasına gelecek ayracı belirlemek için #underline[#h(2.5cm)] parametresi kullanılır.
 + Bir nesnenin veya değişkenin türünü öğrenmek için #underline[#h(2.5cm)] fonksiyonu, belirli bir türe ait olup olmadığını doğrulamak için #underline[#h(3cm)] fonksiyonu kullanılır.
 
+
 #pagebreak()
 === C. Kısa Cevaplı ve Açık Uçlu Değerlendirme Soruları
-Aşağıdaki soruları dikkatlice okuyarak yanıtlarınızı ilgili boşluklara kısaca yazınız.
 
 + #soru_bilgi[Konu: Depolama Birimleri Hesabı]\
   *Soru:* Piyasadan satın alınan 1 TB kapasiteli bir harici diski bilgisayarınıza taktığınızda depolama alanı neden yaklaşık 931 GB görünür? Üretici ve işletim sistemi mantığını belirterek açıklayınız.\
@@ -135,6 +140,7 @@ Aşağıdaki soruları dikkatlice okuyarak yanıtlarınızı ilgili boşluklara 
   *Soru:* Derleyici (*Compiler*) ile Yorumlayıcı (*Interpreter*) arasındaki temel çalışma farkı nedir? Python hangi yöntemi kullanır?\
   #v(3.5cm)
 
+// TODO bu soru kalsın
 + #soru_bilgi[Konu: Veri Türleri ve Donanım Mantığı]\
   *Soru:* `char rakam = '5';` ifadesi ile `int sayi = 5;` ifadesi arasındaki farkı; bellek kullanımı ve matematiksel işlemlere girebilme açısından açıklayınız.\
   #v(3.5cm)
@@ -144,6 +150,7 @@ Aşağıdaki soruları dikkatlice okuyarak yanıtlarınızı ilgili boşluklara 
   #v(3.5cm)
 
 #pagebreak()
+// TODO bu soru kalsın
 + #soru_bilgi[Konu: `input()` ve Tür Dönüşümü]\
   *Soru:* Python'da yazılan `yas = int(input("Yaşınız: "))` satırı çalıştırıldığında sürecin *içten dışa* nasıl gerçekleştiğini iki adımda açıklayınız.\
   #v(3.5cm)

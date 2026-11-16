@@ -44,6 +44,7 @@
 #include "02_Files/infographic/degisken_ve_bellek.typ"
 #include "02_Files/infographic/veri_turleri.typ"
 #include "02_Files/infographic/ram_islemci_iliskisi.typ"
+
 #include "02_Files/infographic/bellek_yonetimi.typ"
 #include "02_Files/infographic/tur_donusumu.typ"
 #include "02_Files/infographic/operatorler.typ"

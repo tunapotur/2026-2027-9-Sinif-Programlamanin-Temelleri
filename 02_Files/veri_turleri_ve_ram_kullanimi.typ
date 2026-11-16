@@ -201,7 +201,9 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
 ]
 ]
 
+#v(0.65em)
 #align(center)[*MUSTAFA* Metni RAM üzerinde nasıl saklanır?]
+#v(-0.5em)
 #ram-goster(
   "char",
   "char isim[7] = {'M', 'U', 'S', 'T', 'A', 'F', 'A'};",
@@ -209,7 +211,9 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   aciklama: "Her bir harf ASCII karşılığı ile bellekte 1 byte yer kaplar (M:77, U:85, S:83, T:84, A:65, F:70, A:65). Toplam 7 karakter = 7 byte.",
 )
 
+#v(0.65em)
 #align(center)[*ADA LOVELACE* Metni RAM üzerinde nasıl saklanır?]
+#v(-0.5em)
 #ram-goster(
   "char",
   "char isim[12] = {'A', 'D', 'A', ' ', 'L', 'O', 'V', 'E', 'L', 'A', 'C', 'E'};",
