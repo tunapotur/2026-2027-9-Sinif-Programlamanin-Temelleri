@@ -36,3 +36,12 @@
 #include "02_Files/bolum_sorulari_cevaplari.typ"
 
 // TODO: infografikler için en sonda bir bölüm oluştur
+
+/*
+Eski de 
+6. Safya Programlama Dili
+8. Sayfa Değişkenler ve Bellek
+13. Veri Türleri ve Ram Kullanımı
+14. Ram ve İşlemci İlişkisi
+
+*/

@@ -21,6 +21,7 @@ Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk o
 #kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
   ```python
 puan = int(input("Puan Giriniz: "))
+
 print(puan)
 print(type(puan))
 ```
@@ -36,14 +37,16 @@ Program, kullanıcıdan "*`Puan Giriniz:`*" iletisiyle bir tam sayı değeri bek
 
 ==== `int(input())` Nasıl Çalışır?
 #align(center)[
-#kod-satiri(no:1, size:10pt,weight: "semibold")[
+#kod-satiri(no:0, size:16pt,weight: "semibold")[
            ```Python
           puan = int(input("Puan Giriniz: "))
           ```
 ]
 ]
+#v(-0.5em)
 Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonra onu saran *`int()`*, en son da atama (#oprt-goster(size: 12pt)[`=`]).
 
+#v(0.5em)
 #align(center)[
   #grid(
     columns: (auto, auto),
@@ -67,7 +70,7 @@ Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonr
             ifade: "input(\"Puan Giriniz: \")",
             son: ")",
             deger: "\"50\"",
-            boyut: 14pt,
+            boyut: 15pt,
           )
         ]
       )
@@ -87,7 +90,7 @@ Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonr
             degisken: "puan",
             ifade: "int(\"50\")",
             deger: "50",
-            boyut: 14pt,
+            boyut: 15pt,
           )
         ]
       )
@@ -100,7 +103,7 @@ Kullanıcı klavyeden *`50`* yazıp Enter'a basar. *`input()`* fonksiyonu bu de�
 #text(size: 10pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine atanır]\
 *`input()`* fonksiyonu metin *`"50"`* değerin döndürür; *`puan = int("50")`*. *`int()`* fonksiyonu *`"50"`* metnini tam sayıya çevirir ve sonuç olan *`50`* değeri *`puan`* değişkenine atanır.
 
-      #kod-blok[
+      #kod-blok(width: 100%)[
     ```Python
 veri = input("Puan Giriniz: ")  # 1. Aşama: Metin olarak alındı ("50")
 puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)

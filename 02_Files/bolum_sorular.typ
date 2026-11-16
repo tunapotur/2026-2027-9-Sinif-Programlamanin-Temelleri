@@ -27,13 +27,13 @@ Merhaba Ayşe, 16 yaşındasın.
 === Dikdörtgenin alanı ve çevresi
 #soru_bilgi[Konu: `float()`, aritmetik operatörler, `:.2f` · Zorluk: Kolay]
 
-  Kullanıcıdan bir dikdörtgenin kısa ve uzun kenar uzunluklarını (ondalıklı olabilir) alın. Alanı ve çevreyi hesaplayıp virgülden sonra 2 basamakla yazdırın.][
+  Kullanıcıdan bir dikdörtgenin kısa ve uzun kenar uzunluklarını alın. Alanı ve çevreyi hesaplayıp virgülden sonra 2 basamakla yazdırın.][
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Kısa kenar (cm): 6.5
-Uzun kenar (cm): 4
-Alan: 26.00 cm²
-Çevre: 21.00 cm
+Uzun kenar (cm): 4.3
+Alan: 27.95 cm²
+Çevre: 21.60 cm
 ```
 ]
 ]
@@ -59,25 +59,17 @@ Takdir mi: False
 === Tür dönüşümü
 #soru_bilgi[Konu: `type()`, `int()`, `float()`, otomatik dönüşüm · Zorluk: Kolay]
 
-  Kullanıcıdan bir tam sayı alın ve aşağıdaki değerleri sırayla yazdıran bir program yazın. 1-4. ve 7. maddelerde değerin yanında `type()` ile türünü de gösterin.
-
+  Kullanıcıdan bir tam sayı alın ve aşağıdaki değerleri sırayla yazdıran bir program yazın.
   + Girilen değer, `input()`'tan geldiği haliyle
   + Aynı değerin tam sayıya çevrilmiş hali
   + Tam sayının ondalıklı sayıya çevrilmiş hali
-  + `85.85` değerinin tam sayıya çevrilmiş hali
-  + Girilen metnin kendisiyle toplamı (örneğin `25` için `2525`)
-  + Tam sayının kendisiyle toplamı (örneğin `50`)
-  + `adet = 5` ve `birim_fiyat = 2.5` değişkenlerinin çarpımı][
+  + `85.85` değerinin tam sayıya çevrilmiş hali][
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Bir sayı girin: 25
 25 <class 'str'>
 25 <class 'int'>
 25.0 <class 'float'>
-85 <class 'int'>
-2525
-50
-12.5 <class 'float'>
 ```
 ]
 ]
@@ -86,13 +78,12 @@ Bir sayı girin: 25
 === Hatalı kodu düzeltin
 #soru_bilgi[Konu: değişken tanımlama kuralları, adlandırma, sabitler · Zorluk: Kolay]
 
-Aşağıdaki kodda değişken tanımlama kurallarına aykırı 5 satır vardır. Her hatanın nedenini yazın ve kodu `snake_case` yazımına uygun olacak şekilde düzeltin. Ardından `KDV_ORANI` (0.20) ve `MAKSIMUM_DENEME_SAYISI` (3) için sabit tanımlarını ekleyin. Düzeltilmiş program çalıştığında ekrana `100` yazmalıdır.
+Aşağıdaki kodda değişken tanımlama kurallarına aykırı hatalı 4 satır vardır. Değişkenleri `snake_case` yazımına uygun olacak şekilde yazarak hataları düzeltin. Program çalıştığında ekrana `100` yazmalıdır.
 ][
 #kod-blok(width: 100%)[
 ```python
 3etap_skor = 80
 urun fiyati = 45.5
-class = "9-A"
 Toplam-Puan = 3etap_skor + 20
 print(Toplam-Puan)
 ```
@@ -249,18 +240,35 @@ GENEL TOPLAM     117.60 TL
 === Sinema bileti
 #soru_bilgi[Konu: karşılaştırma ve mantıksal operatörler · Zorluk: Orta]
 
-  Bir sinema; 12 yaşından küçük, 65 yaş ve üzeri ya da öğrenci olanlara indirim yapıyor. Kullanıcıdan yaşını ve öğrenci olup olmadığını (`E` / `H`) alın; değişkenlerin adını `yas` ve `ogrenci` yapın. İndirim hakkını ve tam fiyat ödeyip ödemeyeceğini `True` / `False` olarak yazdırın. `if` kullanmayın; öğrenci bilgisini bir karşılaştırma ile `bool` değişkene dönüştürün. Bu iki değişkenin adını ve değerini f-string'in `{değişken=}` biçimiyle yazdırın. Son olarak, `0.1 + 0.2 == 0.3` ifadesinin sonucunu ve `round()` ile düzeltilmiş halini ekrana yazdırın.][
+  Bir sinema; 12 yaşından küçük, 65 yaş ve üzeri ya da öğrenci olanlara indirim yapıyor. Kullanıcıdan yaşını ve öğrenci olup olmadığını (`E` / `H`) alın; değişkenlerin adını `yas` ve `ogrenci` yapın. İndirim hakkını ve tam fiyat ödeyip ödemeyeceğini `True` / `False` olarak yazdırın. `if` kullanmayın; öğrenci bilgisini bir karşılaştırma ile `bool` değişkene dönüştürün. Bu iki değişkenin adını ve değerini f-string'in `{değişken=}` biçimiyle yazdırın. ][
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Yaşınız: 16
-Öğrenci misiniz? (E/H): E
+Öğrenci misiniz?(E/H):E
 yas=16
 ogrenci=True
 İndirimli bilet: True
 Tam fiyat: False
-False
-True
 ```
 ]
 ]
 
+#iki_hucreli_satir[
+=== Üç Sayının İstatistiği
+#soru_bilgi[Konu: yerleşik fonksiyonlar len, max, min, abs, round · Zorluk: Orta]
+
+Kullanıcıdan ismini ve 2 ondalıklı sayı alın. Yerleşik fonksiyonları kullanarak ismin kaç harfli olduğunu, en büyük ve en küçük sayıyı, iki sayının ortalamasını (2 basamağa yuvarlanmış) ve birinci ile ikinci sayının arasındaki mutlak farkı yazdırın.
+  ][
+  #output-box(title: "Örnek Ekran Çıktısı")[
+```text
+İsminizi girin: Mehmet
+1.Sayı: 7.5
+2.Sayı: 9.25
+İsminiz 6 harflidir.
+En büyük: 9.25
+En küçük: 7.5
+Ortalama: 8.38
+Mutlak fark: 1.75
+```
+]
+]

@@ -355,8 +355,6 @@ print(f"{yas=}")
 print(f"{ogrenci=}")
 print(f"İndirimli bilet: {indirimli}")
 print(f"Tam fiyat: {tam_fiyat}")
-print(0.1 + 0.2 == 0.3)
-print(round(0.1 + 0.2, 2) == 0.3)
 ```
 ]
   ],
@@ -367,12 +365,10 @@ print(round(0.1 + 0.2, 2) == 0.3)
   sutunlar: (auto, auto, auto, auto),
   sutun_basliklari: ([Yaş], [Öğrenci], [İndirimli\ Bilet], [Tam\ Fiyat]),
   baslik-boyut: 9pt,
-  dikey-bosluk: 8pt,
+  dikey-bosluk: 6pt,
   [16], [E], [True], [False],
   [70], [H], [True], [False],
   [30], [H], [False], [True],
 )
   ]
 )
-
-#not_block(title: "Not:")[Son iki satır her zaman `False` ve `True` yazar: ondalıklı sayılar tam kesinlikle saklanamadığı için `0.1 + 0.2` ifadesi `0.30000000000000004` olur.]
