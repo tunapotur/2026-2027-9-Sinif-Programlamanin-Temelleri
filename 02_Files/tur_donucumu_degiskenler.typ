@@ -37,7 +37,7 @@ Program, kullanıcıdan "*`Puan Giriniz:`*" iletisiyle bir tam sayı değeri bek
 
 ==== `int(input())` Nasıl Çalışır?
 #align(center)[
-#kod-satiri(no:0, size:16pt,weight: "semibold")[
+#kod-satiri(no:0, size:15pt,weight: "semibold")[
            ```Python
           puan = int(input("Puan Giriniz: "))
           ```
@@ -259,8 +259,8 @@ Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde i�
 icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Türkçe Karakterlerin İngilizce Karşılıkları],
-  sutun-baslik-bosluk: (x:6pt, y:10pt),
-  hucre-bosluk: (x:8pt, y:8.5pt),
+  sutun-baslik-bosluk: (x:6pt, y:7pt),
+  hucre-bosluk: (x:8pt, y:7.4pt),
   sutun_basliklari: ([Türkçe], [Dönüşüm], [İngilizce]),
   [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
   [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
@@ -272,8 +272,8 @@ icerik-tablo(
 icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Değişken Kullanım Örnekleri],
-  sutun-baslik-bosluk: (x:6pt, y:10pt),
-  hucre-bosluk: (x:8pt, y:6.1pt),
+  sutun-baslik-bosluk: (x:6pt, y:7pt),
+  hucre-bosluk: (x:8pt, y:5.3pt),
   sutun_basliklari: ([Hatalı Kullanım],[Dönüşüm],[Doğru Kullanım]),
   [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
   [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
@@ -297,7 +297,7 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
   tablo_baslik: "Değişken Adlandırma Kuralları (Naming Conventions)",
   sutunlar: (auto, auto, auto),
   sutun_basliklari: ([Yanlış / Zor Okunan Biçim],[snake_case (Python)],[camelCase]),
-  dikey-bosluk: 9pt,
+  dikey-bosluk: 7.5pt,
     text(fill: rgb("#dc2626"))[`personelsayisi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],

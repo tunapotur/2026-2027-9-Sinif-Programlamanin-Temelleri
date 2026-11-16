@@ -7,7 +7,7 @@
 
 // #show: conf
 
-#let spacing-size= 6pt
+#let spacing-size= 7pt
 
 == Operatörler ve İşlem Önceliği
 *Operatör*, bir veya birden fazla değer üzerinde *matematiksel hesaplama* yapan, değerleri *karşılaştıran* veya *mantıksal işlemler* yürüterek yeni bir sonuç üreten özel *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
@@ -746,7 +746,7 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
         ```
       ]
 
-#not_block(title: "Özet: ")[
+#not_block(title: "Özet: ",boyut: 9pt)[
   - Operatör, değerler üzerinde işlem yapan semboldür.
   - #oprt-goster()[`=`] bir *atama* operatörüdür: ilk atamada değişken oluşur, sonraki atamalarda değeri güncellenir.
   - Aritmetik operatörler sayısal sonuç, karşılaştırma ve mantıksal operatörler `bool` sonuç üretir.
