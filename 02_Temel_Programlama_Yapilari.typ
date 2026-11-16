@@ -22,14 +22,16 @@
 #include "02_Files/tur_donucumu_degiskenler.typ"
 
 #include "02_Files/operatorler.typ"
+
 #include "02_Files/fonksiyon_kullanimi.typ"
+
 #include "02_Files/type-fonksiyonu.typ"
 
 #pagebreak()
-#include "02_Files/bolum_sorular.typ"
+#include "02_Files/bolum_uygulama_sorular.typ"
 
 #pagebreak()
-#include "02_Files/bolum_sorulari_cevaplari.typ"
+#include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
 
 #pagebreak()
 // #include "02_Files/infographic/bilgisayarin_dili.typ"
