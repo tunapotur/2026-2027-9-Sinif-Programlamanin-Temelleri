@@ -43,7 +43,7 @@
 #include "02_Files/infographic/bilgisayarin_dili.typ"
 #include "02_Files/infographic/degisken_ve_bellek.typ"
 #include "02_Files/infographic/veri_turleri.typ"
-// #include "02_Files/infographic/ram_islemci_iliskisi.typ"
+#include "02_Files/infographic/ram_islemci_iliskisi.typ"
 
 // TODO: infografikler için en sonda bir bölüm oluştur
 
