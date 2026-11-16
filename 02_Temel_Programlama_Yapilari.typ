@@ -28,6 +28,12 @@
 #include "02_Files/type-fonksiyonu.typ"
 
 #pagebreak()
+#include "02_Files/bolum_sorulari.typ"
+
+#pagebreak()
+#include "02_Files/bolum_sorulari_cevaplari.typ"
+
+#pagebreak()
 #include "02_Files/bolum_uygulama_sorular.typ"
 
 #pagebreak()
@@ -47,5 +53,4 @@ Eski de
 8. Sayfa Değişkenler ve Bellek
 13. Veri Türleri ve Ram Kullanımı
 14. Ram ve İşlemci İlişkisi
-
 */

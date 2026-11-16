@@ -190,9 +190,6 @@ float alan = pi * b * b;  // => 12.56
   float her işlemde kullanılabilir; ancak hem daha fazla RAM kaplar hem de işlemciyi daha çok yorar. Bu yüzden *gerekmedikçe* *int* yerine *float* kullanılmamalıdır. Küsurat gerekiyorsa (ortalama, not, fiiyat, sıcaklık gibi) float tercih edilir.
 ]
 
-#include "bellek-yonetimi.typ"
-#include "infographic/bellek-yonetimi-cizim.typ"
-
 == Karakterden Metne (Karakter Dizisi)
 Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sadece bir karakteri tutabilir. Birden fazla karakterden oluşan bir kelimeyi veya metni bellekte saklamak istediğimizde ise tekil karakterler yan yana getirilerek bir *karakter dizisi* oluşturulur. Programlamada aynı türdeki verilerin bellekte peş peşe sıralanarak tek bir grup halinde tutulmasına *dizi (array)* adı verilir. Metinler de aslında karakterlerin yan yana dizildiği birer dizidir; bu nedenle aşağıdaki yapı ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
 
@@ -219,3 +216,6 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   "01000001 01000100 01000001 00100000 01001100 01001111 01010110 01000101 01001100 01000001 01000011 01000101",
   aciklama: "Her bir karakter ASCII karşılığı ile bellekte 1 byte yer kaplar (A:65, D:68, A:65, Boşluk:32, L:76, O:79, V:86, E:69, L:76, A:65, C:67, E:69). Toplam 12 karakter = 12 byte.",
 )
+
+#include "bellek-yonetimi.typ"
+#include "infographic/bellek-yonetimi-cizim.typ"
