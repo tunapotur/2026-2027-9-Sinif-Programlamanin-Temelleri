@@ -5,9 +5,9 @@
 
 
 
-// #outline(title: "İçindekiler")
-// #pagebreak(to: "odd")
-// #counter(page).update(1)
+#outline(title: "İçindekiler")
+#pagebreak(to: "odd")
+#counter(page).update(1)
 
 #set page(numbering: "1")
 
@@ -40,9 +40,9 @@
 #include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
 
 #pagebreak()
-// #include "02_Files/infographic/bilgisayarin_dili.typ"
-// #include "02_Files/infographic/degisken_ve_bellek.typ"
-// #include "02_Files/infographic/veri_turleri.typ"
+#include "02_Files/infographic/bilgisayarin_dili.typ"
+#include "02_Files/infographic/degisken_ve_bellek.typ"
+#include "02_Files/infographic/veri_turleri.typ"
 // #include "02_Files/infographic/ram_islemci_iliskisi.typ"
 
 // TODO: infografikler için en sonda bir bölüm oluştur

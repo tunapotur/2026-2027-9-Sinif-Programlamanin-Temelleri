@@ -31,7 +31,6 @@
 
 == Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
 
-
 #align(center)[
 #image("/02_Files/images/Gemini_Bellek Yönetimi ve CPU Performansi.jpg", width: 93%)
 ]
