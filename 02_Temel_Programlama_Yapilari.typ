@@ -40,6 +40,8 @@
 #include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
 
 #pagebreak()
+#include "02_Files/infographic/infografikler.typ"
+
 #include "02_Files/infographic/bilgisayarin_dili.typ"
 #include "02_Files/infographic/bilgisayarin_dili_2.typ"
 #include "02_Files/infographic/degisken_ve_bellek.typ"
