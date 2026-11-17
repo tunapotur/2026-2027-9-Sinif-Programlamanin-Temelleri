@@ -22,7 +22,7 @@
   bolum(1, [Neden Tür Dönüşümü? (Metin Tuzağı)], ipucu: [Klavye girişi → karakter dizisi (str)], grid(
     columns: (1fr, 1.1fr, 1.1fr), column-gutter: 6pt,
     kart(c_mavi, [Klavyeden Giriş (input)], [
-      #kod("input()") veriyi *daima metin* alır. Kullanıcı #kod("25") yazsa bile bilgisayar bunu sayı değil, #kod("'2'") ve #kod("'5'") karakterleri olarak görür.
+      #kod("input()") veriyi *daima metin* alır. Kullanıcı #kod("25") yazsa bile bilgisayar bunu sayı değil, #kod("'25'") karakteri olarak görür.
     ], ikon_: ikon("⌨", c_mavi.main)),
     kart(c_kirmizi, [Metin Bitiştirme Faciası], [
       Dönüşüm yoksa #kod("+") toplamaz, *uca ekler*:

@@ -27,11 +27,14 @@
 
 #include "02_Files/type-fonksiyonu.typ"
 
+
+/*
+
 #pagebreak()
 #include "02_Files/bolum_sorulari.typ"
 
-#pagebreak()
-#include "02_Files/bolum_sorulari_cevaplari.typ"
+// #pagebreak()
+// #include "02_Files/bolum_sorulari_cevaplari.typ"
 
 #pagebreak()
 #include "02_Files/bolum_uygulama_sorular.typ"
@@ -41,7 +44,7 @@
 
 #pagebreak()
 #include "02_Files/infographic/infografikler.typ"
-#include "02_Files/infographic/bilgisayarin_dili.typ"
+// #include "02_Files/infographic/bilgisayarin_dili.typ"
 #include "02_Files/infographic/bilgisayarin_dili_2.typ"
 #include "02_Files/infographic/degisken_ve_bellek.typ"
 #include "02_Files/infographic/veri_turleri.typ"
@@ -51,3 +54,7 @@
 #include "02_Files/infographic/operatorler.typ"
 #include "02_Files/infographic/fonksiyon_kullanimi.typ"
 #include "02_Files/infographic/input_print.typ"
+*/
+
+#pagebreak()
+#include "02_Files/Temel_Programlama_Yapilari_Soru_Havuzu.typ"

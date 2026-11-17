@@ -220,7 +220,6 @@ Daha hassas değerler gerektiğinde tam sayı değerleri kasten kesirli değerle
 puan = 100
 
 ondalikli_puan = float(puan)  # 100 -> 100.0
-
 print(ondalikli_puan)  # Çıktı: 100.0
   ```
 ]
@@ -234,7 +233,6 @@ Ondalıklı bir sayının virgülden sonraki kısmını silip yalnızca tam kıs
 ortalama = 85.85
 # Virgülden sonrası silinir
 tam_not = int(ortalama) #tam_not = 85 olur
-
 print(tam_not)  # Çıktı: 85
   ```
 ]
@@ -260,7 +258,7 @@ icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Türkçe Karakterlerin İngilizce Karşılıkları],
   sutun-baslik-bosluk: (x:6pt, y:7pt),
-  hucre-bosluk: (x:8pt, y:7.4pt),
+  hucre-bosluk: (x:8pt, y:8.4pt),
   sutun_basliklari: ([Türkçe], [Dönüşüm], [İngilizce]),
   [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
   [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
@@ -273,7 +271,7 @@ icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Değişken Kullanım Örnekleri],
   sutun-baslik-bosluk: (x:6pt, y:7pt),
-  hucre-bosluk: (x:8pt, y:5.3pt),
+  hucre-bosluk: (x:8pt, y:6pt),
   sutun_basliklari: ([Hatalı Kullanım],[Dönüşüm],[Doğru Kullanım]),
   [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
   [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
@@ -297,7 +295,7 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
   tablo_baslik: "Değişken Adlandırma Kuralları (Naming Conventions)",
   sutunlar: (auto, auto, auto),
   sutun_basliklari: ([Yanlış / Zor Okunan Biçim],[snake_case (Python)],[camelCase]),
-  dikey-bosluk: 7.5pt,
+  dikey-bosluk: 8.5pt,
     text(fill: rgb("#dc2626"))[`personelsayisi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],

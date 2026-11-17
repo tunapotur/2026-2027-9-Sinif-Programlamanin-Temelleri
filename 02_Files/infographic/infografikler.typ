@@ -5,172 +5,197 @@
 
 == İnfografikler
 
-#v(2pt)
+#v(4pt)
 
 // ---------- BAŞLIK BANDI ----------
 #baslik_bandi(
   [Temel Programlama Yapıları — Görsel Kavram Haritaları],
-  [Donanım temellerinden Python fonksiyonlarına: Konuların tek sayfalık görsel referans kartları],
-  [10 İnfografik · Tam Sayfa Referans],
+  [Donanım temellerinden Python fonksiyonlarına: 9 konunun tek sayfalık görsel referans kartları],
+  [9 İnfografik · Tam Sayfa Referans],
 )
 
-#v(4pt)
+#v(6pt)
 
 // ---------- GİRİŞ VE KAPSAM KUTUSU ----------
 #block(
   width: 100%, fill: c_mavi.light, stroke: (left: 3.5pt + c_mavi.main), radius: (right: 5pt),
-  inset: (x: 9pt, y: 5.5pt),
+  inset: (x: 10pt, y: 7.5pt),
 )[
-  #text(size: 8.6pt)[
-    *Bölümün Amacı ve Kapsamı:* Bu bölümde yer alan infografikler; donanım mimarisinden yazılımın mantıksal katmanlarına uzanan temel programlama kavramlarını zihinde somutlaştırmak, kavram yanılgılarını önlemek ve sınav/uygulama öncesinde hızlı tekrar sağlamak amacıyla hazırlanmıştır. Her infografik, karmaşık bir konuyu tek bir sayfada anlaşılır kılmak üzere tasarlanmış bağımsız bir görsel rehberdir.
+  #text(size: 8.8pt, fill: rgb("#0f172a"))[
+    *Bölümün Amacı ve Kapsamı:* Bu bölümde yer alan 9 infografik; donanım mimarisinden (transistör ve ikili sistem) başlayarak Python programlamanın temel yapı taşlarına (değişkenler, bellek modelleri, operatörler, fonksiyonlar ve Girdi/Çıktı döngüsü) uzanan soyut kavramları zihinde somutlaştırmak amacıyla hazırlanmıştır. Her sayfa, karmaşık bir konuyu tek başına ele alan bağımsız bir *görsel referans kartı (Cheat Sheet)* niteliğindedir.
   ]
 ]
 
-#v(4pt)
+#v(7pt)
 
-// ---------- KART YARDIMCISI ----------
-#let kart_ozet(no, baslik, dosya, aciklama, c) = block(
-  width: 100%, fill: c.light, stroke: 1pt + c.border, radius: 5pt,
-  inset: (x: 7pt, y: 5pt), breakable: false,
+// ---------- SÜTUN BAŞLIĞI YARDIMCISI ----------
+#let sutun_baslik(baslik, c) = block(
+  width: 100%,
+  fill: c.light,
+  stroke: 1pt + c.border,
+  radius: 4pt,
+  inset: (x: 6pt, y: 4.5pt),
+  align(center, text(weight: "bold", size: 8.5pt, fill: c.dark, baslik)),
+)
+
+// ---------- KART YARDIMCISI (EŞİT SABİT BOYUTLU) ----------
+#let kart_ozet(no, baslik, aciklama, c, yukseklik: 96pt) = block(
+  width: 100%,
+  height: yukseklik,
+  fill: c.light,
+  stroke: 1pt + c.border,
+  radius: 6pt,
+  inset: (x: 8pt, y: 7.5pt),
+  breakable: false,
 )[
   #grid(
-    columns: (auto, 1fr, auto), column-gutter: 5pt, align: horizon,
+    columns: (auto, 1fr),
+    column-gutter: 6pt,
+    align: horizon,
     daire(no, c.main),
-    text(weight: "bold", size: 8.8pt, fill: c.dark, baslik),
-    box(
-      fill: white, stroke: 0.5pt + c.border, radius: 3pt, inset: (x: 4pt, y: 1.5pt),
-      text(font: mono, size: 6.5pt, fill: c.dark, dosya),
-    ),
+    text(weight: "bold", size: 9pt, fill: c.dark, baslik),
   )
-  #v(2.5pt)
-  #set text(size: 7.8pt, fill: rgb("#334155"))
-  #set par(justify: false, leading: 0.4em)
+  #v(4.5pt)
+  #set text(size: 7.8pt, fill: rgb("#1e293b"))
+  #set par(justify: false, leading: 0.44em)
   #aciklama
 ]
 
-// ---------- İNFOGRAFİK REHBERİ (2 SÜTUN HALİNDE 10 KART) ----------
+// ---------- 3x3 MATRİS (9 EŞİT KART) ----------
 #grid(
-  columns: (1fr, 1fr),
+  columns: (1fr, 1fr, 1fr),
   column-gutter: 8pt,
-  row-gutter: 5pt,
+  row-gutter: 7pt,
 
-  // SÜTUN BAŞLIKLARI
-  text(weight: "bold", size: 9pt, fill: navy, [Donanım, Sistem ve Bellek Mimarisi (1 – 5)]),
-  text(weight: "bold", size: 9pt, fill: navy, [Bellek Yönetimi ve Python Dili (6 – 10)]),
+  // Sütun Başlıkları
+  sutun_baslik([1. Donanım & Dillerin Evrimi], c_turuncu),
+  sutun_baslik([2. Sistem & Bellek Yönetimi], c_kirmizi),
+  sutun_baslik([3. Python Programlama Yapıları], c_mor),
 
-  // 1 & 6
+  // 1. Satır: Kart 1, Kart 4, Kart 7
   kart_ozet(
-    1, [Bilgisayarın Dili (Donanım)], "bilgisayarin_dili.typ",
-    [Transistörlerin elektrik akımını geçirme/kesme (1/0) mantığı, switch ve LED benzetimi, ikili sistem (binary), bit ve bayt temelleri.],
+    1, [Bilgisayarın Dili],
+    [Transistörden Python'a 1 ve 0'ın yolculuğu: Makine dili (0-1) → Hexadecimal → Assembly → Yüksek seviyeli diller. Bit/bayt mantığı, Altair komut girişi ve ASCII metin temsili.],
     c_turuncu,
   ),
   kart_ozet(
-    6, [Bellek Yönetimi ve Nesne Yaşamı], "bellek_yonetimi.typ",
-    [Python'da dinamik bellek, nesne kimliği (#kod("id()", c: c_kirmizi)), referans sayımı ve kullanılmayan nesnelerin temizlenmesi (Garbage Collector).],
-    c_kirmizi,
-  ),
-
-  // 2 & 7
-  kart_ozet(
-    2, [Bilgisayarın Dili (Dillerin Evrimi)], "bilgisayarin_dili_2.typ",
-    [Programlamanın tarihsel yolculuğu: Makine dili (0-1) → 16'lık (Hexadecimal) → Assembly (#kod("MOV"), #kod("ADD")) → Yüksek seviyeli diller (Python).],
-    c_mor,
+    4, [RAM ve İşlemci],
+    [İşlemci birimleri (ALU, Kontrol, Yazmaçlar), CPU ile RAM arasındaki veri yolu (Bus), önbellek (Cache) seviyeleri ve veri getirme döngüsü.],
+    c_turuncu,
   ),
   kart_ozet(
-    7, [Tür Dönüşümü (Type Casting)], "tur_donusumu.typ",
-    [Açık ve örtük tür dönüşümü, #kod("int()"), #kod("float()"), #kod("str()") fonksiyonları ve klavye girdisindeki (#kod("input()")) metin tuzağı.],
-    c_mavi,
-  ),
-
-  // 3 & 8
-  kart_ozet(
-    3, [Değişkenler ve Bellek (RAM)], "degisken_ve_bellek.typ",
-    [Değişken tanımlama, atama operatörü (=), RAM bellek hücreleri, onaltılık adresler ve bellekteki değerin güncellenme adımları.],
-    c_mavi,
-  ),
-  kart_ozet(
-    8, [Operatörler ve İşlem Önceliği], "operatorler.typ",
+    7, [Operatörler & Öncelik],
     [Aritmetik, ilişkisel ve mantıksal (#kod("and"), #kod("or"), #kod("not")) operatörler; PEMDAS kuralına göre işlem öncelik hiyerarşisi.],
     c_mor,
   ),
 
-  // 4 & 9
+  // 2. Satır: Kart 2, Kart 5, Kart 8
   kart_ozet(
-    4, [Veri Türleri ve RAM Kullanımı], "veri_turleri.typ",
-    [Temel türler (#kod("bool", c: c_yesil), #kod("int", c: c_mavi), #kod("float", c: c_turuncu), #kod("str", c: c_mor)), RAM'de kapladıkları bayt boyutları ve hafıza yerleşimleri.],
-    c_yesil,
+    2, [Değişkenler ve Bellek],
+    [Değişken tanımlama mantığı, atama operatörü (#kod("=")), RAM adresleme mimarisi, bellek hücreleri ve bellekteki değerin güncellenme adımları.],
+    c_mavi,
   ),
   kart_ozet(
-    9, [Fonksiyonların Kullanımı], "fonksiyon_kullanimi.typ",
-    [Kod tekrarını önleme (DRY ilkesi), fonksiyon çağırma anatomisi, parametre/argüman ayrımı, #kod("return") değeri ve yerleşik araçlar.],
+    5, [Bellek Yönetimi],
+    [Python'da dinamik bellek tahsisi, nesne kimliği (#kod("id()")), referans sayımı, nesne yaşam döngüsü ve Çöp Toplayıcı (Garbage Collector).],
+    c_kirmizi,
+  ),
+  kart_ozet(
+    8, [Fonksiyon Kullanımı],
+    [Kod tekrarını önleme (DRY ilkesi), fonksiyon çağırma anatomisi, parametre ve argüman ayrımı, #kod("return") mekanizması ve yerleşik araçlar.],
     c_yesil,
   ),
 
-  // 5 & 10
+  // 3. Satır: Kart 3, Kart 6, Kart 9
   kart_ozet(
-    5, [RAM ve İşlemci İlişkisi], "ram_islemci_iliskisi.typ",
-    [İşlemci mimarisi (ALU, Kontrol Birimi, Yazmaçlar), CPU-RAM veri yolu (Bus), önbellek (Cache) seviyeleri ve veri getirme döngüsü.],
-    c_turuncu,
+    3, [Veri Türleri ve RAM],
+    [Temel türler (#kod("bool"), #kod("int"), #kod("float"), #kod("str")), kapladıkları bayt boyutları ve verilerin RAM'deki fiziksel kutu dizilimi.],
+    c_yesil,
   ),
   kart_ozet(
-    10, [input() ve print() Fonksiyonları], "input_print.typ",
-    [Girdi-İşlem-Çıktı (IPO) yaşam döngüsü, program akışının durması, f-string biçimlendirme ve #kod("sep") / #kod("end") parametreleri.],
+    6, [Tür Dönüşümü],
+    [Açık ve örtük tür dönüşümü, #kod("int()"), #kod("float()"), #kod("str()") işlevleri ve klavye girdisindeki (#kod("input()")) metin tuzağını aşma.],
+    c_mavi,
+  ),
+  kart_ozet(
+    9, [input() ve print()],
+    [Girdi-İşlem-Çıktı (IPO) yaşam döngüsü, program akışını dondurma, f-string biçimlendirme ve #kod("sep") / #kod("end") parametreleri.],
     c_mavi,
   ),
 )
 
-#v(5pt)
+#v(8pt)
 
 // ---------- ÇALIŞMA REHBERİ (3 SÜTUN) ----------
 #block(
-  width: 100%, fill: white, stroke: 1pt + c_gri.border, radius: 6pt, inset: (x: 9pt, y: 6pt),
+  width: 100%, fill: white, stroke: 1pt + c_gri.border, radius: 6pt, inset: (x: 10pt, y: 8pt),
 )[
-  #text(weight: "bold", size: 9pt, fill: navy)[İnfografiklerle Nasıl Çalışmalısınız? (Öğrenci Kılavuzu)]
-  #v(3pt)
+  #text(weight: "bold", size: 9.2pt, fill: navy)[İnfografiklerle Nasıl Çalışmalısınız? (Öğrenci Kılavuzu)]
+  #v(4pt)
   #grid(
-    columns: (1fr, 1fr, 1fr), column-gutter: 8pt,
+    columns: (1fr, 1fr, 1fr), column-gutter: 10pt,
     [
       #grid(columns: (auto, 1fr), column-gutter: 4pt, align: horizon,
-        ikon("1", c_mavi.main, r: 6pt),
-        text(weight: "bold", size: 8.2pt, fill: c_mavi.dark, [Görsel Bağlantı Kurun]),
+        ikon("1", c_mavi.main, r: 6.5pt),
+        text(weight: "bold", size: 8.4pt, fill: c_mavi.dark, [Görsel Bağlantı Kurun]),
       )
-      #v(2pt)
-      #text(size: 7.6pt)[
-        Yazdığınız Python kodunun donanımı (transistör, CPU, RAM) nasıl etkilediğini şemalar üzerinden zihninizde canlandırın.
+      #v(2.5pt)
+      #text(size: 7.7pt, fill: rgb("#334155"))[
+        Yazdığınız Python kodunun arka planda donanımı (transistör, CPU, RAM) nasıl etkilediğini şemalar üzerinden zihninizde canlandırın.
       ]
     ],
     [
       #grid(columns: (auto, 1fr), column-gutter: 4pt, align: horizon,
-        ikon("2", c_yesil.main, r: 6pt),
-        text(weight: "bold", size: 8.2pt, fill: c_yesil.dark, [Kodla Birlikte Deneyin]),
+        ikon("2", c_yesil.main, r: 6.5pt),
+        text(weight: "bold", size: 8.4pt, fill: c_yesil.dark, [Kodla Birlikte Deneyin]),
       )
-      #v(2pt)
-      #text(size: 7.6pt)[
+      #v(2.5pt)
+      #text(size: 7.7pt, fill: rgb("#334155"))[
         İnfografiklerdeki kısa kodları Python kabuğunda (`IDLE`) yazarak `type()`, `id()` ve operatör çıktılarını bizzat gözlemleyin.
       ]
     ],
     [
       #grid(columns: (auto, 1fr), column-gutter: 4pt, align: horizon,
-        ikon("3", c_turuncu.main, r: 6pt),
-        text(weight: "bold", size: 8.2pt, fill: c_turuncu.dark, [Hızlı Referans Kartı]),
+        ikon("3", c_turuncu.main, r: 6.5pt),
+        text(weight: "bold", size: 8.4pt, fill: c_turuncu.dark, [Hızlı Referans Kartı]),
       )
-      #v(2pt)
-      #text(size: 7.6pt)[
+      #v(2.5pt)
+      #text(size: 7.7pt, fill: rgb("#334155"))[
         Uygulama çözerken takıldığınızda (işlem sırası, kaçış dizileri, tür dönüşümü vb.) doğrudan ilgili infografiği açıp başvurun.
       ]
     ],
   )
 ]
 
-#v(3pt)
+#v(6pt)
+
+// ---------- RENK REHBERİ ----------
+#block(
+  width: 100%, fill: rgb("#f8fafc"), stroke: 0.8pt + c_gri.border, radius: 5pt, inset: (x: 10pt, y: 5.5pt),
+)[
+  #grid(
+    columns: (auto, 1fr), column-gutter: 8pt, align: horizon,
+    text(weight: "bold", size: 8pt, fill: navy)[İnfografik Renk Dili:],
+    grid(
+      columns: (auto, auto, auto, auto, auto), column-gutter: 7pt, align: horizon,
+      rozet("Turuncu: Donanım & CPU", c_turuncu, boy: 7.2pt),
+      rozet("Mavi: Mantık & Değişken", c_mavi, boy: 7.2pt),
+      rozet("Yeşil: Bellek & Fonksiyon", c_yesil, boy: 7.2pt),
+      rozet("Kırmızı: GC & Dikkat", c_kirmizi, boy: 7.2pt),
+      rozet("Mor: Operatör & Sözdizimi", c_mor, boy: 7.2pt),
+    ),
+  )
+]
+
+#v(5pt)
 
 // ---------- ALT İPUCU BANDI ----------
 #align(center)[
   #block(
-    fill: c_gri.light, stroke: 0.6pt + c_gri.border, radius: 4pt, inset: (x: 10pt, y: 3pt),
+    fill: c_gri.light, stroke: 0.6pt + c_gri.border, radius: 4pt, inset: (x: 14pt, y: 3.5pt),
   )[
-    #text(size: 7.5pt, fill: c_gri.dark)[
-      *İpucu:* Her infografik tek bir sayfaya sığacak şekilde tasarlanmıştır. Konuları sırayla inceleyebilir veya doğrudan ihtiyacınız olan infografiğe geçebilirsiniz.
+    #text(size: 7.7pt, fill: c_gri.dark)[
+      *İpucu:* Her infografik sonraki sayfalarda tek bir sayfayı tam dolduracak şekilde yer almaktadır. İhtiyacınıza göre doğrudan ilgili sayfaya geçebilirsiniz.
     ]
   ]
 ]
