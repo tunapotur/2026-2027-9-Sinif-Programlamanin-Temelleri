@@ -108,9 +108,9 @@ Veri veya değişken türünü görmek için `type()` fonksiyonu kullanılır. K
     inset: 10pt,
     radius: 4pt,
     stroke: 1pt + rgb("#d0d7de"),
-    width: 100%
+    width: auto
     )[
-  #fonksiyon-aciklama(degisken: "tamsayi", ifade: "isinstance(3, int)", deger: "True", boyut: 24pt)
+  #fonksiyon-aciklama(degisken: "tamsayi", ifade: "isinstance(3, int)", deger: "True", boyut: 16pt)
 ]]
 
 #kod-cikti(baslik:[`isinstance()` Fonksiyonun Kullanımı],baslik-yeri: "sag")[
