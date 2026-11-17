@@ -222,4 +222,4 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
 )
 
 #include "bellek-yonetimi.typ"
-#include "infographic/bellek-yonetimi-cizim.typ"
+#include "bellek-yonetimi-cizim.typ"

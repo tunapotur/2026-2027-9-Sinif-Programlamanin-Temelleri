@@ -115,7 +115,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
 *Bellekte Değerin Güncellenmesi*
 #v(0.5em)
 ]
-#include "infographic/degisken_guncelleme.typ"
+#include "degisken_guncelleme.typ"
   
 
 #v(1em)
