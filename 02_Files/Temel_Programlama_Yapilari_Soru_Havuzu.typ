@@ -83,13 +83,6 @@
 + RAM kullanımını ortadan kaldırması
 + Yalnızca internet bağlantısıyla çalışması
 
-#soru(6, [Ders notunda açıklanan genel ayrımla, derleyici ve yorumlayıcı arasındaki farkı en doğru ifade eden seçenek hangisidir?])
-+ Derleyici yalnızca Python'da, yorumlayıcı yalnızca C++'ta kullanılır.
-+ Derleyici programı donanıma dönüştürmeden siler.
-+ Derleyici kaynak programı bütün olarak çevirirken yorumlayıcı komutları sırayla yorumlayıp çalıştırır.
-+ Yorumlayıcı yalnızca değişken adlarını çevirir.
-+ İkisi de yalnızca görsel tasarım yapmak için kullanılır.
-
 #soru(7, [Programlamada değişken kullanmanın temel amacı nedir?])
 + Bilgisayarın ekran çözünürlüğünü değiştirmek
 + Program çalışırken kullanılacak verileri bellekte bir isim aracılığıyla tutmak
@@ -97,12 +90,6 @@
 + İşlemciyi fiziksel olarak hızlandırmak
 + Program dosyasının uzantısını değiştirmek
 
-#soru(8, [Ders notunda verilen yaygın C++ veri türü boyutları dikkate alındığında aşağıdakilerden hangisi doğrudur?])
-+ char 8 Byte, int 1 Byte'tır.
-+ float 8 Byte, double 4 Byte'tır.
-+ char 1 Byte, int 4 Byte, float 4 Byte, double 8 Byte olarak örneklendirilmiştir.
-+ Tüm veri türleri bellekte aynı alanı kaplar.
-+ bool her bilgisayarda kesinlikle 8 Byte'tır.
 
 #soru(9, [Yalnızca True veya False değerlerinden birini alabilen veri türü hangisidir?])
 + int
@@ -110,13 +97,6 @@
 + str
 + bool
 + char
-
-#soru(10, [ASCII tablosunda 0–31 aralığındaki değerler ve 127 numaralı değer genel olarak hangi tür karakterleri temsil eder?])
-+ Ondalık sayıları
-+ Büyük harfleri
-+ Kontrol karakterlerini
-+ Matematiksel operatörleri
-+ Dosya uzantılarını
 
 #soru(11, [İşlemcinin RAM'deki veriye erişmesiyle ilgili aşağıdaki ifadelerden hangisi doğrudur?])
 + RAM, işlemcinin yaptığı tüm hesaplamaları tek başına gerçekleştirir.
@@ -146,26 +126,6 @@
 + `:=`
 + `!=`
 
-#soru(15, [Ders notunda verilen işlem önceliği sıralamasına göre aşağıdakilerden hangisi doğrudur?])
-+ Mantıksal or, aritmetik işlemlerden önce yapılır.
-+ Atama operatörü her zaman ilk sırada çalışır.
-+ Parantezler önce, aritmetik işlemler sonra, karşılaştırmalar ve mantıksal işlemler daha sonra değerlendirilir.
-+ and operatörü, parantezlerden önce değerlendirilir.
-+ Karşılaştırma operatörleri tüm aritmetik işlemlerden önce değerlendirilir.
-
-#soru(16, [print() fonksiyonunda sep parametresinin görevi nedir?])
-+ Çıktının yazı tipini değiştirmek
-+ Birden fazla değer arasına yerleştirilecek ayırıcıyı belirlemek
-+ Çıktının sonuna otomatik olarak sayı eklemek
-+ Programı durdurmak
-+ Kullanıcıdan veri almak
-
-#soru(17, [Python'daki abs() fonksiyonu temel olarak ne yapar?])
-+ Bir sayıyı yuvarlar.
-+ Bir sayının veri türünü bulur.
-+ Birden fazla sayı arasından en büyüğünü seçer.
-+ Bir sayının mutlak değerini verir.
-+ Bir metnin karakter sayısını bulur.
 
 #soru(18, [Python'da bir değişkenin veri türünü öğrenmek için hangi fonksiyon kullanılabilir?])
 + len()
@@ -186,15 +146,10 @@
 + Harf ve sembolleri sayısal kodlarla temsil etmek için kullanılan standart tablonun adı ...............'dir.
 + Makine komutlarını sembolik ve hatırlanabilir kısaltmalarla ifade eden dile ............... denir.
 + Bilgisayar çalışırken programların ve verilerin geçici olarak tutulduğu ana bellek ............... olarak adlandırılır.
-+ İşlemci ile bellek arasında verilerin taşınmasını sağlayan bağlantı yapısına ............... denir.
-+ İşlemcinin aritmetik ve mantıksal işlemleri gerçekleştiren birimi ............... olarak adlandırılır.
 + Python'da ondalıklı sayıları temsil etmek için kullanılan temel veri türü ...............'tır.
 + Python'da doğru/yanlış değerlerini temsil eden veri türü ...............'tur.
 + Python'da kullanıcıdan veri almak için ............... fonksiyonu kullanılır.
 + Kullanıcıdan alınan metin biçimindeki bir değeri tam sayıya dönüştürmek için ............... fonksiyonu kullanılabilir.
-+ Değişken adlarında kelimelerin alt çizgi ile ayrıldığı yazım biçimine ............... denir.
-+ Değeri program boyunca değişmemesi beklenen veriler için kullanılan, genellikle büyük harflerle yazılan isimlendirme yaklaşımı ............... olarak adlandırılır.
-+ Python'da açıklama satırı oluşturmak için satırın başına ............... karakteri yazılır.
 + Python'da ekrana çıktı vermek için ............... fonksiyonu kullanılır.
 
 === C. Eşleştirme Soruları
@@ -214,46 +169,9 @@
 )
 *Cevaplar:* 1–.....  2–.....  3–.....  4–.....  5–.....
 
-#v(0.6em)
-*2. Aşağıdaki Python fonksiyonlarını görevleriyle eşleştiriniz.*
-
-#table(
-  columns: (1fr, 2.8fr),
-  stroke: 0.5pt + gray,
-  inset: 5pt,
-  [*Fonksiyon*], [*Görev*],
-  [1. `len()`], [A. Sayıyı belirtilen basamak hassasiyetine göre yuvarlar],
-  [2. `abs()`], [B. Bir değerin veri türünü verir],
-  [3. `round()`], [C. Sayının mutlak değerini verir],
-  [4. `type()`], [D. Bir dizinin veya metnin uzunluğunu verir],
-  [5. `max()`], [E. Verilen değerler arasındaki en büyük değeri bulur],
-)
-*Cevaplar:* 1–.....  2–.....  3–.....  4–.....  5–.....
-
-=== D. Paragrafta Uygun Kavramı Bulma
-
-*1. Aşağıdaki paragrafta boş bırakılan yerlere verilen kavramlardan uygun olanları yerleştiriniz.*
-
-#text(weight: "bold")[Kavram havuzu:] #text(fill: rgb("#1D6B45"))[RAM • İşlemci • Veri Yolu • Oku • İşle • Yaz • ALU]
-
-Bilgisayarda bir program çalışırken ihtiyaç duyulan veriler öncelikle ............... üzerinde tutulur. ............... bu verileri ............... için ............... üzerinden alır. İşlemcinin aritmetik ve mantıksal hesaplamaları gerçekleştiren bölümü ............... olarak adlandırılır. İşlemci veriyi ..............., gerekli hesaplamayı ............... ve elde ettiği sonucu tekrar belleğe ............... .
-
-#v(0.8em)
-*2. Aşağıdaki paragrafta boş bırakılan yerlere verilen veri türlerinden uygun olanları yerleştiriniz.*
-
-#text(weight: "bold")[Kavram havuzu:] #text(fill: rgb("#1D6B45"))[`int` • `float` • `bool` • `char` • `str` • ondalıklı • tam • karakter]
-
-Programlamada verinin niteliğine göre farklı veri türleri kullanılır. ............... veri türü tam sayıları, ............... veri türü ............... sayıları temsil eder. ............... veri türü yalnızca doğru veya yanlış değerlerini alabilir. Tek bir ............... saklamak için C++ dilinde ............... veri türü kullanılabilir. Python'da metinleri temsil etmek için ............... veri türünden yararlanılır.
-
 === E. Açık Uçlu Sorular
 
 *Aşağıdaki soruları kendi cümlelerinizle açıklayınız. Gerektiğinde örnek verebilirsiniz.*
-
-#soru(1, [Makine dili, hexadecimal gösterim ve Assembly dili arasındaki farkları açıklayınız. Assembly dilinin programcıya sağladığı kolaylık nedir?])
-#cevap-cizgisi(4)
-
-#soru(2, [RAM, işlemci (CPU) ve veri yolu arasındaki ilişkiyi açıklayınız. Bir program çalışırken bu bileşenler birlikte nasıl görev yapar?])
-#cevap-cizgisi(4)
 
 #soru(3, [Programlamada değişken nedir? Bir değişkene yeni bir değer atandığında bellekteki değer açısından ne değişir?])
 #cevap-cizgisi(4)
@@ -267,16 +185,7 @@ Programlamada verinin niteliğine göre farklı veri türleri kullanılır. ....
 #soru(6, [Python'da `=` ve `==` operatörlerinin görevlerini karşılaştırınız. Her biri için ne amaçla kullanıldığını açıklayınız.])
 #cevap-cizgisi(4)
 
-#soru(7, [Python'daki `and`, `or` ve `not` mantıksal operatörlerinin görevlerini açıklayınız.])
-#cevap-cizgisi(4)
-
 #soru(8, [Fonksiyon kullanmanın kod tekrarını azaltmaya nasıl katkı sağladığını açıklayınız. DRY ilkesinin anlamı nedir?])
-#cevap-cizgisi(4)
-
-#soru(9, [print() fonksiyonunda `sep` ve `end` parametrelerinin görevlerini birbirinden ayırarak açıklayınız.])
-#cevap-cizgisi(4)
-
-#soru(10, [`type()` ve `isinstance()` fonksiyonlarının veri türü kontrolünde nasıl kullanıldığını açıklayınız.])
 #cevap-cizgisi(4)
 
 === F. Ek Çoktan Seçmeli Sorular
@@ -292,13 +201,6 @@ Programlamada verinin niteliğine göre farklı veri türleri kullanılır. ....
 + `bool`
 + `char`
 
-#soru(20, [Python'da sabit olarak kullanılmak üzere tanımlanan isimler için yaygın yazım geleneği aşağıdakilerden hangisidir?])
-+ tumKelimelerKucuk
-+ IlkHarfBuyuk
-+ PI_SAYISI
-+ pi-sayisi
-+ 1_PI_SAYISI
-
 #soru(21, [Python'da bir satırın açıklama olduğunu belirtmek için hangi karakter kullanılır?])
 + `$`
 + `&`
@@ -313,13 +215,6 @@ Programlamada verinin niteliğine göre farklı veri türleri kullanılır. ....
 + `/`
 + `>=`
 
-#soru(23, [Python'da `//` operatörünün temel görevi nedir?])
-+ Üs alma
-+ Bölme sonucunun tam sayı tabanlı bölümünü elde etme
-+ Kalanı bulma
-+ Eşitliği kontrol etme
-+ Mantıksal olumsuzlama
-
 #soru(24, [Python'da f-string kullanımının temel amacı nedir?])
 + Kullanıcıdan parola almak
 + Metin içinde değişken değerlerini ve ifadeleri biçimlendirerek göstermek
@@ -333,21 +228,17 @@ Programlamada verinin niteliğine göre farklı veri türleri kullanılır. ....
 
 #set enum(numbering: "1.")
 
-+ Bir Byte, bilgisayardaki en küçük veri birimidir. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ 8 bit bir araya gelerek 1 Byte oluşturur. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ RAM'de tutulan veriler bilgisayar kapatıldığında kalıcı olarak korunur. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ İşlemci, RAM'deki verilere veri yolu üzerinden erişebilir. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ Python'da `input()` fonksiyonu kullanıcıdan aldığı veriyi her zaman `int` türünde döndürür. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ Python'da `=` atama, `==` karşılaştırma amacıyla kullanılır. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `bool` veri türü `True` veya `False` değerlerinden birini temsil eder. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `float` veri türü yalnızca tam sayıları temsil etmek için kullanılır. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ Python'da bir değişkene programın farklı noktalarında farklı türlerde değerler atanabilir. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `print()` fonksiyonu varsayılan olarak çıktının sonuna yeni satır karakteri ekler. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `print()` fonksiyonundaki `sep` parametresi, birden fazla değer arasına konulacak ayırıcıyı belirler. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `print()` fonksiyonundaki `end` parametresi, çıktının sonunda kullanılacak ifadeyi belirler. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `\n` kaçış dizisi yeni satıra geçişi temsil eder. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
-+ `type()` fonksiyonu bir değerin veri türünü öğrenmek için kullanılabilir. #h(1fr) #line(length: 1.2cm, stroke: 0.5pt + gray)
++ Bir Byte, bilgisayardaki en küçük veri birimidir. 
++ 8 bit bir araya gelerek 1 Byte oluşturur.
++ Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır.
++ RAM'de tutulan veriler bilgisayar kapatıldığında kalıcı olarak korunur.
++ İşlemci, RAM'deki verilere veri yolu üzerinden erişebilir.
++ Python'da `input()` fonksiyonu kullanıcıdan aldığı veriyi her zaman `int` türünde döndürür.
++ Python'da `=` atama, `==` karşılaştırma amacıyla kullanılır.
++ `bool` veri türü `True` veya `False` değerlerinden birini temsil eder.
++ `float` veri türü yalnızca tam sayıları temsil etmek için kullanılır.
++ Python'da bir değişkene programın farklı noktalarında farklı türlerde değerler atanabilir.
++ `type()` fonksiyonu bir değerin veri türünü öğrenmek için kullanılabilir.
 
 #pagebreak()
 == Ölçme ve Değerlendirme Soru Havuzu: Cevap Anahtarı (Öğretmen Bölümü)

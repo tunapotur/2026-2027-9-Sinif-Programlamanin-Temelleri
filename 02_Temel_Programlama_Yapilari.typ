@@ -58,3 +58,6 @@
 
 #pagebreak()
 #include "02_Files/Temel_Programlama_Yapilari_Soru_Havuzu.typ"
+#pagebreak()
+#include "02_Files/bolum_sorulari.typ"
+
