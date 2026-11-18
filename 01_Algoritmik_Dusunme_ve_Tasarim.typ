@@ -11,7 +11,7 @@
 
 #title()
 
-= Öğrenme Birimi Algoritmik Düşünme ve Tasarım
+= Algoritmik Düşünme ve Tasarım
 
 == Problem Analizi ve Bileşenleri
 

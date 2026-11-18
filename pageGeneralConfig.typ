@@ -26,11 +26,11 @@
   justify:true,
 )
   
-// Numaralandırma: 1. seviye -> I, II, III; alt seviyeler her bölümde 1'den başlar (1., 1.1., 1.1.1.)
+// Numaralandırma: 1. seviye -> Bölüm 1, Bölüm 2...; alt seviyeler her bölümde 1'den başlar (1., 1.1., 1.1.1.)
 #set heading(numbering: (..nums) => {
   let n = nums.pos()
   if n.len() == 1 {
-    numbering("I", n.first())
+    "Bölüm " + str(n.first())
   } else {
     numbering("1.1.1.", ..n.slice(1))
   }
@@ -39,13 +39,13 @@
 // Tüm başlıklar için ortak ve dengeli üst/alt boşluk ayarları
 #show heading: set block(above: 1em, below: 0.6em)
 
-// 1. Seviye (Bölüm Başlığı): Ortalı, "I  Başlık" biçiminde (İç içe block kaldırıldı)
+// 1. Seviye (Bölüm Başlığı): Ortalı, "Bölüm X: Başlık" biçiminde
 #show heading.where(level: 1): it => {
   set align(center)
   set text(size: 14pt, weight: "bold")
   block(above: 1.2em, below: 0.75em)[
     #if it.numbering != none [
-      #counter(heading).display("I")#h(0.4em)
+      #counter(heading).display((..nums) => "Bölüm " + str(nums.pos().first()) + ":")#h(0.5em)
     ]
     #it.body
   ]
@@ -62,6 +62,12 @@
   #show title: set text(size:22pt, fill:blue, weight: "bold")
 
   // #show outline: upper
+
+  // İçindekiler: başlık numarası ile metin arasında tek karakterlik boşluk (0.3em)
+  #show outline.entry: it => link(
+    it.element.location(),
+    it.indented(it.prefix(), it.inner(), gap: 0.3em),
+  )
 
   // İçindekiler: bölüm satırları kalın ve aralıklı
   #show outline.entry.where(level: 1): it => {
