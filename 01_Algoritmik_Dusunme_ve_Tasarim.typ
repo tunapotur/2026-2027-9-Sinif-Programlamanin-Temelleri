@@ -1,9 +1,9 @@
 #import "pageGeneralConfig.typ": *
 #import "lib/flowchart.typ": *
 #import "lib/qr_code.typ": *
-#import "lib/bilgi-kutusu.typ": *
 #import "lib/icerik-tablo.typ": *
 #import "lib/akis-sembolleri.typ": *
+#import "lib/not-block.typ":*
 
 #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
 
@@ -15,9 +15,8 @@
 
 == Problem Analizi ve Bileşenleri
 
-#bilgi-kutusu("ANALİZ")[
-  Bir olayı veya durumu incelemek ve ayrıntılı biçimde anlamaya çalışmaktır.
-]
+#not_block(title: "Analiz:")[Bir olayı veya durumu incelemek ve ayrıntılı biçimde anlamaya çalışmaktır.]
+#v(-0.5em)
 Programlama sürecinde problem analizi, çözülmesi gereken sorunu dikkatlice inceleme aşamasıdır. Bu aşamada sorunun ne olduğu, çözüm için hangi bilgilere ihtiyaç duyulduğu, bu bilgilerle neler yapılacağı ve sonunda hangi sonucun elde edilmek istendiği belirlenir.
 Örneğin okul kantinindeki sıra sorununda öğrenci sayısı ve alışveriş süreleri incelenir. Daha sonra bekleme süresini azaltacak bir sıra düzeni planlanır.
 
@@ -47,7 +46,6 @@ Bilgisayarda problemler genellikle Girdi–İşlem–Çıktı modeliyle çözül
 
 *Örnek:* Bankamatikten para çekme
 Kullanıcının kartı, şifresi ve çekmek istediği para miktarı girdidir. Bankamatik şifreyi kontrol eder ve yeterli bakiye olup olmadığına bakar; bu bölüm işlemdir. Para, makbuz ve ekranda gösterilen yeni bakiye ise çıktıdır.
-#pagebreak()
 
 == Akış Şeması (Flowchart)
 Akış şeması, bir algoritmanın kod yazılmadan önce semboller ve çizimler kullanılarak gösterilmesidir. Çözüm adımlarını daha kolay anlamayı, kontrol etmeyi ve hataları kodlamaya başlamadan fark etmeyi sağlar.
@@ -70,109 +68,50 @@ Kullanıcı tarafından girilen iki sayının toplamını ekrana yazdıran sözd
 
 *Elle Çalıştırma Tablosu* \
 *Örnek Girdiler:* s1 = 15, s2 = 25  *Beklenen Çıktı:* toplam = 40
-#table(
-  columns: (1.25cm, 5cm, 1cm, 1cm,2cm, 1fr),
-    stroke: table_Stroke,
-    inset: 7pt,
-  
-    table.header(
-    table_headerCell[Adım],
-    table_headerCell[İşlem],
-    table_headerCell[s1],
-    table_headerCell[s2],
-    table_headerCell[toplam],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (1.25cm, 5cm, 1cm, 1cm,2cm, 1fr),
+  sutun_basliklari: (
+    [Adım],
+    [İşlem],
+    [s1],
+    [s2],
+    [toplam],
+    [Açıklama],
   ),
-    table_dataCell_middle[1],
-    table_dataCell_middle[BAŞLA],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_left[Algoritma başlar],
-    
-    table_dataCell_middle[2],
-    table_dataCell_middle[*s1* değerini oku.],
-    table_dataCell_middle[*15*],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_left[Kullanıcı 15 sayısını girer],
-    
-    table_dataCell_middle[3],
-    table_dataCell_middle[*s2* değerini oku.],
-    table_dataCell_middle[15],[*25*],
-    table_dataCell_middle[-],
-    table_dataCell_left[Kullanıcı 25 sayısını girer],
-    
-    table_dataCell_middle[4],
-    table_dataCell_middle[*toplam = s1 + s2*],
-    table_dataCell_middle[15],
-    table_dataCell_middle[25],
-    table_dataCell_middle[*40*],
-    table_dataCell_left[15 + 25 = 40 işlemi gerçekleşir],
-    
-    table_dataCell_middle[5],
-    table_dataCell_middle[toplam değerini yazdır],
-    table_dataCell_middle[15],
-    table_dataCell_middle[25],
-    table_dataCell_middle[40],
-    table_dataCell_left[Ekrana 40 sonucu yazılır],
-    
-    table_dataCell_middle[6],
-    table_dataCell_middle[DUR],
-    table_dataCell_middle[15],
-    table_dataCell_middle[25],
-    table_dataCell_middle[40],
-    table_dataCell_left[Algoritma başarıyla sonlanır],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [1], [BAŞLA], [-], [-], [-], [Algoritma başlar],
+  [2], [*s1* değerini oku.], [*15*], [-], [-], [Kullanıcı 15 sayısını girer],
+  [3], [*s2* değerini oku.], [15], [*25*], [-], [Kullanıcı 25 sayısını girer],
+  [4], [*toplam = s1 + s2*], [15], [25], [*40*], [15 + 25 = 40 işlemi gerçekleşir],
+  [5], [toplam değerini yazdır], [15], [25], [40], [Ekrana 40 sonucu yazılır],
+  [6], [DUR], [15], [25], [40], [Algoritma başarıyla sonlanır],
 )
 
-#pagebreak()
 ==== Karşılaştırma Operatörleri ve Kullanım Örnekleri
 
 Algoritmalar; günlük hayatta olduğu gibi belirli koşullara göre farklı yollara sapabilir. Yazılımcılar, iki veriyi birbiriyle kıyaslayan ve aralarındaki mantıksal ilişkiyi belirleyen *karşılaştırma operatörlerini* kullanarak *Doğru*(True) veya *Yanlış*(False) mantıksal sonucunu hesaplar.
 
 Aşağıda ki tabloda sık karşılaştırma operatörleri ve kullanımı gösterilmektedir.
 
-#table(
-  columns: (2cm, 2.6cm, 3.5cm, 1fr),
-  stroke: table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Operatör],
-    table_headerCell[Anlamı],
-    table_headerCell[Örnek Kullanım],
-    table_headerCell[Bilgisayar Dilindeki Karşılığı ve Açıklama]
+#icerik-tablo(
+  sutunlar: (2.2cm, 2.6cm, 3.5cm, 1fr),
+  sutun_basliklari: (
+    [Operatör],
+    [Anlamı],
+    [Örnek Kullanım],
+    [Bilgisayar Dilindeki Karşılığı ve Açıklama],
   ),
-
-  table_dataCell_middle[==],
-  table_dataCell_middle[Eşittir],
-  table_dataCell_middle[tahmin == 1234],
-  table_dataCell_left[*tahmin* değeri, *1234* sayısına eşitse sonuç *Doğru* olur.],
-
-  table_dataCell_middle[!=],
-  table_dataCell_middle[Eşit Değildir],
-  table_dataCell_middle[sifre != "123"],
-  table_dataCell_left[Şifre, "123" değerine eşit değilse sonuç *Doğru* olur.],
-
-  table_dataCell_middle[>],
-  table_dataCell_middle[Büyüktür],
-  table_dataCell_middle[yas > 18],
-  table_dataCell_left[Yaş değeri, 18’den büyükse sonuç *Doğru* olur.],
-
-  table_dataCell_middle[<],
-  table_dataCell_middle[Küçüktür],
-  table_dataCell_middle[sicaklik < 0],
-  table_dataCell_left[Sıcaklık, 0’dan küçükse sonuç *Doğru* olur.],
-
-  table_dataCell_middle[>=],
-  table_dataCell_middle[Büyük Eşittir],
-  table_dataCell_middle[puan >= 50],
-  table_dataCell_left[Puan, 50 veya 50’den daha büyükse sonuç *Doğru* olur.],
-
-  table_dataCell_middle[<=],
-  table_dataCell_middle[Küçük Eşittir],
-  table_dataCell_middle[hiz <= 90],
-  table_dataCell_left[Hız, 90 veya 90’dan daha küçükse sonuç *Doğru* olur.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [==], [Eşittir], [tahmin == 1234], [*tahmin* değeri, *1234* sayısına eşitse sonuç *Doğru* olur.],
+  [!=], [Eşit Değildir], [sifre != "123"], [Şifre, "123" değerine eşit değilse sonuç *Doğru* olur.],
+  [>], [Büyüktür], [yas > 18], [Yaş değeri, 18’den büyükse sonuç *Doğru* olur.],
+  [<], [Küçüktür], [sicaklik < 0], [Sıcaklık, 0’dan küçükse sonuç *Doğru* olur.],
+  [>=], [Büyük Eşittir], [puan >= 50], [Puan, 50 veya 50’den daha büyükse sonuç *Doğru* olur.],
+  [<=], [Küçük Eşittir], [hiz <= 90], [Hız, 90 veya 90’dan daha küçükse sonuç *Doğru* olur.],
 )
 
 ===== Karşılaştırma Operatörleri İle Yapılan İşlem Örnekleri
@@ -265,128 +204,52 @@ Kullanıcının önceden belirlediği bir şifre ile sisteme girişini kontrol e
 *Elle Çalışma Tablosu* \
 *Örnek Girdiler:* sistemKey=1234, kullaniciKey=9876, *Beklenen Çıktı:* Sisteme Giremez
 
-  #table(
-    columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 2.5cm, 2.2cm, 1fr),
-    stroke:  table_Stroke,
-    inset: 7pt,
-    
-    table.header(
-      table_headerCell[Ad],
-      table_headerCell[İşlem],
-      table_headerCell[sistem Key],
-      table_headerCell[kullanici Key],
-      table_headerCell[Koşul\ sistemKey == kullaniciKey],
-      table_headerCell[Çıktı],
-      table_headerCell[Açıklama],
+  #icerik-tablo(
+    sutunlar: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 2.5cm, 2.2cm, 1fr),
+    sutun_basliklari: (
+      [Ad],
+      [İşlem],
+      [sistem Key],
+      [kullanici Key],
+      [Koşul\ sistemKey == kullaniciKey],
+      [Çıktı],
+      [Açıklama],
     ),
-
-    table_dataCell_middle[1],
-    table_dataCell_middle[BAŞLA],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_left[Algoritma başlar.],
-
-    table_dataCell_middle[2],
-    table_dataCell_middle[sistemKey = 1234],
-    table_dataCell_middle[*1234*],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_left[Kodun içinde sistem şifresi *sistemKey=1234* oluşturuldu],
-
-    table_dataCell_middle[3],
-    table_dataCell_middle[kullaniciKey = 9876 Gir],
-    table_dataCell_middle[1234],
-    table_dataCell_middle[*9876*],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_left[Kullanıcıdan *kullaniciKey=9876* değeri alındı.],
-
-    table_dataCell_middle[4],
-    table_dataCell_middle[sistemKey == kullaniciKey ],
-    table_dataCell_middle[1234],
-    table_dataCell_middle[9876],
-    table_dataCell_middle[*HAYIR*],
-    table_dataCell_middle[*Giriş yapılamaz!*],
-    table_dataCell_left[
-      #text(size:9pt)[
-      Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme giremez!
-      ]
-      ],
-    
-    table_dataCell_middle[5],
-    table_dataCell_middle[DUR],
-    table_dataCell_middle[1234],
-    table_dataCell_middle[9876],
-    table_dataCell_middle[-],
-    table_dataCell_middle[-],
-    table_dataCell_left[Algoritma başarıyla sonlanır.],
+    sutun_baslik_hizalama: center + horizon,
+    icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+    hucre_bosluk: 7pt,
+    baslik-boyut: 9pt,
+    [1], [BAŞLA], [-], [-], [-], [-], [Algoritma başlar.],
+    [2], [sistemKey = 1234], [*1234*], [-], [-], [-], [Kodun içinde sistem şifresi *sistemKey=1234* oluşturuldu],
+    [3], [kullaniciKey = 9876 Gir], [1234], [*9876*], [-], [-], [Kullanıcıdan *kullaniciKey=9876* değeri alındı.],
+    [4], [sistemKey == kullaniciKey], [1234], [9876], [*HAYIR*], [*Giriş yapılamaz!*], [#text(size:9pt)[ Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme giremez! ]],
+    [5], [DUR], [1234], [9876], [-], [-], [Algoritma başarıyla sonlanır.],
   )
 
 
 *Elle Çalışma Tablosu* \
 *Örnek Girdiler:* sistemKey=1234, kullaniciKey=1234, *Beklenen Çıktı:* Sisteme Girer
 
-#table(
-  columns: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 2.5cm, 2.2cm, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Ad],
-    table_headerCell[İşlem],
-    table_headerCell[sistem Key],
-    table_headerCell[kullanici Key],
-    table_headerCell[Koşul\ sistemKey == kullaniciKey],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (0.7cm, 3.4cm, 1.4cm, 1.4cm, 2.5cm, 2.2cm, 1fr),
+  sutun_basliklari: (
+    [Ad],
+    [İşlem],
+    [sistem Key],
+    [kullanici Key],
+    [Koşul\ sistemKey == kullaniciKey],
+    [Çıktı],
+    [Açıklama],
   ),
-
-  table_dataCell_middle[1],
-  table_dataCell_middle[BAŞLA],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başlar.],
-
-  table_dataCell_middle[2],
-  table_dataCell_middle[sistemKey = 1234],
-  table_dataCell_middle[*1234*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Kodun içinde sistem şifresi *sistemKey=1234* oluşturuldu],
-
-  table_dataCell_middle[3],
-  table_dataCell_middle[kullaniciKey = 1234 Gir],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[*1234*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Kullanıcıdan *kullaniciKey=1234* değeri alındı.],
-
-  table_dataCell_middle[4],
-  table_dataCell_middle[sistemKey == kullaniciKey ],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[*EVET*],
-  table_dataCell_middle[*Giriş yapılır.*],
-  table_dataCell_left[
-    #text(size:9pt)[
-    Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme girer.
-    ]
-    ],
-  
-  table_dataCell_middle[5],
-  table_dataCell_middle[DUR],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[1234],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başarıyla sonlanır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  baslik-boyut: 9pt,
+  [1], [BAŞLA], [-], [-], [-], [-], [Algoritma başlar.],
+  [2], [sistemKey = 1234], [*1234*], [-], [-], [-], [Kodun içinde sistem şifresi *sistemKey=1234* oluşturuldu],
+  [3], [kullaniciKey = 1234 Gir], [1234], [*1234*], [-], [-], [Kullanıcıdan *kullaniciKey=1234* değeri alındı.],
+  [4], [sistemKey == kullaniciKey], [1234], [1234], [*EVET*], [*Giriş yapılır.*], [#text(size:9pt)[ Sistemde bulunan şifre ile kullanıcının girdiği şifre karşılaştırılır. Kullanıcı sisteme girer. ]],
+  [5], [DUR], [1234], [1234], [-], [-], [Algoritma başarıyla sonlanır.],
 )
 
 
@@ -403,94 +266,45 @@ Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi ç
 
 *Elle Çalışma Tablosu*\
 *Örnek Girdiler:* SICAKLIK = 18, *Beklenen Çıktı:* Kombi Çalışır
-#table(
-  columns: (1.1cm, 3cm, 2cm, 3.5cm, 2cm, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Adım],
-    table_headerCell[İşlem],
-    table_headerCell[SICAKLIK],
-    table_headerCell[Koşul\ (SICAKLIK < 20)],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (1.1cm, 3cm, 2cm, 3.5cm, 2cm, 1fr),
+  sutun_basliklari: (
+    [Adım],
+    [İşlem],
+    [SICAKLIK],
+    [Koşul\ (SICAKLIK < 20)],
+    [Çıktı],
+    [Açıklama],
   ),
-
-  table_dataCell_middle[1],
-  table_dataCell_middle[BAŞLA],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başlar.],
-
-  table_dataCell_middle[2],
-  table_dataCell_middle[SICAKLIK oku],
-  table_dataCell_middle[*18*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Ortamdaki sıcaklık değeri okunur, SICAKLIK değerine atanır],
-
-  table_dataCell_middle[3],
-  table_dataCell_middle[SICAKLIK < 20],
-  table_dataCell_middle[18],
-  table_dataCell_middle[*EVET*],
-  table_dataCell_middle[*Kombi Çalışır!*],
-  table_dataCell_left[Koşul Evet],
-
-  table_dataCell_middle[4],
-  table_dataCell_middle[DUR],
-  table_dataCell_middle[18],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başarıyla sonlanır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [1], [BAŞLA], [-], [-], [-], [Algoritma başlar.],
+  [2], [SICAKLIK oku], [*18*], [-], [-], [Ortamdaki sıcaklık değeri okunur, SICAKLIK değerine atanır],
+  [3], [SICAKLIK < 20], [18], [*EVET*], [*Kombi Çalışır!*], [Koşul Evet],
+  [4], [DUR], [18], [-], [-], [Algoritma başarıyla sonlanır.],
 )
 
 *Örnek Girdiler:* SICAKLIK = 22, *Beklenen Çıktı:* Kombi Durur
-#table(
-  columns: (1.1cm, 3cm, 2cm, 3.5cm, 2cm, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Adım],
-    table_headerCell[İşlem],
-    table_headerCell[SICAKLIK],
-    table_headerCell[Koşul\ (SICAKLIK < 20)],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (1.1cm, 3cm, 2cm, 3.5cm, 2cm, 1fr),
+  sutun_basliklari: (
+    [Adım],
+    [İşlem],
+    [SICAKLIK],
+    [Koşul\ (SICAKLIK < 20)],
+    [Çıktı],
+    [Açıklama],
   ),
-
-  table_dataCell_middle[1],
-  table_dataCell_middle[BAŞLA],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başlar.],
-
-  table_dataCell_middle[2],
-  table_dataCell_middle[SICAKLIK oku],
-  table_dataCell_middle[*20*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Ortamdaki sıcaklık değeri okunur, SICAKLIK değerine atanır],
-
-  table_dataCell_middle[3],
-  table_dataCell_middle[SICAKLIK < 20],
-  table_dataCell_middle[20],
-  table_dataCell_middle[*HAYIR*],
-  table_dataCell_middle[*Kombi Durur!*],
-  table_dataCell_left[Koşul Hayır],
-
-  table_dataCell_middle[4],
-  table_dataCell_middle[DUR],
-  table_dataCell_middle[18],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başarıyla sonlanır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [1], [BAŞLA], [-], [-], [-], [Algoritma başlar.],
+  [2], [SICAKLIK oku], [*20*], [-], [-], [Ortamdaki sıcaklık değeri okunur, SICAKLIK değerine atanır],
+  [3], [SICAKLIK < 20], [20], [*HAYIR*], [*Kombi Durur!*], [Koşul Hayır],
+  [4], [DUR], [18], [-], [-], [Algoritma başarıyla sonlanır.],
 )
 
-#pagebreak()
 ==== Örnek 3: Yaş Kontrolü ve Ehliyet Alabilme (Sayfa 25 Örnek 2)
 Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılını (*dogumYil*) alarak kullanıcının 18 yaşından büyük olması durumunda "*Ehliyet Alır!*" küçük olması durumunda "*Ehliyet Almaz!*" yazısını ekrana yazdıran programın sözde kodunu ve elle çalışma tablosunu hazırlayınız.
 
@@ -506,151 +320,54 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 
 *Elle Çalışma Tablosu*\
 *Örnek Girdiler:* Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2005, *Beklenen Çıktı:* Ehliyet alabilirsiniz.
-#table(
-  columns: (1.1cm, 3.9cm, 1.3cm, 1.3cm, 1.2cm, 2.4cm, 1.4cm, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Adım],
-    table_headerCell[İşlem],
-    table_headerCell[#text(size:7pt)[sistemYil]],
-    table_headerCell[#text(size:7pt)[dogumYil]],
-    table_headerCell[yas],
-    table_headerCell[Koşul\ (yas >= 18)],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (1.1cm, 3.9cm, 1.3cm, 1.3cm, 1.2cm, 2.4cm, 1.4cm, 1fr),
+  sutun_basliklari: (
+    [Adım],
+    [İşlem],
+    [#text(size:7pt)[sistemYil]],
+    [#text(size:7pt)[dogumYil]],
+    [yas],
+    [Koşul\ (yas >= 18)],
+    [Çıktı],
+    [Açıklama],
   ),
-
-   table_dataCell_middle[1],
-   table_dataCell_middle[BAŞLA],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_left[Algoritma başlar.],
-
-   table_dataCell_middle[2],
-   table_dataCell_middle[sistemYil oku],
-   table_dataCell_middle[*2026*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_left[Sistem tarihi alınır.],
-
-   table_dataCell_middle[3],
-   table_dataCell_middle[dogumYil oku],
-   table_dataCell_middle[2026],
-   table_dataCell_middle[*2005*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_left[Kullanıcı 2005 sayısını girer.],
-
-   table_dataCell_middle[4],
-   table_dataCell_middle[#text(size:8pt)[yas =\sistemYil - dogumYil]],
-   table_dataCell_middle[2026],
-   table_dataCell_middle[2005],
-   table_dataCell_middle[*21*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_left[2026 - 2005 = 21],
-
-   table_dataCell_middle[5],
-   table_dataCell_middle[yas >= 18],
-   table_dataCell_middle[2026],
-   table_dataCell_middle[2005],
-   table_dataCell_middle[21],
-   table_dataCell_middle[*Evet*],
-   table_dataCell_middle[*Ehliyet Alır!*],
-   table_dataCell_left[Koşul doğru $->$ mesaj yazdırılır.],
-
-   table_dataCell_middle[6],
-   table_dataCell_middle[DUR],
-   table_dataCell_middle[2026],
-   table_dataCell_middle[2005],
-   table_dataCell_middle[21],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_left[Algoritma başarıyla sonlanır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [1], [BAŞLA], [-], [-], [-], [-], [-], [Algoritma başlar.],
+  [2], [sistemYil oku], [*2026*], [-], [-], [-], [-], [Sistem tarihi alınır.],
+  [3], [dogumYil oku], [2026], [*2005*], [-], [-], [-], [Kullanıcı 2005 sayısını girer.],
+  [4], [#text(size:8pt)[yas =\sistemYil - dogumYil]], [2026], [2005], [*21*], [-], [-], [2026 - 2005 = 21],
+  [5], [yas >= 18], [2026], [2005], [21], [*Evet*], [*Ehliyet Alır!*], [Koşul doğru $->$ mesaj yazdırılır.],
+  [6], [DUR], [2026], [2005], [21], [-], [-], [Algoritma başarıyla sonlanır.],
 )
 
 *Örnek Girdiler: * Sistem Tarihi (sistemYil) = 2026, Doğum Yılı (dogumYil) = 2010, *Beklenen Çıktı: * Ehliyet almak için henüz küçüksünüz.
 
-#table(
-  columns: (1.1cm, 3.9cm, 1.3cm, 1.3cm, 1.2cm, 2.4cm, 1.4cm, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Adım],
-    table_headerCell[İşlem],
-    table_headerCell[#text(size:7pt)[sistemYil]],
-    table_headerCell[#text(size:7pt)[dogumYil]],
-    table_headerCell[yas],
-    table_headerCell[Koşul\ (yas >= 18)],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (1.1cm, 3.9cm, 1.3cm, 1.3cm, 1.2cm, 2.4cm, 1.4cm, 1fr),
+  sutun_basliklari: (
+    [Adım],
+    [İşlem],
+    [#text(size:7pt)[sistemYil]],
+    [#text(size:7pt)[dogumYil]],
+    [yas],
+    [Koşul\ (yas >= 18)],
+    [Çıktı],
+    [Açıklama],
   ),
-
-  table_dataCell_middle[1],
-  table_dataCell_middle[BAŞLA],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başlar.],
-
-  table_dataCell_middle[2],
-  table_dataCell_middle[sistemYil oku],
-  table_dataCell_middle[*2026*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Sistem tarihi alınır.],
-
-  table_dataCell_middle[3],
-  table_dataCell_middle[dogumYil oku],
-  table_dataCell_middle[2026],
-  table_dataCell_middle[*2010*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Kullanıcı 2010 sayısını girer.],
-
-  table_dataCell_middle[4],
-  table_dataCell_middle[#text(size:8pt)[yas =\sistemYil - dogumYil]],
-  table_dataCell_middle[2026],
-  table_dataCell_middle[2010],
-  table_dataCell_middle[*16*],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[2026 - 2010 = 16],
-
-  table_dataCell_middle[5],
-  table_dataCell_middle[yas >= 18],
-  table_dataCell_middle[2026],
-  table_dataCell_middle[2010],
-  table_dataCell_middle[16],
-  table_dataCell_middle[*Hayır*],
-  table_dataCell_middle[*Ehliyet Almaz!*],
-  table_dataCell_left[Koşul yanlış $->$ mesaj yazdırılır.],
-
-  table_dataCell_middle[6],
-  table_dataCell_middle[DUR],
-  table_dataCell_middle[2026],
-  table_dataCell_middle[2010],
-  table_dataCell_middle[16],
-  table_dataCell_middle[-],
-  table_dataCell_middle[-],
-  table_dataCell_left[Algoritma başarıyla sonlanır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [1], [BAŞLA], [-], [-], [-], [-], [-], [Algoritma başlar.],
+  [2], [sistemYil oku], [*2026*], [-], [-], [-], [-], [Sistem tarihi alınır.],
+  [3], [dogumYil oku], [2026], [*2010*], [-], [-], [-], [Kullanıcı 2010 sayısını girer.],
+  [4], [#text(size:8pt)[yas =\sistemYil - dogumYil]], [2026], [2010], [*16*], [-], [-], [2026 - 2010 = 16],
+  [5], [yas >= 18], [2026], [2010], [16], [*Hayır*], [*Ehliyet Almaz!*], [Koşul yanlış $->$ mesaj yazdırılır.],
+  [6], [DUR], [2026], [2010], [16], [-], [-], [Algoritma başarıyla sonlanır.],
 )
 
-#pagebreak()
 
 #let flowgorithmYoutubeEgitim = "https://youtube.com/playlist?list=PL9A3J9niD78dSHTvHwow4QCkQqPmJNTcs"
 #let flowgorithm = "http://www.flowgorithm.org"
@@ -662,72 +379,30 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
 ==== Flowgorithm ve Thonny Uygulamaları
 Derslerimizde kullanacağımız yazılımların kurulum bağlantılarına ve destekleyici eğitim videolarına yan taraftaki karekodları taratarak veya altlarındaki bağlantılara tıklayarak doğrudan erişebilirsiniz.
 
-// breakable: false -> tablo iki sayfaya bölünmez, sığmazsa bütünüyle sonraki sayfaya geçer
-#block(breakable: false)[
-  #v(1em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Flowgorithm Programı*
+#link-box(
+  url: flowgorithm,
+  title: "Flowgorithm Programı",
+  desc: [Algoritmik düşünme becerimizi geliştirmek ve tasarladığımız mantıksal adımları görselleştirmek için Flowgorithm yazılımını kullanacağız. Bu program sayesinde yazdığımız akış şemalarını adım adım çalıştırabilir, değişkenlerin değer değişimlerini anlık olarak izleyebilir ve algoritmalarımızı kod yazmadan önce test edebiliriz.],
+  gorunen: "flowgorithm.org",
+)
 
-      Algoritmik düşünme becerimizi geliştirmek ve tasarladığımız mantıksal adımları görselleştirmek için Flowgorithm yazılımını kullanacağız. Bu program sayesinde yazdığımız akış şemalarını adım adım çalıştırabilir, değişkenlerin değer değişimlerini anlık olarak izleyebilir ve algoritmalarımızı kod yazmadan önce test edebiliriz.
-    ],
-    kare-kod-hucresi([Flowgorithm Programı], flowgorithm, "flowgorithm.org"),
-  )
-]
+#link-box(
+  url: flowgorithmYoutubeEgitim,
+  title: "Flowgorithm Youtube Eğitimi",
+  desc: [Derste işlediğimiz konuları pekiştirmek ve kendi hızınızda pratik yapabilmeniz için Atilla Çetin tarafından hazırlanan Flowgorithm ile Algoritma ve Akış Diyagramları video serisinden yararlanabilirsiniz. Temel kavramlardan uygulamalı örneklere kadar uzanan bu oynatma listesine sağdaki karekodu okutarak veya bağlantıya tıklayarak ulaşabilirsiniz.],
+  gorunen: "kisa.link/bHGEg",
+)
 
-#block(breakable: false)[
-  #v(1em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Flowgorithm Youtube Eğitimi*
-
-      Derste işlediğimiz konuları pekiştirmek ve kendi hızınızda pratik yapabilmeniz için Atilla Çetin tarafından hazırlanan Flowgorithm ile Algoritma ve Akış Diyagramları video serisinden yararlanabilirsiniz. Temel kavramlardan uygulamalı örneklere kadar uzanan bu oynatma listesine sağdaki karekodu okutarak veya bağlantıya tıklayarak ulaşabilirsiniz.
-    ],
-    kare-kod-hucresi([Youtube Eğitimi], flowgorithmYoutubeEgitim, "kisa.link/bHGEg"),
-  )
-]
-
-#block(breakable: false)[
-  #v(1em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Thonny IDE*
-
-      Akış şemalarından kodlamaya geçerken, Python öğrenimi için özel olarak tasarlanmış Thonny IDE'yi kullanacağız. Sade arayüzü ve adım adım kod takibi sunan hata ayıklama (debug) özellikleriyle başlangıç seviyesine son derece uygundur. Dahili Python desteği sayesinde harici bir kurulum gerektirmez; yalnızca Thonny'yi kurarak kodlarınızı hemen çalıştırmaya başlayabilirsiniz.
-    
-    ],
-    kare-kod-hucresi([Thonny], thonny, "thonny.org"),
-  )
-]
-
-#block(breakable: false)[
-  #v(2em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Programlamanın Temelleri Ders Notları*
-
-      Derslerimizde işlediğimiz konuları düzenli takip edebilmeniz ve tekrar yapabilmeniz için hazırladığım bu doküman; MEB'in 14 Eylül 2026 tarihli *'Programlamanın Temelleri 9'* müfredatını temel almaktadır. Konu anlatımları, akış şemaları ve örnek kod uygulamalarıyla ders içi kazanımları pekiştirmeyi amaçlayan kapsamlı bir çalışma kaynağıdır
-    
-    ],
-    kare-kod-hucresi([Ders Notları], githubDersPdf, githubDersPdfKisa),
-  )
-]
+#link-box(
+  url: thonny,
+  title: "Thonny IDE",
+  desc: [Akış şemalarından kodlamaya geçerken, Python öğrenimi için özel olarak tasarlanmış Thonny IDE'yi kullanacağız. Sade arayüzü ve adım adım kod takibi sunan hata ayıklama (debug) özellikleriyle başlangıç seviyesine son derece uygundur. Dahili Python desteği sayesinde harici bir kurulum gerektirmez; yalnızca Thonny'yi kurarak kodlarınızı hemen çalıştırmaya başlayabilirsiniz.],
+  gorunen: "thonny.org",
+)
 
 #pagebreak()
 ==== Değişkenler ve Veri Tipleri
-#bilgi-kutusu("DEĞİŞKEN NEDİR?")[
+#not_block(title: "Değişken Nedir?")[
   Programın çalışması sırasında kullanıcıdan alınan, hesaplanan veya geçici olarak hafızada (RAM) tutulması gereken verileri saklayan isimlendirilmiş bellek alanlarıdır.
 ]
 
@@ -736,37 +411,21 @@ Flowgorithm üzerinde bir değişkeni kullanmadan önce mutlaka *Tanımlama (Dec
 ===== Temel Veri Tipleri
 Flowgorithm içerisinde en sık kullanılan 4 temel veri tipi bulunur:
 
-#table(
-  columns: (2.2cm, 2.5cm, 2.8cm, 1fr),
-  stroke: table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Veri Tipi],
-    table_headerCell[Türü],
-    table_headerCell[Örnek Değerler],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (2.2cm, 2.5cm, 2.8cm, 1fr),
+  sutun_basliklari: (
+    [Veri Tipi],
+    [Türü],
+    [Örnek Değerler],
+    [Açıklama],
   ),
-
-  table_dataCell_middle[*Tamsayı* \ (Integer)],
-  table_dataCell_middle[Tam Sayı],
-  table_dataCell_middle[`15`, `0`, `-8`, `2026`],
-  table_dataCell_left[Küsüratsız, negatif veya pozitif tam sayı değerlerini tutar. Yaş, adet, sayaç gibi veriler için kullanılır.],
-
-  table_dataCell_middle[*Reel* \ (Real / Float)],
-  table_dataCell_middle[Ondalıklı Sayı],
-  table_dataCell_middle[`3.14`, `18.5`, `-0.75`],
-  table_dataCell_left[Kesirli veya ondalıklı sayıları tutar. Ortalama, boy, sıcaklık veya fiyat gibi hassas hesaplamalarda tercih edilir.],
-
-  table_dataCell_middle[*String*],
-  table_dataCell_middle[Metinsel Veri],
-  table_dataCell_middle[`"Ahmet"`, `"1234"`, `"A"`],
-  table_dataCell_left[Çift tırnak içinde yazılan her türlü yazı, harf, sembol ve rakamı saklar. *Matematiksel işlemlere girmez.*],
-
-  table_dataCell_middle[*Boolean*],
-  table_dataCell_middle[Mantıksal],
-  table_dataCell_middle[`true(1)`, `false(0)`],
-  table_dataCell_left[Yalnızca iki değerden birini alabilir: *Doğru (true(1))* ya da *Yanlış (false(0))*. Karar ve döngü kontrollerinde kullanılır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [*Tamsayı* \ (Integer)], [Tam Sayı], [`15`, `0`, `-8`, `2026`], [Küsüratsız, negatif veya pozitif tam sayı değerlerini tutar. Yaş, adet, sayaç gibi veriler için kullanılır.],
+  [*Reel* \ (Real / Float)], [Ondalıklı Sayı], [`3.14`, `18.5`, `-0.75`], [Kesirli veya ondalıklı sayıları tutar. Ortalama, boy, sıcaklık veya fiyat gibi hassas hesaplamalarda tercih edilir.],
+  [*String*], [Metinsel Veri], [`"Ahmet"`, `"1234"`, `"A"`], [Çift tırnak içinde yazılan her türlü yazı, harf, sembol ve rakamı saklar. *Matematiksel işlemlere girmez.*],
+  [*Boolean*], [Mantıksal], [`true(1)`, `false(0)`], [Yalnızca iki değerden birini alabilir: *Doğru (true(1))* ya da *Yanlış (false(0))*. Karar ve döngü kontrollerinde kullanılır.],
 )
 
 ===== Değişken İsimlendirme Kuralları
@@ -784,39 +443,23 @@ Kodlama dillerinin ve yazılım araçlarının küresel standardı gereği, değ
 Aşağıdaki tabloda büyük ve küçük Türkçe karakterlerin yerine İngilizce alfabe karşılıkları tercih edilmelidir:
     ],
     [
-      #table(
-  columns: (2cm, 2cm, 2cm),
-  stroke: table_Stroke,
-  inset: 6pt,
-  table.header(
-    table_headerCell[Türkçe Karakter],
-    table_headerCell[Doğru Kullanım],
-    table_headerCell[İngilizce Karakte],
-  ),
-  table_dataCell_middle[*ç / Ç*],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*c / C*],
-  
-  table_dataCell_middle[*ğ / Ğ*],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*g / G*],
-    
-  table_dataCell_middle[*ı / İ*],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*i / I*],
-    
-  table_dataCell_middle[*ö / Ö*],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*o / O*],
-    
-  table_dataCell_middle[*ş / Ş*],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*s / S*],
-    
-  table_dataCell_middle[*ü / Ü*],
-  table_dataCell_middle[#sym.arrow.r],
-  table_dataCell_middle[*u / U*],
-)
+      #icerik-tablo(
+        sutunlar: (2cm, 2cm, 2cm),
+        sutun_basliklari: (
+          [Türkçe Karakter],
+          [Doğru Kullanım],
+          [İngilizce Karakter],
+        ),
+        sutun_baslik_hizalama: center + horizon,
+        icerik_hizalama: (center + horizon, center + horizon, center + horizon),
+        hucre_bosluk: 6pt,
+        [*ç / Ç*], [#sym.arrow.r], [*c / C*],
+        [*ğ / Ğ*], [#sym.arrow.r], [*g / G*],
+        [*ı / İ*], [#sym.arrow.r], [*i / I*],
+        [*ö / Ö*], [#sym.arrow.r], [*o / O*],
+        [*ş / Ş*], [#sym.arrow.r], [*s / S*],
+        [*ü / Ü*], [#sym.arrow.r], [*u / U*],
+      )
 
     ],
   )
@@ -827,28 +470,20 @@ Aşağıdaki tabloda büyük ve küçük Türkçe karakterlerin yerine İngilizc
 Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 *Kural:* İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
-#table(
-  columns: (4cm, 4cm, 1fr),
-  stroke: table_Stroke,
-  inset: 6pt,
-  table.header(
-    table_headerCell[Yanlış Biçim],
-    table_headerCell[camelCase],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (4cm, 4cm, 1fr),
+  sutun_basliklari: (
+    [Yanlış Biçim],
+    [camelCase],
+    [Açıklama],
   ),
-  table_dataCell_middle[#text(fill: red)[`sistem yil`]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`sistemYil`]],
-  table_dataCell_left[Boşluk yerine birleşik yazılır],
-
-  table_dataCell_middle[#text(fill: red)[`dogumyil`]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`dogumYil`]],
-  table_dataCell_left[İkinci kelimenin baş harfi büyük],
-
-  table_dataCell_middle[#text(fill: red)[`ogrencinotortalamasi`]],
-  table_dataCell_middle[#text(fill: green.darken(30%), weight: "extrabold")[`ogrenciNotOrtalamasi`]],
-  table_dataCell_left[Okunabilirlik artırılır],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon),
+  hucre_bosluk: 6pt,
+  [#text(fill: red)[`sistem yil`]], [#text(fill: green.darken(30%), weight: "extrabold")[`sistemYil`]], [Boşluk yerine birleşik yazılır],
+  [#text(fill: red)[`dogumyil`]], [#text(fill: green.darken(30%), weight: "extrabold")[`dogumYil`]], [İkinci kelimenin baş harfi büyük],
+  [#text(fill: red)[`ogrencinotortalamasi`]], [#text(fill: green.darken(30%), weight: "extrabold")[`ogrenciNotOrtalamasi`]], [Okunabilirlik artırılır],
 )
-
 
 
 
@@ -857,42 +492,22 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
 *Akış şeması(flowchat)*, bir algoritmanın adımlarını semboller ve oklarla gösteren görsel bir modeldir. Programın çalışma mantığını kolayca anlamayı ve kodlama öncesinde olası hataları fark etmeyi sağlar.
 
 *Tablo 1.2:* Temel Akış Şeması Sembolleri, İşlevleri ve Günlük Hayat Karşılıkları.
-#table(
-  columns: (3cm, 3.2cm, 1fr, 1fr),
-  stroke: table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Sembol],
-    table_headerCell[Adı],
-    table_headerCell[İşlevi],
-    table_headerCell[Günlük Hayat Karşılığı],
+#icerik-tablo(
+  sutunlar: (3cm, 3.2cm, 1fr, 1fr),
+  sutun_basliklari: (
+    [Sembol],
+    [Adı],
+    [İşlevi],
+    [Günlük Hayat Karşılığı],
   ),
-
-  table_dataCell_middle[#terminal-sembolu],
-  table_dataCell_middle[Oval \ (Terminal)],
-  table_dataCell_left[Algoritmanın başlangıcını ve bitişini temsil eder.],
-  table_dataCell_left[Bir işe başlama veya sonlandırma anıdır.],
-
-  table_dataCell_middle[#giris-cikis-sembolu],
-  table_dataCell_middle[Paralelkenar\ (Giriş / Çıkış)],
-  table_dataCell_left[#text(size: 8pt)[Kullanıcıdan veri alınacağını veya ekrana bilgi yazdırılacağını belirtir.]],
-  table_dataCell_left[Soru sormak veya cevap vermek içindir.],
-
-  table_dataCell_middle[#islem-sembolu],
-  table_dataCell_middle[Dikdörtgen\ (İşlem)],
-  table_dataCell_left[#text(size: 8pt)[Matematiksel hesaplamalar ve değişken atamaları için kullanılır.]],
-  table_dataCell_left[Bir eylemi gerçekleştirmek içindir.],
-
-  table_dataCell_middle[#karar-sembolu],
-  table_dataCell_middle[Eşkenar Dörtgen \(Karar)],
-  table_dataCell_left[Bir koşulun kontrol edildiği noktadır. Sonuca göre akış Evet veya Hayır yönünde ilerler.],
-  table_dataCell_left[Yol ayrımında karar vermek içindir.],
-
-  table_dataCell_middle[#akis-sembolu],
-  table_dataCell_middle[Oklar\ (Akış Yönü)],
-  table_dataCell_left[Adımlar arasındaki ilerleme yönünü gösterir.],
-  table_dataCell_left[İzlenecek yolu gösteren oklardır.],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon, left + horizon),
+  hucre_bosluk: 7pt,
+  [#terminal-sembolu], [Oval \ (Terminal)], [Algoritmanın başlangıcını ve bitişini temsil eder.], [Bir işe başlama veya sonlandırma anıdır.],
+  [#giris-cikis-sembolu], [Paralelkenar\ (Giriş / Çıkış)], [#text(size: 8pt)[Kullanıcıdan veri alınacağını veya ekrana bilgi yazdırılacağını belirtir.]], [Soru sormak veya cevap vermek içindir.],
+  [#islem-sembolu], [Dikdörtgen\ (İşlem)], [#text(size: 8pt)[Matematiksel hesaplamalar ve değişken atamaları için kullanılır.]], [Bir eylemi gerçekleştirmek içindir.],
+  [#karar-sembolu], [Eşkenar Dörtgen \(Karar)], [Bir koşulun kontrol edildiği noktadır. Sonuca göre akış Evet veya Hayır yönünde ilerler.], [Yol ayrımında karar vermek içindir.],
+  [#akis-sembolu], [Oklar\ (Akış Yönü)], [Adımlar arasındaki ilerleme yönünü gösterir.], [İzlenecek yolu gösteren oklardır.],
 )
 
 
@@ -964,6 +579,7 @@ Ortalama hesabı:
   )
 ]
 
+#pagebreak()
 ==== Örnek Çalışma Soruları
 + Yaş Hesaplama: Kullanıcıdan doğum yılını ve mevcut yılı alıp yaşını hesaplayan ve ekrana yazdıran akış şemasını çiziniz.
 + Kare Alan ve Çevre: Bir kenar uzunluğu kullanıcıdan girilen karenin alanını ve çevresini hesaplayıp ekrana yazdıran akış şemasını çiziniz.
@@ -1002,8 +618,8 @@ Karar yapıları, programın bir koşulu kontrol ederek hangi adımı izleyeceğ
     edge((1, 5), (1, 6), "-|>"),
   )
 ]
-#pagebreak()
 
+#pagebreak()
 ==== Örnek 3 Sıcaklık Kontrolü
 
 Ortam sıcaklığı (*SICAKLIK*) 20 derecenin altına düştüğünde kombiyi çalıştıran, 20 derecenin üzerine çıktığında ise kombiyi durduran bir termostat programının akış şemasını hazırlayın.
@@ -1145,6 +761,7 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
   )
 ]
 
+#pagebreak()
 ==== Örnek Çalışma Soruları Karar Yapıları
 + Akıllı Bahçe Sulama Sistemi (Sensör ve Eşik Değeri Mantığı): Bir seradaki toprak nem oranı sensöründen gelen değer *nem* değişkeninde tutulmaktadır.
   - Nem oranı 30'un altına düştüğünde sulama vanasını açan (*"Sulama Başlatıldı"*),
@@ -1164,8 +781,8 @@ Kullanıcıdan o günün yılını (*sistemYil*) ve kullanıcıdan doğum yılı
   Kullanıcıya son ödenecek toplam tutarı ekrana yazdıran programın akış şemasını hazırlayınız.
 
 + Kullanıcıdan bir tamsayı (*sayi*) girmesini isteyen, girilen sayının 0'dan büyük olması durumunda ekrana *"Pozitif Sayı"*, 0'dan küçük olması durumunda *"Negatif Sayı"* yazdıran programın akış şemasını hazırlayın.
-  
-#pagebreak()
+
+#v(1em)
 ==== Döngü(Loop)
 Bazı işlemlerin belirli bir koşul sağlanana kadar tekrar edilmesi gerekir. Bu tür işlemler için döngüler kullanılır.
 
@@ -1194,61 +811,26 @@ Döngü kullanarak ekrana üç kez "Merhaba Geliştirici!" mesajını yazdırın
 
 *Elle Çalışma Tablosu*\
 *Örnek Girdiler:* sayac = 3 , *Beklenen Çıktı:* ekrana üç kere "Merhaba Geliştirici" yazdırılacak
-#table(
-  columns: (1.1cm, 1fr, 1.25cm, 1fr, 1fr, 1fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Adım],
-    table_headerCell[İşlem],
-    table_headerCell[sayac],
-    table_headerCell[Döngü Koşul \ (sayac <= 3)],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (1.1cm, 8em, 4em, 8em, 6em, 1fr),
+  sutun_basliklari: (
+    [Adım],
+    [İşlem],
+    [sayac],
+    [Döngü Koşul \ (sayac <= 3)],
+    [Çıktı],
+    [Açıklama],
   ),
-
-   table_dataCell_middle[1],
-   table_dataCell_middle[Tam sayı *sayac*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[sayac değişkeni tanımlanır],
-
-   table_dataCell_middle[2],
-   table_dataCell_middle[sayac = 1],
-   table_dataCell_middle[1],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[sayac değişkenine 1 değeri atanır],
-   
-   table_dataCell_middle[3],
-   table_dataCell_middle[sayac <=  3 ],
-   table_dataCell_middle[1],
-   table_dataCell_middle[1 <= 3 *EVET*],
-   table_dataCell_middle[Merhaba Geliştirici],
-   table_dataCell_middle[*1<= 3* sonucu *EVET* \ ekrana yazdırılır \ sayac 1 arttırılır],
-   
-   table_dataCell_middle[4],
-   table_dataCell_middle[sayac <=  3 ],
-   table_dataCell_middle[2],
-   table_dataCell_middle[2<= 3 *EVET*],
-   table_dataCell_middle[Merhaba Geliştirici],
-   table_dataCell_middle[*2<= 3* sonucu *EVET* \ ekrana yazdırılır \ sayac 1 arttırılır],
-   
-   table_dataCell_middle[5],
-   table_dataCell_middle[sayac <=  3 ],
-   table_dataCell_middle[3],
-   table_dataCell_middle[3<= 3 *EVET*],
-   table_dataCell_middle[Merhaba Geliştirici],
-   table_dataCell_middle[*3<= 3* sonucu *EVET* \ ekrana yazdırılır \ sayac 1 arttırılır],   
-   
-   table_dataCell_middle[6],
-   table_dataCell_middle[sayac <=  3 ],
-   table_dataCell_middle[4],
-   table_dataCell_middle[4<= 3 *HAYIR*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[*4<= 3* sonucu *HAYIR* \ *Döngü Sonlanır*],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon),
+  hucre_bosluk: 4pt,
+  boyut: 9pt,
+  [1], [Tam sayı *sayac*], [-], [-], [-], [sayac değişkeni tanımlanır],
+  [2], [sayac = 1], [1], [-], [-], [sayac değişkenine 1 değeri atanır],
+  [3], [sayac <=  3], [1], [1 <= 3 *EVET*], [Merhaba Geliştirici], [*1<= 3* sonucu *EVET* ekrana yazdırılır sayac 1 arttırılır],
+  [4], [sayac <=  3], [2], [2<= 3 *EVET*], [Merhaba Geliştirici], [*2<= 3* sonucu *EVET* ekrana yazdırılır sayac 1 arttırılır],
+  [5], [sayac <=  3], [3], [3<= 3 *EVET*], [Merhaba Geliştirici], [*3<= 3* sonucu *EVET* ekrana yazdırılır sayac 1 arttırılır],
+  [6], [sayac <=  3], [4], [4<= 3 *HAYIR*], [-], [*4<= 3* sonucu *HAYIR* *Döngü Sonlanır*],
 )
 
 
@@ -1333,84 +915,36 @@ Birden başlayarak kullanıcının belirlediği değere kadar belirlenen dahil t
   #pad(left: 1.5em)[*Döngüden çık*]
 + Adım: *"Toplam = "&toplam* toplam değerini yazdır.
 
-#pagebreak()
 *Elle Çalışma Tablosu*\
 *Örnek Girdiler:* n = 3 için, *Beklenen Çıktı:* toplam = 6
-#table(
-  columns: (0.75cm, 1fr, 1.5cm, 1.5cm, 1.5cm, 2.75cm, 2.5cm, 2fr),
-  stroke:  table_Stroke,
-  inset: 7pt,
-  
-  table.header(
-    table_headerCell[Ad],
-    table_headerCell[İşlem],
-    table_headerCell[sayac],
-    table_headerCell[toplam],
-    table_headerCell[n],
-    table_headerCell[Döngü Koşul \ (sayac <= n)],
-    table_headerCell[Çıktı],
-    table_headerCell[Açıklama],
+#icerik-tablo(
+  sutunlar: (0.75cm, 9em, 1.5cm, 1.5cm, 1.5cm, 7.7em, 6em, 1fr),
+  boyut: 9pt,
+  sutun_basliklari: (
+    [Ad],
+    [İşlem],
+    [sayac],
+    [toplam],
+    [n],
+    [Döngü Koşul \ (sayac <= n)],
+    [Çıktı],
+    [Açıklama],
   ),
-
-   table_dataCell_middle[1],
-   table_dataCell_middle[Tam sayı \ sayac, toplam, n],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[Kullanılacak değişkenler tanımlanır],
-
-   table_dataCell_middle[2],
-   table_dataCell_middle[sayac = 1, toplam = 0],
-   table_dataCell_middle[1],
-   table_dataCell_middle[0],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[-],
-   table_dataCell_middle[sayac ve toplam değişkenleri ilk değerlerini alır],
-
-   table_dataCell_middle[3],
-   table_dataCell_middle[n = 3],
-   table_dataCell_middle[1],
-   table_dataCell_middle[0],
-   table_dataCell_middle[3],
-   table_dataCell_middle[1 <= 3 *evet*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[koşul doğru\ sayac = 2,\ toplam = 0 + 1 = 1],
-
-   table_dataCell_middle[4],
-   table_dataCell_middle[n = 3],
-   table_dataCell_middle[2],
-   table_dataCell_middle[1],
-   table_dataCell_middle[3],
-   table_dataCell_middle[2 <= 3 *evet*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[koşul doğru\ sayac = 3,\ toplam =1 + 2 = 3],
-
-   table_dataCell_middle[5],
-   table_dataCell_middle[n = 3],
-   table_dataCell_middle[3],
-   table_dataCell_middle[3],
-   table_dataCell_middle[3],
-   table_dataCell_middle[2 <= 3 *evet*],
-   table_dataCell_middle[-],
-   table_dataCell_middle[koşul doğru\ sayac = 4,\ toplam = 3 + 3 = 6],
-
-   table_dataCell_middle[6],
-   table_dataCell_middle[n = 3],
-   table_dataCell_middle[4],
-   table_dataCell_middle[6],
-   table_dataCell_middle[3],
-   table_dataCell_middle[4 <= 3 *HAYIR*],
-   table_dataCell_middle["Toplam :" 6],
-   table_dataCell_middle[koşul yanlış\ sayac = 4, toplam = 6],
+  sutun_baslik_hizalama: center + horizon,
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon, center + horizon),
+  hucre_bosluk: 6pt,
+  [1], [Tam sayı \ sayac, toplam, n], [-], [-], [-], [-], [-], [Kullanılacak değişkenler tanımlanır],
+  [2], [sayac = 1,\ toplam = 0], [1], [0], [-], [-], [-], [sayac ve toplam değişkenleri ilk değerlerini alır],
+  [3], [n = 3], [1], [0], [3], [1 <= 3 *evet*], [-], [koşul doğru sayac = 2, toplam = 0 + 1 = 1],
+  [4], [n = 3], [2], [1], [3], [2 <= 3 *evet*], [-], [koşul doğru sayac = 3, toplam =1 + 2 = 3],
+  [5], [n = 3], [3], [3], [3], [2 <= 3 *evet*], [-], [koşul doğru sayac = 4, toplam = 3 + 3 = 6],
+  [6], [n = 3], [4], [6], [3], [4 <= 3 *HAYIR*], ["Toplam :" 6], [koşul yanlış sayac = 4, toplam = 6],
 )
 
 *Akış Şeması (Flowchart)*
 #align(center)[
   #diagram(
-    spacing: (32pt, 22pt),
+    spacing: (30pt, 20pt),
     edge-stroke: 1.2pt,
     mark-scale: 90%,
 
@@ -1457,11 +991,8 @@ Birden başlayarak kullanıcının belirlediği değere kadar belirlenen dahil t
     // edge((0, 9), (0, 10), "-|>"),
   )
 ]
-#pagebreak()
 
 ==== Örnek Çalışma Soruları Döngü Konusu
-+ 1 ile 100 arasında belirlenen gizli bir sayının (örneğin 33) kullanıcının tahminleriyle bulunmaya çalışıldığı bir tahmin oyununun akış şemasını çiziniz. Döngü kontrolü için boolean tipinde dongu değişkenini kullanınız. Girilen tahmin gizli sayıdan farklı olduğu sürece kullanıcıyı "Sayı Küçük!" veya "Sayı Büyük!" şeklinde yönlendiriniz. Her tahmini sayarak doğru sonuca ulaşıldığında toplam deneme sayısını ekrana yazdırınız.
-
 + Geri Sayım ve Fırlatma (Geriye Doğru Sayıcı Mantığı): Bir roket fırlatma simülasyonu için 10'dan başlayıp 1'e kadar birer birer geriye doğru sayan ve her sayıyı ekrana yazdıran, döngü bittiğinde ise ekrana "Fırlatma Başarılı!" mesajı veren programın akış şemasını çiziniz. \ İpucu: Döngü sayacını her adımda 1 azaltınız (SAYAC = SAYAC - 1).
 
 + Çift Sayıların Çarpımı (Faktöriyel / Kümülatif Çarpım Mantığı): Kullanıcıdan pozitif bir çift sayı (N) alarak, 2'den başlayıp N değerine kadar olan (N dahil) tüm çift sayıların çarpımını hesaplayan programın akış şemasını ve sözde kodunu hazırlayınız. \ Örnek Hesap: N = 6 için Carpim = 2 \* 4 \* 6 = 48 \ Öğrenci Notu: Çarpım için başlangıç etkisiz elemanını (CARPIM = 1) ve adım artışını (SAYAC = SAYAC + 2) doğru belirleyiniz.
@@ -1472,7 +1003,8 @@ Birden başlayarak kullanıcının belirlediği değere kadar belirlenen dahil t
 
 + Sıfır Girilene Kadar Pozitif Sayıları Sayma: Kullanıcı klavyeden 0 (sıfır) girene kadar sürekli sayı girişi kabul eden bir program tasarlayınız.\ Girilen sayılar arasından yalnızca pozitif olanların kaç adet olduğunu saymalıdır (pozitifAdet).\ Kullanıcı 0 girdiğinde döngüden çıkılmalı ve toplamda kaç adet pozitif sayı girildiği ekrana yazdırılmalıdır.
 
-#pagebreak()
++ 1 ile 100 arasında belirlenen gizli bir sayının (örneğin 33) kullanıcının tahminleriyle bulunmaya çalışıldığı bir tahmin oyununun akış şemasını çiziniz. Döngü kontrolü için boolean tipinde dongu değişkenini kullanınız. Girilen tahmin gizli sayıdan farklı olduğu sürece kullanıcıyı "Sayı Küçük!" veya "Sayı Büyük!" şeklinde yönlendiriniz. Her tahmini sayarak doğru sonuca ulaşıldığında toplam deneme sayısını ekrana yazdırınız.
+
 === Algoritmalarda Metinsel Veriler ve İşlemler
 Bilgisayarlar, sayılar dışında isim ve şifre gibi metinsel verileri de işler. Çift tırnak içinde yazılan metinlere
 #text(size: 14pt, weight: "semibold")[`string`] (*karakter dizisi*) denir. Metinsel veriler doğrudan matematiksel işlemlerde kullanılamaz.
@@ -1511,32 +1043,19 @@ Sizlerin yapacağı yazılım projeleri de ilerleyen derslerimizde GitHub üzeri
 #let githubProgTemKisa = "kisa.link/WeLYU"
 
 
-#block(breakable: false)[
-  #v(2em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Ahmet Tuna POTUR GitHub Hesabı*
+#link-box(
+  url: githubATP,
+  title: "Ahmet Tuna POTUR GitHub Hesabı",
+  desc: [Geliştirdiğim açık kaynaklı yazılımları, eğitim materyallerini ve projelerin sürüm geçmişlerini incelemek için kişisel GitHub profilimi ziyaret edebilirsiniz.],
+  gorunen: "github.com/tunapotur",
+)
 
-      Geliştirdiğim açık kaynaklı yazılımları, eğitim materyallerini ve projelerin sürüm geçmişlerini incelemek için kişisel GitHub profilimi ziyaret edebilirsiniz.
-     
-    ],
-    kare-kod-hucresi([A.Tuna POTUR GitHub], githubATP, "github.com/tunapotur"),
-  )
-]
-#block(breakable: false)[
-  #v(2em)
-  #grid(
-    columns: (2fr, 1fr),
-    gutter: 10pt,
-     align: (top),
-    [
-      *Programlamanın Temelleri 9 GitHub Projesi*
+#link-box(
+  url: githubProgTem,
+  title: "Programlamanın Temelleri 9 GitHub Projesi",
+  desc: [Ders notlarımızın kaynak kodlarını barındıran örnek dijital depoyu buradan inceleyebilirsiniz. Projenin amacını öğrenmek için vitrin belgesi olan README.md dosyasını ve geliştirme sürecindeki sürüm adımlarını gözlemleyebilirsiniz.],
+  gorunen: githubProgTemKisa,
+)
 
-      Ders notlarımızın kaynak kodlarını barındıran örnek dijital depoyu buradan inceleyebilirsiniz. Projenin amacını öğrenmek için vitrin belgesi olan README.md dosyasını ve geliştirme sürecindeki sürüm adımlarını gözlemleyebilirsiniz.
-    ],
-    kare-kod-hucresi([GitHub Prog. Temelleri], githubProgTem, githubProgTemKisa),
-  )
-]
+#pagebreak()
+#include "01_Files/calismaSorulariCevaplari.typ"

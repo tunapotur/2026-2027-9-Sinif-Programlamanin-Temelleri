@@ -3,11 +3,11 @@
 
 #show: conf
 
-#outline(title: "İçindekiler", indent: 12pt)
-#pagebreak(to: "odd")
-#counter(page).update(1)
+// #outline(title: "İçindekiler", indent: 12pt)
+// #pagebreak(to: "odd")
+// #counter(page).update(1)
 
-#set page(numbering: "1")
+// #set page(numbering: "1")
 
 #include "02_Files/donanımın_temeli.typ"
 

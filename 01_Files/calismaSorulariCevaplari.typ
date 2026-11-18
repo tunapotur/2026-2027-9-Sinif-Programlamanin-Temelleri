@@ -309,11 +309,8 @@
 
 #pagebreak()
 *1.2.2.12. Örnek Çalışma Soruları Döngü Konusu*
-1. Gizli Sayı Bulma
-#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_1_Sayi_Bulma - Ana.svg")
 
-#pagebreak()
-2. Geri Sayım ve Fırlatma
+1. Geri Sayım ve Fırlatma
 #align(center)[
   #diagram(
     spacing: (32pt, 22pt),
@@ -345,7 +342,7 @@
 ]
 
 #pagebreak()
-3. Çift Sayıların Çarpımı
+2. Çift Sayıların Çarpımı
 #align(center)[
   #diagram(
     spacing: (32pt, 20pt),
@@ -389,7 +386,7 @@
 ]
 
 #pagebreak()
-4. Sınıf Not Ortalaması Hesaplama
+3. Sınıf Not Ortalaması Hesaplama
 #align(center)[
   #diagram(
     spacing: (32pt, 20pt),
@@ -435,9 +432,14 @@
 ]
 
 #pagebreak()
-5. PIN Kodu
+4. PIN Kodu
 #image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_5_PIN - Ana.svg")
 
 #pagebreak()
-6. Pozitif Sayıları Sayma
-#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_5_PotitifSayiAdet - Ana.svg")
+5. Pozitif Sayıları Sayma
+#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_5_PotitifSayiAdet - Ana.svg", width: 90%)
+
+#pagebreak()
+6. Gizli Sayı Bulma
+#image("FlowgorithmSorular/flowgorithm_1_2_2_12_soru_1_Sayi_Bulma - Ana.svg")
+

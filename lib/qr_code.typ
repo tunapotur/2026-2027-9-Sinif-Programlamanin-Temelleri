@@ -8,7 +8,8 @@
   text(size: 8pt)[#link(url)[Bağlantıya tıklayın \ #gorunen]],
 ))
 
-#let link-box(url:"", title: "Faydalı Bağlantı", desc: none) = {
+#let link-box(url:"", title: "Faydalı Bağlantı", desc: none, gorunen: auto) = {
+  let g_url = if gorunen != auto and gorunen != none { gorunen } else { url }
   align(center)[
     #rect(
       width: 100%,
@@ -32,7 +33,7 @@
             ]
 
             // #v(3pt)
-            #text(fill: rgb("#2563eb"), weight: "semibold", size: 10pt, tracking: 0.4pt)[#link(url)[#url]]
+            #text(fill: rgb("#2563eb"), weight: "semibold", size: 10pt, tracking: 0.4pt)[#link(url)[#g_url]]
           ],
 
           // Sağ Kolon: QR Kod
