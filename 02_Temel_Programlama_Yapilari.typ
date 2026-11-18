@@ -3,9 +3,9 @@
 
 #show: conf
 
-// #outline(title: "İçindekiler")
-// #pagebreak(to: "odd")
-// #counter(page).update(1)
+#outline(title: "İçindekiler", indent: 12pt)
+#pagebreak(to: "odd")
+#counter(page).update(1)
 
 #set page(numbering: "1")
 
@@ -34,7 +34,6 @@
 #include "02_Files/infographic/infografikler.typ"
 // infografik dosyaları
 #include "02_Files/infographic/bilgisayarin_dili.typ"
-#include "02_Files/infographic/bilgisayarin_dili_2.typ"
 #include "02_Files/infographic/degisken_ve_bellek.typ"
 #include "02_Files/infographic/veri_turleri.typ"
 #include "02_Files/infographic/ram_islemci_iliskisi.typ"

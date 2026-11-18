@@ -1,272 +1,269 @@
-// Infografik: Transistörden Yüksek Seviyeli Dillere
-#set page(paper: "a4", margin: (top: 1.5cm, left: 2cm, bottom: 1cm, right: 1.5cm))
-#set text(font: "DejaVu Sans", size: 7.6pt, lang: "tr")
-#set par(leading: 0.48em, spacing: 0.55em)
+// Infografik: Bilgisayarın Dili - Transistörden Yüksek Seviyeli Dillere  (tek sayfa)
+// Kullanım: ana belgede  #include "bilgisayarin_dili.typ"
+#import "infografik_ortak.typ": *
 
-// Renkler
-#let c_mor = (fill: rgb("#e6d6ff"), stroke: rgb("#9673a6"))
-#let c_sari = (fill: rgb("#ffffcc"), stroke: rgb("#a3a35c"))
-#let c_yesil = (fill: rgb("#d5f5d0"), stroke: rgb("#82b366"))
-#let c_mavi = (fill: rgb("#cce5ff"), stroke: rgb("#6c8ebf"))
+// ---------- Bu sayfaya özgü küçük bileşenler ----------
+#let koyu = rgb("#1e293b")        // koyu kod bloğu zemini
+#let acik_yesil = rgb("#86efac")
+#let acik_mavi = rgb("#93c5fd")
+#let sari_vurgu = rgb("#fcd34d")
 
-// Kutu yükseklikleri (buradan ayarlayabilirsin)
-#let h_kutu12 = 76pt   // Kutu 1 (Transistör) ve Kutu 2 (Bit)
-#let h_kutu34 = 155pt  // Kutu 3 (Altair) ve Kutu 4 (Hexadecimal)
-
-#let mono(t) = text(font: "DejaVu Sans Mono", size: 7.2pt, t)
-
-#let card(title, c, h: auto, body) = block(
-  width: 100%, height: h, fill: c.fill.lighten(35%), stroke: 1pt + c.stroke, radius: 5pt, inset: 7pt, breakable: false,
-)[
-  #text(weight: "bold", size: 8.6pt, fill: c.stroke.darken(35%))[#title]
-  #v(2pt)
-  #body
-]
-
-#let bitbox(v, c: c_mor) = box(
-  width: 11pt, height: 13pt, radius: 2pt,
-  fill: if v == 1 { c.stroke } else { c.fill },
-  stroke: 0.6pt + c.stroke,
-  align(center + horizon, text(fill: if v == 1 { white } else { c.stroke.darken(40%) }, weight: "bold", size: 7.5pt, str(v))),
+// Tek bit kutusu. bos: true ise içi beyaz, çerçeve ve rakam renkli (okunaklı)
+#let bitbox(v, c, w: 11pt, y: 13pt, boy: 7.6pt, bos: false) = box(
+  width: w, height: y, radius: 2.5pt,
+  fill: if bos { white } else if v == 1 { c.main } else { c.light },
+  stroke: if bos { 1.2pt + c.main } else { 0.6pt + c.border },
+  align(center + horizon, text(
+    fill: if bos or v == 0 { c.dark } else { white }, weight: "bold", size: boy, font: mono, str(v))),
 )
-#let bits(s, c: c_mor) = {
-  for (i, ch) in s.clusters().enumerate() {
-    if ch == " " { h(5pt) } else { bitbox(int(ch), c: c); h(1.5pt) }
+#let bits(s, c, ..a) = {
+  for ch in s.clusters() {
+    if ch == " " { h(7pt) } else { bitbox(int(ch), c, ..a); h(1.5pt) }
   }
 }
 
-#let lamp(on) = circle(
-  radius: 8pt,
-  fill: if on { rgb("#ffd34d") } else { luma(205) },
-  stroke: 1pt + if on { rgb("#e0a800") } else { luma(120) },
+// LED lamba ve anahtar (çizim)
+#let lamp(on) = box(
+  width: 13pt, height: 13pt, radius: 7pt,
+  fill: if on { sari_vurgu } else { luma(215) },
+  stroke: 1pt + if on { c_turuncu.main } else { luma(130) },
 )
 #let sw(v) = box(
-  width: 11pt, height: 19pt, radius: 2pt, fill: luma(228), stroke: 0.6pt + luma(120),
+  width: 11pt, height: 20pt, radius: 2pt, fill: luma(232), stroke: 0.6pt + luma(130),
   align(if v == 1 { top } else { bottom },
-    rect(width: 100%, height: 9pt, radius: 2pt, fill: if v == 1 { c_yesil.stroke } else { luma(120) }, stroke: none)),
+    rect(width: 100%, height: 9pt, radius: 2pt, fill: if v == 1 { c_yesil.main } else { luma(130) }, stroke: none)),
 )
-#let pill(t, c) = box(fill: c.fill, stroke: 0.8pt + c.stroke, radius: 8pt, inset: (x: 5pt, y: 2.5pt), text(weight: "bold", size: 7.2pt, t))
 
-// ---------- BAŞLIK ----------
-#block(
-  width: 100%, radius: 7pt, inset: (x: 12pt, y: 9pt),
-  fill: gradient.linear(rgb("#7a5a96"), rgb("#4f74a8"), angle: 0deg),
+// Programlamanın evrim aşaması
+#let asama(n, ad, ornek, artı, eksi, c) = block(
+  width: 100%, height: 100%, fill: c.light, stroke: 1pt + c.border, radius: 5pt, inset: 6pt, breakable: false,
 )[
-  #text(fill: white, weight: "bold", size: 17pt)[Bilgisayarın Dili] \
-  #text(fill: rgb("#ece4f7"), size: 9pt)[Transistörden yüksek seviyeli programlama dillerine: 1 ve 0'ın yolculuğu]
-]
-
-#v(3pt)
-
-// ---------- EVRİM ŞERİDİ ----------
-#let stage(n, name, ex, ok, zor, c) = block(
-  width: 100%, height: 74pt, fill: c.fill, stroke: 1pt + c.stroke, radius: 5pt, inset: 6pt, breakable: false,
-)[
-  #box(circle(radius: 6pt, fill: c.stroke, align(center + horizon, text(fill: white, weight: "bold", size: 7pt, str(n))))) #h(2pt)
-  #text(weight: "bold", size: 8pt)[#name]
-  #v(1pt)
-  #align(center, block(fill: white, radius: 3pt, inset: (x: 4pt, y: 2.5pt), mono(ex)))
-  #v(1pt)
-  #text(size: 6.6pt)[#text(fill: rgb("#3b7a2a"), weight: "bold")[✓] #ok] \
-  #text(size: 6.6pt)[#text(fill: rgb("#b03030"), weight: "bold")[✗] #zor]
-]
-#let arrow = align(center + horizon, text(size: 13pt, fill: luma(110), weight: "bold")[›])
-
-#text(weight: "bold", size: 9pt)[Programlamanın Evrimi]
-#v(2pt)
-#grid(
-  columns: (1fr, 9pt, 1fr, 9pt, 1fr, 9pt, 1fr), align: horizon,
-  stage(1, "Makine Dili", "1011 0000", "İşlemci çeviri olmadan çalıştırır", "Okuması ve yazması çok zor", c_mor), arrow,
-  stage(2, "Hexadecimal", "B0 61", "0/1 dizilerini 4'lü gruplarla kısaltır", "Komut kodları ezberlenmeli", c_sari), arrow,
-  stage(3, "Assembly", "MOV AL, 61H", "Anlamlı kısaltmalar (MOV, ADD)", "Her işlemciye özel, kod uzar", c_yesil), arrow,
-  stage(4, "Yüksek Seviyeli", "sonuc = a + b", "Kolay, donanımdan bağımsız, hızlı", "Derleyici/yorumlayıcı gerekir", c_mavi),
-)
-
-#v(3pt)
-
-// ---------- TRANSİSTÖR + BİT ----------
-#grid(
-  columns: (1.55fr, 1fr), gutter: 6pt,
-  card("1 · Transistör: Akımı Geçirir veya Keser", c_sari, h: h_kutu12)[
-    Bilgisayarın en temel donanım birimi; işlemci ve hafızada *milyarlarca* transistör bulunur.
-    #v(3pt)
-    #grid(
-      columns: (1fr, 1fr), gutter: 6pt,
-      block(fill: white, radius: 4pt, inset: 5pt, width: 100%)[
-        #grid(columns: (auto, 1fr), gutter: 5pt, align: horizon, lamp(true),
-          [#text(weight: "bold", fill: rgb("#8a6a00"))[AÇIK · Çıkış 1] \ Base: HIGH (5V) \ Akım geçer, LED yanar])
-      ],
-      block(fill: white, radius: 4pt, inset: 5pt, width: 100%)[
-        #grid(columns: (auto, 1fr), gutter: 5pt, align: horizon, lamp(false),
-          [#text(weight: "bold", fill: luma(80))[KAPALI · Çıkış 0] \ Base: LOW (0V) \ Akım kesilir, LED söner])
-      ],
-    )
-  ],
-  card("2 · Bit (Binary Digit)", c_mor, h: h_kutu12)[
-    1 ve 0 durumunu oluşturan *en küçük bilgi birimi.* Yazılımlar, videolar, oyunlar ve metinler fiziksel olarak yalnızca 1 ve 0'lardan oluşur.
-    #v(2pt)
-    #align(center, bits("1 0 1 1"))
-  ],
-)
-
-#v(3pt)
-
-// ---------- ALTAIR + HEX ----------
-#grid(
-  columns: (1.15fr, 1fr), gutter: 6pt,
-  card("3 · Altair 8800 (1970'lerin ortası)", c_mavi, h: h_kutu34)[
-    Klavye ve ekran yoktu; ön panelde *toggle switch* ve LED'ler vardı. Her 8 bitlik komut anahtarlarla tek tek belleğe yükleniyordu: yukarı = 1, aşağı = 0.
-    #v(3pt)
-    #block(
-      fill: rgb("#f8fafc"), stroke: 1pt + rgb("#cbd5e1"), radius: 4pt, inset: 5pt, width: 100%,
-    )[
-      #show raw: set text(font: "DejaVu Sans Mono", size: 6.1pt)  // şekil boyutu
-      #align(center)[
-```text
-+-------------------------------------------------------------+
-|                  ALTAIR 8800 ÖN PANELİ                      |
-|                                                             |
-|   LED'ler (Çıkış):    (O) (X) (O) (O)   (X) (X) (O) (X)     |
-|                        0   1   0   0     1   1   0   1      |
-|                                                             |
-|   Anahtarlar (Giriş): [v] [^] [v] [v]   [^] [^] [v] [^]     |
-|                        0   1   0   0     1   1   0   1      |
-+-------------------------------------------------------------+
-```
-      ]
-    ]
-    #v(1pt)
-    #text(size: 6.8pt)[İki sayıyı toplamak için bile onlarca komut hatasız girilmeliydi: yavaş, yorucu, hataya açık.]
-  ],
-  card("4 · Hexadecimal: 4 Bit = 1 Basamak", c_sari, h: h_kutu34)[
-    2#super[4] = 16 olduğundan 4 bit, tek bir hex karakterine (0–9, A–F) karşılık gelir.
-    #v(2pt)
-    #grid(
-      columns: 4, gutter: 2.5pt,
-      ..range(16).map(i => block(fill: white, stroke: 0.6pt + c_sari.stroke, radius: 3pt, inset: (x: 2pt, y: 2.5pt), width: 100%)[
-        #align(center)[#text(weight: "bold", size: 8.5pt, fill: rgb("#7a6a00"))[#upper(str(i, base: 16))] #text(size: 6pt, fill: luma(110))[(#i)] \
-          #text(font: "DejaVu Sans Mono", size: 6.6pt)[#("0000" + str(i, base: 2)).slice(-4)]]
-      ]),
-    )
-    #v(2pt)
-    #align(center)[#mono[1011 0000] → #text(weight: "bold")[B0] #h(8pt) #mono[0110 0001] → #text(weight: "bold")[61]]
-  ],
-)
-
-#v(3pt)
-
-// ---------- ASCII ----------
-#card("5 · Metin Temsili: 8 Bit = 1 Byte ve ASCII", c_yesil)[
+  #grid(columns: (auto, 1fr), column-gutter: 5pt, align: horizon,
+    daire(n, c.main, r: 6.5pt),
+    text(weight: "bold", size: 9.2pt, fill: c.dark, ad))
+  #v(3pt)
+  #align(center, kod(ornek, c: c, boy: 11pt))
+  #v(4pt)
+  #set text(size: 7.8pt)
+  #set par(justify: false, leading: 0.4em)
   #grid(
-    columns: (1fr, 1.25fr), gutter: 8pt,
-    [
-      Harf ve sembolleri sayılarla temsil etmek için *ASCII* standardı geliştirildi. 1 karakter = *1 Byte* (8 bit) yer kaplar ve iki hex karakterle yazılır.
-      #v(3pt)
-      #align(center)[
-        #box(fill: white, radius: 4pt, stroke: 0.8pt + c_yesil.stroke, inset: 4pt)[
-          #bits("0100 0001", c: c_yesil)
-        ] \
+    columns: (9pt, 1fr), row-gutter: 3pt, align: top,
+    text(weight: "bold", fill: c_yesil.main)[+], artı,
+    text(weight: "bold", fill: c_kirmizi.main)[–], eksi,
+  )
+]
+
+// Kapsül etiket
+#let pill(t, c) = box(
+  fill: c.light, stroke: 0.8pt + c.border, radius: 8pt, inset: (x: 6pt, y: 2.5pt),
+  text(weight: "bold", size: 8.4pt, fill: c.dark, t),
+)
+
+// Tablo yardımcıları
+#let tablo-baslik(c, ..t) = table.header(..t.pos().map(x => text(fill: white, weight: "bold", size: 7.8pt, x)))
+#let satir-dolgu(c) = (_, y) => if y == 0 { c.main } else if calc.odd(y) { white } else { c.light }
+
+#sayfa(
+  (auto, 102pt, 82pt, 134pt, 144pt, 102pt, 1fr),
+
+  // ---------- BAŞLIK ----------
+  baslik_bandi(
+    [Bilgisayarın Dili],
+    [Transistörden yüksek seviyeli programlama dillerine: 1 ve 0'ın yolculuğu],
+    [Transistör #h(3pt) → #h(3pt) Bit #h(3pt) → #h(3pt) Python],
+  ),
+
+  // ---------- EVRİM ----------
+  bolum(none, [Programlamanın Evrimi], grid(
+    columns: (1fr, 12pt, 1fr, 12pt, 1fr, 12pt, 1fr), align: horizon,
+    asama(1, [Makine Dili], "1011 0000", [Çeviri gerekmez], [Yazması çok zor], c_mor), ok,
+    asama(2, [Hexadecimal], "B0 61", [4 bit = 1 karakter], [Kodlar ezberlenir], c_turuncu), ok,
+    asama(3, [Assembly], "MOV AL, 61H", [Anlamlı kısaltmalar], [İşlemciye özel], c_yesil), ok,
+    asama(4, [Yüksek Seviyeli], "sonuc = a + b", [Kolay, taşınabilir], [Derleyici gerekir], c_mavi),
+  )),
+
+  // ---------- 1-2: TRANSİSTÖR + BİT ----------
+  grid(
+    columns: (1.55fr, 1fr), column-gutter: 6pt,
+    bolum(1, [Transistör: Akımı Geçirir / Keser], grid(
+      rows: (auto, 1fr), row-gutter: 4pt,
+      text(size: 8.4pt)[Bilgisayarın en temel donanım birimi; işlemci ve hafızada *milyarlarca* transistör vardır.],
+      grid(
+        columns: (1fr, 1fr), column-gutter: 5pt,
+        block(width: 100%, height: 100%, fill: c_turuncu.light, stroke: 0.8pt + c_turuncu.border, radius: 4pt, inset: 5pt,
+          grid(columns: (auto, 1fr), column-gutter: 5pt, align: horizon, lamp(true),
+            text(size: 7.8pt)[#text(weight: "bold", fill: c_turuncu.dark)[AÇIK · Çıkış 1] \ Base: HIGH (5V), LED yanar])),
+        block(width: 100%, height: 100%, fill: c_gri.light, stroke: 0.8pt + c_gri.border, radius: 4pt, inset: 5pt,
+          grid(columns: (auto, 1fr), column-gutter: 5pt, align: horizon, lamp(false),
+            text(size: 7.8pt)[#text(weight: "bold", fill: c_gri.dark)[KAPALI · Çıkış 0] \ Base: LOW (0V), LED söner])),
+      ),
+    )),
+    bolum(2, [Bit (Binary Digit)], grid(
+      rows: (1fr, auto), row-gutter: 3pt,
+      text(size: 8.2pt)[En küçük bilgi birimi. Yazılım, video, oyun ve metin; hepsi fiziksel olarak yalnızca 1 ve 0'dır.],
+      align(center, bits("1 0 1 1", c_mor, w: 24pt, y: 28pt, boy: 15pt)),
+    )),
+  ),
+
+  // ---------- 3-4: ALTAIR + HEX ----------
+  grid(
+    columns: (1.1fr, 1fr), column-gutter: 6pt,
+    bolum(3, [Altair 8800 (1970'lerin ortası)], grid(
+      rows: (auto, 1fr, auto), row-gutter: 4pt,
+      text(size: 8.2pt)[Klavye ve ekran yoktu; ön panelde *toggle switch* ve LED'ler vardı. Her 8 bitlik komut anahtarlarla belleğe yüklenirdi: yukarı = 1, aşağı = 0.],
+      block(width: 100%, height: 100%, fill: c_gri.light, stroke: 1pt + c_gri.border, radius: 4pt, inset: 5pt,
+        align(center + horizon, grid(
+          columns: (auto,) + (auto,) * 9, column-gutter: 3pt, row-gutter: 3pt, align: center + horizon,
+          ..{
+            let v = (0, 1, 0, 0, 1, 1, 0, 1)
+            let satir(etiket, f) = {
+              let r = (align(right, text(size: 7.4pt, weight: "bold", fill: c_gri.dark, etiket)),)
+              for (i, x) in v.enumerate() {
+                if i == 4 { r.push(h(5pt)) }
+                r.push(f(x))
+              }
+              r
+            }
+            (
+              ..satir([LED (çıkış)], x => lamp(x == 1)),
+              ..satir([], x => text(font: mono, size: 7.6pt, weight: "bold", fill: c_gri.dark, str(x))),
+              ..satir([Anahtar (giriş)], x => sw(x)),
+            )
+          },
+        ))),
+      text(size: 7.8pt)[İki sayıyı toplamak için bile onlarca komut hatasız girilmeliydi: yavaş, yorucu, hataya açık.],
+    )),
+    bolum(4, [Hexadecimal Sistemi], grid(
+      rows: (auto, 1fr, auto), row-gutter: 4pt,
+      text(size: 8.2pt)[2#super[4] = 16 olduğundan 4 bit, tek bir hex karakterine (0–9, A–F) karşılık gelir.],
+      grid(
+        columns: (1fr,) * 8, rows: (1fr, 1fr), gutter: 2.5pt,
+        ..range(16).map(i => block(
+          width: 100%, height: 100%, fill: c_turuncu.light, stroke: 0.6pt + c_turuncu.border, radius: 3pt, inset: (x: 1pt, y: 2pt),
+          align(center + horizon)[
+            #text(weight: "bold", size: 8.6pt, fill: c_turuncu.dark)[#upper(str(i, base: 16))]#text(size: 6.2pt, fill: luma(110))[ (#i)] \
+            #text(font: mono, size: 6.4pt)[#("0000" + str(i, base: 2)).slice(-4)]
+          ],
+        )),
+      ),
+      align(center, grid(
+        columns: (auto,) * 7, column-gutter: 4pt, align: horizon,
+        kod("1011 0000", c: c_turuncu, boy: 7.8pt), text(size: 9pt)[→], text(size: 9pt, weight: "bold")[B0], h(8pt),
+        kod("0110 0001", c: c_turuncu, boy: 7.8pt), text(size: 9pt)[→], text(size: 9pt, weight: "bold")[61],
+      )),
+    )),
+  ),
+
+  // ---------- 5: ASCII ----------
+  bolum(5, [Metin Temsili: 8 Bit = 1 Byte ve ASCII], grid(
+    rows: (1fr, auto), row-gutter: 5pt,
+    grid(
+      columns: (1fr, 1.25fr), column-gutter: 8pt,
+      [
+        #set text(size: 7.9pt)
+        Harf ve sembolleri sayılarla temsil etmek için *ASCII* standardı geliştirildi. 1 karakter = *1 Byte* (8 bit) yer kaplar ve iki hex karakterle yazılır.
+        #v(2pt)
+        #align(center)[
+          #box(fill: white, radius: 5pt, stroke: 1pt + c_yesil.border, inset: 5pt, bits("0100 0001", c_yesil, w: 19pt, y: 24pt, boy: 12pt, bos: true)) \
+          #v(1pt)
+          1 Byte = hex *41* = onluk *65* = '*A*'
+        ]
+      ],
+      block(width: 100%, height: 100%, table(
+        columns: (auto, 1fr, 1fr, 2fr), rows: (auto,) + (1fr,) * 5, align: center + horizon, inset: 2pt,
+        fill: satir-dolgu(c_yesil), stroke: 0.4pt + c_yesil.border,
+        tablo-baslik(c_yesil, [Karakter], [Onluk], [Hex], [İkilik]),
+        ..for (a, b, c, d) in (
+          ("SP", "32", "20", "0010 0000"), ("0", "48", "30", "0011 0000"), ("A", "65", "41", "0100 0001"),
+          ("a", "97", "61", "0110 0001"), ("DEL", "127", "7F", "0111 1111"),
+        ) {
+          (a, b, c, d).map(x => text(font: mono, size: 7.8pt, x))
+        },
+      )),
+    ),
+    grid(
+      columns: (1.2fr, 1fr, 1fr, 1fr, 1fr), column-gutter: 3pt,
+      ..(
+        ("0–31 ve 127", "Kontrol karakterleri", c_mor),
+        ("32–47", "Boşluk ve semboller", c_turuncu),
+        ("48–57", "Rakamlar 0–9", c_mavi),
+        ("65–90", "Büyük harfler A–Z", c_yesil),
+        ("97–122", "Küçük harfler a–z", c_yesil),
+      ).map(((r, t, c)) => block(fill: c.light, stroke: 0.7pt + c.border, radius: 3pt, inset: 3.5pt, width: 100%,
+        align(center)[#text(weight: "bold", size: 8pt, fill: c.dark, r) \ #text(size: 7pt, t)])),
+    ),
+  )),
+
+  // ---------- 6: ASSEMBLY ----------
+  bolum(6, [Makine Kodundan Assembly'ye], grid(
+    rows: (auto, 1fr), row-gutter: 4pt,
+    text(size: 8.2pt)[Komutlar sembolik isimlerle (*mnemonic*) yazılır; *assembler* bunları makine koduna çevirir.],
+    grid(
+      columns: (1.15fr, 1fr), column-gutter: 8pt,
+      block(width: 100%, height: 100%, table(
+        columns: (auto, auto, 1fr), rows: (auto,) + (1fr,) * 3, align: left + horizon, inset: (x: 4pt, y: 3pt),
+        fill: satir-dolgu(c_mor), stroke: 0.4pt + c_mor.border,
+        tablo-baslik(c_mor, [Hex], [Assembly], [Açıklama]),
+        ..for (a, b, c) in (
+          ("B0 61", "MOV AL, 61H", "AL'ye 61H taşındı"),
+          ("04 05", "ADD AL, 05H", "AL'ye 05H eklendi"),
+          ("2C 02", "SUB AL, 02H", "AL'den 02H çıkarıldı"),
+        ) {
+          (text(font: mono, size: 7.6pt, a), text(font: mono, size: 7.6pt, b), text(size: 7.6pt, c))
+        },
+      )),
+      block(width: 100%, height: 100%, fill: white, stroke: 1pt + c_gri.border, radius: 4pt, inset: 6pt)[
+        #text(fill: c_mavi.dark, size: 7.6pt, weight: "bold")[x86 · 5 + 7]
+        #v(3pt)
+        #grid(
+          columns: (auto, 1fr), column-gutter: 8pt, align: horizon,
+          text(font: mono, size: 7.8pt, fill: c_gri.dark)[
+            mov eax, 5 #text(fill: c_yesil.main)[; ilk sayı] \
+            mov ebx, 7 #text(fill: c_yesil.main)[; ikinci sayı] \
+            add eax, ebx #text(fill: c_yesil.main)[; 12]
+          ],
+          block(
+            width: 100%, fill: c_turuncu.light, stroke: (left: 2.5pt + c_turuncu.main), radius: (right: 3pt), inset: (x: 6pt, y: 5pt),
+            align(center)[
+              #text(fill: c_turuncu.dark, size: 7.6pt, weight: "bold")[Yüksek seviyede] \
+              #v(2pt)
+              #text(font: mono, fill: c_gri.dark, size: 8.4pt, weight: "bold")[sonuc = a + b]
+            ],
+          ),
+        )
+      ],
+    ),
+  )),
+
+  // ---------- 7: DERLEYİCİ / YORUMLAYICI ----------
+  bolum(7, [Programlama Dilleri: Derleyici ve Yorumlayıcı], grid(
+    rows: (auto, 1fr), row-gutter: 4pt,
+    text(size: 8.2pt)[Yüksek seviyeli diller kolay öğrenilir, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.],
+    grid(
+      columns: (1fr, 1fr, 1.1fr), column-gutter: 6pt,
+        block(width: 100%, height: 100%, fill: c_mavi.light, stroke: 0.8pt + c_mavi.border, radius: 4pt, inset: 5pt)[
+          #pill([Derleyici (Compiler)], c_mavi) \
+          #v(2pt)
+          #text(size: 7.8pt)[Kodun *tamamını* okur, denetler, bütünü makine diline çevirir. Hata varsa derleme tamamlanmaz.]
+        ],
+        block(width: 100%, height: 100%, fill: c_mor.light, stroke: 0.8pt + c_mor.border, radius: 4pt, inset: 5pt)[
+          #pill([Yorumlayıcı (Interpreter)], c_mor) \
+          #v(2pt)
+          #text(size: 7.8pt)[Kodu *satır satır* okuyup anında çalıştırır; hatalı satırda durur (Python, Ruby).]
+        ],
+      block(width: 100%, height: 100%, fill: white, stroke: 1pt + c_gri.border, radius: 4pt, inset: 6pt)[
+        #text(fill: c_mavi.dark, size: 7.2pt, weight: "bold")[PYTHON · YORUMLAYICI ÖRNEĞİ]
         #v(1pt)
-        #text(size: 7.4pt)[1 Byte = hex *41* = onluk *65* = '*A*']
-      ]
-    ],
-    table(
-      columns: (auto, 1fr, 1fr, 2fr), align: center + horizon, inset: 2.6pt,
-      fill: (_, y) => if y == 0 { c_yesil.stroke } else if calc.odd(y) { white } else { c_yesil.fill.lighten(40%) },
-      stroke: 0.4pt + c_yesil.stroke,
-      table.header(..([Chr], [Dec], [Hex], [Binary]).map(t => text(fill: white, weight: "bold", size: 7pt, t))),
-      mono[SP], mono[32], mono[20], mono[0010 0000],
-      mono[0], mono[48], mono[30], mono[0011 0000],
-      mono[A], mono[65], mono[41], mono[0100 0001],
-      mono[a], mono[97], mono[61], mono[0110 0001],
-      mono[DEL], mono[127], mono[7F], mono[0111 1111],
-    ),
-  )
-  #v(3pt)
-  #grid(
-    columns: (1.2fr, 1fr, 1fr, 1fr, 1fr), gutter: 3pt,
-    ..(
-      ("0–31 ve 127", "Kontrol karakterleri (basılamaz)", c_mor),
-      ("32–47", "Boşluk ve semboller", c_sari),
-      ("48–57", "Rakamlar 0–9", c_mavi),
-      ("65–90", "Büyük harfler A–Z", c_yesil),
-      ("97–122", "Küçük harfler a–z", c_yesil),
-    ).map(((r, t, c)) => block(fill: c.fill, stroke: 0.7pt + c.stroke, radius: 3pt, inset: 3.5pt, width: 100%)[
-      #align(center)[#text(weight: "bold", size: 7.4pt)[#r] \ #text(size: 6.4pt)[#t]]
-    ]),
-  )
-]
-
-#v(3pt)
-
-// ---------- ASSEMBLY ----------
-#card("6 · Makine Kodundan Assembly'ye", c_mor)[
-  Komutlar, İngilizce kelime kısaltmalarından oluşan sembolik isimlerle (*mnemonic*) yazıldı. *Assembler* bu kodu makine koduna çevirir.
-  #v(3pt)
-  #grid(
-    columns: (1.15fr, 1fr), gutter: 8pt,
-    table(
-      columns: (auto, auto, 1fr), align: left + horizon, inset: 3.75pt,
-      fill: (_, y) => if y == 0 { c_mor.stroke } else if calc.odd(y) { white } else { c_mor.fill.lighten(40%) },
-      stroke: 0.4pt + c_mor.stroke,
-      table.header(..([Hex], [Assembly], [Açıklama]).map(t => text(fill: white, weight: "bold", size: 7pt, t))),
-      mono[B0 61], mono[MOV AL, 61H], text(size: 6.6pt)[AL'ye 61H taşındı],
-      mono[04 05], mono[ADD AL, 05H], text(size: 6.6pt)[AL'ye 05H eklendi],
-      mono[2C 02], mono[SUB AL, 02H], text(size: 6.6pt)[AL'den 02H çıkarıldı],
-    ),
-    block(fill: rgb("#2b2f3a"), radius: 4pt, inset: 6pt, width: 100%)[
-      #text(fill: rgb("#9fb4d8"), size: 6.4pt, weight: "bold")[x86 · 5 + 7] \
-      #text(font: "DejaVu Sans Mono", size: 6.8pt, fill: white)[
-        mov eax, 5 #text(fill: rgb("#7fd68a"))[; ilk sayı] \
-        mov ebx, 7 #text(fill: rgb("#7fd68a"))[; ikinci sayı] \
-        add eax, ebx #text(fill: rgb("#7fd68a"))[; 12]
-      ] \
-      #text(fill: rgb("#ffd34d"), size: 6.8pt)[Yüksek seviyede: ] #text(font: "DejaVu Sans Mono", fill: white, size: 7pt)[sonuc = a + b]
-    ],
-  )
-]
-
-#v(3pt)
-
-// ---------- DERLEYİCİ / YORUMLAYICI ----------
-#card("7 · Programlama Dilleri: Derleyici ve Yorumlayıcı", c_mavi)[
-  Fortran, COBOL ve C gibi dillerde çıktı; makine koduna çevrilir. Öğrenmesi kolaydır, donanımdan bağımsızdır ve hızlı yazılım geliştirmeyi sağlar.
-  #v(3pt)
-  
-  #layout(size => {
-    let gw = 6pt
-    let wl = (size.width - gw) * 1.6 / 2.6
-    // Sol: derleyici ve yorumlayıcı alt alta
-    let left = stack(
-      spacing: 6pt,
-      block(fill: white, stroke: 0.8pt + c_mavi.stroke, radius: 4pt, inset: 5pt, width: 100%)[
-        #pill([Derleyici (Compiler)], c_mavi) \
-        #v(2pt)
-        Kodun *tamamını* baştan sona okur, hataları denetler, bütünü makine diline çevirir. Söz diziminde hata varsa derleme tamamlanmaz.
+        #set text(font: mono, size: 7.4pt, fill: c_gri.dark)
+        #set par(leading: 0.4em)
+        #let satir(n, t) = grid(columns: (9pt, 1fr), text(fill: luma(140), n), t)
+        #let s_(t) = text(fill: c_yesil.main, t)
+        #let f_(t) = text(fill: c_mavi.main, weight: "bold", t)
+        #satir("1", [puan = #f_("int")\(#f_("input")\(#s_("\"Puan: \"")\)\)])
+        #satir("2", [#f_("print")\(#s_("\"Puanı:\""), puan\)])
+        #satir("3", [puan = puan + 25])
+        #satir("4", [#f_("print")\(#s_("\"Yeni Puan:\""), puan\)])
       ],
-      block(fill: white, stroke: 0.8pt + c_mavi.stroke, radius: 4pt, inset: 5pt, width: 100%)[
-        #pill([Yorumlayıcı (Interpreter)], c_mavi) \
-        #v(2pt)
-        Kodu *satır satır* okuyup anında çalıştırır; hatalı satıra gelince durur. Tıpkı anlık çeviri yapan bir tercüman gibi (Python, Ruby).
-      ],
-    )
-    let hl = measure(left, width: wl).height
-    // Sağ: Python örneği (sol sütunla aynı yükseklikte)
-    let right = block(fill: rgb("#2b2f3a"), radius: 4pt, inset: 7pt, width: 100%, height: hl)[
-      #text(fill: rgb("#9fb4d8"), size: 6.4pt, weight: "bold")[PYTHON · YORUMLAYICI ÖRNEĞİ]
-      #v(3pt)
-      #let kod(n, t) = grid(columns: (9pt, 1fr), text(fill: luma(130), n), t)
-      #set text(font: "DejaVu Sans Mono", size: 6.8pt, fill: white)
-      #set par(leading: 0.6em)
-      #let str_(t) = text(fill: rgb("#7fd68a"), t)
-      #let fn(t) = text(fill: rgb("#8ec5ff"), t)
-      #kod("1", [puan = #fn("int")\(#fn("input")\(#str_("\"Puan Giriniz: \"")\)\)])
-      #kod("2", [#fn("print")\(#str_("\"Puanı:\""), puan\)])
-      #kod("3", [puan = puan + 25])
-      #kod("4", [#fn("print")\(#str_("\"Güncellenmiş Puan:\""), puan\)])
-      #v(3pt)
-      #text(font: "DejaVu Sans", fill: rgb("#ffd34d"), size: 6.4pt)[Satırlar sırayla yorumlanıp çalıştırılır.]
-    ]
-    grid(columns: (1.6fr, 1fr), gutter: gw, left, right)
-  })
-]
+    ),
+  )),
+)
