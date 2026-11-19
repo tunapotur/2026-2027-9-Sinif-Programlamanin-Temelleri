@@ -3,11 +3,15 @@
 
 #show: conf
 
-// #outline(title: "İçindekiler", indent: 12pt)
-// #pagebreak(to: "odd")
-// #counter(page).update(1)
+// #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
 
-// #set page(numbering: "1")
+#outline(title: "İçindekiler", indent: 12pt)
+#pagebreak(to: "odd")
+#counter(page).update(1)
+
+#set page(numbering: "1")
+
+// #title()
 
 #include "02_Files/donanımın_temeli.typ"
 

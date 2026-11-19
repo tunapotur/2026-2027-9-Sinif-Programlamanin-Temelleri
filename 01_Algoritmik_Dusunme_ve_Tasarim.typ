@@ -5,11 +5,17 @@
 #import "lib/akis-sembolleri.typ": *
 #import "lib/not-block.typ":*
 
-#set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
-
 #show: conf
 
-#title()
+// #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
+
+#outline(title: "İçindekiler", indent: 12pt)
+#pagebreak(to: "odd")
+#counter(page).update(1)
+
+#set page(numbering: "1")
+
+// #title()
 
 = Algoritmik Düşünme ve Tasarım
 
