@@ -46,3 +46,6 @@
 #include "02_Files/infographic/operatorler.typ"
 #include "02_Files/infographic/fonksiyon_kullanimi.typ"
 #include "02_Files/infographic/input_print.typ"
+
+#pagebreak()
+#include "02_Files/bilgisayar_nedir.typ"
