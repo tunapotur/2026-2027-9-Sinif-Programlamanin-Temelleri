@@ -273,6 +273,80 @@ Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlem
 
 #v(0.5em)
 
+=== Bilgisayarın Temel Çalışma Mimarisi
+
+Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan *von Neumann mimarisini* özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
+
+Dört temel birim arasındaki görev paylaşımı şöyledir:
+
++ *Giriş Birimi:* Dış dünyadan gelen verileri ve kullanıcı komutlarını, bilgisayarın anlayacağı elektrik sinyallerine dönüştürür.
++ *Bellek Birimi:* Gelen verileri, çalıştırılacak programın komutlarını ve ara sonuçları geçici olarak saklar.
++ *İşlemci (CPU):* Bellekten okuduğu komutları yorumlar; aritmetiksel ve mantıksal işlemleri yaparak yeni sonuçlar üretir.
++ *Çıkış Birimi:* İşlenmiş sonuçları ekran, yazıcı veya hoparlör gibi araçlarla insanın algılayabileceği biçime çevirir.
+
+Birimler arasındaki bu alışveriş, şemadaki *VERİ YOLU (BUS)* üzerinden gerçekleşir. Veri yolu, birimler arasında veri ve komut taşıyan ortak bir otoyol gibidir. Aynı anda yalnızca sınırlı miktarda veri taşıyabildiği için bilgisayarın hızını belirleyen önemli etkenlerden biridir.
+
+==== Adım Adım Veri Akışı: "5 + 3" İşlemi
+
+Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda nasıl gerçekleştiğini izleyelim. Aşağıdaki tablo, şemadaki okları adım adım takip eder:
+
+#icerik-tablo(
+  tablo_baslik: "Bir Toplama İşleminin Bilgisayardaki Yolculuğu",
+  sutunlar: (auto, auto, 1fr, auto),
+  sutun_basliklari: ("Adım", "Sorumlu Birim", "Gerçekleşen İşlem", "Örnek"),
+  icerik_hizalama: (center + horizon, center + horizon, left + horizon, center + horizon),
+  sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon),
+  boyut: 9pt,
+  dikey-bosluk: 6pt,
+  [`1`], [Giriş Birimi], [Kullanıcı klavyeden `5` ve `3` tuşlarına basar; klavye bu tuşları elektrik sinyallerine çevirir.], [`5`, `3`],
+  [`2`], [Bellek Birimi], [Sinyaller ikilik sisteme dönüştürülerek RAM'de ayrılan hücrelere yazılır.], [`0000 0101` \ `0000 0011`],
+  [`3`], [İşlemci (CPU)], [İşlemci, bellekten "topla" komutunu ve toplanacak iki sayıyı okur (getirir).], [`topla`],
+  [`4`], [İşlemci (ALU)], [Aritmetik mantık birimi iki sayıyı toplar ve sonucu üretir.], [`5 + 3 = 8`],
+  [`5`], [Bellek Birimi], [Elde edilen sonuç, daha sonra kullanılmak üzere tekrar RAM'e yazılır.], [`0000 1000`],
+  [`6`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
+)
+
+==== Komut Döngüsü: Getir, Çöz, Yürüt, Yaz
+
+İşlemci bir komutu tek hamlede çalıştırmaz. Her komut için aynı dört aşamalı döngüyü tekrarlar. Bu döngü, saniyede milyarlarca kez gerçekleşir:
+
+#let dongu-adimi(no, baslik, aciklama, renk) = block(
+  width: 100%,
+  fill: renk.lighten(92%),
+  stroke: 1pt + renk.lighten(35%),
+  radius: 4pt,
+  inset: (x: 5pt, y: 6pt),
+)[
+  #align(center)[
+    #text(size: 13pt, weight: "bold", fill: renk)[#no]
+    #v(1pt)
+    #text(size: 8.3pt, weight: "bold", fill: renk.darken(25%))[#baslik]
+  ]
+  #v(3pt)
+  #text(size: 7.6pt)[#aciklama]
+]
+
+#grid(
+  columns: (1fr, 1fr, 1fr, 1fr),
+  gutter: 5pt,
+  dongu-adimi("1", "Getir (Fetch)", "İşlemci, sıradaki komutu bellekten okur.", rgb("#1d4ed8")),
+  dongu-adimi("2", "Çöz (Decode)", "Okunan ikilik komut çözümlenir; hangi işlemin, hangi verilerle yapılacağı belirlenir.", rgb("#0d9488")),
+  dongu-adimi("3", "Yürüt (Execute)", "ALU, komutun gerektirdiği aritmetiksel veya mantıksal işlemi gerçekleştirir.", rgb("#7e22ce")),
+  dongu-adimi("4", "Yaz (Write Back)", "Sonuç, belleğe veya işlemcinin içindeki yazmaçlara kaydedilir.", rgb("#b45309")),
+)
+
+#not_block(title: "Neden Girdiler Doğrudan İşlemciye Gitmez?")[
+  Çünkü işlemci, yalnızca bellekten okuma ve belleğe yazma yapabilecek şekilde tasarlanmıştır. Ayrıca klavye, fare ve mikrofon gibi giriş birimleri işlemciden çok daha yavaş çalışır. Veriler önce RAM'de toplanır; işlemci hazır olduğunda onları hızla alır. Böylece yavaş cihazlar, hızlı işlemciyi uzun süre bekletmek zorunda kalmaz.
+]
+
+==== Von Neumann Şişe Boynu
+
+Komutlar ve veriler aynı bellekte tutulduğu ve tek bir veri yolu üzerinden taşındığı için işlemci, bir komutu çalıştırırken aynı anda yeni bir komut getiremez. Bu bekleme durumuna *von Neumann şişe boynu* denir. Günümüz işlemcileri, komut ve veriler için ayrı önbellekler kullanarak bu darboğazı büyük ölçüde azaltır.
+
+#not_block(title: "Özetle:")[
+  Bilgisayarda bir işlem gerçekleşirken veri akışı şu sırayı izler: *Giriş Birimi → Bellek (RAM) → İşlemci (CPU) → Bellek (RAM) → Çıkış Birimi*. Ekranda gördüğümüz `8` sonucu, aslında ikilik sistemdeki elektrik sinyallerinin bu yol üzerinde izlediği uzun yolculuğun son hâlidir.
+]
+
 === Giriş Birimi
 Veri ve komutların bilgisayara aktarılmasını sağlayan klavye, fare, mikrofon ve kamera gibi cihazlardır. Bilgisayarın dış dünyadan veri ve talimat almasını sağlar.
 
