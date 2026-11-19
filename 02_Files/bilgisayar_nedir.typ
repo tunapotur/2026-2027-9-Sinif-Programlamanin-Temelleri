@@ -270,7 +270,6 @@ Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlem
       ]
     ]
   ]
-)
 
 #v(0.5em)
 
