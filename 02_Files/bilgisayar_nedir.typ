@@ -3,8 +3,9 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
+#import "@preview/fletcher:0.5.8": diagram, node, edge
 
-// #show: conf
+#show: conf
 
 == Bilgisayar Nedir?
 *Bilgisayar*, kendisine verilen bilgiler üzerinden aritmetiksel, mantıksal ve karşılaştırma işlemleri yaparak sonuçları çıktı birimlerine gönderen elektronik bir cihazdır. Bilgisayarlar çok yüksek hızlarda, bıkıp usanmadan ve tekrarlı olarak aynı işlemleri hatasız yerine getirebilen aygıtlardır.
@@ -275,7 +276,7 @@ Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlem
 
 === Bilgisayarın Temel Çalışma Mimarisi
 
-Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan *von Neumann mimarisini* özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
+Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan mimarisini özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
 
 Dört temel birim arasındaki görev paylaşımı şöyledir:
 
@@ -306,66 +307,6 @@ Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda
   [`6`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
 )
 
-==== Komut Döngüsü: Getir, Çöz, Yürüt, Yaz
-
-İşlemci bir komutu tek hamlede çalıştırmaz. Her komut için aynı dört aşamalı döngüyü tekrarlar. Bu döngü, saniyede milyarlarca kez gerçekleşir:
-
-#let dongu-adimi(no, baslik, aciklama, renk) = block(
-  width: 100%,
-  fill: renk.lighten(92%),
-  stroke: 1pt + renk.lighten(35%),
-  radius: 4pt,
-  inset: (x: 5pt, y: 6pt),
-)[
-  #align(center)[
-    #text(size: 13pt, weight: "bold", fill: renk)[#no]
-    #v(1pt)
-    #text(size: 8.3pt, weight: "bold", fill: renk.darken(25%))[#baslik]
-  ]
-  #v(3pt)
-  #text(size: 7.6pt)[#aciklama]
-]
-
-#grid(
-  columns: (1fr, 1fr, 1fr, 1fr),
-  gutter: 5pt,
-  dongu-adimi("1", "Getir (Fetch)", "İşlemci, sıradaki komutu bellekten okur.", rgb("#1d4ed8")),
-  dongu-adimi("2", "Çöz (Decode)", "Okunan ikilik komut çözümlenir; hangi işlemin, hangi verilerle yapılacağı belirlenir.", rgb("#0d9488")),
-  dongu-adimi("3", "Yürüt (Execute)", "ALU, komutun gerektirdiği aritmetiksel veya mantıksal işlemi gerçekleştirir.", rgb("#7e22ce")),
-  dongu-adimi("4", "Yaz (Write Back)", "Sonuç, belleğe veya işlemcinin içindeki yazmaçlara kaydedilir.", rgb("#b45309")),
-)
-
-#not_block(title: "Neden Girdiler Doğrudan İşlemciye Gitmez?")[
-  Çünkü işlemci, yalnızca bellekten okuma ve belleğe yazma yapabilecek şekilde tasarlanmıştır. Ayrıca klavye, fare ve mikrofon gibi giriş birimleri işlemciden çok daha yavaş çalışır. Veriler önce RAM'de toplanır; işlemci hazır olduğunda onları hızla alır. Böylece yavaş cihazlar, hızlı işlemciyi uzun süre bekletmek zorunda kalmaz.
-]
-
-==== Von Neumann Şişe Boynu
-
-Komutlar ve veriler aynı bellekte tutulduğu ve tek bir veri yolu üzerinden taşındığı için işlemci, bir komutu çalıştırırken aynı anda yeni bir komut getiremez. Bu bekleme durumuna *von Neumann şişe boynu* denir. Günümüz işlemcileri, komut ve veriler için ayrı önbellekler kullanarak bu darboğazı büyük ölçüde azaltır.
-
-#not_block(title: "Özetle:")[
-  Bilgisayarda bir işlem gerçekleşirken veri akışı şu sırayı izler: *Giriş Birimi → Bellek (RAM) → İşlemci (CPU) → Bellek (RAM) → Çıkış Birimi*. Ekranda gördüğümüz `8` sonucu, aslında ikilik sistemdeki elektrik sinyallerinin bu yol üzerinde izlediği uzun yolculuğun son hâlidir.
-]
-
-=== Giriş Birimi
-Veri ve komutların bilgisayara aktarılmasını sağlayan klavye, fare, mikrofon ve kamera gibi cihazlardır. Bilgisayarın dış dünyadan veri ve talimat almasını sağlar.
-
-=== Bellek Birimi
-Veri, komut ve programların saklandığı donanımları temsil eder. Ana bellek çoğunlukla *RAM* olarak anılır. Sabit disk ise yardımcı bellek olarak kullanılır ve bilgilerin kalıcı olarak saklanmasını sağlar.
-
-*RAM (Random Access Memory - Rastgele Erişimli Bellek)*, çalışan uygulamaların içerisindeki anlık bilgileri tutan temel bir donanım parçasıdır. RAM'in hafıza kapasitesinin büyüklüğü, aynı anda sorunsuz çalışabilecek program sayısını artırır.
-
-#not_block(title: "Bellek Türleri Arasındaki Temel Fark:")[
-  - *Ana Bellek (RAM):* Geçici bellektir. Bilgisayar çalıştığı sürece verileri tutar; bilgisayar kapandığında veya program sonlandırıldığında içindeki veriler silinir.
-  - *Yardımcı Bellek (Sabit Disk / SSD):* Kalıcı depolama birimidir. Verilerin daha sonra tekrar kullanılabilmesi amacıyla dosya biçiminde kaydedilmesini sağlar.
-]
-
-=== İşlemci (CPU) Birimi
-Bilgisayardaki tüm aritmetiksel ve mantıksal işlemlerin yapıldığı ana birimdir. Bilgisayar programlarının çalışmasını denetler, programda yapılan hesaplamalara göre hangi işlerin yapılacağına karar verir. Makine diline çevrilmiş bir programdaki komutları teker teker ve sırayla yorumlayıp çalıştırır.
-
-=== Çıkış Birimi
-Bilgisayarda işlenen verilerin dış ortama aktarılmasını sağlayan ekran, yazıcı ve hoparlör gibi birimlerdir. İşlemci tarafından işlenen sonuçları insanların algılayabileceği (görsel, işitsel veya basılı) biçime dönüştürür.
-
 === Bilgisayar Veriyi Nasıl Saklar?
 Bilgisayar verileri bellekte saklar. Her bir veri için bellekte belirli bir alan ayrılır ve bu alan her seferinde tek bir değer saklayabilir. Kullanıcı var olan değer yerine yeni bir değer atadığında eski değer silinir. Programın çalışması bittiğinde ya da bilgisayar kapatıldığında bu geçici veriler silinir.
 
@@ -373,5 +314,178 @@ Verilerin daha sonra tekrar kullanılabilmesi gerekiyorsa sabit diske kaydedilme
 - *Program Dosyaları:* Bilgisayarın yapması istenen komutları ve işlem adımlarını içerir.
 - *Veri Dosyaları:* Programlar çalışırken kullanılan ve işlenen verileri kapsar.
 
-=== Program Nedir?
-*Program*, bilgisayara yapması gereken işlemleri adım adım bildiren, kullanıcıların ihtiyaçlarına cevap veren ve sabit diskte depolanıp bellekte çalıştırılan komutlar bütünüdür. İnternette gezinme, oyun oynama ve mesajlaşma gibi tüm işlemler programlar aracılığıyla gerçekleştirilir.
+#v(0.6em)
+
+Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki veri akışını bir şema üzerinde toparlayalım:
+
+#let bnm-renk = (
+  giris: rgb("#16a34a"),
+  bellek: rgb("#0d9488"),
+  cpu: rgb("#2563eb"),
+  cikis: rgb("#9333ea"),
+  lacivert: rgb("#16325c"),
+  hat: rgb("#64748b"),
+)
+
+#let bnm-mini(metin, renk, boyut: 5.8pt) = block(
+  width: 100%,
+  fill: white,
+  stroke: 0.6pt + renk.lighten(50%),
+  radius: 2.5pt,
+  inset: (x: 2pt, y: 2.2pt),
+  align(center + horizon, text(size: boyut, weight: "bold", fill: renk.darken(28%), metin)),
+)
+
+#figure(
+  block(
+    width: 100%,
+    fill: rgb("#f8fafc"),
+    stroke: 1pt + rgb("#cbd5e1"),
+    radius: 8pt,
+    inset: (x: 6pt, y: 12pt),
+    breakable: false,
+  )[
+    #align(center, text(size: 10pt, weight: "bold", fill: bnm-renk.lacivert)[Bilgisayarın Temel Çalışma Mimarisi])
+    #v(12pt)
+    #diagram(
+      spacing: (22pt, 52pt),
+      edge-stroke: 1.2pt + bnm-renk.hat,
+      mark-scale: 85%,
+
+      // İŞLEMCİ (CPU)
+      node(
+        (0, 0),
+        width: 230pt,
+        fill: rgb("#eff6ff"),
+        stroke: 1.5pt + bnm-renk.cpu,
+        corner-radius: 6pt,
+        inset: 8pt,
+      )[#align(center)[
+        #text(size: 9.5pt, weight: "bold", fill: bnm-renk.cpu.darken(35%))[İŞLEMCİ (CPU)]
+        #v(2pt)
+        #text(size: 6.6pt, fill: rgb("#334155"))[Komutları yorumlar, aritmetiksel ve mantıksal işlemleri yapar.]
+      ]],
+
+      // GİRİŞ BİRİMİ
+      node(
+        (-1, 1),
+        width: 106pt,
+        fill: rgb("#f0fdf4"),
+        stroke: 1.3pt + bnm-renk.giris,
+        corner-radius: 6pt,
+        inset: 6pt,
+      )[#align(center)[
+        #text(size: 9pt, weight: "bold", fill: bnm-renk.giris.darken(30%))[GİRİŞ BİRİMİ]
+        #v(1.5pt)
+        #text(size: 6.3pt, fill: rgb("#166534"))[Dış dünyadan gelen veri ve komutları elektrik sinyaline çevirir.]
+        #v(4pt)
+        #grid(
+          columns: (1fr, 1fr),
+          gutter: 3pt,
+          bnm-mini([Klavye], bnm-renk.giris),
+          bnm-mini([Fare], bnm-renk.giris),
+          bnm-mini([Kamera], bnm-renk.giris),
+          bnm-mini([Mikrofon], bnm-renk.giris),
+        )
+      ]],
+
+      // BELLEK BİRİMİ (RAM)
+      node(
+        (0, 1),
+        width: 154pt,
+        fill: rgb("#f0fdfa"),
+        stroke: 1.5pt + bnm-renk.bellek,
+        corner-radius: 6pt,
+        inset: 7pt,
+      )[#align(center)[
+        #text(size: 9.5pt, weight: "bold", fill: bnm-renk.bellek.darken(30%))[BELLEK BİRİMİ (RAM)]
+        #v(1pt)
+        #text(size: 6.6pt, weight: "bold", fill: rgb("#115e59"))[Komutlar • Veriler • Ara Sonuçlar]
+        #v(1.5pt)
+        #text(size: 6.2pt, fill: rgb("#334155"))[Girişten gelen veriler ve çalıştırılacak komutlar burada geçici olarak saklanır.]
+        #v(4pt)
+        #grid(
+          columns: (1fr, 1fr),
+          gutter: 4pt,
+          bnm-mini([Program komutları], bnm-renk.bellek, boyut: 5.6pt),
+          bnm-mini([Veriler ve ara sonuçlar], bnm-renk.bellek, boyut: 5.6pt),
+        )
+      ]],
+
+      // ÇIKIŞ BİRİMİ
+      node(
+        (1, 1),
+        width: 106pt,
+        fill: rgb("#faf5ff"),
+        stroke: 1.3pt + bnm-renk.cikis,
+        corner-radius: 6pt,
+        inset: 6pt,
+      )[#align(center)[
+        #text(size: 9pt, weight: "bold", fill: bnm-renk.cikis.darken(30%))[ÇIKIŞ BİRİMİ]
+        #v(1.5pt)
+        #text(size: 6.3pt, fill: rgb("#6b21a8"))[İşlenmiş sonuçları insanın algılayabileceği biçime çevirir.]
+        #v(4pt)
+        #grid(
+          columns: (1fr, 1fr),
+          gutter: 3pt,
+          bnm-mini([Ekran], bnm-renk.cikis),
+          bnm-mini([Yazıcı], bnm-renk.cikis),
+          bnm-mini([Hoparlör], bnm-renk.cikis),
+          bnm-mini([Projeksiyon], bnm-renk.cikis, boyut: 5.4pt),
+        )
+      ]],
+
+      // Giriş → Bellek
+      edge(
+        (-1, 1), (0, 1),
+        "-|>",
+        stroke: 1.5pt + bnm-renk.giris,
+        label: [Ham veri],
+        label-fill: white,
+        label-size: 6.4pt,
+        label-sep: 2pt,
+      ),
+
+      // Bellek → Çıkış
+      edge(
+        (0, 1), (1, 1),
+        "-|>",
+        stroke: 1.5pt + bnm-renk.cikis,
+        label: [Sonuç],
+        label-fill: white,
+        label-size: 6.4pt,
+        label-sep: 2pt,
+      ),
+
+      // Bellek → İşlemci (okuma)
+      edge(
+        (0, 1), (0, 0),
+        "-|>",
+        shift: 8pt,
+        stroke: 1.2pt + bnm-renk.cpu,
+        label: [Oku],
+        label-side: left,
+        label-fill: white,
+        label-size: 6.4pt,
+        label-sep: 2pt,
+      ),
+
+      // İşlemci → Bellek (yazma)
+      edge(
+        (0, 0), (0, 1),
+        "-|>",
+        shift: 8pt,
+        stroke: 1.2pt + bnm-renk.cpu,
+        label: [Yaz],
+        label-side: left,
+        label-fill: white,
+        label-size: 6.4pt,
+        label-sep: 2pt,
+      ),
+    )
+  ],
+  caption: text(size: 8.5pt)[
+    Bilgisayarın temel çalışma mimarisi. Giriş biriminden gelen veriler önce belleğe (RAM) yazılır; işlemci (CPU) çalıştıracağı komutu ve işleyeceği veriyi bellekten okur, sonucu tekrar belleğe yazar. Bellekteki işlenmiş sonuçlar çıkış birimine gönderilir.
+  ],
+)
+
