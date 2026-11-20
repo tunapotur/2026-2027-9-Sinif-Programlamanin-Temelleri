@@ -204,7 +204,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
 ]
 
 ==== Bölme İşlemi
-*Kesirli Bölme İşlemi #oprt-goster()[`/`]*
+*Kesirli Bölme İşlemi (#oprt-goster()[` / `])*
 
 #align(center)[
 #iki_hucreli_satir(
@@ -305,7 +305,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
     ]
   ]
 
-* Bölme, Tam Bölme, Mod Alma(`/ // %`)*
+* Bölme, Tam Bölme, Mod Alma(#oprt-goster()[` / // % `])*
 #align(center)[
 #iki_hucreli_satir(
   columns: (auto, auto),
