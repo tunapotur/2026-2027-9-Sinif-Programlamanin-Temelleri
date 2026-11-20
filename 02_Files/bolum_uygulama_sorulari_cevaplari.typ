@@ -29,7 +29,7 @@ print(f"Merhaba {ad}, {yas} yaşındasın.")
 #not_block(title: "Sık hata:")[Kullanıcıdan alınan veri metin (`str`) olduğundan `int()` ile dönüştürülmezse `2026 - "2010"` işlemi `TypeError` hatası verir.]
 
 === Dikdörtgenin alanı ve çevresi
-#iki_hucreli_satir(columns: (auto, auto))[
+#iki_hucreli_satir(columns: (25.1em, auto))[
 #kod-blok(width: 100%)[
 ```python
 kisa_kenar = float(input("Kısa kenar (cm): "))
