@@ -25,3 +25,7 @@
     )
   ]
 }
+
+#let soru_bilgi(body) = text(size: 9pt, fill: luma(110))[
+  #body
+]

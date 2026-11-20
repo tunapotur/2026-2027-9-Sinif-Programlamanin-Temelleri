@@ -35,6 +35,11 @@
 #include "02_Files/bolum_sorulari_cevaplari.typ"
 
 #pagebreak()
+#include "02_Files/bolum_uygulama_sorular.typ"
+#pagebreak()
+#include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
+
+#pagebreak()
 #include "02_Files/infographic/infografikler.typ"
 // infografik dosyaları
 #include "02_Files/infographic/bilgisayarin_dili.typ"
