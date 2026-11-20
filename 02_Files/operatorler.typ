@@ -407,7 +407,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
 )
 
 #not_block(title: "Pratik öneri: ")[
-  Sıradan emin değilseniz *parantez kullanın*. Parantez hem hatayı önler hem de kodu okuyan kişiye niyetinizi gösterir.
+  Sıradan emin değilseniz *`()` parantez kullanın*. Parantez hem hatayı önler hem de kodu okuyan kişiye niyetinizi gösterir.
 ]
 
 #kod-cikti(baslik: [Not ortalaması ve sıcaklık dönüşümü#v(1.5em)], baslik-yeri: "sag")[

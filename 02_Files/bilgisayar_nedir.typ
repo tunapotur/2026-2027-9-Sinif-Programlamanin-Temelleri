@@ -3,6 +3,7 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
+#import "/lib/fonksiyon-aciklama.typ": *
 #import "@preview/fletcher:0.5.8": diagram, node, edge
 
 #show: conf
@@ -489,3 +490,181 @@ Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki ve
   ],
 )
 
+=== Makinenin Dilinden İnsanın Diline: "Hello world!"
+
+Bilgisayarın yalnızca 0 ve 1'lerden oluşan makine dilini anladığını gördük. Peki aynı `Hello world!` programı, makinenin dilinden insanın diline kadar nasıl farklı biçimlerde yazılır? Aşağıdaki dört örnek, aynı işi yapan programın dört farklı düzeydeki gösterimidir. Yukarıdan aşağıya doğru kod insan için okunaklılaşır; makineye yakınlık azalır.
+
+#not_block(title: "Bilgi: ")[
+  Makine dili örnekleri, 16 bitlik DOS ortamında çalışan bir *COM programına* aittir. Bu baytlar bir `.com` dosyasına yazıldığında program çalışır. Günümüz 64 bit işlemcilerinde komutlar ve adresler çok daha uzundur; buradaki amaç, aynı işin makine dilindeki görünümünü göstermektir.
+]
+
+==== Makine Dili (0 ve 1'lerle)
+
+Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 8 bitten oluşur; aşağıdaki her grup 8 bitlik bir bayttır. Satır sonundaki açıklamalar insan içindir, makine bu açıklamaları görmez.
+
+#kod-blok(width: 100%)[
+  ```text
+  ; 16 bit DOS COM programı (x86)
+  ; Sütunlar: makine kodu baytları  |  karşılığı olan işlem
+
+  10110100 00001001                  ; AH = 09h: metin yazdırma servisi
+  10111010 00001100 00000001         ; DX = 010Ch: metnin bellek adresi
+  11001101 00100001                  ; INT 21h: DOS servisini çağır
+  10111000 00000000 01001100         ; AX = 4C00h: programdan çık
+  11001101 00100001                  ; INT 21h: DOS servisini çağır
+
+  ; "Hello world!$" metni (ASCII kodları)
+  01001000 01100101 01101100 01101100 01101111 00100000
+  01110111 01101111 01110010 01101100 01100100 00100001 00100100
+  ```
+]
+
+==== Makine Dili (Hexadecimal Sayılarla)
+
+Aynı makine kodu, ikilik sistemdeki her 8 bitlik baytın iki hexadecimal (onaltılık) basamakla gösterilmesiyle de yazılabilir. Hexadecimal gösterim, 0 ve 1'lerden oluşan uzun dizileri kısaltır ve okumayı kolaylaştırır.
+
+#kod-blok(width: 100%)[
+  ```text
+  ; 16 bit DOS COM programı (x86) - aynı programın hexadecimal hâli
+  B4 09                 ; AH = 09h: metin yazdırma servisi
+  BA 0C 01              ; DX = 010Ch: metnin bellek adresi
+  CD 21                 ; INT 21h: DOS servisini çağır
+  B8 00 4C              ; AX = 4C00h: programdan çık
+  CD 21                 ; INT 21h
+
+  ; "Hello world!$" metni (ASCII kodları)
+  48 65 6C 6C 6F 20 77 6F 72 6C 64 21 24
+  ```
+]
+
+Metnin sonundaki `$` karakteri (ASCII 24h), DOS'a metnin bittiğini bildiren özel bir işarettir.
+
+==== Assembly Dili
+
+Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad verir. Böylece `B4 09` gibi anlaşılmaz baytlar yerine `mov ah, 09h` gibi okunabilir komutlar yazılır. Aşağıdaki örnek NASM sözdizimini kullanır.
+
+#kod-blok(width: 100%)[
+  ```text
+  ; NASM sözdizimi - 16 bit DOS COM programı
+  org 100h
+
+  mov ah, 09h          ; metin yazdırma servisi
+  mov dx, mesaj        ; metnin bellek adresi
+  int 21h              ; DOS servisini çağır
+
+  mov ax, 4C00h        ; programdan çık
+  int 21h
+
+  mesaj db "Hello world!$"
+  ```
+]
+
+==== Python Dili
+
+Python gibi yüksek seviyeli dillerde aynı iş, tek bir komutla yapılır. Python yorumlayıcısı bu satırı önce kendi anladığı ara biçime, ardından makine diline çevirir.
+
+#kod-blok(width: 100%)[
+  ```python
+  print("Hello world!")
+  ```
+]
+
+#output-box[Hello world!]
+
+Dört programın da ekran çıktısı aynıdır: *Hello world!* Görüldüğü gibi makine dilinde onlarca 0 ve 1'e karşılık gelen iş, Python'da tek bir `print()` satırına sığmaktadır. Derleyiciler ve yorumlayıcılar, insanın yazdığı bu kolay okunabilir kodu makinenin anlayacağı makine koduna çevirir.
+
+=== Tarihteki İlk Bilgisayar Programcısı
+
+1837'de Charles Babbage, "Analitik Makine" adını verdiği ve hesaplamalar yapabilen bir cihaz tasarladı. Ancak Babbage, tasarladığı Analitik Makine'yi dönemin teknolojisi yeterli olmadığı için hayata geçiremedi. Analitik Makine her ne kadar tamamlanamasa da zamanının birçok bilim insanını etkiledi.
+
+#figure(
+  align(center, image("/02_Files/images/charles-babbage.png", width: 42%)),
+  caption: [Charles Babbage (1791–1871)],
+)
+
+Ada Lovelace, sahip olduğu maddi imkânlar sayesinde Babbage'in en büyük destekçilerinden biriydi. Kendisi de matematikçi olan Ada, Analitik Makine üzerine yazdığı notlarda Bernoulli sayılarını hesaplamak için bir algoritma tanımladı. Bu nedenle Ada Lovelace, tarihteki ilk bilgisayar programcısı olarak kabul edilir.
+
+#figure(
+  align(center, image("/02_Files/images/ada-lovelace.png", width: 30%)),
+  caption: [Ada Lovelace (1815–1852)],
+)
+
+ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada Lovelace'ten almıştır. Ada Lovelace Günü ise her yıl ekim ayının ikinci salı günü kutlanan ve bilim, teknoloji, mühendislik ve matematik alanlarındaki kadınların görünürlüğünü artırmayı amaçlayan bir etkinliktir.
+
+=== Değişken Kullanılarak Çözülen Matematik Problemi
+
+*Problem:* $946877 times 946875 - 946876 times 946875 = ?$
+
+*Çözüm:* Sayıları tek tek çarpmak veya 946875 sayısına göre ortak çarpan parantezine almak, sürekli altı haneli sayılarla işlem yapmayı gerektirir. Bu durum hem hata olasılığını artırır hem de çözümü uzatır. Bunun yerine 946875 sayısını bir değişkenle gösterelim.
+
+$x = 946875$ dersek $946877 = x + 2$ ve $946876 = x + 1$ olur. İfadeyi yeniden yazalım:
+
+#align(center)[
+  $ (x + 2) times x - (x + 1) times x
+    = x times [(x + 2) - (x + 1)] \
+    = x times (x + 2 - x - 1) \
+    = x times 1 \
+    = x $
+]
+
+#not_block(title: "Sonuç: ")[
+  $x = 946875$ olduğuna göre işlemin sonucu *946875*'tir.
+]
+
+=== Matematik İşleminin Sonucunu Değişkene Atama (Önce İşlem, Sonra Atama)
+
+Programlamada `=` işareti, matematikteki "eşittir" anlamından farklı olarak *atama* anlamında kullanılır. Eşittir operatörünün sağındaki ifade önce hesaplanır; elde edilen sonuç, sol taraftaki değişkene atanır. Yani önce işlem yapılır, sonra sonuç değişkene atanır.
+
+#let atama-sema(..args) = align(center)[
+  #block(
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: auto,
+  )[#fonksiyon-aciklama(..args)]
+]
+
+==== Örnek 1: x = 3 + 5 \* 2
+
+`x = 3 + 5 * 2` örneğinde önce çarpma işlemi yapılır: `5 * 2 = 10`. Ardından toplama yapılır: `3 + 10 = 13`. Son olarak `13` değeri `x` değişkenine atanır.
+
+#kod-blok(width: 100%)[
+  ```python
+  x = 3 + 5 * 2
+  ```
+]
+
+#atama-sema(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt)
+
+==== Örnek 2: ozkutle = kutle / hacim
+
+#kod-blok(width: 100%)[
+  ```python
+  kutle = 100
+  hacim = 25
+  ozkutle = kutle / hacim
+  ```
+]
+
+`kutle = 100` ve `hacim = 25` satırlarında değişkenlere değerler atanır. `ozkutle = kutle / hacim` satırında ise önce `kutle / hacim` işlemi yapılır. Python'da `/` operatörü ondalıklı bölme yaptığı için sonuç `4.0` olur. Ardından bu sonuç `ozkutle` (özkütle) değişkenine atanır.
+
+#atama-sema(degisken: "ozkutle", ifade: "kutle / hacim", deger: "4.0", boyut: 12pt)
+
+==== Örnek 3: x = x \* 2 + 3
+
+#kod-blok(width: 100%)[
+  ```python
+  x = 5
+  x = x * 2 + 3
+  ```
+]
+
+`x = 5` satırıyla `x` değişkenine `5` değeri atanır. `x = x * 2 + 3` satırı ise bir denklem değil, bir atama komutudur. Eşittir operatörünün sağındaki ifade önce hesaplanır; buradaki `x`, değişkenin o anki değeri olan `5`'tir. `5 * 2 + 3 = 13` olduğundan yeni değer `13` olur ve bu değer yine `x` değişkenine atanır.
+
+#atama-sema(degisken: "x", ifade: "x * 2 + 3", deger: "13", boyut: 12pt)
+
+#not_block(title: "Önemli: ")[
+  Programlamada `=` atama, `==` ise karşılaştırma operatörüdür. Bu nedenle `x = x * 2 + 3` satırı matematikteki bir denklem gibi çözülmez; "x'in yeni değerini hesapla ve x'e ata" anlamına gelir.
+]
+
+  
