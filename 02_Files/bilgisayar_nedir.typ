@@ -321,7 +321,7 @@ Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki ve
 
 #let bnm-renk = (
   giris: rgb("#16a34a"),
-  bellek: rgb("#0d9488"),
+  bellek: rgb("#d97706"),
   cpu: rgb("#2563eb"),
   cikis: rgb("#9333ea"),
   lacivert: rgb("#16325c"),
@@ -337,14 +337,17 @@ Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki ve
   align(center + horizon, text(size: boyut, weight: "bold", fill: renk.darken(28%), metin)),
 )
 
-#figure(
-  block(
+#block(
+  width: 100%,
+  fill: rgb("#f8fafc"),
+  stroke: 1pt + rgb("#cbd5e1"),
+  radius: 8pt,
+  clip: true,
+  breakable: false,
+)[
+  #block(
     width: 100%,
-    fill: rgb("#f8fafc"),
-    stroke: 1pt + rgb("#cbd5e1"),
-    radius: 8pt,
-    inset: (x: 6pt, y: 12pt),
-    breakable: false,
+    inset: (x: 6pt, top: 12pt, bottom: 0pt),
   )[
     #align(center, text(size: 10pt, weight: "bold", fill: bnm-renk.lacivert)[Bilgisayarın Temel Çalışma Mimarisi])
     #v(12pt)
@@ -394,14 +397,14 @@ Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki ve
       node(
         (0, 1),
         width: 154pt,
-        fill: rgb("#f0fdfa"),
+        fill: rgb("#fffbeb"),
         stroke: 1.5pt + bnm-renk.bellek,
         corner-radius: 6pt,
         inset: 7pt,
       )[#align(center)[
         #text(size: 9.5pt, weight: "bold", fill: bnm-renk.bellek.darken(30%))[BELLEK BİRİMİ (RAM)]
         #v(1pt)
-        #text(size: 6.6pt, weight: "bold", fill: rgb("#115e59"))[Komutlar • Veriler • Ara Sonuçlar]
+        #text(size: 6.6pt, weight: "bold", fill: rgb("#92400e"))[Komutlar • Veriler • Ara Sonuçlar]
         #v(1.5pt)
         #text(size: 6.2pt, fill: rgb("#334155"))[Girişten gelen veriler ve çalıştırılacak komutlar burada geçici olarak saklanır.]
         #v(4pt)
@@ -484,11 +487,19 @@ Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki ve
         label-sep: 2pt,
       ),
     )
-  ],
-  caption: text(size: 8.5pt)[
-    Bilgisayarın temel çalışma mimarisi. Giriş biriminden gelen veriler önce belleğe (RAM) yazılır; işlemci (CPU) çalıştıracağı komutu ve işleyeceği veriyi bellekten okur, sonucu tekrar belleğe yazar. Bellekteki işlenmiş sonuçlar çıkış birimine gönderilir.
-  ],
-)
+  ]
+
+  #block(
+    width: 100%,
+    fill: gradient.linear(rgb("#16325c"), rgb("#0f766e"), angle: 0deg),
+    inset: (x: 12pt, y: 8pt),
+  )[
+    #set par(spacing: 0pt, leading: 0.65em)
+    #text(size: 7.4pt, fill: white)[
+      Giriş biriminden gelen veriler önce *belleğe (RAM)* yazılır; *işlemci (CPU)* çalıştıracağı komutu ve işleyeceği veriyi bellekten okur, sonucu tekrar belleğe yazar. Bellekteki işlenmiş sonuçlar *çıkış birimine* gönderilir.
+    ]
+  ]
+]
 
 === Makinenin Dilinden İnsanın Diline: "Hello world!"
 
