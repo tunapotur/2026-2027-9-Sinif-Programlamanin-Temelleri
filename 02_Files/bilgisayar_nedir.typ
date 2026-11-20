@@ -13,15 +13,12 @@
 
 Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlemleri gerçekleştirilir. Kullanıcı tarafından girilen işlenmemiş ham veriler bilgisayar tarafından *"girdi"* olarak algılanır ve bu girdiler programlar tarafından işlenir. İşlem sonucunda elde edilen ve kullanıcıya geri dönen anlamlı değer ise işlenmiş veridir; bu veri de *"çıktı"* olarak adlandırılır.
 
-#v(0.4em)
-
+=== Bilgisayarın Temel Çalışma Mimarisi
 // =====================================
 // BİLGİSAYARIN ÇALIŞMA MİMARİSİ ÇİZİMİ 
 // =====================================
+#include "bilgisayarin_temel_calisma_mimarisi.typ"
 
-#v(0.5em)
-
-=== Bilgisayarın Temel Çalışma Mimarisi
 
 Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan mimarisini özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
 
@@ -34,7 +31,7 @@ Dört temel birim arasındaki görev paylaşımı şöyledir:
 
 Birimler arasındaki bu alışveriş, şemadaki *VERİ YOLU (BUS)* üzerinden gerçekleşir. Veri yolu, birimler arasında veri ve komut taşıyan ortak bir otoyol gibidir. Aynı anda yalnızca sınırlı miktarda veri taşıyabildiği için bilgisayarın hızını belirleyen önemli etkenlerden biridir.
 
-==== Adım Adım Veri Akışı: "5 + 3" İşlemi
+=== Adım Adım Veri Akışı: "5 + 3" İşlemi
 
 Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda nasıl gerçekleştiğini izleyelim. Aşağıdaki tablo, şemadaki okları adım adım takip eder:
 
@@ -54,28 +51,22 @@ Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda
   [`6`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
 )
 
-=== Bilgisayar Veriyi Nasıl Saklar?
+== Bilgisayar Veriyi Nasıl Saklar?
 Bilgisayar verileri bellekte saklar. Her bir veri için bellekte belirli bir alan ayrılır ve bu alan her seferinde tek bir değer saklayabilir. Kullanıcı var olan değer yerine yeni bir değer atadığında eski değer silinir. Programın çalışması bittiğinde ya da bilgisayar kapatıldığında bu geçici veriler silinir.
 
 Verilerin daha sonra tekrar kullanılabilmesi gerekiyorsa sabit diske kaydedilmesi gerekir. Bu şekilde kalıcı olarak kaydedilen verilere *"dosya"* adı verilir. Temel anlamda program dosyaları ve veri dosyaları olmak üzere iki dosya türü vardır:
 - *Program Dosyaları:* Bilgisayarın yapması istenen komutları ve işlem adımlarını içerir.
 - *Veri Dosyaları:* Programlar çalışırken kullanılan ve işlenen verileri kapsar.
 
-#v(0.6em)
+== Makinenin Dilinden İnsanın Diline: "Hello world!"
 
-Son olarak, bilgisayarın temel çalışma mimarisini ve birimler arasındaki veri akışını bir şema üzerinde toparlayalım:
-
-#include "bilgisayarin_temel_calisma_mimarisi.typ"
-
-=== Makinenin Dilinden İnsanın Diline: "Hello world!"
-
-Bilgisayarın yalnızca 0 ve 1'lerden oluşan makine dilini anladığını gördük. Peki aynı `Hello world!` programı, makinenin dilinden insanın diline kadar nasıl farklı biçimlerde yazılır? Aşağıdaki dört örnek, aynı işi yapan programın dört farklı düzeydeki gösterimidir. Yukarıdan aşağıya doğru kod insan için okunaklılaşır; makineye yakınlık azalır.
+Aşağıdaki beş örnek, aynı işi yapan programın beş farklı düzeydeki gösterimidir. Yukarıdan aşağıya doğru kod insan için daha anlaşılır hale gelir.
 
 #not_block(title: "Bilgi: ")[
   Makine dili örnekleri, 16 bitlik DOS ortamında çalışan bir *COM programına* aittir. Bu baytlar bir `.com` dosyasına yazıldığında program çalışır. Günümüz 64 bit işlemcilerinde komutlar ve adresler çok daha uzundur; buradaki amaç, aynı işin makine dilindeki görünümünü göstermektir.
 ]
 
-==== Makine Dili (0 ve 1'lerle)
+=== Makine Dili (0 ve 1'lerle)
 
 Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 8 bitten oluşur; aşağıdaki her grup 8 bitlik bir bayttır. Satır sonundaki açıklamalar insan içindir, makine bu açıklamaları görmez.
 
@@ -96,9 +87,11 @@ Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 
   ```
 ]
 
-==== Makine Dili (Hexadecimal Sayılarla)
+=== Makine Dili (Hexadecimal Sayılarla)
 
 Aynı makine kodu, ikilik sistemdeki her 8 bitlik baytın iki hexadecimal (onaltılık) basamakla gösterilmesiyle de yazılabilir. Hexadecimal gösterim, 0 ve 1'lerden oluşan uzun dizileri kısaltır ve okumayı kolaylaştırır.
+
+Metnin sonundaki `$` karakteri (ASCII 24h), DOS'a metnin bittiğini bildiren özel bir işarettir.
 
 #kod-blok(width: 100%)[
   ```text
@@ -114,11 +107,10 @@ Aynı makine kodu, ikilik sistemdeki her 8 bitlik baytın iki hexadecimal (onalt
   ```
 ]
 
-Metnin sonundaki `$` karakteri (ASCII 24h), DOS'a metnin bittiğini bildiren özel bir işarettir.
 
-==== Assembly Dili
+=== Assembly Dili
 
-Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad verir. Böylece `B4 09` gibi anlaşılmaz baytlar yerine `mov ah, 09h` gibi okunabilir komutlar yazılır. Aşağıdaki örnek NASM sözdizimini kullanır.
+Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad verir. Böylece `B4 09` gibi anlaşılmaz baytlar yerine `mov ah, 09h` gibi okunabilir komutlar yazılır.
 
 #kod-blok(width: 100%)[
   ```text
@@ -136,7 +128,22 @@ Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad ver
   ```
 ]
 
-==== Python Dili
+=== C Dili
+*C* dili, Assembly diline göre kodlama yapan kişilere çok büyük kullanım kolaylığı getirmiştir. *C* dilinde yazılan kod bir derleyici tarafından makine koduna çevrilir ve bilgisayar bu makine kodunu doğrudan çalıştırır.
+
+#kod-blok(width: 100%)[
+  ```c
+  #include <stdio.h>
+
+  int main(void) {
+      printf("Hello world!\n");
+      return 0;
+  }
+  ```
+]
+
+
+=== Python Dili
 
 Python gibi yüksek seviyeli dillerde aynı iş, tek bir komutla yapılır. Python yorumlayıcısı bu satırı önce kendi anladığı ara biçime, ardından makine diline çevirir.
 
@@ -148,7 +155,6 @@ Python gibi yüksek seviyeli dillerde aynı iş, tek bir komutla yapılır. Pyth
 
 #output-box[Hello world!]
 
-Dört programın da ekran çıktısı aynıdır: *Hello world!* Görüldüğü gibi makine dilinde onlarca 0 ve 1'e karşılık gelen iş, Python'da tek bir `print()` satırına sığmaktadır. Derleyiciler ve yorumlayıcılar, insanın yazdığı bu kolay okunabilir kodu makinenin anlayacağı makine koduna çevirir.
 
 === Tarihteki İlk Bilgisayar Programcısı
 
