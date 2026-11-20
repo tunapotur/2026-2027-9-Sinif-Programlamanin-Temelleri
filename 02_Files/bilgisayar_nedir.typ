@@ -667,4 +667,284 @@ Programlamada `=` işareti, matematikteki "eşittir" anlamından farklı olarak 
   Programlamada `=` atama, `==` ise karşılaştırma operatörüdür. Bu nedenle `x = x * 2 + 3` satırı matematikteki bir denklem gibi çözülmez; "x'in yeni değerini hesapla ve x'e ata" anlamına gelir.
 ]
 
-  
+=== Mod Alma (%) ve Tam Bölme (`//`) Operatörleri
+
+Python'da bölme işlemi yapılırken üç farklı operatör kullanılabilir. Bunların anlamlarını, 13 sayısının 3'e bölünmesi üzerinden inceleyelim.
+
+#figure(
+  grid(
+    columns: (1fr, 1fr),
+    gutter: 12pt,
+    align: horizon,
+    [
+      #align(center)[
+        #block(width: 210pt, height: 145pt, inset: 0pt)[
+          #place(top + left, dx: 25pt, dy: 0pt, text(size: 8pt, fill: rgb("#334155"))[Bölünen])
+          #place(top + left, dx: 145pt, dy: 0pt, text(size: 8pt, fill: rgb("#334155"))[Bölen])
+          #place(top + left, dx: 30pt, dy: 14pt, text(size: 28pt, weight: "bold", fill: rgb("#1d4ed8"))[13])
+          #place(top + left, dx: 150pt, dy: 14pt, text(size: 28pt, weight: "bold", fill: rgb("#dc2626"))[3])
+          #place(top + left, dx: 115pt, dy: 6pt, line(length: 64pt, angle: 90deg, stroke: 1.2pt + rgb("#0f172a")))
+          #place(top + left, dx: 115pt, dy: 70pt, line(length: 85pt, angle: 0deg, stroke: 1.2pt + rgb("#0f172a")))
+          #place(top + left, dx: 150pt, dy: 72pt, text(size: 28pt, weight: "bold", fill: rgb("#7e22ce"))[4])
+          #place(top + left, dx: 30pt, dy: 48pt, text(size: 28pt, weight: "bold", fill: rgb("#4d7c0f"))[12])
+          #place(top + left, dx: 15pt, dy: 88pt, line(length: 92pt, angle: 0deg, stroke: 1.2pt + rgb("#0f172a")))
+          #place(top + left, dx: 30pt, dy: 92pt, text(size: 28pt, weight: "bold", fill: rgb("#d97706"))[1])
+          #place(top + left, dx: 140pt, dy: 108pt, text(size: 8pt, fill: rgb("#334155"))[Bölüm])
+          #place(top + left, dx: 25pt, dy: 128pt, text(size: 8pt, fill: rgb("#334155"))[Kalan])
+        ]
+      ]
+    ],
+    [
+      #align(center)[
+        #block(width: 210pt, height: 145pt, inset: 0pt)[
+          #place(top + left, dx: 25pt, dy: 0pt, text(size: 8pt, fill: rgb("#334155"))[Bölünen])
+          #place(top + left, dx: 35pt, dy: 14pt, text(size: 30pt, weight: "bold", fill: rgb("#1d4ed8"))[13])
+          #place(top + left, dx: 20pt, dy: 52pt, line(length: 85pt, angle: 0deg, stroke: 1.5pt + rgb("#0f172a")))
+          #place(top + left, dx: 48pt, dy: 58pt, text(size: 30pt, weight: "bold", fill: rgb("#dc2626"))[3])
+          #place(top + left, dx: 30pt, dy: 98pt, text(size: 8pt, fill: rgb("#334155"))[Bölen])
+          #place(top + left, dx: 115pt, dy: 37pt, text(size: 30pt, weight: "bold")[=])
+          #place(top + left, dx: 145pt, dy: 0pt, text(size: 8pt, fill: rgb("#334155"))[Sonuç])
+          #place(top + left, dx: 135pt, dy: 28pt, line(length: 72pt, angle: 0deg, stroke: 2pt + rgb("#7e22ce")))
+          #place(top + left, dx: 135pt, dy: 32pt, text(size: 18pt, weight: "bold", fill: rgb("#7e22ce"))[4.333333])
+        ]
+      ]
+    ],
+  ),
+  caption: [13 sayısının 3'e bölümü: solda tam bölme ve kalan, sağda ondalıklı bölme],
+)
+
+Uzun bölmede *13* bölünen, *3* bölen, *4* bölüm ve *1* kalandır. Buna göre:
+
+$ "bölünen" = "bölen" times "bölüm" + "kalan" $
+
+$ 13 = 3 times 4 + 1 $
+
+Python'da bu üç sonuç farklı operatörlerle elde edilir:
+
+#table(
+  columns: (auto, 1fr, auto, auto),
+  align: (center, left, center, center),
+  stroke: 0.5pt + rgb("#cbd5e1"),
+  inset: 5pt,
+  [*Operatör*], [*Anlamı*], [*Örnek*], [*Sonuç*],
+  [`/`], [Ondalıklı bölme], [`13 / 3`], [`4.333333`],
+  [`//`], [Tam bölme (bölüm)], [`13 // 3`], [`4`],
+  [`%`], [Mod alma (kalan)], [`13 % 3`], [`1`],
+)
+
+- `/` operatörü ondalıklı bölme yapar; `13 / 3` işleminin sonucu `4.333333...` olur.
+- `//` operatörü tam bölme yapar ve bölümü verir; `13 // 3` işleminin sonucu `4` olur.
+- `%` operatörü mod alır ve bölümden kalanı verir; `13 % 3` işleminin sonucu `1` olur.
+
+#kod-blok(width: 100%)[
+  ```python
+  bolunen = 13
+  bolen = 3
+
+  print(bolunen / bolen)   # 4.333333333333333
+  print(bolunen // bolen)  # 4
+  print(bolunen % bolen)   # 1
+  ```
+]
+
+#not_block(title: "Not: ")[
+  `//` operatörü, pozitif sayılarda bölümün tam kısmını verir. `%` operatörünün sonucu ise pozitif sayılarda her zaman bölenden küçüktür. Örneğin `13 % 3 = 1` ve `1 < 3` olur.
+]
+
+=== Bölme İşleminin Şematik Gösterimi
+
+Aşağıdaki şema, 17 sayısının 5'e ondalıklı bölümünü özetler.
+
+#figure(
+  block(
+    width: 100%,
+    fill: rgb("#f8fafc"),
+    stroke: 1pt + rgb("#cbd5e1"),
+    radius: 8pt,
+    inset: (x: 10pt, y: 20pt),
+  )[
+    #align(center)[
+      #grid(
+        columns: (auto, 70pt, auto, auto),
+        rows: (auto, auto, auto),
+        column-gutter: 6pt,
+        align: (right + horizon, center + horizon, center + horizon, center + horizon),
+        grid.cell(x: 0, y: 0, text(size: 12pt, weight: "bold", fill: rgb("#475569"))[Bölünen →]),
+        grid.cell(x: 1, y: 0, text(size: 24pt)[$17$]),
+        grid.cell(x: 1, y: 1, line(length: 70pt, stroke: 1.5pt + rgb("#0f172a"))),
+        grid.cell(x: 2, y: 1, text(size: 24pt)[$=$]),
+        grid.cell(x: 3, y: 1, text(size: 24pt)[$3.4$]),
+        grid.cell(x: 0, y: 2, text(size: 12pt, weight: "bold", fill: rgb("#475569"))[Bölen →]),
+        grid.cell(x: 1, y: 2, text(size: 24pt)[$5$]),
+        grid.cell(x: 3, y: 2, block(pad(top: 10pt, text(size: 12pt, weight: "bold", fill: rgb("#475569"))[Sonuç]))),
+      )
+    ]
+  ],
+  caption: [17'nin 5'e ondalıklı bölümü],
+)
+
+=== Bölme İşleminin Elemanları (Bölünen, Bölen, Bölüm ve Kalan)
+
+Bir bölme işleminde yer alan dört temel terim (*Bölünen*, *Bölen*, *Bölüm* ve *Kalan*) ile matematiksel sağlaması ($17 = 5 times 3 + 2$) aşağıdaki klasik bölme algoritması şemasında gösterilmiştir:
+
+#figure(
+  block(
+    width: 100%,
+    stroke: 1pt + rgb("#cbd5e1"),
+    radius: 8pt,
+    fill: rgb("#ffffff"),
+    clip: true,
+    breakable: false,
+  )[
+    // 1) Üst Başlık Bandı
+    #block(
+      width: 100%,
+      fill: rgb("#16325c"),
+      inset: (x: 14pt, y: 10pt),
+    )[
+      #align(center)[
+        #text(weight: "bold", size: 11pt, fill: white)[Bölme İşleminin Temel Elemanları]
+      ]
+    ]
+
+    #pad(x: 20pt, top: 18pt, bottom: 16pt)[
+      #align(center)[
+        #text(size: 9.5pt, weight: "bold", fill: rgb("#475569"))[Klasik Bölme Algoritması Şeması (17 ÷ 5)]
+        #v(16pt)
+
+        // Bölme Şeması Tablosu
+        #box[
+          #table(
+            columns: (auto, auto),
+            stroke: (x, y) => if x == 1 and y == 0 {
+              (left: 2.2pt + rgb("#334155"), bottom: 2.2pt + rgb("#334155"))
+            } else if x == 1 and y == 1 {
+              (left: 2.2pt + rgb("#334155"))
+            } else {
+              none
+            },
+            inset: (x, y) => if x == 0 and y == 0 {
+              (right: 8pt, bottom: 10pt, left: 14pt, top: 6pt)
+            } else if x == 1 and y == 0 {
+              (left: 8pt, bottom: 10pt, right: 14pt, top: 6pt)
+            } else if x == 0 and y == 1 {
+              (right: 8pt, top: 10pt, left: 14pt, bottom: 8pt)
+            } else {
+              (left: 8pt, top: 10pt, right: 14pt, bottom: 8pt)
+            },
+            align: (x, y) => if x == 0 { right + top } else { left + top },
+
+            // --- SOL ÜST: Bölünen solda, 17 dikey çizgiye bitişik ---
+            [
+              #grid(
+                columns: (auto, auto),
+                gutter: 14pt,
+                align: horizon,
+                text(size: 14pt, weight: "bold", fill: rgb("#1d4ed8"))[Bölünen],
+                text(size: 26pt, weight: "bold", fill: rgb("#1d4ed8"))[17],
+              )
+            ],
+
+            // --- SAĞ ÜST: 5 dikey çizgiye bitişik, Bölen sağda ---
+            [
+              #grid(
+                columns: (auto, auto),
+                gutter: 14pt,
+                align: horizon,
+                text(size: 26pt, weight: "bold", fill: rgb("#dc2626"))[5],
+                text(size: 14pt, weight: "bold", fill: rgb("#dc2626"))[Bölen],
+              )
+            ],
+
+            // --- SOL ALT: - 15 ve 2 dikey çizgiye bitişik, Kalan solda ---
+            [
+              #align(right)[
+                #grid(
+                  columns: (auto, auto),
+                  gutter: 4pt,
+                  align: horizon,
+                  text(size: 18pt, weight: "bold", fill: rgb("#64748b"))[−],
+                  text(size: 26pt, weight: "bold", fill: rgb("#64748b"))[15],
+                )
+                #v(-3pt)
+                #line(length: 46pt, stroke: 1.5pt + rgb("#64748b"))
+                #v(4pt)
+                #grid(
+                  columns: (auto, auto),
+                  gutter: 14pt,
+                  align: horizon,
+                  text(size: 14pt, weight: "bold", fill: rgb("#d97706"))[Kalan],
+                  text(size: 26pt, weight: "bold", fill: rgb("#d97706"))[2],
+                )
+              ]
+            ],
+
+            // --- SAĞ ALT: 3 dikey çizgiye bitişik, Bölüm sağda ---
+            [
+              #grid(
+                columns: (auto, auto),
+                gutter: 14pt,
+                align: horizon,
+                text(size: 26pt, weight: "bold", fill: rgb("#7e22ce"))[3],
+                text(size: 14pt, weight: "bold", fill: rgb("#7e22ce"))[Bölüm],
+              )
+            ],
+          )
+        ]
+      ]
+
+      #v(18pt)
+
+      // Alt Bilgi Bandı: Matematiksel Denklem ve Altın Kural (17 ve 5 ile)
+      #block(
+        width: 100%,
+        fill: rgb("#f1f5f9"),
+        stroke: 1pt + rgb("#cbd5e1"),
+        radius: 6pt,
+        inset: (x: 12pt, y: 10pt),
+      )[
+        #grid(
+          columns: (1.2fr, 1fr),
+          gutter: 14pt,
+          align: horizon,
+          [
+            #align(center)[
+              #text(size: 8.5pt, weight: "bold", fill: rgb("#475569"))[Bölme İşleminin Matematiksel Sağlaması:]
+              #v(3pt)
+              #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[
+                $ "Bölünen" = ("Bölen" times "Bölüm") + "Kalan" $
+              ]
+              #v(2pt)
+              #text(size: 10.5pt, fill: rgb("#1d4ed8"), weight: "bold")[
+                $ 17 = (5 times 3) + 2 $
+              ]
+            ]
+          ],
+          [
+            #block(
+              fill: white,
+              stroke: 1pt + rgb("#e2e8f0"),
+              radius: 5pt,
+              inset: (x: 10pt, y: 8pt),
+            )[
+              #text(size: 8pt, weight: "bold", fill: rgb("#0f172a"))[💡 Unutmayınız (Altın Kural):]
+              #v(2pt)
+              #text(size: 7.5pt, fill: rgb("#334155"))[
+                Bir bölme işleminde *kalan* daima sıfır veya sıfırdan büyük, ancak *bölenden kesinlikle küçük* olmak zorundadır:
+              ]
+              #v(3pt)
+              #align(center)[
+                #text(size: 9.5pt, weight: "bold", fill: rgb("#d97706"))[
+                  $ 0 <= "Kalan" < "Bölen" quad (0 <= 2 < 5) $
+                ]
+              ]
+            ]
+          ]
+        )
+      ]
+    ]
+  ],
+  caption: [Bölme işleminin temel elemanları (Bölünen, Bölen, Bölüm, Kalan)],
+)
+
+#include "bolme-islemi.typ"
