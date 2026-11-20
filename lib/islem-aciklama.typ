@@ -1,14 +1,14 @@
-// Fonksiyon çağrısı açıklama şeması
-// Kullanım: #fonksiyon-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14")
+// İşlem açıklama şeması
+// Kullanım: #islem-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14")
 //
 // İç içe çağrılar için isteğe bağlı parametreler (varsayılanlar eski davranışı korur):
 //   on:  okun hedefinden (degisken) ÖNCE gelen sabit metin   (varsayılan: "")
 //   ara: degisken ile ifade arasındaki metin                 (varsayılan: " = ")
 //   son: ifadeden SONRA gelen sabit metin                    (varsayılan: "")
 // Örnek: puan = int(input("Puan Giriniz: "))  →  ok "input(...)" altından "int" üzerine gider
-//   #fonksiyon-aciklama(on: "puan = ", degisken: "int", ara: "(", ifade: "input(\"Puan Giriniz: \")", son: ")", deger: "\"50\"")
+//   #islem-aciklama(on: "puan = ", degisken: "int", ara: "(", ifade: "input(\"Puan Giriniz: \")", son: ")", deger: "\"50\"")
 
-#let fonksiyon-aciklama(
+#let islem-aciklama(
   degisken: "sonuc",
   ifade: "round(3.14159, 2)",
   deger: "3.14",
@@ -89,4 +89,4 @@
 
 #set page(width: auto, height: auto, margin: 12pt)
 
-#fonksiyon-aciklama()
+#islem-aciklama()

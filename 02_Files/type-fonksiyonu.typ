@@ -1,5 +1,5 @@
 #import "/pageGeneralConfig.typ": *
-#import "../lib/fonksiyon-aciklama.typ": fonksiyon-aciklama
+#import "/lib/islem-aciklama.typ": islem-aciklama
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
@@ -20,7 +20,7 @@ Python'da her değerin bir türü vardır; *`type()`* fonksiyonu bu türü bize 
     stroke: 1pt + rgb("#d0d7de"),
     width: auto
     )[
-  #fonksiyon-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 20pt)
+  #islem-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 20pt)
 ]]
 ][
 #kod-cikti(baslik: [Temel kullanım])[
@@ -110,7 +110,7 @@ Veri veya değişken türünü görmek için `type()` fonksiyonu kullanılır. K
     stroke: 1pt + rgb("#d0d7de"),
     width: auto
     )[
-  #fonksiyon-aciklama(degisken: "tamsayi", ifade: "isinstance(3, int)", deger: "True", boyut: 16pt)
+  #islem-aciklama(degisken: "tamsayi", ifade: "isinstance(3, int)", deger: "True", boyut: 16pt)
 ]]
 
 #kod-cikti(baslik:[`isinstance()` Fonksiyonun Kullanımı],baslik-yeri: "sag")[

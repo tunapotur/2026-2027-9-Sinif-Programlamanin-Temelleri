@@ -1,5 +1,5 @@
 #import "/pageGeneralConfig.typ": *
-#import "../lib/fonksiyon-aciklama.typ": *
+#import "/lib/islem-aciklama.typ": *
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
@@ -89,7 +89,7 @@ round(7.21013, 2) #7.21
     stroke: 1pt + rgb("#d0d7de"),
     width: auto
     )[
-#fonksiyon-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14", boyut: 12pt)
+#islem-aciklama(degisken: "sonuc", ifade: "round(3.14159, 2)", deger: "3.14", boyut: 12pt)
   ]
 
   ],

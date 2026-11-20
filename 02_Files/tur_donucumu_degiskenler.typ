@@ -1,6 +1,6 @@
 #import "/pageGeneralConfig.typ": *
 #import "/lib/qr_code.typ": *
-#import "../lib/fonksiyon-aciklama.typ": *
+#import "/lib/islem-aciklama.typ": *
 #import "/lib/not-block.typ": *
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/yardimcilar.typ": *
@@ -63,7 +63,7 @@ Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonr
           stroke: 1pt + rgb("#d0d7de"),
           width: auto
         )[
-          #fonksiyon-aciklama(
+          #islem-aciklama(
             on: "puan = ",
             degisken: "int",
             ara: "(",
@@ -86,7 +86,7 @@ Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonr
           stroke: 1pt + rgb("#d0d7de"),
           width: auto
         )[
-          #fonksiyon-aciklama(
+          #islem-aciklama(
             degisken: "puan",
             ifade: "int(\"50\")",
             deger: "50",

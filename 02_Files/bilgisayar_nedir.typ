@@ -3,7 +3,7 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
-#import "/lib/fonksiyon-aciklama.typ": *
+#import "/lib/islem-aciklama.typ": *
 #import "@preview/fletcher:0.5.8": diagram, node, edge
 
 #show: conf
@@ -621,7 +621,7 @@ Programlamada `=` işareti, matematikteki "eşittir" anlamından farklı olarak 
     radius: 4pt,
     stroke: 1pt + rgb("#d0d7de"),
     width: auto,
-  )[#fonksiyon-aciklama(..args)]
+  )[#islem-aciklama(..args)]
 ]
 
 ==== Örnek 1: x = 3 + 5 \* 2
