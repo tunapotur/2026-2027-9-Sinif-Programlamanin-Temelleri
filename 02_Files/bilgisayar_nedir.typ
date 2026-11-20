@@ -1105,6 +1105,11 @@ c Kenarının Uzunluğu(Hipotenüs):  5.0
         ))
         #place(top + left, dx: 30pt, dy: 98pt, line(length: 12pt, angle: 0deg, stroke: 1.2pt + rgb("#0f172a")))
         #place(top + left, dx: 42pt, dy: 98pt, line(length: 12pt, angle: 90deg, stroke: 1.2pt + rgb("#0f172a")))
+        #place(top + left, dx: 30pt, dy: 98pt, box(
+          width: 12pt,
+          height: 12pt,
+          align(center + horizon, circle(radius: 1.2pt, fill: rgb("#0f172a"))),
+        ))
         #place(top + left, dx: 5pt, dy: 55pt, text(size: 16pt, weight: "bold", fill: rgb("#1d4ed8"))[a])
         #place(top + left, dx: 80pt, dy: 112pt, text(size: 16pt, weight: "bold", fill: rgb("#1d4ed8"))[b])
         #place(top + left, dx: 100pt, dy: 55pt, text(size: 16pt, weight: "bold", fill: rgb("#dc2626"))[c])
