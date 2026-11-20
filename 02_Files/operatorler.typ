@@ -4,10 +4,9 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
+#import "/lib/islem-aciklama.typ": *
 
 // #show: conf
-
-#let spacing-size= 7pt
 
 == Operatörler ve İşlem Önceliği
 *Operatör*, bir veya birden fazla değer üzerinde *matematiksel hesaplama* yapan, değerleri *karşılaştıran* veya *mantıksal işlemler* yürüterek yeni bir sonuç üreten özel *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
@@ -203,28 +202,11 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
   ```
 ]
 
-#block()[
-#set block(spacing: spacing-size)
-
-    #not_block()[Tam bölünen sayılarda bile sonuç `float` türüne dönüşür]
-    #kod-blok(width: 100%)[
-  ```python
-  print(10 / 4)           # 2.5
-  print(10 / 5)           # 2.0   (2 değil!)
-  ```
-]
 
 
-#not_block(title:"Tam Bölme (`//`) ve Mod (`%`):")[Bir bölme işlemini ilkokuldaki gibi düşünün: \ *bölünen = bölen × bölüm + kalan*. `//` operatörü bölümü, `%` operatörü kalanı verir.]
+* Bölme, Tam Bölme, Mod Alma(`\ \\ %`)*
 
-#kod-blok(width: 100%)[
-  ```python
-  print(17 // 5)   # 3   (17 içinde 3 tane 5 var)
-  print(17 % 5)    # 2   (3 × 5 = 15, geriye 2 kalır)
-  ```
-]
-
-]
+#include "bolme-islemi.typ"
 
 #icerik-tablo(
   tablo_baslik: "Tam Bölme ve Mod Örnekleri",
@@ -263,8 +245,8 @@ print(saat, "saat", dakika, "dakika")
 ]
 
 *Üs Alma (`**`)*
-#block()[
-#set block(spacing: spacing-size)
+
+
 
 #kod-blok(width: 100%)[
   ```python
@@ -272,7 +254,7 @@ print(saat, "saat", dakika, "dakika")
   print(5 ** 2)     # 25
   print(9 ** 0.5)   # 3.0     (karekök almak: 0.5 kuvveti)
   ```
-]
+
 
 #not_block(title:"Metinlerle `+` ve `*`:")[\ #oprt-goster()[`+`] operatörü metinleri birleştirir, #oprt-goster()[`*`] operatörü bir metni belirtilen sayı kadar tekrarlar]
 
@@ -310,9 +292,6 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
   [4], [`*` `/` `//` `%`], [Çarpma, bölme, tam bölme, mod (kendi aralarında eşit öncelikli)],
   [5 (en düşük)], [`+` `-`], [Toplama, çıkarma (kendi aralarında eşit öncelikli)],
 )
-
-#block()[
-#set block(spacing: spacing-size)
 
 #grid(
   columns: (auto,auto),
@@ -461,7 +440,75 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
     ]
   )
 ]
+
+
+
+=== Matematik İşleminin Sonucunu Değişkene Atama (Önce İşlem, Sonra Atama)
+
+Programlamada #oprt-goster()[`=`] işareti, matematikteki "eşittir" anlamından farklı olarak *atama* anlamında kullanılır. Eşittir operatörünün sağındaki ifade önce hesaplanır; elde edilen sonuç, sol taraftaki değişkene atanır. Yani önce işlem yapılır, sonra sonuç değişkene atanır.
+
+==== Örnek 1: x = 3 + 5 \* 2
+
+#iki_hucreli_satir(
+  columns: (auto, auto),
+  align: horizon+left,
+  [
+    #align(center)[
+      #kod-blok(width: auto, satir-no: false)[
+  ```python
+  x = 3 + 5 * 2
+  ```]
+    ]
+
+    `x = 3 + 5 * 2` örneğinde önce çarpma işlemi yapılır: `5 * 2 = 10`.\ 
+    Ardından toplama yapılır: `3 + 10 = 13`. Son olarak `13` değeri `x` değişkenine atanır.
+  ],
+  [
+    #islem-aciklama-cerceve(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt)
+  ]
+)
+
+==== Örnek 2: ozkutle = kutle / hacim
+#iki_hucreli_satir(
+  columns: (auto, auto),
+  align: horizon+left,
+  [
+  #align(center)[
+    #kod-blok(width: auto)[
+  ```python
+  kutle = 100
+  hacim = 25
+  ozkutle = kutle / hacim
+  ```]
+	]
+  `kutle = 100` ve `hacim = 25` satırlarında değişkenlere değerler atanır. `ozkutle = kutle / hacim` satırında ise önce `kutle / hacim` işlemi yapılır. Python'da `/` operatörü ondalıklı bölme yaptığı için sonuç `4.0` olur. Ardından bu sonuç `ozkutle` (özkütle) değişkenine atanır.
+    ],
+  [
+    #islem-aciklama-cerceve(degisken: "ozkutle", ifade: "kutle / hacim", deger: "4.0", boyut: 12pt)    
+  ]
+)
+
+==== Örnek 3: x = x \* 2 + 3
+
+#iki_hucreli_satir(
+  columns: (auto, auto),
+  align: horizon+left,
+  [
+  #align(center)[
+    #kod-blok(width: auto)[
+  ```python
+  x = 5
+  x = x * 2 + 3
+  ```
 ]
+	]
+  `x = 5` satırıyla `x` değişkenine `5` değeri atanır. `x = x * 2 + 3` satırı ise bir denklem değil, bir atama komutudur. Eşittir operatörünün sağındaki ifade önce hesaplanır; buradaki `x`, değişkenin o anki değeri olan `5`'tir. `5 * 2 + 3 = 13` olduğundan yeni değer `13` olur ve bu değer yine `x` değişkenine atanır.
+    ],
+  [
+    #islem-aciklama-cerceve(degisken: "x", ifade: "x * 2 + 3", deger: "13", boyut: 12pt)
+  ]
+)
+
 
 
 === Karşılaştırma Operatörleri
@@ -500,8 +547,6 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
         False
         ```
 ]
-#block()[
-#set block(spacing: spacing-size)
 
 #not_block()[Karşılaştırmanın sonucu da bir değerdir; bir değişkende saklanabilir:]
 
@@ -559,7 +604,7 @@ Metinler de karşılaştırılabilir. `==` operatörü büyük/küçük harfe du
     print(0.1 + 0.2 == 0.3)    # False
     ```
   ]
-]
+
 
 === Mantıksal Operatörler
 Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonuçlarını birleştirmek veya tersine çevirmek için kullanılır. Üç tanedir: `and` (ve), `or` (veya), `not` (değil).
@@ -728,9 +773,6 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
   [En sonda], [Atama], [`=` `+=` `-=` ...], [Sağ taraf tamamen hesaplanır, sonra atanır.],
 )
 
-#block()[
-#set block(spacing: spacing-size)
-
 #kod-blok(width: 100%)[
         ```python
         yas = 15                          # Gerçek hayat, kampa katılım kuralı
@@ -752,5 +794,4 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
   - Aritmetik operatörler sayısal sonuç, karşılaştırma ve mantıksal operatörler `bool` sonuç üretir.
   - İşlem önceliği sırası: *parantez $->$ aritmetik $->$ karşılaştırma $->$ `not` $->$ `and` $->$ `or`*.
   // - Emin olmadığınız yerde parantez kullanın.
-]
 ]

@@ -204,6 +204,14 @@ print(toplam_tutar) # Çıktı: 12.5
   ```]
 )
 
+#not_block()[Tam bölünen sayılarda bile sonuç `float` türüne dönüşür]
+#kod-blok(width: 100%)[
+  ```python
+  print(10 / 4)           # 2.5
+  print(10 / 5)           # 2.0   (2 değil!)
+  ```
+]
+
 === Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 

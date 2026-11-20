@@ -90,3 +90,14 @@
 #set page(width: auto, height: auto, margin: 12pt)
 
 #islem-aciklama()
+
+#let islem-aciklama-cerceve(..args, genislik:auto) = align(center)[
+  #block(
+    inset: 10pt,
+    radius: 4pt,
+    stroke: 1pt + rgb("#d0d7de"),
+    width: genislik,
+  )[#islem-aciklama(..args)]
+]
+
+#islem-aciklama-cerceve()

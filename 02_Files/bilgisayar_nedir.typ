@@ -6,7 +6,7 @@
 #import "/lib/islem-aciklama.typ": *
 #import "@preview/fletcher:0.5.8": diagram, node, edge
 
-#show: conf
+// #show: conf
 
 
 == Bilgisayar Nedir? Değerlendirme Soruları
@@ -143,72 +143,6 @@ Aşağıdaki sorular; bilgisayarın tanımı, temel çalışma mimarisi, birimle
 
 #soru(7, [Ada programlama dilinin adı nereden gelmektedir?])
 #siklar5([Charles Babbage], [Ada Lovelace], [Analitik Makine], [Ada ülkesi], [İlk bilgisayar])
-
-
-=== Matematik İşleminin Sonucunu Değişkene Atama (Önce İşlem, Sonra Atama)
-
-Programlamada `=` işareti, matematikteki "eşittir" anlamından farklı olarak *atama* anlamında kullanılır. Eşittir operatörünün sağındaki ifade önce hesaplanır; elde edilen sonuç, sol taraftaki değişkene atanır. Yani önce işlem yapılır, sonra sonuç değişkene atanır.
-
-#let atama-sema(..args) = align(center)[
-  #block(
-    inset: 10pt,
-    radius: 4pt,
-    stroke: 1pt + rgb("#d0d7de"),
-    width: auto,
-  )[#islem-aciklama(..args)]
-]
-
-==== Örnek 1: x = 3 + 5 \* 2
-
-#iki_hucreli_satir(
-  columns: (auto, auto),
-  align: top+left,
-  [
-    #atama-sema(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt)
-  ],[
-    #align(center)[
-      #kod-blok(width: auto, satir-no: false)[
-  ```python
-  x = 3 + 5 * 2
-  ```]
-    ]
-
-    `x = 3 + 5 * 2` örneğinde önce çarpma işlemi yapılır: `5 * 2 = 10`.\ 
-    Ardından toplama yapılır: `3 + 10 = 13`.\ 
-    Son olarak `13` değeri `x` değişkenine atanır.
-  ]
-)
-
-==== Örnek 2: ozkutle = kutle / hacim
-
-#kod-blok(width: 100%)[
-  ```python
-  kutle = 100
-  hacim = 25
-  ozkutle = kutle / hacim
-  ```
-]
-
-`kutle = 100` ve `hacim = 25` satırlarında değişkenlere değerler atanır. `ozkutle = kutle / hacim` satırında ise önce `kutle / hacim` işlemi yapılır. Python'da `/` operatörü ondalıklı bölme yaptığı için sonuç `4.0` olur. Ardından bu sonuç `ozkutle` (özkütle) değişkenine atanır.
-
-#atama-sema(degisken: "ozkutle", ifade: "kutle / hacim", deger: "4.0", boyut: 12pt)
-
-==== Örnek 3: x = x \* 2 + 3
-
-#kod-blok(width: 100%)[
-  ```python
-  x = 5
-  x = x * 2 + 3
-  ```
-]
-
-`x = 5` satırıyla `x` değişkenine `5` değeri atanır. `x = x * 2 + 3` satırı ise bir denklem değil, bir atama komutudur. Eşittir operatörünün sağındaki ifade önce hesaplanır; buradaki `x`, değişkenin o anki değeri olan `5`'tir. `5 * 2 + 3 = 13` olduğundan yeni değer `13` olur ve bu değer yine `x` değişkenine atanır.
-
-#atama-sema(degisken: "x", ifade: "x * 2 + 3", deger: "13", boyut: 12pt)
-
-#not_block(title: "Önemli: ")[
-  Programlamada `=` atama, `==` ise karşılaştırma operatörüdür. Bu nedenle `x = x * 2 + 3` satırı matematikteki bir denklem gibi çözülmez; "x'in yeni değerini hesapla ve x'e ata" anlamına gelir.
-]
 
 === Mod Alma (%) ve Tam Bölme (`//`) Operatörleri
 
@@ -490,7 +424,7 @@ Bir bölme işleminde yer alan dört temel terim (*Bölünen*, *Bölen*, *Bölü
   caption: [Bölme işleminin temel elemanları (Bölünen, Bölen, Bölüm, Kalan)],
 )
 
-#include "bolme-islemi.typ"
+
 
 #set text(font: "Noto Sans", lang: "tr")
 
