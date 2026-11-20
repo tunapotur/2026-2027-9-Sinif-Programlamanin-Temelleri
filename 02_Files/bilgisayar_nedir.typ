@@ -8,191 +8,142 @@
 
 #show: conf
 
-== Bilgisayar Nedir?
-*Bilgisayar*, kendisine verilen bilgiler üzerinden aritmetiksel, mantıksal ve karşılaştırma işlemleri yaparak sonuçları çıktı birimlerine gönderen elektronik bir cihazdır. Bilgisayarlar çok yüksek hızlarda, bıkıp usanmadan ve tekrarlı olarak aynı işlemleri hatasız yerine getirebilen aygıtlardır.
 
-Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlemleri gerçekleştirilir. Kullanıcı tarafından girilen işlenmemiş ham veriler bilgisayar tarafından *"girdi"* olarak algılanır ve bu girdiler programlar tarafından işlenir. İşlem sonucunda elde edilen ve kullanıcıya geri dönen anlamlı değer ise işlenmiş veridir; bu veri de *"çıktı"* olarak adlandırılır.
+== Bilgisayar Nedir? Değerlendirme Soruları
 
-=== Bilgisayarın Temel Çalışma Mimarisi
-// =====================================
-// BİLGİSAYARIN ÇALIŞMA MİMARİSİ ÇİZİMİ 
-// =====================================
-#include "bilgisayarin_temel_calisma_mimarisi.typ"
+Aşağıdaki sorular; bilgisayarın tanımı, temel çalışma mimarisi, birimleri ve veri saklama konularını kapsar.
 
-
-Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan mimarisini özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
-
-Dört temel birim arasındaki görev paylaşımı şöyledir:
-
-+ *Giriş Birimi:* Dış dünyadan gelen verileri ve kullanıcı komutlarını, bilgisayarın anlayacağı elektrik sinyallerine dönüştürür.
-+ *Bellek Birimi:* Gelen verileri, çalıştırılacak programın komutlarını ve ara sonuçları geçici olarak saklar.
-+ *İşlemci (CPU):* Bellekten okuduğu komutları yorumlar; aritmetiksel ve mantıksal işlemleri yaparak yeni sonuçlar üretir.
-+ *Çıkış Birimi:* İşlenmiş sonuçları ekran, yazıcı veya hoparlör gibi araçlarla insanın algılayabileceği biçime çevirir.
-
-Birimler arasındaki bu alışveriş, şemadaki *VERİ YOLU (BUS)* üzerinden gerçekleşir. Veri yolu, birimler arasında veri ve komut taşıyan ortak bir otoyol gibidir. Aynı anda yalnızca sınırlı miktarda veri taşıyabildiği için bilgisayarın hızını belirleyen önemli etkenlerden biridir.
-
-=== Adım Adım Veri Akışı: "5 + 3" İşlemi
-
-Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda nasıl gerçekleştiğini izleyelim. Aşağıdaki tablo, şemadaki okları adım adım takip eder:
-
-#icerik-tablo(
-  tablo_baslik: "Bir Toplama İşleminin Bilgisayardaki Yolculuğu",
-  sutunlar: (auto, auto, 1fr, auto),
-  sutun_basliklari: ("Adım", "Sorumlu Birim", "Gerçekleşen İşlem", "Örnek"),
-  icerik_hizalama: (center + horizon, center + horizon, left + horizon, center + horizon),
-  sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon),
-  boyut: 9pt,
-  dikey-bosluk: 6pt,
-  [`1`], [Giriş Birimi], [Kullanıcı klavyeden `5` ve `3` tuşlarına basar; klavye bu tuşları elektrik sinyallerine çevirir.], [`5`, `3`],
-  [`2`], [Bellek Birimi], [Sinyaller ikilik sisteme dönüştürülerek RAM'de ayrılan hücrelere yazılır.], [`0000 0101` \ `0000 0011`],
-  [`3`], [İşlemci (CPU)], [İşlemci, bellekten "topla" komutunu ve toplanacak iki sayıyı okur (getirir).], [`topla`],
-  [`4`], [İşlemci (ALU)], [Aritmetik mantık birimi iki sayıyı toplar ve sonucu üretir.], [`5 + 3 = 8`],
-  [`5`], [Bellek Birimi], [Elde edilen sonuç, daha sonra kullanılmak üzere tekrar RAM'e yazılır.], [`0000 1000`],
-  [`6`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
-)
-
-== Bilgisayar Veriyi Nasıl Saklar?
-Bilgisayar verileri bellekte saklar. Her bir veri için bellekte belirli bir alan ayrılır ve bu alan her seferinde tek bir değer saklayabilir. Kullanıcı var olan değer yerine yeni bir değer atadığında eski değer silinir. Programın çalışması bittiğinde ya da bilgisayar kapatıldığında bu geçici veriler silinir.
-
-Verilerin daha sonra tekrar kullanılabilmesi gerekiyorsa sabit diske kaydedilmesi gerekir. Bu şekilde kalıcı olarak kaydedilen verilere *"dosya"* adı verilir. Temel anlamda program dosyaları ve veri dosyaları olmak üzere iki dosya türü vardır:
-- *Program Dosyaları:* Bilgisayarın yapması istenen komutları ve işlem adımlarını içerir.
-- *Veri Dosyaları:* Programlar çalışırken kullanılan ve işlenen verileri kapsar.
-
-== Makinenin Dilinden İnsanın Diline: "Hello world!"
-
-Aşağıdaki beş örnek, aynı işi yapan programın beş farklı düzeydeki gösterimidir. Yukarıdan aşağıya doğru kod insan için daha anlaşılır hale gelir.
-
-#not_block(title: "Bilgi: ")[
-  Makine dili örnekleri, 16 bitlik DOS ortamında çalışan bir *COM programına* aittir. Bu baytlar bir `.com` dosyasına yazıldığında program çalışır. Günümüz 64 bit işlemcilerinde komutlar ve adresler çok daha uzundur; buradaki amaç, aynı işin makine dilindeki görünümünü göstermektir.
+#let soru(no, metin) = block(breakable: false, below: 0.65em)[
+  *#no.* #metin
 ]
 
-=== Makine Dili (0 ve 1'lerle)
-
-Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 8 bitten oluşur; aşağıdaki her grup 8 bitlik bir bayttır. Satır sonundaki açıklamalar insan içindir, makine bu açıklamaları görmez.
-
-#kod-blok(width: 100%)[
-  ```text
-  ; 16 bit DOS COM programı (x86)
-  ; Sütunlar: makine kodu baytları  |  karşılığı olan işlem
-
-  10110100 00001001                  ; AH = 09h: metin yazdırma servisi
-  10111010 00001100 00000001         ; DX = 010Ch: metnin bellek adresi
-  11001101 00100001                  ; INT 21h: DOS servisini çağır
-  10111000 00000000 01001100         ; AX = 4C00h: programdan çık
-  11001101 00100001                  ; INT 21h: DOS servisini çağır
-
-  ; "Hello world!$" metni (ASCII kodları)
-  01001000 01100101 01101100 01101100 01101111 00100000
-  01110111 01101111 01110010 01101100 01100100 00100001 00100100
-  ```
-]
-
-=== Makine Dili (Hexadecimal Sayılarla)
-
-Aynı makine kodu, ikilik sistemdeki her 8 bitlik baytın iki hexadecimal (onaltılık) basamakla gösterilmesiyle de yazılabilir. Hexadecimal gösterim, 0 ve 1'lerden oluşan uzun dizileri kısaltır ve okumayı kolaylaştırır.
-
-Metnin sonundaki `$` karakteri (ASCII 24h), DOS'a metnin bittiğini bildiren özel bir işarettir.
-
-#kod-blok(width: 100%)[
-  ```text
-  ; 16 bit DOS COM programı (x86) - aynı programın hexadecimal hâli
-  B4 09                 ; AH = 09h: metin yazdırma servisi
-  BA 0C 01              ; DX = 010Ch: metnin bellek adresi
-  CD 21                 ; INT 21h: DOS servisini çağır
-  B8 00 4C              ; AX = 4C00h: programdan çık
-  CD 21                 ; INT 21h
-
-  ; "Hello world!$" metni (ASCII kodları)
-  48 65 6C 6C 6F 20 77 6F 72 6C 64 21 24
-  ```
-]
-
-
-=== Assembly Dili
-
-Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad verir. Böylece `B4 09` gibi anlaşılmaz baytlar yerine `mov ah, 09h` gibi okunabilir komutlar yazılır.
-
-#kod-blok(width: 100%)[
-  ```text
-  ; NASM sözdizimi - 16 bit DOS COM programı
-  org 100h
-
-  mov ah, 09h          ; metin yazdırma servisi
-  mov dx, mesaj        ; metnin bellek adresi
-  int 21h              ; DOS servisini çağır
-
-  mov ax, 4C00h        ; programdan çık
-  int 21h
-
-  mesaj db "Hello world!$"
-  ```
-]
-
-=== C Dili
-*C* dili, Assembly diline göre kodlama yapan kişilere çok büyük kullanım kolaylığı getirmiştir. *C* dilinde yazılan kod bir derleyici tarafından makine koduna çevrilir ve bilgisayar bu makine kodunu doğrudan çalıştırır.
-
-#kod-blok(width: 100%)[
-  ```c
-  #include <stdio.h>
-
-  int main(void) {
-      printf("Hello world!\n");
-      return 0;
+#let siklar2(a, b, c, d, ..rest) = {
+  let e = if rest.pos().len() > 0 { rest.pos().first() } else { none }
+  if e != none {
+    grid(
+      columns: (1fr, 1fr),
+      gutter: 6pt,
+      [A) #a], [B) #b],
+      [C) #c], [D) #d],
+      grid.cell(colspan: 2)[E) #e],
+    )
+  } else {
+    grid(
+      columns: (1fr, 1fr),
+      gutter: 6pt,
+      [A) #a], [B) #b],
+      [C) #c], [D) #d],
+    )
   }
-  ```
-]
+}
 
-
-=== Python Dili
-
-Python gibi yüksek seviyeli dillerde aynı iş, tek bir komutla yapılır. Python yorumlayıcısı bu satırı önce kendi anladığı ara biçime, ardından makine diline çevirir.
-
-#kod-blok(width: 100%)[
-  ```python
-  print("Hello world!")
-  ```
-]
-
-#output-box[Hello world!]
-
-
-=== Tarihteki İlk Bilgisayar Programcısı
-
-1837'de Charles Babbage, "Analitik Makine" adını verdiği ve hesaplamalar yapabilen bir cihaz tasarladı. Ancak Babbage, tasarladığı Analitik Makine'yi dönemin teknolojisi yeterli olmadığı için hayata geçiremedi. Analitik Makine her ne kadar tamamlanamasa da zamanının birçok bilim insanını etkiledi.
-
-#figure(
-  align(center, image("/02_Files/images/charles-babbage.png", width: 42%)),
-  caption: [Charles Babbage (1791–1871)],
+#let siklar5(a, b, c, d, e) = grid(
+  columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+  gutter: 4pt,
+  [A) #a], [B) #b], [C) #c], [D) #d], [E) #e],
 )
 
-Ada Lovelace, sahip olduğu maddi imkânlar sayesinde Babbage'in en büyük destekçilerinden biriydi. Kendisi de matematikçi olan Ada, Analitik Makine üzerine yazdığı notlarda Bernoulli sayılarını hesaplamak için bir algoritma tanımladı. Bu nedenle Ada Lovelace, tarihteki ilk bilgisayar programcısı olarak kabul edilir.
-
-#figure(
-  align(center, image("/02_Files/images/ada-lovelace.png", width: 30%)),
-  caption: [Ada Lovelace (1815–1852)],
+#soru(1, [Bilgisayarın temel görevi aşağıdakilerden hangisidir?])
+#siklar2(
+  [Yalnızca metin yazmak],
+  [Verileri depolamak, işlemek ve sonuçları çıktı olarak sunmak],
+  [İnternete bağlanmak],
+  [Yalnızca oyun oynamak],
+  [Elektrik üretmek],
 )
 
-ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada Lovelace'ten almıştır. Ada Lovelace Günü ise her yıl ekim ayının ikinci salı günü kutlanan ve bilim, teknoloji, mühendislik ve matematik alanlarındaki kadınların görünürlüğünü artırmayı amaçlayan bir etkinliktir.
+#soru(2, [Kullanıcı tarafından girilen işlenmemiş ham verilere ne ad verilir?])
+#siklar5([Çıktı], [Girdi], [Bellek], [Algoritma], [Dosya])
 
-=== Değişken Kullanılarak Çözülen Matematik Problemi
+#soru(3, [İşlem sonucunda elde edilen ve kullanıcıya sunulan anlamlı değere ne denir?])
+#siklar5([Girdi], [Çıktı], [Komut], [Veri yolu], [Program])
 
-*Problem:* $946877 times 946875 - 946876 times 946875 = ?$
+#soru(4, [Aşağıdakilerden hangisi bilgisayarda gerçekleştirilen temel işlemlerden biri değildir?])
+#siklar2([Giriş], [Veri işleme], [Veri saklama], [Çıkış], [Programlama])
 
-*Çözüm:* Sayıları tek tek çarpmak veya 946875 sayısına göre ortak çarpan parantezine almak, sürekli altı haneli sayılarla işlem yapmayı gerektirir. Bu durum hem hata olasılığını artırır hem de çözümü uzatır. Bunun yerine 946875 sayısını bir değişkenle gösterelim.
+#soru(5, [Dış dünyadan gelen verileri elektrik sinyaline çeviren birim hangisidir?])
+#siklar5([İşlemci], [Bellek], [Giriş birimi], [Çıkış birimi], [Veri yolu])
 
-$x = 946875$ dersek $946877 = x + 2$ ve $946876 = x + 1$ olur. İfadeyi yeniden yazalım:
+#soru(6, [Bellek biriminin görevi aşağıdakilerden hangisidir?])
+#siklar2(
+  [Verileri işlemek],
+  [Verileri, komutları ve ara sonuçları geçici olarak saklamak],
+  [Sonuçları ekrana yazmak],
+  [Dış dünyadan veri almak],
+  [Programları derlemek],
+)
 
-#align(center)[
-  $ (x + 2) times x - (x + 1) times x
-    = x times [(x + 2) - (x + 1)] \
-    = x times (x + 2 - x - 1) \
-    = x times 1 \
-    = x $
-]
+#soru(7, [Aritmetiksel ve mantıksal işlemleri yapan birim hangisidir?])
+#siklar5([RAM], [Giriş birimi], [İşlemci (CPU)], [Çıkış birimi], [Sabit disk])
 
-#not_block(title: "Sonuç: ")[
-  $x = 946875$ olduğuna göre işlemin sonucu *946875*'tir.
-]
+#soru(8, [İşlenmiş sonuçları ekran, yazıcı veya hoparlörle kullanıcıya sunan birim hangisidir?])
+#siklar5([Giriş birimi], [Bellek], [İşlemci], [Çıkış birimi], [Veri yolu])
+
+
+
+#soru(10, [Veri yolu (BUS) ile ilgili aşağıdakilerden hangisi doğrudur?])
+#siklar2(
+  [Yalnızca elektrik üretir],
+  [Birimler arasında veri ve komut taşır],
+  [Yalnızca ses iletir],
+  [Kalıcı dosyaları saklar],
+  [İşlemcinin yerini alır],
+)
+
+#soru(11, [`5 + 3` işlemi sırasında giriş biriminden gelen veriler, işlemciye ulaşmadan önce nereye yazılır?])
+#siklar5([Sabit diske], [RAM'e], [Ekrana], [Yazıcıya], [Klavyeye])
+
+#soru(12, [RAM ile ilgili aşağıdakilerden hangisi doğrudur?])
+#siklar2(
+  [Kalıcıdır, bilgisayar kapanınca silinmez],
+  [Geçicidir, bilgisayar kapanınca içeriği silinir],
+  [Yalnızca program dosyalarını saklar],
+  [İşlemciye veri taşır],
+  [Ekran çıktısını üretir],
+)
+
+#soru(13, [Bilgisayar kapatıldığında kaybolmaması gereken veriler nerede saklanmalıdır?])
+#siklar5([RAM'de], [İşlemcide], [Sabit diskte], [Önbellekte], [Veri yolunda])
+
+
+
+
+
+=== Tarihteki İlk Bilgisayar Programcısı: Değerlendirme Soruları
+
+#soru(1, [1837'de "Analitik Makine" adını verdiği cihazı tasarlayan kişi kimdir?])
+#siklar5([Ada Lovelace], [Charles Babbage], [Alan Turing], [Bill Gates], [John V. Neumann])
+
+#soru(2, [Charles Babbage'ın Analitik Makine'yi hayata geçirememesinin temel nedeni nedir?])
+#siklar2(
+  [Yeterli matematik bilgisi olmaması],
+  [Dönemin teknolojisinin yeterli olmaması],
+  [Cihazın çok küçük olması],
+  [Elektrik enerjisinin bulunmaması],
+  [Babbage'ın çalışmaktan vazgeçmesi],
+)
+
+#soru(3, [Ada Lovelace'in Babbage'ın çalışmalarındaki rolü aşağıdakilerden hangisidir?])
+#siklar2(
+  [Analitik Makine'yi tek başına icat etmesi],
+  [Babbage'ın en büyük destekçilerinden biri olması],
+  [İlk işlemciyi tasarlaması],
+  [İlk bilgisayarı üretmesi],
+  [İnterneti geliştirmesi],
+)
+
+#soru(5, [Ada Lovelace neden tarihteki ilk bilgisayar programcısı olarak kabul edilir?])
+#siklar2(
+  [İlk bilgisayarı ürettiği için],
+  [İlk algoritmayı tasarladığı için],
+  [İlk işlemciyi icat ettiği için],
+  [Ada programlama dilini kendisi geliştirdiği için],
+  [İlk bilgisayar oyununu yaptığı için],
+)
+
+#soru(7, [Ada programlama dilinin adı nereden gelmektedir?])
+#siklar5([Charles Babbage], [Ada Lovelace], [Analitik Makine], [Ada ülkesi], [İlk bilgisayar])
+
 
 === Matematik İşleminin Sonucunu Değişkene Atama (Önce İşlem, Sonra Atama)
 
@@ -209,15 +160,24 @@ Programlamada `=` işareti, matematikteki "eşittir" anlamından farklı olarak 
 
 ==== Örnek 1: x = 3 + 5 \* 2
 
-`x = 3 + 5 * 2` örneğinde önce çarpma işlemi yapılır: `5 * 2 = 10`. Ardından toplama yapılır: `3 + 10 = 13`. Son olarak `13` değeri `x` değişkenine atanır.
-
-#kod-blok(width: 100%)[
+#iki_hucreli_satir(
+  columns: (auto, auto),
+  align: top+left,
+  [
+    #atama-sema(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt)
+  ],[
+    #align(center)[
+      #kod-blok(width: auto, satir-no: false)[
   ```python
   x = 3 + 5 * 2
-  ```
-]
+  ```]
+    ]
 
-#atama-sema(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt)
+    `x = 3 + 5 * 2` örneğinde önce çarpma işlemi yapılır: `5 * 2 = 10`.\ 
+    Ardından toplama yapılır: `3 + 10 = 13`.\ 
+    Son olarak `13` değeri `x` değişkenine atanır.
+  ]
+)
 
 ==== Örnek 2: ozkutle = kutle / hacim
 

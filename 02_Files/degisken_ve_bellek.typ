@@ -9,32 +9,21 @@
 == Değişkenler ve Bellek(RAM)
 *Değişken*; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. *Değişkenler* yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
 
-// #let image_width = auto
+#kod-cikti(baslik: [Örnek Python Kodu])[
+  ```Python
+puan = int(input("Puan Giriniz: "))
+print("Puanı:", puan)
+puan = puan + 25
+print("Güncellenmiş Puan:", puan)
+```
+][
+```
+Puan Giriniz: 50
+Puanı: 50
+Güncellenmiş Puan: 75
+```
+]
 
-// #kod-cikti(baslik: [Örnek Python Kodu])[
-// ```Python
-// puan = int(input("Puan Giriniz: "))
-// print("Puanı:", puan)
-// puan = puan + 25
-// print("Güncellenmiş Puan:", puan)
-// ```
-// ][
-// ```
-// Puan Giriniz: 50
-// Puanı: 50
-// Güncellenmiş Puan: 75
-// ```
-// ]
-
-// #grid(
-//   columns: (auto,auto, auto, auto),
-//   gutter: 2pt,
-//   align: (center + horizon),
-//   image("/02_Files/images/01-Deger-Atama-RAM-3.jpg",width: image_width),
-//   image("/02_Files/images/02-Hafizadan-Cagirma-RAM-3.jpg",width: image_width),
-//   image("/02_Files/images/03-Deger-Guncelleme-RAM-3.jpg",width: image_width),
-//   image("/02_Files/images/04-Guncel-Hali-Cagirma-RAM-3.jpg",width: image_width),
-// )
 
 #let image_width = 94%
 
@@ -157,3 +146,23 @@
 
 #not_block(title:"Özet",boyut: 10pt, width: 100%)[Değişkenler, değerleri geçici olarak RAM'de tutan etiketlerdir. Program çalıştığı sürece bu değerler kullanılabilir ve güncellenebilir.]
 
+=== Değişken Kullanılarak Çözülen Matematik Problemi
+Bu örnekte, değişken kullanımının işlemleri nasıl daha kolay hale getirdiği gösterilmektedir.
+
+*Problem:* $946877 times 946875 - 946876 times 946875 = ?$
+
+*Çözüm:* Sayıları tek tek çarpmak veya 946875 sayısına göre ortak çarpan parantezine almak, sürekli altı haneli sayılarla işlem yapmayı gerektirir. Bu durum hem hata olasılığını artırır hem de çözümü uzatır. Bunun yerine 946875 sayısını bir değişkenle gösterelim.
+
+$x = 946875$ dersek $946877 = x + 2$ ve $946876 = x + 1$ olur. İfadeyi yeniden yazalım:
+
+#align(center)[
+  $ (x + 2) x - (x + 1) x
+    = x [(x + 2) - (x + 1)] \
+    = x (x + 2 - x - 1) \
+    = x.1 \
+    = x $
+]
+
+#not_block(title: "Sonuç: ")[
+  $x = 946875$ olduğuna göre işlemin sonucu *946875*'tir.
+]
