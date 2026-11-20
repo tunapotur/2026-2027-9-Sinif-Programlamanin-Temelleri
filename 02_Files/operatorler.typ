@@ -5,6 +5,7 @@
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
 #import "/lib/islem-aciklama.typ": *
+#import "/02_Files/bolme-islemi.typ": *
 
 // #show: conf
 
@@ -202,11 +203,133 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
   ```
 ]
 
+==== Bölme İşlemi
+*Kesirli Bölme İşlemi #oprt-goster()[`/`]*
 
+#align(center)[
+#iki_hucreli_satir(
+  columns: (auto, auto),
+  gutter: 3em,
+  align: horizon,
+  [
+    
+    #kod-blok()[
+      ```Python
+      kesirli_bolme = 17 / 5
+      print(kesirli_bolme) # 3.4
+      ```
+    ]
+    
+  ],
+  [
+    #kesir-sekli(17, 5)
+    
+  ]
+)
 
-* Bölme, Tam Bölme, Mod Alma(`\ \\ %`)*
+]
 
-#include "bolme-islemi.typ"
+*Bölme İşleminin Elemanları (Bölünen, Bölen, Bölüm ve Kalan)*
+#block(
+    width: 100%,
+    stroke: 1pt + rgb("#cbd5e1"),
+    radius: 8pt,
+    fill: rgb("#ffffff"),
+    clip: true,
+    breakable: false,
+  )[
+    // 1) Üst Başlık Bandı
+    #block(
+      width: 100%,
+      fill: rgb("#16325c"),
+      inset: (x: 14pt, y: 10pt),
+    )[
+      #align(center)[
+        #text(weight: "bold", size: 11pt, fill: white)[Bölme İşleminin Temel Elemanları (Bölünen, Bölen, Bölüm, Kalan)]
+      ]
+    ]
+
+    #pad(x: 20pt, top: 18pt, bottom: 16pt)[
+
+      #align(center)[
+      #bolme-sekli(17, 5, 3, 2)
+      ]
+
+      // Alt Bilgi Bandı: Matematiksel Denklem ve Altın Kural (17 ve 5 ile)
+      #block(
+        width: 100%,
+        fill: rgb("#f1f5f9"),
+        stroke: 1pt + rgb("#cbd5e1"),
+        radius: 6pt,
+        inset: (x: 12pt, y: 10pt),
+      )[
+        #grid(
+          columns: (1.2fr, 1fr),
+          gutter: 14pt,
+          align: horizon,
+          [
+            #align(center)[
+              #text(size: 8.5pt, weight: "bold", fill: rgb("#475569"))[Bölme İşleminin Matematiksel Sağlaması:]
+              #v(3pt)
+              #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[
+                $ "Bölünen" = ("Bölen" times "Bölüm") + "Kalan" $
+              ]
+              #v(2pt)
+              #text(size: 10.5pt, fill: rgb("#1d4ed8"), weight: "bold")[
+                $ 17 = (5 times 3) + 2 $
+              ]
+            ]
+          ],
+          [
+            #block(
+              fill: white,
+              stroke: 1pt + rgb("#e2e8f0"),
+              radius: 5pt,
+              inset: (x: 10pt, y: 8pt),
+            )[
+              #text(size: 8pt, weight: "bold", fill: rgb("#0f172a"))[💡 Unutmayınız (Altın Kural):]
+              #v(2pt)
+              #text(size: 7.5pt, fill: rgb("#334155"))[
+                Bir bölme işleminde *kalan* daima sıfır veya sıfırdan büyük, ancak *bölenden kesinlikle küçük* olmak zorundadır:
+              ]
+              #v(3pt)
+              #align(center)[
+                #text(size: 9.5pt, weight: "bold", fill: rgb("#d97706"))[
+                  $ 0 <= "Kalan" < "Bölen" quad (0 <= 2 < 5) $
+                ]
+              ]
+            ]
+          ]
+        )
+      ]
+    ]
+  ]
+
+* Bölme, Tam Bölme, Mod Alma(`/ // %`)*
+#align(center)[
+#iki_hucreli_satir(
+  columns: (auto, auto),
+  gutter: 3em,
+  align: horizon,
+  [
+    
+    #kod-blok()[
+      ```Python
+      bolum = 17 // 5
+      kalan = 17 % 5
+      print(f"{bolum=}") # bolum=3
+      print(f"{kalan=}") # kalan=2
+      ```
+    ]
+    
+  ],
+  [
+    #python-aciklama(17, 5)
+    
+  ]
+)
+
+]
 
 #icerik-tablo(
   tablo_baslik: "Tam Bölme ve Mod Örnekleri",

@@ -1,5 +1,9 @@
-// #set page(width: auto, height: auto, margin: 12pt)
-#set text(font: "New Computer Modern", lang: "tr")
+// Bölme işlemi şekilleri
+// Kullanım:
+//   #import "bolme-islemi.typ": bolme-sekli, python-aciklama, kesir-sekli
+//   #bolme-sekli(17, 5, 3, 2)
+//   #python-aciklama(17, 5)
+//   #kesir-sekli(17, 5)
 
 // Renkler
 #let color_bolunen = (fill: rgb("#cce5ff"), stroke: rgb("#6c8ebf"))
@@ -40,6 +44,7 @@
   text(size: 20pt, weight: if kalin { "bold" } else { "regular" }, metin),
 )
 
+// 1) Klasik bölme şekli
 #let bolme-sekli(bolunen, bolen, bolum, kalan) = {
   let cikarilan = bolen * bolum
   let cizgi = 1.5pt
@@ -85,24 +90,7 @@
   )
 }
 
-#let ozdeslik(bolunen, bolen, bolum, kalan) = {
-  set text(size: 16pt)
-  [
-    #text(fill: color_bolunen.stroke)[*Bölünen*] $=$
-    #text(fill: color_bolen.stroke)[*Bölen*] $times$
-    #text(fill: color_bolum.stroke.darken(20%))[*Bölüm*] $+$
-    #text(fill: color_kalan.stroke.darken(10%))[*Kalan*]
-
-    #v(2pt)
-
-    #text(fill: color_bolunen.stroke)[*#bolunen*] $=$
-    #text(fill: color_bolen.stroke)[*#bolen*] $times$
-    #text(fill: color_bolum.stroke.darken(20%))[*#bolum*] $+$
-    #text(fill: color_kalan.stroke.darken(10%))[*#kalan*]
-  ]
-}
-
-// Python // ve % operatörleri açıklaması
+// 2) Python // ve % operatörleri açıklaması
 #let mono = "DejaVu Sans Mono"
 #let kod(renk, s) = text(font: mono, size: 16pt, weight: "bold", fill: renk, s)
 
@@ -113,54 +101,30 @@
   let c_bolen = color_bolen.stroke
   let koyu = rgb("#333333")
 
-  text(size: 14pt, weight: "bold")[Python'da aynı işlem]
-  v(6pt)
-
   grid(
-    columns: 5,
+    columns: 4,
     column-gutter: 10pt,
     row-gutter: 12pt,
-    align: (right + horizon, center + horizon, center + horizon, left + horizon, left + horizon),
+    align: (right + horizon, center + horizon, center + horizon, left + horizon),
 
     // //  -> bölüm
     [#kod(c_bolunen, str(bolunen)) #kod(koyu, "//") #kod(c_bolen, str(bolen))],
     text(size: 14pt, sym.arrow.r),
     sayi(color_bolum, str(bolum)),
     etiket(color_bolum)[Bölüm],
-    text(size: 12pt)[tam sayı bölmesi: sadece bölümü verir],
 
     // %  -> kalan
     [#kod(c_bolunen, str(bolunen)) #kod(koyu, "%") #kod(c_bolen, str(bolen))],
     text(size: 14pt, sym.arrow.r),
     sayi(color_kalan, str(kalan)),
     etiket(color_kalan)[Kalan],
-    text(size: 12pt)[mod alma: sadece kalanı verir],
-  )
-
-  v(10pt)
-
-  box(
-    fill: luma(245),
-    stroke: luma(210) + 0.8pt,
-    radius: 4pt,
-    inset: 10pt,
-    align(left, raw(
-      lang: "python",
-      block: true,
-      "print(" + str(bolunen) + " // " + str(bolen) + ")   # " + str(bolum) + "\n"
-        + "print(" + str(bolunen) + " % " + str(bolen) + ")    # " + str(kalan) + "\n"
-        + "print(" + str(bolen) + " * (" + str(bolunen) + " // " + str(bolen) + ") + " + str(bolunen) + " % " + str(bolen) + ")   # " + str(bolunen),
-    )),
   )
 }
 
-// Ondalıklı bölme: kesir çizgisi ile gösterim
+// 3) Ondalıklı bölme: kesir çizgisi ile gösterim
 #let kesir-sekli(bolunen, bolen) = {
   let sonuc = bolunen / bolen
   let cizgi = 1.5pt
-
-  text(size: 14pt, weight: "bold")[Ondalıklı bölme (Python'da #raw("/"))]
-  v(6pt)
 
   grid(
     columns: 3,
@@ -178,14 +142,7 @@
     grid.cell(
       rowspan: 2,
       inset: (left: 14pt),
-      align(left + horizon, grid(
-        columns: 3,
-        column-gutter: 10pt,
-        align: horizon,
-        text(size: 22pt)[$=$],
-        etiket-sol(color_sonuc)[Sonuç],
-        text(size: 22pt, weight: "bold", str(sonuc)),
-      )),
+      align(left + horizon, text(size: 22pt)[$=$ #h(6pt) *#str(sonuc)*]),
     ),
 
     grid.cell(
@@ -198,23 +155,3 @@
     ),
   )
 }
-
-#align(center)[
-  #bolme-sekli(17, 5, 3, 2)
-
-  #v(14pt)
-
-  #ozdeslik(17, 5, 3, 2)
-
-  #v(8pt)
-
-  #text(size: 12pt)[Kural: #text(fill: color_kalan.stroke.darken(10%))[*Kalan*] her zaman #text(fill: color_bolen.stroke)[*Bölen*]'den küçüktür. $(2 < 5)$]
-
-  #v(18pt)
-
-  #python-aciklama(17, 5)
-
-  #v(22pt)
-
-  #kesir-sekli(17, 5)
-]
