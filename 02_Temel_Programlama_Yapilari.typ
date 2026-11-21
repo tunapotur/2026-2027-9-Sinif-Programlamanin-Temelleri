@@ -3,12 +3,13 @@
 
 #show: conf
 
-// #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
+#set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
+
+#title()
 
 #outline(title: "İçindekiler", indent: 12pt)
 #pagebreak(to: "odd")
 #counter(page).update(1)
-
 #set page(numbering: "1")
 
 // #title()
