@@ -46,10 +46,9 @@ Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda
   dikey-bosluk: 6pt,
   [`1`], [Giriş Birimi], [Kullanıcı klavyeden `5` ve `3` tuşlarına basar; klavye bu tuşları elektrik sinyallerine çevirir.], [`5`, `3`],
   [`2`], [Bellek Birimi], [Sinyaller ikilik sisteme dönüştürülerek RAM'de ayrılan hücrelere yazılır.], [`0000 0101` \ `0000 0011`],
-  [`3`], [İşlemci (CPU)], [İşlemci, bellekten "topla" komutunu ve toplanacak iki sayıyı okur (getirir).], [`topla`],
-  [`4`], [İşlemci (ALU)], [Aritmetik mantık birimi iki sayıyı toplar ve sonucu üretir.], [`5 + 3 = 8`],
-  [`5`], [Bellek Birimi], [Elde edilen sonuç, daha sonra kullanılmak üzere tekrar RAM'e yazılır.], [`0000 1000`],
-  [`6`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
+  [`3`], [İşlemci (CPU)], [İşlemci, bellekten "topla" komutunu ve toplanacak iki sayıyı okur; ardından bu sayıları toplayarak sonucu üretir.], [`topla`],
+  [`4`], [Bellek Birimi], [Elde edilen sonuç, daha sonra kullanılmak üzere tekrar RAM'e yazılır.], [`0000 1000`],
+  [`5`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
 )
 
 == Bilgisayar Veriyi Nasıl Saklar?
@@ -105,11 +104,11 @@ ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada L
   gutter: 5pt,
   align: (top),
   [
-    #image("/02_Files/images/Transistor On.jpg",width: 90%)
+    #image("images/Transistor On.jpg",width: 90%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Var (Açık)],[:],[1 (Bit)])
   ],
   [
-    #image("/02_Files/images/Transistor Off.jpg",width: 90%)
+    #image("images/Transistor Off.jpg",width: 90%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )

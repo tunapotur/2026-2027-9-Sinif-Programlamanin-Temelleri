@@ -18,9 +18,12 @@
   align(center + horizon, text(size: boyut, weight: "bold", fill: renk.darken(28%), metin)),
 )
 
+
+#align(center)[
+  #set par(justify: false)
 #block(
   width: 100%,
-  fill: rgb("#f8fafc"),
+  // fill: rgb("#f8fafc"),
   stroke: 1pt + rgb("#cbd5e1"),
   radius: 8pt,
   clip: true,
@@ -30,10 +33,10 @@
     width: 100%,
     inset: (x: 6pt, top: 12pt, bottom: 0pt),
   )[
-    #align(center, text(size: 10pt, weight: "bold", fill: bnm-renk.lacivert)[Bilgisayarın Temel Çalışma Mimarisi])
-    #v(12pt)
+    // #align(center, text(size: 10pt, weight: "bold", fill: bnm-renk.lacivert)[Bilgisayarın Temel Çalışma Mimarisi])
+    // #v(12pt)
     #diagram(
-      spacing: (22pt, 52pt),
+      spacing: (16pt, 28pt),
       edge-stroke: 1.2pt + bnm-renk.hat,
       mark-scale: 85%,
 
@@ -47,21 +50,22 @@
         inset: 8pt,
       )[#align(center)[
         #text(size: 9.5pt, weight: "bold", fill: bnm-renk.cpu.darken(35%))[İŞLEMCİ (CPU)]
-        #v(2pt)
+
         #text(size: 6.6pt, fill: rgb("#334155"))[Komutları yorumlar, aritmetiksel ve mantıksal işlemleri yapar.]
       ]],
 
       // GİRİŞ BİRİMİ
       node(
         (-1, 1),
-        width: 106pt,
+        width: 113pt,
+        height: 80pt,
         fill: rgb("#f0fdf4"),
         stroke: 1.3pt + bnm-renk.giris,
         corner-radius: 6pt,
         inset: 6pt,
       )[#align(center)[
         #text(size: 9pt, weight: "bold", fill: bnm-renk.giris.darken(30%))[GİRİŞ BİRİMİ]
-        #v(1.5pt)
+        
         #text(size: 6.3pt, fill: rgb("#166534"))[Dış dünyadan gelen veri ve komutları elektrik sinyaline çevirir.]
         #v(4pt)
         #grid(
@@ -78,13 +82,14 @@
       node(
         (0, 1),
         width: 154pt,
+        height: 80pt,
         fill: rgb("#fffbeb"),
         stroke: 1.5pt + bnm-renk.bellek,
         corner-radius: 6pt,
         inset: 7pt,
       )[#align(center)[
         #text(size: 9.5pt, weight: "bold", fill: bnm-renk.bellek.darken(30%))[BELLEK BİRİMİ (RAM)]
-        #v(1pt)
+        
         #text(size: 6.6pt, weight: "bold", fill: rgb("#92400e"))[Komutlar • Veriler • Ara Sonuçlar]
         #v(1.5pt)
         #text(size: 6.2pt, fill: rgb("#334155"))[Girişten gelen veriler ve çalıştırılacak komutlar burada geçici olarak saklanır.]
@@ -101,13 +106,14 @@
       node(
         (1, 1),
         width: 106pt,
+        height: 80pt,
         fill: rgb("#faf5ff"),
         stroke: 1.3pt + bnm-renk.cikis,
         corner-radius: 6pt,
         inset: 6pt,
       )[#align(center)[
         #text(size: 9pt, weight: "bold", fill: bnm-renk.cikis.darken(30%))[ÇIKIŞ BİRİMİ]
-        #v(1.5pt)
+        
         #text(size: 6.3pt, fill: rgb("#6b21a8"))[İşlenmiş sonuçları insanın algılayabileceği biçime çevirir.]
         #v(4pt)
         #grid(
@@ -175,9 +181,14 @@
     fill: gradient.linear(rgb("#16325c"), rgb("#0f766e"), angle: 0deg),
     inset: (x: 12pt, y: 8pt),
   )[
-    #set par(spacing: 0pt, leading: 0.65em)
+    #set par(spacing: 0pt, leading: 0.65em, justify: true)
+    #set align(left)
     #text(size: 7.4pt, fill: white)[
       Giriş biriminden gelen veriler önce *belleğe (RAM)* yazılır; *işlemci (CPU)* çalıştıracağı komutu ve işleyeceği veriyi bellekten okur, sonucu tekrar belleğe yazar. Bellekteki işlenmiş sonuçlar *çıkış birimine* gönderilir.
     ]
   ]
+]
+
+
+
 ]
