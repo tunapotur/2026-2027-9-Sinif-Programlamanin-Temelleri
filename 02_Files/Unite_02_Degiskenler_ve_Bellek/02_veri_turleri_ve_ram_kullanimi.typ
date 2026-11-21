@@ -7,14 +7,13 @@
 
 // #show: conf
 
-#let ram-goster-spacing = 0.5em
-
 == Veri Türleri ve RAM Kullanımı
 Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst üste dizilmiş çok sayıda küçük kutu gibi düşünebiliriz. Her kutunun boyutu 1 bayt’tır (1 bayt = 8 bit; bit yalnızca 0 ya da 1 tutabilir).
-- Bu veri *ne tür* bir veri? (sayı mı, karakter mi, doğru/yanlış mı?)
-- Bu yüzden RAM’de *kaç kutu (bayt)* ayrılmalı ve bu veriyle *hangi işlemler* yapılabilir?
 
-#not_block(title: "")[Temel veri türleri konusunu anlatmak için C++ dili ve 16-bit sistemler (Arduino Uno, Turbo C) esas alınmıştır. Bu tercih, veri türlerinin donanımsal mantığının rahat anlaşılması amacıyla yapılmıştır. Derslerimizde ise Python programlama dili kullanılacak olup, Python'da veri türleri ve bellek yapısı farklı şekilde işlemektedir.
+Veri türü kavramı ise değişkenlerin RAM üzerinde kaç bayt yer kaplayacağını belirler.
+
+
+#not_block()[Temel veri türleri konusunu anlatmak için C++ dili ve 16-bit sistemler (Arduino Uno, Turbo C) esas alınmıştır. Bu tercih, veri türlerinin donanımsal mantığının rahat anlaşılması amacıyla yapılmıştır.\ Derslerimizde ise Python programlama dili kullanılacak olup, Python'da veri türleri ve bellek yapısı farklı şekilde işlemektedir.
 ]
 
 === Boolean (bool): doğru / yanlış
@@ -86,7 +85,7 @@ char cevapSikki = 'C';      // Çoktan seçmeli testlerde işaretlenen şık
   ```
 ]
 
-#block(breakable: false, spacing: ram-goster-spacing)[
+
   #grid(
     columns: (auto, auto),
     gutter: 5pt,
@@ -104,13 +103,12 @@ ram-goster(
   aciklama: "'5' karakterinin ASCII kodu 53'tür Bellekte 1 byte kaplar.",
 )
   )
-]
 
 === Tam Sayı (int)
 #block(breakable: false)[
   #grid(
     columns: (25em, auto),
-    gutter: 5pt,
+    gutter: 10pt,
     align: (horizon),
     [
 - RAM’de *2 bayt* (16 bit) yer kaplar.
@@ -132,8 +130,6 @@ int kalan = a % b;  // kalan = 1
   )
 ]
 
-#[
-#set block(spacing: ram-goster-spacing)
 #ram-goster(
   "int",
   "int puan = 50;",
@@ -147,8 +143,6 @@ int kalan = a % b;  // kalan = 1
   "00110000 01011001",
   aciklama: "12377 = 8192 + 4096 + 64 + 16 + 8 + 1 olduğu için ilk byte 00110000 (12288), son byte ise 01011001 (89) olur.",
 )
-]
-
 
 === Ondalıklı Sayı (float)
 #block(breakable: false)[
@@ -221,5 +215,6 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   aciklama: "Her bir karakter ASCII karşılığı ile bellekte 1 byte yer kaplar (A:65, D:68, A:65, Boşluk:32, L:76, O:79, V:86, E:69, L:76, A:65, C:67, E:69). Toplam 12 karakter = 12 byte.",
 )
 
+// TODO burada kaldım
 #include "diagrams/bellek-yonetimi.typ"
 #include "diagrams/bellek-yonetimi-cizim.typ"

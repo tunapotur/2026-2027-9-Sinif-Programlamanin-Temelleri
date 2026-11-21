@@ -7,7 +7,30 @@
 // #show: conf.with(sayfa-ayari: false)
 
 == Değişkenler ve Bellek(RAM)
-*Değişken*; programın çalışması sırasında verilerin bellekte (RAM) geçici olarak tutulduğu alanlara verilen isimdir. Kullanıcıdan veya harici bir kaynaktan alınan bilgiler bu değişkenlerde saklanır; kod çalıştıkça hesaplamalarda kullanılır ve süreç içinde yeni değerler alabilir. *Değişkenler* yardımıyla bellekte (RAM) saklanan verilere kolayca erişilir; kod çalıştırıldığında bu değişken isimleri çağrılarak temsil ettikleri veriler üzerinde işlemler gerçekleştirilir.
+=== Değişken Kullanılarak Çözülen Matematik Problemi
+Matematik sorularında değişken kullanımının hesaplamaları nasıl daha kolay hâle getirdiğine bir örnek.
+
+*Problem:* $946877 times 946875 - 946876 times 946875 = ?$
+
+*Çözüm:* Sürekli altı haneli sayılarla işlem yapmak hem hata olasılığını artırır hem de çözümü zorlaştırır. Bunun yerine 946875 sayısını bir değişkenle gösterelim. $x = 946875$ dersek $946877 = x + 2$ ve $946876 = x + 1$ olur.\ Buna göre ifadeyi yeniden yazalım:
+#v(-0.5em)
+#align(center)[
+  $ (x + 2) x - (x + 1) x
+    = x [(x + 2) - (x + 1)] 
+    = x (x + 2 - x - 1) 
+    = x.1 
+    = x $
+]
+
+#not_block(title: "Sonuç: ")[
+  $x = 946875$ olduğuna göre işlemin sonucu *946875*'tir.
+]
+=== Programlama Dillerinde Değişken
+Değişken; programın çalışması sırasında verilerin bilgisayarın geçici belleğinde (RAM) saklandığı alanlara verilen isimdir (etikettir). Bilgisayarlar karmaşık bellek adresleriyle çalışırken programcılar bu adresleri ezberlemek yerine verilerine anlamlı değişken isimleriyle kolayca ulaşır.
+
+Kullanıcıdan alınan bilgiler veya dış kaynaklardan gelen veriler, değişkenler aracılığıyla belleğe kaydedilir. Program çalıştığı sürece bu verilere değişken isimleri çağrılarak erişilir; veriler üzerinde matematiksel veya mantıksal işlemler yapılır ve süreç içerisinde değişkenlerin taşıdığı değerler yeni verilerle güncellenebilir.
+
+Aşağıda *`puan`* değişkeninin oluşturulmasına, çağrılmasına ve güncellenmesine bir örnek verilmiştir.
 
 #kod-cikti(baslik: [Örnek Python Kodu])[
   ```Python
@@ -35,7 +58,7 @@ Güncellenmiş Puan: 75
     width: 100%
 )[
   #align(center)[
-  #image("/02_Files/images/01-Deger-Atama-RAM.jpg",width: image_width)
+  #image("images/01-Deger-Atama-RAM.jpg",width: image_width)
   ]
   #grid(
     columns: (8em, auto),
@@ -53,7 +76,7 @@ Güncellenmiş Puan: 75
     stroke: 1pt + rgb("#d0d7de"),
     width: 100%
 )[
-  #align(center)[#image("/02_Files/images/02-Hafizadan-Cagirma-RAM.jpg",width: image_width)]
+  #align(center)[#image("images/02-Hafizadan-Cagirma-RAM.jpg",width: image_width)]
   #grid(
     columns: (5em, auto),
     gutter: 5pt,
@@ -70,7 +93,7 @@ Güncellenmiş Puan: 75
     stroke: 1pt + rgb("#d0d7de"),
     width: 100%
 )[
-  #align(center)[#image("/02_Files/images/03-Deger-Guncelleme-RAM.jpg",width: image_width)]
+  #align(center)[#image("images/03-Deger-Guncelleme-RAM.jpg",width: image_width)]
   #grid(
     columns: (4em, auto),
     gutter: 5pt,
@@ -87,7 +110,7 @@ Güncellenmiş Puan: 75
     stroke: 1pt + rgb("#d0d7de"),
     width: 100%
 )[
-  #align(center)[#image("/02_Files/images/04-Guncel-Hali-Cagirma-RAM.jpg",width: image_width)]
+  #align(center)[#image("images/04-Guncel-Hali-Cagirma-RAM.jpg",width: image_width)]
   #grid(
     columns: (10.1em, auto),
     gutter: 5pt,
@@ -96,7 +119,6 @@ Güncellenmiş Puan: 75
     text(size:8pt)[Güncellenen *puan* değişkeni hafızadan çağırılarak ekrana yazdırılır.]
   )
 ]
-
 
 #grid(
   columns: (auto,auto),
@@ -112,57 +134,5 @@ Güncellenmiş Puan: 75
   atama3, atama4
 )
 
-
-// #grid(
-//   columns: (auto,auto),
-//   gutter: 2pt,
-//   align: (left+horizon),
-//   [
-//     1) Değer Atama\ Giriş yapılan 50 değeri, RAM'de puan ismiyle bir adrese kaydedilir.
-//     #kod-satiri(no:0)[
-//       ```Python
-//       Puan Giriniz: 50
-//       ```
-//     ]
-//   ],
-//   image("/02_Files/images/01-Deger-Atama-RAM-3.jpg",width: image_width),
-// )
-
-// #grid(
-//   columns: (auto,auto),
-//   gutter: 1pt,
-//   align: (center + horizon),
-//   image("/02_Files/images/01-Deger-Atama.png",width: image_width),
-//   image("/02_Files/images/02-Hafizadan-Cagirma.png",width: image_width),
-// )
-
-// #grid(
-//   columns: (auto,auto),
-//   gutter: 1pt,
-//   align: (center + horizon),
-//   image("/02_Files/images/03-Deger-Guncelleme.png",width: image_width),
-//   image("/02_Files/images/04-Guncel-Hali-Cagirma.png",width: image_width),
-// )
-
 #not_block(title:"Özet",boyut: 10pt, width: 100%)[Değişkenler, değerleri geçici olarak RAM'de tutan etiketlerdir. Program çalıştığı sürece bu değerler kullanılabilir ve güncellenebilir.]
 
-=== Değişken Kullanılarak Çözülen Matematik Problemi
-Bu örnekte, değişken kullanımının işlemleri nasıl daha kolay hale getirdiği gösterilmektedir.
-
-*Problem:* $946877 times 946875 - 946876 times 946875 = ?$
-
-*Çözüm:* Sayıları tek tek çarpmak veya 946875 sayısına göre ortak çarpan parantezine almak, sürekli altı haneli sayılarla işlem yapmayı gerektirir. Bu durum hem hata olasılığını artırır hem de çözümü uzatır. Bunun yerine 946875 sayısını bir değişkenle gösterelim.
-
-$x = 946875$ dersek $946877 = x + 2$ ve $946876 = x + 1$ olur. İfadeyi yeniden yazalım:
-
-#align(center)[
-  $ (x + 2) x - (x + 1) x
-    = x [(x + 2) - (x + 1)] \
-    = x (x + 2 - x - 1) \
-    = x.1 \
-    = x $
-]
-
-#not_block(title: "Sonuç: ")[
-  $x = 946875$ olduğuna göre işlemin sonucu *946875*'tir.
-]
