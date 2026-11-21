@@ -18,13 +18,10 @@
 #include "02_Files/Unite_01_Bilgisayar_Nedir/bilgisayr_nedir.typ"
 
 // Unite 02 Degisken ve Bellek
-#include "02_Files/degisken_ve_bellek.typ"
-
-#include "02_Files/veri_turleri_ve_ram_kullanimi.typ"
-
-#include "02_Files/python_dili.typ"
-
-#include "02_Files/tur_donucumu_degiskenler.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/01_degisken_ve_bellek.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/02_veri_turleri_ve_ram_kullanimi.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/03_python_dili.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/04_tur_donusumu.typ"
 
 // Unite 03 Operatorler
 #include "02_Files/operatorler.typ"

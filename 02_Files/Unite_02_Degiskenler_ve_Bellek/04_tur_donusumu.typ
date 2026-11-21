@@ -1,10 +1,10 @@
-#import "/pageGeneralConfig.typ": *
-#import "/lib/qr_code.typ": *
-#import "/lib/islem-aciklama.typ": *
-#import "/lib/not-block.typ": *
-#import "/lib/kod-bloklari.typ": *
-#import "/lib/yardimcilar.typ": *
-#import "/lib/icerik-tablo.typ": *
+#import "../../pageGeneralConfig.typ": *
+#import "../../lib/qr_code.typ": *
+#import "../../lib/islem-aciklama.typ": *
+#import "../../lib/not-block.typ": *
+#import "../../lib/kod-bloklari.typ": *
+#import "../../lib/yardimcilar.typ": *
+#import "../../lib/icerik-tablo.typ": *
 
 // #show: conf
 

@@ -1,7 +1,7 @@
-#import "/pageGeneralConfig.typ": *
-#import "/lib/qr_code.typ": *
-#import "/lib/kod-bloklari.typ": *
-#import "/lib/not-block.typ": *
+#import "../../pageGeneralConfig.typ": *
+#import "../../lib/qr_code.typ": *
+#import "../../lib/kod-bloklari.typ": *
+#import "../../lib/not-block.typ": *
 
 // #show: conf
 
