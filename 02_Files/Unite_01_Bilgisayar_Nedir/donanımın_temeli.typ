@@ -1,9 +1,9 @@
-#import "/pageGeneralConfig.typ": *
-#import "/lib/qr_code.typ": *
-#import "/lib/not-block.typ": *
-#import "/lib/kod-bloklari.typ": *
-#import "/lib/icerik-tablo.typ": *
-#import "/lib/yardimcilar.typ" : *
+#import "../../pageGeneralConfig.typ": *
+#import "../../lib/qr_code.typ": *
+#import "../../lib/not-block.typ": *
+#import "../../lib/kod-bloklari.typ": *
+#import "../../lib/icerik-tablo.typ": *
+#import "../../lib/yardimcilar.typ" : *
 
 // #show: conf
 
@@ -18,7 +18,7 @@ Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlem
 // =====================================
 // BİLGİSAYARIN ÇALIŞMA MİMARİSİ ÇİZİMİ 
 // =====================================
-#include "bilgisayarin_temel_calisma_mimarisi.typ"
+#include "diagrams/bilgisayarin_calisma_mimarisi.typ"
 
 
 Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan mimarisini özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
@@ -68,10 +68,10 @@ Verilerin daha sonra tekrar kullanılabilmesi gerekiyorsa sabit diske kaydedilme
   align: horizon + center,
   gutter: 5em,
   [
-  #image("/02_Files/images/charles-babbage.png")
+  #image("images/charles-babbage.png")
 
 ],[
-  #image("/02_Files/images/ada-lovelace.png")
+  #image("images/ada-lovelace.png")
 
 ]
 

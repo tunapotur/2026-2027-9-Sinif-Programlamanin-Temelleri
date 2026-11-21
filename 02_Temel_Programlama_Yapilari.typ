@@ -14,8 +14,10 @@
 
 // #title()
 
-#include "02_Files/donanımın_temeli.typ"
+// Unite 01 Bilgisayar Nedir
+#include "02_Files/Unite_01_Bilgisayar_Nedir/donanımın_temeli.typ"
 
+// Unite 02 Degisken ve Bellek
 #include "02_Files/degisken_ve_bellek.typ"
 
 #include "02_Files/veri_turleri_ve_ram_kullanimi.typ"
@@ -24,12 +26,14 @@
 
 #include "02_Files/tur_donucumu_degiskenler.typ"
 
+// Unite 03 Operatorler
 #include "02_Files/operatorler.typ"
 
+// Unite 04 Fonksiyon Kullanımı
 #include "02_Files/fonksiyon_kullanimi.typ"
-
 #include "02_Files/type-fonksiyonu.typ"
 
+// TODO sorulari bölüm sonlarına yerlestir
 #pagebreak()
 #include "02_Files/bolum_sorulari.typ"
 #pagebreak()
