@@ -15,7 +15,7 @@
 // #title()
 
 // Unite 01 Bilgisayar Nedir
-#include "02_Files/Unite_01_Bilgisayar_Nedir/donanımın_temeli.typ"
+#include "02_Files/Unite_01_Bilgisayar_Nedir/bilgisayr_nedir.typ"
 
 // Unite 02 Degisken ve Bellek
 #include "02_Files/degisken_ve_bellek.typ"

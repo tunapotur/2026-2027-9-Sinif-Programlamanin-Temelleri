@@ -43,7 +43,7 @@ Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda
   icerik_hizalama: (center + horizon, center + horizon, left + horizon, center + horizon),
   sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon),
   boyut: 9pt,
-  dikey-bosluk: 6pt,
+  dikey-bosluk: 6.7pt,
   [`1`], [Giriş Birimi], [Kullanıcı klavyeden `5` ve `3` tuşlarına basar; klavye bu tuşları elektrik sinyallerine çevirir.], [`5`, `3`],
   [`2`], [Bellek Birimi], [Sinyaller ikilik sisteme dönüştürülerek RAM'de ayrılan hücrelere yazılır.], [`0000 0101` \ `0000 0011`],
   [`3`], [İşlemci (CPU)], [İşlemci, bellekten "topla" komutunu ve toplanacak iki sayıyı okur; ardından bu sayıları toplayarak sonucu üretir.], [`topla`],
@@ -68,27 +68,13 @@ Verilerin daha sonra tekrar kullanılabilmesi gerekiyorsa sabit diske kaydedilme
   gutter: 5em,
   [
   #image("images/charles-babbage.png")
-
-],[
-  #image("images/ada-lovelace.png")
-
-]
-
-)
-#grid(
-  columns: (auto, auto),
-  align: horizon + center,
-  gutter: 5em,
-  [
-
   Charles Babbage (1791–1871)
 ],[
-
+  #image("images/ada-lovelace.png")
   Ada Lovelace (1815–1852)
 ]
 )
 ]
-
 
 Ada Lovelace, sahip olduğu maddi imkânlar sayesinde Babbage'in en büyük destekçilerinden biriydi. Kendisi de matematikçi olan Ada, Analitik Makine üzerine yazdığı notlarda Bernoulli sayılarını hesaplamak için bir algoritma tanımladı. Bu nedenle Ada Lovelace, tarihteki ilk bilgisayar programcısı olarak kabul edilir.
 
@@ -104,11 +90,11 @@ ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada L
   gutter: 5pt,
   align: (top),
   [
-    #image("images/Transistor On.jpg",width: 90%)
+    #image("images/transistor-acik.svg",width: 98%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Var (Açık)],[:],[1 (Bit)])
   ],
   [
-    #image("images/Transistor Off.jpg",width: 90%)
+    #image("images/transistor-kapali.svg",width: 98%)
     #grid(columns: (auto, auto, auto),gutter: 5pt,align: (top),[- Elektrik Akımı Yok (Kapalı)],[:],[0 (Bit)])
   ]
 )
@@ -238,7 +224,7 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
 #align(center)[
 #block(breakable: false)[
 // #let binary-size=6em
-#let table-content-size=7.5pt
+#let table-content-size=8pt
 #let hucre_bosluk = (x:5pt, y:4.1pt)
 #text(size:8pt)[*Temel ASCII Tablosu (32-127 Karakterin Kodu)*]
 #v(-0.4em)
@@ -380,9 +366,9 @@ Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0
 - Günlük hayatta metrik sistemde birimler onluk sisteme ($10^3$) göre biner biner büyür (1 kg = 1000 g,\ 1 km = 1000 m). Ancak bilgisayarlar *2'lik sayı sistemine (Binary)* göre çalışır. Bilgisayar mimarisinde bellek adreslemesi 2'nin üsleri şeklinde katlanarak ilerler. Onluk sistemdeki 1000 sayısına ikili tabanda en yakın kuvvet: 1024 sayısıdır ($2^(10) = 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 times 2 = 1024$).\
   Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
 
-#icerik-tablo(boyut: 8.5pt, baslik-boyut: 8.5pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
+#icerik-tablo(boyut: 9pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
 icerik_hizalama: (left+horizon,left+horizon,center+horizon,left+horizon),
-sutun_baslik_hizalama: (left+horizon,left+horizon,center+horizon,center+horizon),
+sutun_baslik_hizalama: (center),
 sutun_basliklari: ([Birim], [Kapasite], [Kısaltma], [Somut Karşılığı]),
 [Bit], [$0$ veya $1$], [*b*], [Tek bir transistör / elektrik sinyali],
   [Byte], [$8 " Bit"$], [*B*], [Tek bir karakter (harf, rakam, sembol)],
@@ -421,9 +407,8 @@ Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara t
 ]
 
 == Makine Kodundan Assembly Diline
-Altair 8800 gibi erken dönem bilgisayarlarda, işlemciye komut vermek için sürekli #text(weight: "semibold")[`1` ve `0`] dizilimlerinden oluşan makine kodlarını kullanmak oldukça zahmetliydi ve hatalara açıktı. Makine kodlarını daha kısa ve okunabilir biçimde ifade etmek için #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kullanılmaya başlandı. Ancak hexadecimal gösterim, makine kodunu daha kolay yazmayı sağlasa da komutların anlamını doğrudan açıklamıyordu.
+Altair 8800 gibi ilk bilgisayarlarda #text(weight: "semibold")[1 ve 0]'lardan oluşan makine kodlarıyla program yazmak oldukça zahmetliydi. #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kodları kısaltsa da komutların anlamını açıklamıyordu. Bu nedenle komutlar yerine İngilizce kısaltmalardan oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı ve bu dili ifade eden #text(weight: "bold")[Assembly dili] doğdu. Böylece program yazmak çok daha anlaşılır ve kolay hâle geldi.
 
-Bu nedenle makine kodundaki komutları daha kolay hatırlayabilmek ve yazabilmek için İngilizce kelimelerin kısaltmalarından oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı. Bu sembolik komutları kullanan dile #text(weight: "bold")[Assembly dili] adı verildi. Böylece programcılar, yalnızca #text(weight: "semibold")[`1` ve `0`] dizilimleriyle uğraşmak yerine, daha anlaşılır ve hatırlanması kolay komutlarla program yazabilir hâle geldi.
 #grid(
   columns: (auto, auto),
   gutter: 10pt,
@@ -486,7 +471,7 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
   sutun_basliklari: ([Evrim Aşaması], [Temsil\ Biçimi], [Örnek Kod], [Temel Avantajı], [Temel Zorluğu],),
   boyut: 8pt,
   sutun_baslik_bosluk: (x: 6pt, y: 4pt),
-  hucre_bosluk: (x:4pt, y:5pt),
+  hucre_bosluk: (x:4pt, y:5.6pt),
   icerik_hizalama: (center+horizon, center+horizon, center+horizon, left+horizon, left+horizon),
   sutun_baslik_hizalama:  (center+horizon),
  // 1. Satır
@@ -523,17 +508,22 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
 #iki_hucreli_satir(
   columns: (3fr,1fr),
   gutter: 10pt,
-[Aşağıdaki beş örnek, aynı işi yapan (yandaki ekran çıktısını veren) programın beş farklı düzeydeki gösterimidir. Yukarıdan aşağıya doğru, kod insan için daha anlaşılır hale gelir.]
+[Programlamada ilk adım geleneksel olarak ekrana *"Hello, World!"* yazdırmaktır. Aşağıda, bu çıktıyı üreten aynı programın beş farklı düzeydeki gösterimi yer almaktadır. Yukarıdan aşağıya doğru kod, insan için giderek daha okunabilir ve anlaşılır hâle gelir. Ben de yeni bir programlama dili kurduğumda ilk iş olarak ekrana mutlaka "Hello World" yazdırırım.]
 ,[#output-box[Hello world!]] 
 )
-#v(-0.5em)
-#not_block(title: "Bilgi: ")[
-  Makine dili örnekleri, 16 bitlik DOS ortamında çalışan bir *COM programına* aittir. Bu baytlar bir `.com` dosyasına yazıldığında program çalışır. Günümüz 64 bit işlemcilerinde komutlar ve adresler çok daha uzundur; buradaki amaç, aynı işin makine dilindeki görünümünü göstermektir.
-]
+
+#link-box(
+  url: "https://helloworld.directory",
+  title: "Hello World Sözlüğü",
+  desc: [Bu web sitesinde birçok programlama diline ait ekrana *`Hello World`* yazdıran kod örnekleri yer almaktadır.]
+)
 
 === Makine Dili (0 ve 1'lerle)
-
 Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 8 bitten oluşur; aşağıdaki her grup 8 bitlik bir bayttır. Satır sonundaki açıklamalar insan içindir, makine bu açıklamaları görmez.
+
+#not_block()[
+  Daha anlaşılır olması için burada ki örnekte kullanılan makine dili, 16 bitlik DOS ortamında çalışan bir COM programına aittir. Günümüz 64 bit işlemcilerinde komutlar ve adresler çok daha uzundur.
+]
 
 #kod-blok(width: 100%)[
   ```text
@@ -588,6 +578,7 @@ Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad ver
 
   mov ax, 4C00h        ; programdan çık
   int 21h
+
 
   mesaj db "Hello world!$"
   ```
