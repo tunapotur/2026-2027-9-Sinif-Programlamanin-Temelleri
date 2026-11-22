@@ -6,7 +6,7 @@
 
 == Uygulama Soruları Cevapları
 
-==== Soru 35: Çemberin çevresi ve alanı
+*Soru 1: Çemberin çevresi ve alanı*
 
 #kod-blok(width: 100%)[
   ```python
@@ -22,7 +22,7 @@
   ```
 ]
 
-==== Soru 36: Vücut kitle endeksi (BMI)
+*Soru 2: Vücut kitle endeksi (BMI)*
 
 #kod-blok(width: 100%)[
   ```python
@@ -35,7 +35,7 @@
   ```
 ]
 
-==== Soru 37: Araç yakıt tüketimi
+*Soru 3: Araç yakıt tüketimi*
 
 #kod-blok(width: 100%)[
   ```python
@@ -53,7 +53,7 @@
   ```
 ]
 
-==== Soru 38: Sayıyı iki katının beş fazlasına güncelleme
+*Soru 4: Sayıyı iki katının beş fazlasına güncelleme*
 
 #kod-blok(width: 100%)[
   ```python
@@ -66,7 +66,7 @@
   ```
 ]
 
-==== Soru 39: Dik üçgende hipotenüs
+*Soru 5: Dik üçgende hipotenüs*
 
 #kod-blok(width: 100%)[
   ```python
@@ -80,7 +80,7 @@
 ]
 
 
-==== Tanışma ve yaş hesabı
+*Soru 6: Tanışma ve yaş hesabı*
 #iki_hucreli_satir(columns: (auto,auto))[
 #kod-blok(width: 100%)[
 ```python
@@ -101,7 +101,7 @@ print(f"Merhaba {ad}, {yas} yaşındasın.")
 
 #not_block(title: "Sık hata:")[Kullanıcıdan alınan veri metin (`str`) olduğundan `int()` ile dönüştürülmezse `2026 - "2010"` işlemi `TypeError` hatası verir.]
 
-==== Dikdörtgenin alanı ve çevresi
+*Soru 7: Dikdörtgenin alanı ve çevresi*
 #iki_hucreli_satir(columns: (25.1em, auto))[
 #kod-blok(width: 100%)[
 ```python
@@ -120,7 +120,7 @@ print(f"Çevre: {cevre:.2f} cm")
 
 #not_block(title: "Sık hata:")[Çevre formülünde parantez unutulursa (`2 * kisa_kenar + uzun_kenar`), işlem önceliğinden dolayı önce çarpma yapılır ve yanlış sonuç bulunur.]
 
-==== Not ortalaması
+*Soru 8: Not ortalaması*
 #iki_hucreli_satir(columns: (auto,auto))[
   #kod-blok(width: 100%)[
 ```python
@@ -147,7 +147,7 @@ print(f"Takdir mi: {takdir_mi}")
 
 #not_block(title: "Sık hata:")[`gecti_mi = ortalama = 50` yazmak (karşılaştırma yerine atama).]
 
-==== Tür dönüşümü
+*Soru 9: Tür dönüşümü*
 #iki_hucreli_satir(columns: (auto,auto))[
   #kod-blok(width: 100%)[
 ```python
@@ -170,7 +170,7 @@ print(kesilmis, type(kesilmis))
 
 #not_block(title: "Vurgulanacak noktalar:")[Klavyeden okunan değer başlangıçta her zaman `str` türündedir. `int()` ve `float()` ile bilinçli (açık) tür dönüşümü yapılır. `int(85.85)` yuvarlama yapmaz, ondalık kısmı atarak tam sayıya (`85`) dönüştürür.]
 
-==== Hatalı kodu düzeltin
+*Soru 10: Hatalı kodu düzeltin*
 #kod-blok(width: 100%)[
 ```python
 etap3_skor = 80
@@ -195,7 +195,7 @@ print(toplam_puan)
 #not_block(title: "Not:")[Öğrenci değişken adlandırma kurallarını (`snake_case`, rakamla başlamama, boşluk ve tire içermeme) doğru uyguladığı sürece farklı geçerli adlandırmalar da kabul edilebilir.]
 
 
-==== Kod izleme
+*Soru 11: Kod izleme*
 #grid(
   columns: (auto,auto,auto),
   gutter:10pt,
@@ -245,7 +245,7 @@ True
 - `x = 7 + 3 * 2` işleminin sonucu `13`'tür; `13 % 5` değeri `3` olduğundan `x % 5 == 3` karşılaştırması `True` verir.
 ]
 
-==== Dakikayı gün, saat ve dakikaya çevirme
+*Soru 12: Dakikayı gün, saat ve dakikaya çevirme*
 #iki_hucreli_satir(align: top, columns: (auto,23em))[
 #kod-blok(width: 100%)[
 ```python
@@ -263,7 +263,7 @@ print(f"{gun} gün {saat} saat {dakika} dakika")
 #not_block(title: "Kontrol:")[4000 = 2 × 1440 + 1120 ve 1120 = 18 × 60 + 40. Ders notundaki "135 dakika → 2 saat 15 dakika" örneğinin bir adım genişletilmiş halidir.]
 ]
 
-==== Basamaklarına ayırma
+*Soru 13: Basamaklarına ayırma*
 #iki_hucreli_satir(align: top, columns: (auto,16em))[
   #kod-blok(width: 100%)[
 ```python
@@ -285,7 +285,7 @@ print(f"Ters sayı: {ters_sayi}")
 #not_block(title: "Not:")[Onlar basamağı için önce `// 10` ile son basamak atılır (487 → 48), sonra `% 10` ile son basamak alınır (8). Alternatif olarak `(sayi % 100) // 10` ifadesi de aynı sonucu verir.]
 ]
 
-==== ATM para dağıtımı
+*Soru 14: ATM para dağıtımı*
 
 #iki_hucreli_satir(columns: (28em, auto))[
 #kod-blok(width: 100%)[
@@ -319,7 +319,7 @@ print(f"1 TL  : {birlik} adet")
 
 #not_block(title: "Kontrol:")[2 × 100 + 50 + 20 + 10 + 5 + 2 × 1 = 287. Bu soru, `kalan` değişkeninin her adımda yeniden atanarak güncellendiğini göstermek için iyi bir örnektir.]
 
-==== Sinema bileti
+*Soru 15: Sinema bileti*
 
 #grid(
   columns: (2fr, 1fr),
@@ -359,7 +359,7 @@ print(f"Tam fiyat: {tam_fiyat}")
 #not_block(title: "Not:")[Koşul ifadelerinde `if` kullanmadan mantıksal operatörlerin (`or`, `not`) doğrudan `bool` sonuç üretmesi sağlanmıştır. `input(...) == "E"` karşılaştırması kullanıcı "E" girdiğinde doğrudan `True`, aksi halde `False` üretir.]
 
 
-==== Çıktı biçimlendirme
+*Soru 16: Çıktı biçimlendirme*
 #iki_hucreli_satir(columns: (30em,auto))[
 #kod-blok(width: 100%)[
 ```python
@@ -387,7 +387,7 @@ print("O \"evet\" dedi")
 
 #not_block(title: "Not:")[`end` verilmezse her `print()` alt satıra geçer; `sep` yalnızca virgülle ayrılan değerlerin arasını etkiler. Ters eğik çizgiyi yazdırmak için `\\`, çift tırnağı yazdırmak için `\"` gerekir.]
 
-==== Market fişi
+*Soru 17: Market fişi*
 #iki_hucreli_satir(columns: (20.3em,auto),gutter: 4pt)[
 #kod-blok(width: 100%)[
 ```python
@@ -420,7 +420,7 @@ print("-" * 28)
 
 #not_block(title: "Not:")[f-string içinde `<` sola yaslama, `>` sağa yaslama, `:.2f` ise ondalık sayıyı virgülden sonra 2 basamakla göstermeyi sağlar. `"-" * 28` ifadesi 28 adet tire karakterini art arda yazdırır.]
 
-==== Sayı ve İsim İstatistiği
+*Soru 18: Sayı ve İsim İstatistiği*
 #iki_hucreli_satir(columns: (auto, auto))[
 #kod-blok(width: 100%)[
 ```python

@@ -62,3 +62,7 @@
 )[
   #text(weight: "bold", size: 10pt)[#baslik]
 ]
+
+#let soru_bilgi(body) = text(size: 9pt, fill: luma(110))[
+  #body
+]

@@ -12,6 +12,7 @@
   sag,
 ) = {
   block(breakable: false)[
+    #set par(justify: false)
     #grid(
       columns: columns,
       gutter: gutter,
@@ -26,6 +27,4 @@
   ]
 }
 
-#let soru_bilgi(body) = text(size: 9pt, fill: luma(110))[
-  #body
-]
+
