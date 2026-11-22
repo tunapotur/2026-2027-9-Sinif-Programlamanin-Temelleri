@@ -215,6 +215,4 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   aciklama: "Her bir karakter ASCII karşılığı ile bellekte 1 byte yer kaplar (A:65, D:68, A:65, Boşluk:32, L:76, O:79, V:86, E:69, L:76, A:65, C:67, E:69). Toplam 12 karakter = 12 byte.",
 )
 
-// TODO burada kaldım
-#include "diagrams/bellek-yonetimi.typ"
-#include "diagrams/bellek-yonetimi-cizim.typ"
+

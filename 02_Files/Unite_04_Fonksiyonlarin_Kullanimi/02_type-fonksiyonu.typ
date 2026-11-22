@@ -1,9 +1,9 @@
-#import "/pageGeneralConfig.typ": *
-#import "/lib/islem-aciklama.typ": islem-aciklama
-#import "/lib/not-block.typ": *
-#import "/lib/kod-bloklari.typ": *
-#import "/lib/icerik-tablo.typ": *
-#import "/lib/yardimcilar.typ": *
+#import "../../pageGeneralConfig.typ": *
+#import "../../lib/islem-aciklama.typ": islem-aciklama
+#import "../../lib/not-block.typ": *
+#import "../../lib/kod-bloklari.typ": *
+#import "../../lib/icerik-tablo.typ": *
+#import "../../lib/yardimcilar.typ": *
 
 // #show: conf
 

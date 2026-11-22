@@ -55,7 +55,7 @@ Günümüzde bilgisayar donanımları, programlama dillerinin ilk ortaya çıkt�
 ]
 #align(center)[
   #v(1em)
-      #image("/02_Files/images/python-logo.jpg", width: 40%) 
+      #image("/02_Files/Unite_02_Degiskenler_ve_Bellek/images/python-logo.jpg", width: 40%) 
   ]
 
     ]
@@ -89,4 +89,115 @@ Python resmi logosu, Antik Yunan mitolojisindeki kendini besleyen yılandan olu�
   ]
 )
 
+
+== Python Açıklama Satırı (Comment line)
+Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıların kendileri için veya diğer yazılımcılar için bıraktığı notlara açıklama satarı (comment line) denir. Python'da iki tür açıklama satırı uygulaması vardır.
+- *\#* ile başlayan tek satırlık açıklama satırı
+- *\"\"\"...\"\"\"* Çok satırlı açıklama satırları üç adet tırnak ile açılan ve yine üç adet tırnak ile kapanan alan içine yazılan açıklama ifadeleri ile yapılır.
+
+#let sutun1Genislik = 26em
+
+#block(breakable: false)[
+  #grid(
+  columns: (sutun1Genislik,auto),
+  gutter: 10pt,
+    align: top,
+    [
+      #align(center)[*Açıklamasız*]
+      #v(1.5em)
+      #kod-blok(width: 100%)[
+        ```Python
+a = 50
+b = 20
+c = a * b / 100
+print(c)
+```
+      ]
+    ],
+    [
+      #align(center)[*Açıklamalı*]
+      #kod-blok(width: 100%)[
+        ```Python
+# Ürünün fiyatı
+a = 50
+# İndirim oranı (%)
+b = 20
+# İndirim miktarı
+c = a * b / 100
+print(c)
+```
+      ]
+    ]
+  )
+]
+
+*Açıklama Satırının Kullanım Amaçları*
+#grid(
+  columns: (sutun1Genislik,auto),
+  gutter: 10pt,
+  align: top,
+  [
+#kod-blok(width: 100%)[
+  ```Python
+# 1) Kodu açıklamak için
+yas = 17  # öğrencinin yaşı
+
+# 2) Kodu geçici olarak devre dışı bırakmak için
+print("Merhaba")
+# print("Bu satır çalışmaz")
+
+# 3) Yapılacakları not etmek için
+# TODO: Kullanıcıdan yaş bilgisi alınacak
+```
+      ]
+  ],
+  [
+#kod-blok(width: 100%)[
+        ```Python
+# Bu tam satırlık açıklama
+x = 10  # satır içi (inline) açıklama
+```]
+
+#kod-blok(width: 100%)[
+  ```Python
+# Bu fonksiyon iki sayıyı toplar,
+# ve geriye döndürür.
+def topla(a, b):
+    return a + b
+# fonksiyon sonlandırıldı
+```
+]
+  ]
+  )
+
+*Çok Satırlı Açıklama ile Program Başlığı*
+#grid(
+  columns: (sutun1Genislik+6em,auto),
+  gutter: 15pt,
+  align: horizon,
+  [
+#kod-blok(width: 100%)[
+  ```Python
+"""
+Program : Daire Alanı Hesaplama
+Ders    : Programlamanın Temelleri (9. Sınıf)
+Yazar   : Ahmet Tuna POTUR
+Sürüm   : 1.0
+Açıklama: Sabit olarak tanımlanan pi sayısı ve yarıçap (r) 
+değerini kullanarak dairenin alanını (π * r²) hesaplar
+ve ekrana yazdırır. Girdiler: pi (float), r (int).
+Çıktı   : alan (float) - Hesaplanan daire alanı
+"""
+pi = 3.14        # pi sayısı (yaklaşık değer)
+r = 5            # yarıçap
+alan = pi * r * r
+print(alan)      # Ekrana 78.5 yazar
+```]
+  ],
+  [
+    #not_block(title: "Dikkat: ")[
+  Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır.\ Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
+]
+  ]
+)
 

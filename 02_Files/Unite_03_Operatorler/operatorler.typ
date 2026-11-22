@@ -1,11 +1,10 @@
-#import "/pageGeneralConfig.typ": *
-#import "/02_Files/infographic/degisken_ve_bellek.typ": *
-#import "/lib/not-block.typ": *
-#import "/lib/kod-bloklari.typ": *
-#import "/lib/icerik-tablo.typ": *
-#import "/lib/yardimcilar.typ": *
-#import "/lib/islem-aciklama.typ": *
-#import "/02_Files/bolme-islemi.typ": *
+#import "../../pageGeneralConfig.typ": *
+#import "../../lib/not-block.typ": *
+#import "../../lib/kod-bloklari.typ": *
+#import "../../lib/icerik-tablo.typ": *
+#import "../../lib/yardimcilar.typ": *
+#import "../../lib/islem-aciklama.typ": *
+#import "/02_Files/Unite_03_Operatorler/diagrams/bolme-islemi.typ": *
 
 // #show: conf
 
@@ -115,8 +114,8 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
 *Bellekte Değerin Güncellenmesi*
 #v(0.5em)
 ]
-#include "degisken_guncelleme.typ"
-  
+
+#include "diagrams/degisken_guncelleme.typ"
 
 #v(1em)
 ==== Bileşik Atama Operatörleri

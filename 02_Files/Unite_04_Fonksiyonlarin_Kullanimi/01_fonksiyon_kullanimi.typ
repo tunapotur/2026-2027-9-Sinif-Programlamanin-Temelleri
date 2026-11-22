@@ -1,9 +1,9 @@
 #import "/pageGeneralConfig.typ": *
-#import "/lib/islem-aciklama.typ": *
-#import "/lib/not-block.typ": *
-#import "/lib/kod-bloklari.typ": *
-#import "/lib/icerik-tablo.typ": *
-#import "/lib/yardimcilar.typ": *
+#import "../../lib/islem-aciklama.typ": *
+#import "../../lib/not-block.typ": *
+#import "../../lib/kod-bloklari.typ": *
+#import "../../lib/icerik-tablo.typ": *
+#import "../../lib/yardimcilar.typ": *
 
 // #show: conf
 
@@ -708,8 +708,3 @@ O \"evet\" dedi
   - `input()` klavyeden veri alır ve *her zaman metin* döndürür. Sayı gerekiyorsa `int()` veya `float()` ile dönüştürülür.
   - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
 ]
-
-
-// #align(center)[
-//   #image("images/python_functions2.jpg", width: 87%)
-// ]

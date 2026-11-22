@@ -20,15 +20,16 @@
 // Unite 02 Degisken ve Bellek
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/01_degisken_ve_bellek.typ"
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/02_veri_turleri_ve_ram_kullanimi.typ"
-#include "02_Files/Unite_02_Degiskenler_ve_Bellek/03_python_dili.typ"
-#include "02_Files/Unite_02_Degiskenler_ve_Bellek/04_tur_donusumu.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/03_bellek-yonetimi.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/04_python_dili.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/05_tur_donusumu.typ"
 
 // Unite 03 Operatorler
-#include "02_Files/operatorler.typ"
+#include "02_Files/Unite_03_Operatorler/operatorler.typ"
 
 // Unite 04 Fonksiyon Kullanımı
-#include "02_Files/fonksiyon_kullanimi.typ"
-#include "02_Files/type-fonksiyonu.typ"
+#include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/01_fonksiyon_kullanimi.typ"
+#include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/02_type-fonksiyonu.typ"
 
 // TODO sorulari bölüm sonlarına yerlestir
 #pagebreak()
@@ -40,10 +41,12 @@
 #include "02_Files/bolum_uygulama_sorular.typ"
 #pagebreak()
 #include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
-
 #pagebreak()
-#include "02_Files/infographic/infografikler.typ"
+#include "02_Files/bilgisayar_nedir-sorular.typ"
+
 // infografik dosyaları
+#pagebreak()
+#include "02_Files/infographic/kapak-infografikler.typ"
 #include "02_Files/infographic/bilgisayarin_dili.typ"
 #include "02_Files/infographic/degisken_ve_bellek.typ"
 #include "02_Files/infographic/veri_turleri.typ"
@@ -54,5 +57,4 @@
 #include "02_Files/infographic/fonksiyon_kullanimi.typ"
 #include "02_Files/infographic/input_print.typ"
 
-#pagebreak()
-#include "02_Files/bilgisayar_nedir.typ"
+
