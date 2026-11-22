@@ -4,6 +4,8 @@
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
 
+== Uygulama Soruları Cevapları
+
 ==== Soru 35: Çemberin çevresi ve alanı
 
 #kod-blok(width: 100%)[

@@ -4,6 +4,8 @@
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
 
+== Uygulama Soruları
+
 #iki_hucreli_satir[
 ==== Soru 35: Çemberin çevresi ve alanı
 #soru_bilgi[Konu: sabit, `float()`, aritmetik operatörler, üs alma, f-string · Zorluk: Kolay]

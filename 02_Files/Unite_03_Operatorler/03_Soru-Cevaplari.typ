@@ -3,34 +3,7 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
-
-#let cevap(no, cevap, aciklama) = block(
-  breakable: false,
-  width: 100%,
-  below: 0.6em
-)[
-  #text(weight: "bold", size: 9pt)[Soru #no.]
-  #text(size: 10pt, weight: "semibold")[#underline(stroke: 1.25pt, offset: 1.25pt)[(#cevap)]]
-  #text(size:10pt)[#aciklama]
-]
-
-#let cevap-acikUclu(no, cevap) = block(
-  breakable: false,
-  width: 100%,
-  below: 0.6em
-)[
-  #text(weight: "bold", size: 9pt)[Soru #no.]
-  #text(size: 10pt)[#cevap]
-]
-
-#let ara-baslik(baslik) = block(
-  breakable: false,
-  width: 100%,
-  above: 1em,
-  below: 0.7em
-)[
-  #text(weight: "bold", size: 10pt)[#baslik]
-]
+#import "/lib/sorular.typ": *
 
 === Bölüm Soruları: Cevap Anahtarı
 

@@ -3,57 +3,7 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
-
-#let cevap-cizgisi(..args) = {
-  let n = if args.pos().len() > 0 {
-    args.pos().first()
-  } else if "n" in args.named() {
-    args.named().at("n")
-  } else {
-    1
-  }
-  for _ in range(n) [
-    #v(0.25em)
-    #line(length: 100%, stroke: 0.45pt + gray)
-    #v(0.45em)
-  ]
-}
-
-#let soru(no, metin) = block(breakable: false, below: 0.65em)[
-  *#no.* #metin
-]
-
-#let siklar2(a, b, c, d, ..rest) = {
-  let e = if rest.pos().len() > 0 { rest.pos().first() } else { none }
-  if e != none {
-    grid(
-      columns: (1fr, 1fr),
-      gutter: 6pt,
-      [A) #a], [B) #b],
-      [C) #c], [D) #d],
-      grid.cell(colspan: 2)[E) #e],
-    )
-  } else {
-    grid(
-      columns: (1fr, 1fr),
-      gutter: 6pt,
-      [A) #a], [B) #b],
-      [C) #c], [D) #d],
-    )
-  }
-}
-
-#let siklar4(a, b, c, d) = grid(
-  columns: (1fr, 1fr, 1fr, 1fr),
-  gutter: 4pt,
-  [A) #a], [B) #b], [C) #c], [D) #d],
-)
-
-#let siklar5(a, b, c, d, e) = grid(
-  columns: (1fr, 1fr, 1fr, 1fr, 1fr),
-  gutter: 4pt,
-  [A) #a], [B) #b], [C) #c], [D) #d], [E) #e],
-)
+#import "/lib/sorular.typ":*
 
 === Bölüm Soruları
 
@@ -109,11 +59,11 @@
 
 #soru(13, [İşlemci komutlarını sembolik ve hatırlanabilir kısaltmalarla ifade eden alt seviyeli dile ............... denir.])
 
-#soru(14, [Bir Byte, bilgisayardaki en küçük veri birimidir. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
+#soru(14, [Bir Byte, bilgisayardaki en küçük veri birimidir. #sik_D_Y])
 
-#soru(15, [8 bit bir araya gelerek 1 Byte oluşturur. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
+#soru(15, [8 bit bir araya gelerek 1 Byte oluşturur. #sik_D_Y])
 
-#soru(16, [Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
+#soru(16, [Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır. #sik_D_Y])
 
 #soru(17, [Aşağıdaki numaralandırılmış kavramlar ile harflendirilmiş görev tanımlarını eşleştiriniz:])
 

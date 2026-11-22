@@ -49,7 +49,7 @@
   set text(size: 22pt, weight: "bold")
   block(above: 1.2em, below: 0.75em)[
     #if it.numbering != none [
-      #counter(heading).display((..nums) => "Bölüm " + str(nums.pos().first()) + ":")#h(0.5em)
+      #counter(heading).display((..nums) => "Bölüm " + str(nums.pos().first()) + ":")#h(0.1em)
     ]
     #it.body
   ]
@@ -61,7 +61,7 @@
   set text(size: 18pt, weight: "bold")
   block(above: 1.4em, below: 0.8em)[
     #if it.numbering != none [
-      #counter(heading).display((..nums) => "Ünite " + str(nums.pos().at(1)) + ":")#h(0.5em)
+      #counter(heading).display((..nums) => "Ünite " + str(nums.pos().at(1)) + ":")#h(0.1em)
     ]
     #it.body
   ]
