@@ -18,6 +18,8 @@
 // Unite 01 Bilgisayar Nedir
 #include "02_Files/Unite_01_Bilgisayar_Nedir/01_bilgisayr_nedir.typ"
 #include "02_Files/Unite_01_Bilgisayar_Nedir/02_makinenin_dilinden_insan_diline.typ"
+#include "02_Files/Unite_01_Bilgisayar_Nedir/03_Sorular.typ"
+#include "02_Files/Unite_01_Bilgisayar_Nedir/04_Soru-Cevaplari.typ"
 #pagebreak()
 
 // Unite 02 Degisken ve Bellek
@@ -26,16 +28,22 @@
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/03_bellek-yonetimi.typ"
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/04_python_dili.typ"
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/05_tur_donusumu.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/03_Sorular.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/04_Soru-Cevaplari.typ"
 #pagebreak()
 
 // Unite 03 Operatorler
 #include "02_Files/Unite_03_Operatorler/operatorler.typ"
+#include "02_Files/Unite_03_Operatorler/03_Sorular.typ"
+#include "02_Files/Unite_03_Operatorler/04_Soru-Cevaplari.typ"
 #pagebreak()
 
 // Unite 04 Fonksiyon Kullanımı
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/01_fonksiyon_kullanimi.typ"
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/02_type-fonksiyonu.typ"
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/03_ornek_uygulamalar.typ"
+#include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/03_Sorular.typ"
+#include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/04_Soru-Cevaplari.typ"
 #pagebreak()
 
 /*
