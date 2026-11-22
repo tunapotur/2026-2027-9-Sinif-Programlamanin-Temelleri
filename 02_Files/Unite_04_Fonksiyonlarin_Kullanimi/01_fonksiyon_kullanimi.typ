@@ -31,7 +31,7 @@ Aşağıda, kesirli bir sayının virgülden sonraki iki basamağını elde etme
 #block()[
   #set block(spacing: 6pt)
   
-*Fonksiyonları Kullanmanın Yarattığı Fark*
+=== Fonksiyonları Kullanmanın Yarattığı Fark
 #block(breakable: false)[
   #grid(
     columns: (1fr, 1fr, 1fr),
@@ -172,7 +172,7 @@ Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu ko
 
 
 
-==== Dönüş Değeri Olan ve Olmayan Fonksiyonlar
+=== Dönüş Değeri Olan ve Olmayan Fonksiyonlar
 `round()` gibi fonksiyonlar bir sonuç geri döndürür ve bu sonucu bir değişkene atayabiliriz. `print()` ise sonuç üretmez, işi ekrana yazmaktır.
 
 #grid(
@@ -195,51 +195,6 @@ Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu ko
   ```
 ]
   ]
-)
-
-== input() ve print() Fonksiyonları
-Çoğu program şu üç adımı izler: *veriyi al* (girdi), *işle*, *sonucu göster* (çıktı). `input()` girdi adımını, `print()` çıktı adımını yapar.
-
-
-=== print(): Ekrana Yazdırma
-`print()` fonksiyonu, parantez içine verilen değerleri ekrana yazar ve ardından bir alt satıra geçer. Metinler tırnak içinde yazılır; sayılar ve değişkenler tırnaksız yazılır.
-
-#kod-cikti(baslik: [Metin, sayı ve değişken yazdırma], baslik-yeri: "sag")[
-   ```python
-        print("Merhaba Dünya")
-        print(2026)
-        print(7 + 3)
-
-        isim = "Ayşe"
-        print(isim)
-        print("isim")
-        ```
-][
-        ```
-        Merhaba Dünya
-        2026
-        10
-        Ayşe
-        isim
-        ```
-]
-
-#not_block(title: "Dikkat: ")[
-  `print(isim)` değişkenin içindeki değeri (`Ayşe`) yazdırır. `print("isim")` ise tırnak içindeki metni (`isim`) olduğu gibi yazdırır.
-]
-
-#grid(
-  columns: (auto,auto),
-      gutter: 5pt,
-    align: (horizon),
-  [Boş `print()` çağrısı ekrana hiçbir şey yazmaz, yalnızca bir satır boşluk bırakır:],
-kod-blok(width: 100%)[
-  ```python
-  print("Birinci satır") # Birinci satır
-  print()                #
-  print("Üçüncü satır")  # Üçüncü satır
-  ```
-]
 )
 
 === input(): Kullanıcıdan Veri Alma
@@ -315,6 +270,47 @@ Metinlerde `+` toplama değil *birleştirme* yaptığı için `"15" + "15"` sonu
 #not_block(title: "Dikkat: ")[
   Kullanıcı `abc` gibi sayıya çevrilemeyecek bir şey yazarsa `int()` veya `float()` hata verir (`ValueError`) ve program durur. Hata yönetimini ileride göreceğiz; şimdilik kullanıcıdan doğru türde veri girildiğini varsayıyoruz.
 ]
+
+=== print(): Ekrana Yazdırma
+`print()` fonksiyonu, parantez içine verilen değerleri ekrana yazar ve ardından bir alt satıra geçer. Metinler tırnak içinde yazılır; sayılar ve değişkenler tırnaksız yazılır.
+
+#kod-cikti(baslik: [Metin, sayı ve değişken yazdırma], baslik-yeri: "sag")[
+   ```python
+        print("Merhaba Dünya")
+        print(2026)
+        print(7 + 3)
+
+        isim = "Ayşe"
+        print(isim)
+        print("isim")
+        ```
+][
+        ```
+        Merhaba Dünya
+        2026
+        10
+        Ayşe
+        isim
+        ```
+]
+
+#not_block(title: "Dikkat: ")[
+  `print(isim)` değişkenin içindeki değeri (`Ayşe`) yazdırır. `print("isim")` ise tırnak içindeki metni (`isim`) olduğu gibi yazdırır.
+]
+
+#grid(
+  columns: (auto,auto),
+      gutter: 5pt,
+    align: (horizon),
+  [Boş `print()` çağrısı ekrana hiçbir şey yazmaz, yalnızca bir satır boşluk bırakır:],
+kod-blok(width: 100%)[
+  ```python
+  print("Birinci satır") # Birinci satır
+  print()                #
+  print("Üçüncü satır")  # Üçüncü satır
+  ```
+]
+)
 
 === print() ile Metin ve Değişkenleri Birlikte Yazdırma
 Gerçek programlarda çoğu zaman sabit metin ile değişken değerlerini aynı satırda göstermek isteriz. Örneğin `Merhaba Ayşe, 16 yaşındasın.` Bunu yapmanın üç yolu vardır.
@@ -596,115 +592,4 @@ Ad:#h(1.5em)Ayşe
 Yol: C:\\Okul
 O \"evet\" dedi
 ```
-]
-
-=== Örnek Uygulamalar
-
-#kod-cikti(
-  baslik: "Daire alanı hesaplama",
-  columns: (32em, auto),
-  align: bottom,
-  [
-    ```python
-    pi = 3.14159
-    r = float(input("Yarıçap (cm): "))
-    alan = pi * r * r
-    print(f"r={r}cm olan dairenin alanı {alan:.2f}cm²'dir.")
-    ```
-  ],
-  [
-    ```text
-    Yarıçap (cm): 5 \
-    r=5.0 cm olan dairenin alanı 78.54 cm²\'dir.
-    ```
-  ],
-)
-
-#kod-cikti(
-  baslik: "Not ortalaması",baslik-yeri: "sag",
-  columns: (32em, auto),
-  align: bottom,
-  [
-    ```python
-    ad = input("Öğrenci adı: ")
-    vize = float(input("Vize notu: "))
-    final = float(input("Final notu: "))
-
-    ortalama = vize * 0.4 + final * 0.6
-
-    print(f"Öğrenci : {ad}")
-    print(f"Ortalama: {ortalama:.1f}")
-    print(f"Geçti mi: {ortalama >= 50}")
-    ```
-  ],
-  [
-    ```
-    Öğrenci adı: Ayşe
-    Vize notu: 70
-    Final notu: 90
-    Öğrenci : Ayşe
-    Ortalama: 82.0
-    Geçti mi: True
-    ```
-  ],
-)
-
-#kod-cikti(
-  baslik: "Saniyeyi saat-dakika-saniyeye çevirme",baslik-yeri: "sag",
-  columns: (32em, auto),
-  align: bottom,
-  [
-    ```python
-    toplam = int(input("Saniye giriniz: "))
-    saat = toplam // 3600
-    kalan = toplam % 3600
-    dakika = kalan // 60
-    saniye = kalan % 60
-    print(f"{saat:02d}:{dakika:02d}:{saniye:02d}")
-    ```
-  ],
-  [
-    ```
-    Saniye giriniz: 3725
-    01:02:05
-    ```
-  ],
-)
-
-#kod-cikti(
-  baslik: "Market fişi",
-  baslik-yeri: "sag",
-  columns: (32em, auto),
-  align: bottom,
-  [
-    ```python
-    urun = input("Ürün adı: ")
-    fiyat = float(input("Birim fiyat: "))
-    adet = int(input("Adet: "))
-
-    toplam = fiyat * adet
-
-    print("-" * 24)
-    print(f"{urun:<12}{adet:>3} x {fiyat:>6.2f}")
-    print(f"{'TOPLAM':<12}{toplam:>11.2f} TL")
-    print("-" * 24)
-    ```
-  ],
-  [
-    ```text
-    Ürün adı: Defter
-    Birim fiyat: 24.5
-    Adet: 4
-    ------------------------
-    Defter        4 x  24.50
-    TOPLAM            98.00 TL
-    ------------------------
-    ```
-  ],
-)
-
-#not_block(title: "Özet: ")[
-  - Fonksiyon, bir işi yapan isimli kod parçasıdır; `fonksiyon(argümanlar)` biçiminde çağrılır ve gerekirse bir dönüş değeri verir.
-  - `input()` klavyeden veri alır ve *her zaman metin* döndürür. Sayı gerekiyorsa `int()` veya `float()` ile dönüştürülür.
-  - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
 ]

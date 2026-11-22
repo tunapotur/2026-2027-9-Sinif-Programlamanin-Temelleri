@@ -35,7 +35,6 @@ Puan Giriniz: 50
 
 Program, kullanıcıdan "*`Puan Giriniz:`*" iletisiyle bir tam sayı değeri beklemektedir. Python'da *`input()`* fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, *`input()`* fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (*`string`*) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için *`int()`* fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
 
-==== `int(input())` Nasıl Çalışır?
 #align(center)[
 #kod-satiri(no:0, size:15pt,weight: "semibold")[
            ```Python

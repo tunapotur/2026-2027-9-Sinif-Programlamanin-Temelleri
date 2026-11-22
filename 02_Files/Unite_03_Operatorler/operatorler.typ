@@ -202,8 +202,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
   ```
 ]
 
-==== Bölme İşlemi
-*Kesirli Bölme İşlemi (#oprt-goster()[` / `])*
+==== Kesirli Bölme İşlemi (` / `)
 
 #align(center)[
 #iki_hucreli_satir(
@@ -228,7 +227,8 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
 
 ]
 
-*Bölme İşleminin Elemanları (Bölünen, Bölen, Bölüm ve Kalan)*
+==== Tam Bölme, Mod Alma(` / // % `)
+
 #block(
     width: 100%,
     stroke: 1pt + rgb("#cbd5e1"),
@@ -304,7 +304,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
     ]
   ]
 
-* Bölme, Tam Bölme, Mod Alma(#oprt-goster()[` / // % `])*
+
 #align(center)[
 #iki_hucreli_satir(
   columns: (auto, auto),
@@ -366,9 +366,7 @@ print(saat, "saat", dakika, "dakika")
 ```   
 ]
 
-*Üs Alma (`**`)*
-
-
+==== Üs Alma (`**`)
 
 #kod-blok(width: 100%)[
   ```python
@@ -569,7 +567,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
 
 Programlamada #oprt-goster()[`=`] işareti, matematikteki "eşittir" anlamından farklı olarak *atama* anlamında kullanılır. Eşittir operatörünün sağındaki ifade önce hesaplanır; elde edilen sonuç, sol taraftaki değişkene atanır. Yani önce işlem yapılır, sonra sonuç değişkene atanır.
 
-==== Örnek 1: x = 3 + 5 \* 2
+*Örnek 1: x = 3 + 5 \* 2*
 
 #iki_hucreli_satir(
   columns: (auto, auto),
@@ -590,7 +588,7 @@ Programlamada #oprt-goster()[`=`] işareti, matematikteki "eşittir" anlamından
   ]
 )
 
-==== Örnek 2: ozkutle = kutle / hacim
+*Örnek 2: ozkutle = kutle / hacim*
 #iki_hucreli_satir(
   columns: (auto, auto),
   align: horizon+left,
@@ -610,7 +608,7 @@ Programlamada #oprt-goster()[`=`] işareti, matematikteki "eşittir" anlamından
   ]
 )
 
-==== Örnek 3: x = x \* 2 + 3
+*Örnek 3: x = x \* 2 + 3*
 
 #iki_hucreli_satir(
   columns: (auto, auto),
