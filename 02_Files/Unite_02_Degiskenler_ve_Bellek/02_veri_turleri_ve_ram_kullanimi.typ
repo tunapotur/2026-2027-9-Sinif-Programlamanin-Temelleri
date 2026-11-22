@@ -7,7 +7,7 @@
 
 // #show: conf
 
-== Veri Türleri ve RAM Kullanımı
+=== Veri Türleri ve RAM Kullanımı
 Bilgisayar programları verileri RAM (bellek) üzerinde saklar. RAM’i, üst üste dizilmiş çok sayıda küçük kutu gibi düşünebiliriz. Her kutunun boyutu 1 bayt’tır (1 bayt = 8 bit; bit yalnızca 0 ya da 1 tutabilir).
 
 Veri türü kavramı ise değişkenlerin RAM üzerinde kaç bayt yer kaplayacağını belirler.
@@ -16,7 +16,7 @@ Veri türü kavramı ise değişkenlerin RAM üzerinde kaç bayt yer kaplayacağ
 #not_block()[Temel veri türleri konusunu anlatmak için C++ dili ve 16-bit sistemler (Arduino Uno, Turbo C) esas alınmıştır. Bu tercih, veri türlerinin donanımsal mantığının rahat anlaşılması amacıyla yapılmıştır.\ Derslerimizde ise Python programlama dili kullanılacak olup, Python'da veri türleri ve bellek yapısı farklı şekilde işlemektedir.
 ]
 
-=== Boolean (bool): doğru / yanlış
+==== Boolean (bool): doğru / yanlış
 #align(center)[
   #block(breakable: false, above: 4pt, below: 4pt)[
     #grid(
@@ -66,7 +66,7 @@ Veri türü kavramı ise değişkenlerin RAM üzerinde kaç bayt yer kaplayacağ
 #not_block(title: "",boyut: 10pt)[RAM’e ulaşım bayt bayt yapıldığı için bilgisayar boolean veriler için de 1 tam bayt ayırır.
 ]
 
-=== Karakter (char)
+==== Karakter (char)
 - RAM’de 1 bayt yer kaplar.
 - Tek bir karakter tutar: harf, rakam karakteri, noktalama işareti. 
 - Tek tırnak içinde yazılır: 'A'.
@@ -104,7 +104,7 @@ ram-goster(
 )
   )
 
-=== Tam Sayı (int)
+==== Tam Sayı (int)
 #block(breakable: false)[
   #grid(
     columns: (25em, auto),
@@ -144,7 +144,7 @@ int kalan = a % b;  // kalan = 1
   aciklama: "12377 = 8192 + 4096 + 64 + 16 + 8 + 1 olduğu için ilk byte 00110000 (12288), son byte ise 01011001 (89) olur.",
 )
 
-=== Ondalıklı Sayı (float)
+==== Ondalıklı Sayı (float)
 #block(breakable: false)[
   #grid(
     columns: (25em, auto),
@@ -184,7 +184,7 @@ float alan = pi * b * b;  // => 12.56
   float her işlemde kullanılabilir; ancak hem daha fazla RAM kaplar hem de işlemciyi daha çok yorar. Bu yüzden *gerekmedikçe* *int* yerine *float* kullanılmamalıdır. Küsurat gerekiyorsa (ortalama, not, fiiyat, sıcaklık gibi) float tercih edilir.
 ]
 
-== Karakterden Metne (Karakter Dizisi)
+=== Karakterden Metne (Karakter Dizisi)
 Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sadece bir karakteri tutabilir. Birden fazla karakterden oluşan bir kelimeyi veya metni bellekte saklamak istediğimizde ise tekil karakterler yan yana getirilerek bir *karakter dizisi* oluşturulur. Programlamada aynı türdeki verilerin bellekte peş peşe sıralanarak tek bir grup halinde tutulmasına *dizi (array)* adı verilir. Metinler de aslında karakterlerin yan yana dizildiği birer dizidir; bu nedenle aşağıdaki yapı ile her bir harf için RAM üzerinde art arda gelen (bitişik) 1 baytlık çekmeceler tahsis edilir.
 
 #align(center)[

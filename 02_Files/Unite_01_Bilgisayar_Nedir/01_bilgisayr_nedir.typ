@@ -7,8 +7,6 @@
 
 // #show: conf
 
-= Temel Programlama Yapıları
-
 == Bilgisayar Nedir?
 *Bilgisayar*, kendisine verilen bilgiler üzerinden aritmetiksel, mantıksal ve karşılaştırma işlemleri yaparak sonuçları çıktı birimlerine gönderen elektronik bir cihazdır. Bilgisayarlar çok yüksek hızlarda, bıkıp usanmadan ve tekrarlı olarak aynı işlemleri hatasız yerine getirebilen aygıtlardır.
 
@@ -51,14 +49,14 @@ Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda
   [`5`], [Çıkış Birimi], [Ekran, RAM'deki sonucu insanın okuyabileceği bir görüntüye dönüştürür.], [`8`],
 )
 
-== Bilgisayar Veriyi Nasıl Saklar?
+=== Bilgisayar Veriyi Nasıl Saklar?
 Bilgisayar verileri bellekte saklar. Her bir veri için bellekte belirli bir alan ayrılır ve bu alan her seferinde tek bir değer saklayabilir. Kullanıcı var olan değer yerine yeni bir değer atadığında eski değer silinir. Programın çalışması bittiğinde ya da bilgisayar kapatıldığında bu geçici veriler silinir.
 
 Verilerin daha sonra tekrar kullanılabilmesi gerekiyorsa sabit diske kaydedilmesi gerekir. Bu şekilde kalıcı olarak kaydedilen verilere *"dosya"* adı verilir. Temel anlamda program dosyaları ve veri dosyaları olmak üzere iki dosya türü vardır:
 - *Program Dosyaları:* Bilgisayarın yapması istenen komutları ve işlem adımlarını içerir.
 - *Veri Dosyaları:* Programlar çalışırken kullanılan ve işlenen verileri kapsar.
 
-== Tarihteki İlk Bilgisayar Programcısı
+=== Tarihteki İlk Bilgisayar Programcısı
 
 1837'de Charles Babbage, "Analitik Makine" adını verdiği ve hesaplamalar yapabilen bir cihaz tasarladı. Ancak Babbage, tasarladığı Analitik Makine'yi dönemin teknolojisi yeterli olmadığı için hayata geçiremedi. Analitik Makine her ne kadar tamamlanamasa da zamanının birçok bilim insanını etkiledi.
 #align(center)[
@@ -80,7 +78,7 @@ Ada Lovelace, sahip olduğu maddi imkânlar sayesinde Babbage'in en büyük dest
 
 ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada Lovelace'ten almıştır. Ada Lovelace Günü ise her yıl ekim ayının ikinci salı günü kutlanan ve bilim, teknoloji, mühendislik ve matematik alanlarındaki kadınların görünürlüğünü artırmayı amaçlayan bir etkinliktir.
 
-== Donanımın Temeli: Transistör ve İkili Sistem (Binary)
+=== Donanımın Temeli: Transistör ve İkili Sistem (Binary)
 *Transistör* elektrik akımını geçirerek ya da keserek *$1$* veya *$0$* değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 
 #align(center)[
@@ -105,7 +103,7 @@ ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada L
 
 Yazılım tarihinin en başında, bilgisayarlara bir iş yaptırmak için işlemcinin tek doğal dili olan Makine Dili (*İkilik Sistem / Binary*) kullanılıyordu. Programcılar, komutları *`1011 0000`* gibi *$0$* ve *$1$* dizileri halinde delikli kartlara veya anahtarlara işliyordu. Ancak bu yöntem insan gözü için son derece yorucuydu ve tek bir rakamın yanlış yazılması tüm programı bozuyordu.
 
-== İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
+=== İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
 Erken dönem *Altair 8800* gibi bilgisayarların klavyesi veya ekranı yoktu. Ön panelinde sıra sıra fiziksel anahtarlar (*toggle switches*) ve LED lambalar yer alıyordu. Bu bilgisayar, sadece $1$ ve $0$ değerleri kullanılarak donanıma nasıl komut verildiğine ve hesap yaptırıldığına somut bir örnektir.
 
 #grid(
@@ -159,7 +157,7 @@ title:"Ömer Bektaş'ın Youtube Kanalı",
 desc:"Ömer Bektaş'ın YouTube kanalı. Takip etmenizi öneririm."
 )
 
-== Onaltılık Sayı Sistemi (Hexadecimal)
+=== Onaltılık Sayı Sistemi (Hexadecimal)
 İkilik Sistemde oluşan zorlukları aşmak için *Onaltılık (Hexadecimal)* Sayı Sistemi kullanılmaya başlandı. Dört adet ikilik (binary) basamağın tek bir hexadecimal karaktere (0-9 ve A-F arası) karşılık gelmesi sayesinde, *`1011 0000`*, *`0110 0001`* gibi karmaşık bir makine kodu *`B0`*, *`61`* şeklinde çok daha kısa ve okunabilir bir biçimde ifade edildi. Bu yöntem yazımı kısaltıp hata payını azaltsa da, programcıların hâlâ hangi sayı kodunun hangi işlemi yaptığını ezbere bilmesi gerekiyordu.\ $2^4 = 16$ olduğu için 4 bitlik bir binary sayı tam olarak bir hexadecimal basamağı karşılık gelir.
 
 #align(center)[
@@ -209,7 +207,7 @@ hucre-bosluk: hucre-bosluk,
   )
 ]
 
-== Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
+=== Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
 Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu #text(weight: "semibold")[ASCII (American Standard Code for Information Interchange)] geliştirilmiştir. Böylelikle en temel düzeyde gerekli olan karakterlere için *ASCII* tablosundaki karakterin sayısal bir karşılığı oluşturuldu.
 
 - Bilgisayar mimarisinin temelinde $1$ karakter *$1$ Byte ($8$ bit)* yer kaplar. ASCII tablosunda *$256$* karakter bulunmasının sebebi *$8$* bit'in yan yana getirilerek *$1$ Byte* oluşturmasıdır. *$1$ Byte* aynı zamanda iki hexadecimal karakterle de kolaylıkla ifade edilebilir.
@@ -357,7 +355,7 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
 
 ]
 
-== Bit'ten Terabayt'a Veri Büyüklükleri
+=== Bit'ten Terabayt'a Veri Büyüklükleri
 Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0$*'lardan ibaret olduğunu ve *$1$* ve *$0$* durumun oluşturan en küçük bilgi birimine *Bit (Binary Digit)* dendiğini söylemiştik.  
 
 - *Bit (Binary Digit):* Bilgisayardaki en küçük mantıksal veri birimidir. Sadece *0* veya *1* değerini alabilir. Devredeki tek bir transistör lamba anahtarı gibi düşünülebilir: ya kapalıdır (0) ya da açıktır (1).
@@ -406,7 +404,7 @@ Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara t
 )
 ]
 
-== Makine Kodundan Assembly Diline
+=== Makine Kodundan Assembly Diline
 Altair 8800 gibi ilk bilgisayarlarda #text(weight: "semibold")[1 ve 0]'lardan oluşan makine kodlarıyla program yazmak oldukça zahmetliydi. #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kodları kısaltsa da komutların anlamını açıklamıyordu. Bu nedenle komutlar yerine İngilizce kısaltmalardan oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı ve bu dili ifade eden #text(weight: "bold")[Assembly dili] doğdu. Böylece program yazmak çok daha anlaşılır ve kolay hâle geldi.
 
 #grid(
@@ -456,7 +454,7 @@ _start:
   desc:"Ömer Bektaş'ın kanalında Assembly dili hakkında detaylı bir video bulunmakta."
   )
 
-== Programlama Dilleri
+=== Programlama Dilleri
 Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold")[hexadecimal sayılar] ile kodlama yapmaya göre #text(weight: "semibold")[Assembly] dili büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. Ayrıca Assembly kodları işlemciden işlemciye farklılık gösteriyor, bu da her yeni işlemci için kodların yeniden yazılması zorunluluğunu doğuruyordu. Bu duruma #text(weight: "semibold")[donanım bağımlılığı] deniyordu.
 
 İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Artık iki sayıyı toplamak için işlemci yazmaçlarıyla uğraşmak yerine doğrudan #text(weight: "bold")[`sonuc = a + b`] yazmak yeterli hale geldi. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır. Ayrıca programlama dili ile yazılan tek bir kodun hedef bilgisayarda derlenmesiyle #text(weight: "semibold")[donanım bağımlılığı] sorunu çözüldü ve aynı kodların farklı işlemci mimarilerinde çalışabilmesi sağlandı.

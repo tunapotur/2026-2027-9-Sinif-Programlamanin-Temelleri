@@ -8,10 +8,10 @@
 
 // #show: conf
 
-== Tür Dönüşümü (Type Conversion / Type Casting)
+=== Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir.
 
-=== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
+==== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
 Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk olarak karakter dizisi (metin / string) biçiminde ulaşır.
 
 - Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
@@ -143,7 +143,7 @@ Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değ
 #not_block(title: "Dikkat:")[
   *`int()`* olmasaydı *`puan`* değişkeninde *`"50"`* yani *metin* olurdu ve *`puan + 10`* gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak *`int()`* (ya da ondalıklı değerler için *`float()`*) ile dönüştürmemiz gerekir.
 ]
-=== Otomatik (Örtük / Implicit) Dönüşüm:
+==== Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 
 // #v(1em)
@@ -211,7 +211,7 @@ print(toplam_tutar) # Çıktı: 12.5
   ```
 ]
 
-=== Bilinçli (Açık / Explicit) Dönüşüm:
+==== Bilinçli (Açık / Explicit) Dönüşüm:
 Programcının veri kaybını göze alarak veya işlemi yönlendirmek için türü zorla değiştirmesidir.
 
 #grid(

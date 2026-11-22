@@ -26,13 +26,17 @@
   justify:true,
 )
   
-// Numaralandırma: 1. seviye -> Bölüm 1, Bölüm 2...; alt seviyeler her bölümde 1'den başlar (1., 1.1., 1.1.1.)
+// Numaralandırma:
+//   = Bölüm, == Ünite, === Konu, ==== Alt konu
+//   Konu numaraları her ünitede 1'den başlar: 1., 1.1., 1.1.1.
 #set heading(numbering: (..nums) => {
   let n = nums.pos()
   if n.len() == 1 {
     "Bölüm " + str(n.first())
+  } else if n.len() == 2 {
+    "Ünite " + str(n.at(1))
   } else {
-    numbering("1.1.1.", ..n.slice(1))
+    numbering("1.1.1.", ..n.slice(2))
   }
 })
 
@@ -51,8 +55,19 @@
   ]
 }
 
+// Ünite başlıkları: "Ünite N: Başlık"
+#show heading.where(level: 2): it => {
+  set align(left)
+  set text(size: 12pt, weight: "bold")
+  block(above: 1.4em, below: 0.8em)[
+    #if it.numbering != none [
+      #counter(heading).display((..nums) => "Ünite " + str(nums.pos().at(1)) + ":")#h(0.5em)
+    ]
+    #it.body
+  ]
+}
+
 // Alt başlık boyutları (Standart 10pt-11pt gövde metnine uyumlu)
-#show heading.where(level: 2): set text(size: 12pt)
 #show heading.where(level: 3): set text(size: 11pt)
 #show heading.where(level: 4): set text(size: 10pt)
 

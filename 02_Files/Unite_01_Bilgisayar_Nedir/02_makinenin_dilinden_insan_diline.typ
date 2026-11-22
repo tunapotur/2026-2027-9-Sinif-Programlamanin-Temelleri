@@ -5,7 +5,7 @@
 #import "../../lib/yardimcilar.typ" : *
 // #import "../../lib/icerik-tablo.typ": *
 
-== Makinenin Dilinden İnsanın Diline: "Hello world!"
+=== Makinenin Dilinden İnsanın Diline: "Hello world!"
 #iki_hucreli_satir(
   columns: (3fr,1fr),
   gutter: 10pt,
@@ -19,7 +19,7 @@
   desc: [Bu web sitesinde birçok programlama diline ait ekrana *`Hello World`* yazdıran kod örnekleri yer almaktadır.]
 )
 
-=== Makine Dili (0 ve 1'lerle)
+==== Makine Dili (0 ve 1'lerle)
 Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 8 bitten oluşur; aşağıdaki her grup 8 bitlik bir bayttır. Satır sonundaki açıklamalar insan içindir, makine bu açıklamaları görmez.
 
 #not_block()[
@@ -43,7 +43,7 @@ Makine dili, işlemcinin doğrudan çalıştırabildiği tek dildir. Bir *bayt* 
   ```
 ]
 
-=== Makine Dili (Hexadecimal Sayılarla)
+==== Makine Dili (Hexadecimal Sayılarla)
 
 Aynı makine kodu, ikilik sistemdeki her 8 bitlik baytın iki hexadecimal (onaltılık) basamakla gösterilmesiyle de yazılabilir. Hexadecimal gösterim, 0 ve 1'lerden oluşan uzun dizileri kısaltır ve okumayı kolaylaştırır.
 
@@ -64,7 +64,7 @@ Metnin sonundaki `$` karakteri (ASCII 24h), DOS'a metnin bittiğini bildiren öz
 ]
 
 
-=== Assembly Dili
+==== Assembly Dili
 
 Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad verir. Böylece `B4 09` gibi anlaşılmaz baytlar yerine `mov ah, 09h` gibi okunabilir komutlar yazılır.
 
@@ -85,7 +85,7 @@ Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad ver
   ```
 ]
 
-=== C Dili
+==== C Dili
 *C* dili, Assembly diline göre kodlama yapan kişilere çok büyük kullanım kolaylığı getirmiştir. *C* dilinde yazılan kod bir derleyici tarafından makine koduna çevrilir ve bilgisayar bu makine kodunu doğrudan çalıştırır.
 
 #kod-blok(width: 100%)[
@@ -100,7 +100,7 @@ Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad ver
 ]
 
 
-=== Python Dili
+==== Python Dili
 
 Python gibi yüksek seviyeli dillerde aynı iş, tek bir komutla yapılır. Python yorumlayıcısı bu satırı önce kendi anladığı ara biçime, ardından makine diline çevirir.
 

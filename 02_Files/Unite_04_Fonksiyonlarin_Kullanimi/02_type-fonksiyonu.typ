@@ -7,8 +7,8 @@
 
 // #show: conf
 
-== Python Tür Kontrolü: `type()` ve `isinstance()` Fonksiyonları
-=== `type()` Fonksiyonu
+=== Python Tür Kontrolü: `type()` ve `isinstance()` Fonksiyonları
+==== `type()` Fonksiyonu
 Python'da her değerin bir türü vardır; *`type()`* fonksiyonu bu türü bize söyler. Python'da her değer (sayı, metin, liste, hatta fonksiyonlar) bir *nesnedir* ve her nesne bir *türe (sınıfa)* aittir. `type()` fonksiyonu, kendisine verilen nesnenin türünü döndürür.
 \ Altaki şemada *`type(10)`* çağrısının sonucu *`type()`* fonksiyonu *`int`* sınıfını döndürerek *`tur`* değişkenine atıyor.
 
@@ -100,7 +100,7 @@ Yaşınız: 15
   Kullanıcı `15` yazsa bile `input()` bunu `"15"` yani *metin* olarak verir. Matematiksel işlem yapmadan önce `int()` veya `float()` ile dönüştürmek gerekir.
 ]
 
-=== `isinstance()` Fonksiyonu
+==== `isinstance()` Fonksiyonu
 Veri veya değişken türünü görmek için `type()` fonksiyonu kullanılır. Kullanıcının girdiği veri türünü kontrol etmek için *`isinstance()`* fonksiyonu çok kullanışlı bir araçtır.
 
 #align(center)[

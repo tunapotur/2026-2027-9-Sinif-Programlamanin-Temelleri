@@ -137,7 +137,7 @@ Güncellenmiş Puan: 75
 
 #not_block(title:"Özet",boyut: 10pt, width: 100%)[Değişkenler, değerleri geçici olarak RAM'de tutan etiketlerdir. Program çalıştığı sürece bu değerler kullanılabilir ve güncellenebilir.]
 
-== Değişken Tanımlama Kuralları
+=== Değişken Tanımlama Kuralları
 Yazılan kaynak kodların Python yorumlayıcısı tarafından doğru şekilde işlenebilmesi için değişken adları belirlenirken Python’un söz dizimi (*syntax*) kurallarına uyulması zorunludur.
 
 - *Karakter Kısıtlaması:* Değişken isimleri sadece alfabetik karakterler (*A-Z, a-z*), rakamlar (*0-9*) ve alt çizgi (*\_*) karakterini barındırabilir. Bunların dışındaki hiçbir özel sembol (nokta, virgül, soru işareti, tire, boşluk vb.) değişken isminde yer alamaz.
@@ -181,11 +181,11 @@ icerik-tablo(
   [`ilk_değer`],     [$-->$], [*`ilk_deger`*],
 ))]]
 
-== Değişken Adlandırma Standartları (Notasyonlar)
-=== Yılan Gösterimi (snake_case)
+=== Değişken Adlandırma Standartları (Notasyonlar)
+==== Yılan Gösterimi (snake_case)
 Tüm harflerin küçük yazıldığı ve kelimelerin birbirine alt çizgi (\_) karakteriyle bağlandığı yöntemdir. Python literatüründe değişken ve fonksiyon isimleri için bu standardın kullanılması (örneğin *kullanici_giris_tarihi, asistan_bellek_kapasitesi* vb.) kurumsal olarak tavsiye edilir.
 
-=== Camel Case (Deve Notasyonu) Kuralı
+==== Camel Case (Deve Notasyonu) Kuralı
 Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. Birden fazla kelimeden oluşan değişkenleri okunaklı kılmak için dünya çapında standart olan *camelCase* yöntemi kullanılır.\
 İlk kelimenin tüm harfleri küçük başlar. Sonraki her kelimenin ilk harfi büyük yazılır (kelimelerin ortasındaki hörgüç görünümü gibi).
 
@@ -223,7 +223,7 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
     text(fill: rgb("#16a34a"), weight: "bold")[`sonOdemeTarihi`],
 )
 
-== Sabitler
+=== Sabitler
 Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (*constant*) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
 
 #kod-blok(width: 100%)[

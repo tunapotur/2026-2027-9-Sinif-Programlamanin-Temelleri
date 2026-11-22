@@ -95,7 +95,7 @@
 ]
 
 
-== Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
+=== Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
 
 #align(center)[
 #image("/02_Files/Unite_02_Degiskenler_ve_Bellek/images/bellek-yönetimi-ve-CPU-Performansi.jpg", width: 93%)
@@ -108,7 +108,7 @@ Bu sorunun cevabı, bilgisayar donanımının çalışma biçiminde gizlidir. Bi
   Doğru veri türüyle yapılan bellek yönetimi hem RAM’de tasarruf sağlar hem de işlemcinin hızını artırır!
 ]
 
-=== Donanım Üçlüsü: RAM, Veri Yolu ve İşlemci
+==== Donanım Üçlüsü: RAM, Veri Yolu ve İşlemci
 
 Bilgisayarda bir hesaplama yapılırken üç temel donanım birimi birlikte çalışır:
 - *RAM (Ana Bellek):* Verilerin ve değişkenlerin elektrik kesilene kadar geçici olarak saklandığı alandır. RAM tek başına hesaplama yapamaz; yalnızca değerleri muhafaza eder.
@@ -242,7 +242,7 @@ Bilgisayarda bir hesaplama yapılırken üç temel donanım birimi birlikte çal
   )
 ]
 
-=== Bir İşlemin Yaşam Döngüsü: Oku → İşle → Yaz
+==== Bir İşlemin Yaşam Döngüsü: Oku → İşle → Yaz
 
 Programda `sonuc = a + b;` gibi basit bir satır çalıştırıldığında donanım arka planda şu üç adımı sırayla yürütür:
 
@@ -294,7 +294,7 @@ Programda `sonuc = a + b;` gibi basit bir satır çalıştırıldığında donan
   ],
 )
 
-=== Gündelik Hayat Benzetmesi: Kurye Çantası mı, Nakliye Tırı mı?
+==== Gündelik Hayat Benzetmesi: Kurye Çantası mı, Nakliye Tırı mı?
 
 Veri türü seçiminin neden bu kadar kritik olduğunu kavramak için kargo ve taşımacılık örneğini düşünelim:
 
@@ -349,7 +349,7 @@ Veri türü seçiminin neden bu kadar kritik olduğunu kavramak için kargo ve t
   )
 ]
 
-=== Somut Örnek ve Kanıt: Aynı İşlem, İki Farklı Veri Türü!
+==== Somut Örnek ve Kanıt: Aynı İşlem, İki Farklı Veri Türü!
 
 Aşağıda iki farklı programcının yazdığı kodu inceleyelim. İki program da aynı iki tam sayıyı ($7$ ve $2$) toplayıp $9$ sonucunu bulmaktadır:
 
@@ -439,7 +439,7 @@ float sonuc = a + b;
 )
 
 
-=== Karşılaştırma ve Donanım Etkisi
+==== Karşılaştırma ve Donanım Etkisi
 
 #icerik-tablo(
   tablo_baslik: [Aynı Toplama İşleminde "int" ve "float" Türlerinin Donanım Etkisi],
@@ -455,7 +455,7 @@ float sonuc = a + b;
   [*Donanım Uyumu*], [Tüm İşlemcilerde Doğal Hız], [FPU Yoksa Çok Yavaş], [Arduino gibi gömülü sistemlerde hız farkı yüzlerce kata çıkabilir.],
 )
 
-=== Neden-Sonuç Zinciri: Veri Türü Sistemi Nasıl Etkiler?
+==== Neden-Sonuç Zinciri: Veri Türü Sistemi Nasıl Etkiler?
 
 #block(
   width: 100%,

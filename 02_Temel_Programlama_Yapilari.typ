@@ -12,6 +12,7 @@
 #counter(page).update(1)
 #set page(numbering: "1")
 
+= Temel Programlama Yapıları
 
 // Unite 01 Bilgisayar Nedir
 #include "02_Files/Unite_01_Bilgisayar_Nedir/01_bilgisayr_nedir.typ"
