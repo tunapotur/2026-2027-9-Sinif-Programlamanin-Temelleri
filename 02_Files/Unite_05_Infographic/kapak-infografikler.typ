@@ -1,6 +1,6 @@
 // Infografik: Bölüm Kapak ve Rehber Sayfası (tek sayfa)
 // Kullanım: ana belgede  #include "02_Files/infographic/infografikler.typ"
-#import "/pageGeneralConfig.typ": *
+#import "../../pageGeneralConfig.typ":*
 #import "infografik_ortak.typ": *
 
 == İnfografikler

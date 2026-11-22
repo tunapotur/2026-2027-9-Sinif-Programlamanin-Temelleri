@@ -46,14 +46,20 @@
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/05_Soru-Cevaplari.typ"
 #pagebreak()
 
-// infografik dosyaları
-#include "02_Files/infographic/kapak-infografikler.typ"
-#include "02_Files/infographic/bilgisayarin_dili.typ"
-#include "02_Files/infographic/degisken_ve_bellek.typ"
-#include "02_Files/infographic/veri_turleri.typ"
-#include "02_Files/infographic/ram_islemci_iliskisi.typ"
-#include "02_Files/infographic/bellek_yonetimi.typ"
-#include "02_Files/infographic/tur_donusumu.typ"
-#include "02_Files/infographic/operatorler.typ"
-#include "02_Files/infographic/fonksiyon_kullanimi.typ"
-#include "02_Files/infographic/input_print.typ"
+// Unite 05 infografik dosyaları
+#include "02_Files/Unite_05_Infographic/kapak-infografikler.typ"
+#include "02_Files/Unite_05_Infographic/bilgisayarin_dili.typ"
+#include "02_Files/Unite_05_Infographic/degisken_ve_bellek.typ"
+#include "02_Files/Unite_05_Infographic/veri_turleri.typ"
+#include "02_Files/Unite_05_Infographic/ram_islemci_iliskisi.typ"
+#include "02_Files/Unite_05_Infographic/bellek_yonetimi.typ"
+#include "02_Files/Unite_05_Infographic/tur_donusumu.typ"
+#include "02_Files/Unite_05_Infographic/operatorler.typ"
+#include "02_Files/Unite_05_Infographic/fonksiyon_kullanimi.typ"
+#include "02_Files/Unite_05_Infographic/input_print.typ"
+#pagebreak()
+
+// Unite 06 Uygulama Sorulari
+#include "02_Files/Unite_06_Uygulama_Sorulari/01_Uygulama_Sorulari.typ"
+#include "02_Files/Unite_06_Uygulama_Sorulari/02_Uygulama_Sorulari_Cevaplari.typ"
+
