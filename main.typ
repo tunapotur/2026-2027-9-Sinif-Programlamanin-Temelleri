@@ -4,7 +4,7 @@
 
 // #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
 
-#outline(title: "İçindekiler", indent: 12pt)
+#icindekiler()
 #pagebreak(to: "odd")
 #counter(page).update(1)
 

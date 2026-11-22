@@ -4,8 +4,9 @@
 #show: conf
 
 #set document(title: "2026-2027 9. Sınıf Programlamanın Temelleri")
-
-#title()
+#align(center)[
+  #title()
+]
 
 #outline(title: "İçindekiler", indent: 12pt)
 #pagebreak(to: "odd")
@@ -39,17 +40,17 @@
 
 /*
 /// TODO sorulari bölüm sonlarına yerlestir
-#pagebreak()
-#include "02_Files/bolum_sorulari.typ"
-#pagebreak()
-#include "02_Files/bolum_sorulari_cevaplari.typ"
+
+"02_Files/bilgisayar_nedir-sorular.typ"
+"02_Files/bolum_sorulari.typ"
+"02_Files/bolum_sorulari_cevaplari.typ"
 
 #pagebreak()
 #include "02_Files/bolum_uygulama_sorular.typ"
 #pagebreak()
 #include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
-#pagebreak()
-#include "02_Files/bilgisayar_nedir-sorular.typ"
+
+
 
 /// infografik dosyaları
 #pagebreak()
