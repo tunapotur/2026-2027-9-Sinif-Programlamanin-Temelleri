@@ -52,14 +52,6 @@
 
 #cevap(7, [D], [`type()` fonksiyonu parametre olarak verilen değişkenin veri türünü döndürür.])
 
-#ara-baslik([#text(weight: "bold", size: 9pt)[Soru 49.] Eşleştirme Sorusu Cevap Anahtarı : *1* – *B* #h(1.5em) *2* – *C* #h(1.5em) *3* – *E* #h(1.5em) *4* – *D* #h(1.5em) *5* – *A*])
-
-#text(weight: "semibold")[1) RAM $arrow.r$ B :] Program ve verilerin çalışma sırasında geçici tutulduğu birincil bellek \
-#text(weight: "semibold")[2) CPU $arrow.r$ C :] Komutları yorumlayıp çalıştıran merkezi işlem birimi \
-#text(weight: "semibold")[3) Veri Yolu (Bus) $arrow.r$ E :] Donanım bileşenleri arasında veri taşınmasını sağlayan iletim hattı \
-#text(weight: "semibold")[4) ASCII $arrow.r$ D :] Karakter ve sembollere standart sayısal kodlar atayan tablo \
-#text(weight: "semibold")[5) Assembly $arrow.r$ A :] Makine komutlarını sembolik kısaltmalarla ifade eden programlama dili
-
 #ara-baslik([*Açık Uçlu ve Klasik Sorular Model Cevapları*])
 
 #cevap-acikUclu(

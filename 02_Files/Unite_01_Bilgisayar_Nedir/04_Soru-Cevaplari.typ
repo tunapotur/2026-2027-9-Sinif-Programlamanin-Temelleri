@@ -66,7 +66,12 @@
 
 #cevap(16, [D], [Hexadecimal sistemde 0–9 rakamları ile A–F arasındaki 6 harf (toplam 16 sembol) kullanılır.])
 
-#text(weight: "semibold")[Soru 17.] Eşleştirme: *1-B, 2-C, 3-E, 4-D, 5-A*
+#text(weight: "semibold")[Soru 17.] Eşleştirme: *1-B, 2-C, 3-E, 4-D, 5-A* \
+#text(weight: "semibold")[1) RAM $arrow.r$ B :] Program ve verilerin çalışma sırasında geçici tutulduğu birincil bellek \
+#text(weight: "semibold")[2) CPU $arrow.r$ C :] Komutları yorumlayıp çalıştıran merkezi işlem birimi \
+#text(weight: "semibold")[3) Veri Yolu (Bus) $arrow.r$ E :] Donanım bileşenleri arasında veri taşınmasını sağlayan iletim hattı \
+#text(weight: "semibold")[4) ASCII $arrow.r$ D :] Karakter ve sembollere standart sayısal kodlar atayan tablo \
+#text(weight: "semibold")[5) Assembly $arrow.r$ A :] Makine komutlarını sembolik kısaltmalarla ifade eden programlama dili
 
 ==== Tarihteki İlk Bilgisayar Programcısı
 

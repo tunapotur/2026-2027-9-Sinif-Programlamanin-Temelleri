@@ -130,6 +130,8 @@
 )
 *Cevaplarınız:*  *1* – ..... #h(1.5em) *2* – ..... #h(1.5em) *3* – ..... #h(1.5em) *4* – ..... #h(1.5em) *5* – .....
 
+==== Tarihteki İlk Bilgisayar Programcısı
+
 #soru(18, [1837'de "Analitik Makine" adını verdiği cihazı tasarlayan kişi kimdir?])
 #siklar5([Ada Lovelace], [Charles Babbage], [Alan Turing], [Bill Gates], [John von Neumann])
 

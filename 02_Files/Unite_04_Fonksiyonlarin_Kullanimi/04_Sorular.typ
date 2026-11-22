@@ -111,6 +111,18 @@ Yıl: 2026
 ]
 
 #iki_hucreli_satir[
+  *b)* Aşağıdaki çıktıyı `print()` ile üreten programı yazın. "Yükleniyor...Tamam" aynı satırda görünmeli, diğer satırlarda kaçış karakterleri kullanılmalıdır (ikinci satırdaki boşluk bir `Tab` boşluğudur).][
+  #output-box[
+```text
+Yükleniyor...Tamam
+Ad:	Ali
+Yol: C:\Okul
+O "evet" dedi
+```
+]
+]
+
+#iki_hucreli_satir[
 ==== Market fişi
 #soru_bilgi[Konu: sabit, f-string ile hizalama ve biçimlendirme · Zorluk: Zor]
 

@@ -46,30 +46,7 @@
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/05_Soru-Cevaplari.typ"
 #pagebreak()
 
-/*
-/// TODO sorulari bölüm sonlarına yerlestir
-
-02_Files aldında konuları Unite_01, Unite_02 gibi klasörlere topladık.
-bu konulara göre aşağıda ki sorular dosyalarından ilgili ünitelere göre soruları ve cevapları altta dosya isimlerinden al her her ünite klasörünün altına en sona yeni dosya olarak oluştur ve soruları buraya taşı aşağıda ki soru dosyalarından taşı.
-Örneğin Unite_01_Bilgisayar_Nedir\03_Sorular, Unite_01_Bilgisayar_Nedir\03_Soru-Cevaplari şekilinde oluştur ve alttan buraya taşı.
-=== Bölüm Soruları
-Soru 1 gibi dosyanını içine oluştur
-! Konulara göre ayrımı yapman çok önemli
-
-02_Files\bilgisayar_nedir-sorular.typ
-02_Files\bolum_sorulari.typ
-02_Files\bolum_sorulari_cevaplari.typ
-
-
-#pagebreak()
-#include "02_Files/bolum_uygulama_sorular.typ"
-#pagebreak()
-#include "02_Files/bolum_uygulama_sorulari_cevaplari.typ"
-
-
-
-/// infografik dosyaları
-#pagebreak()
+// infografik dosyaları
 #include "02_Files/infographic/kapak-infografikler.typ"
 #include "02_Files/infographic/bilgisayarin_dili.typ"
 #include "02_Files/infographic/degisken_ve_bellek.typ"
@@ -80,5 +57,3 @@ Soru 1 gibi dosyanını içine oluştur
 #include "02_Files/infographic/operatorler.typ"
 #include "02_Files/infographic/fonksiyon_kullanimi.typ"
 #include "02_Files/infographic/input_print.typ"
-
-*/
