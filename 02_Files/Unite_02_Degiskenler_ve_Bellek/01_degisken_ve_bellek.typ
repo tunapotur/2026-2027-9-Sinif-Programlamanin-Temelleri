@@ -9,23 +9,18 @@
 
 == Değişkenler ve Bellek(RAM)
 === Değişken Kullanılarak Çözülen Matematik Problemi
-Matematik sorularında değişken kullanımının hesaplamaları nasıl daha kolay hâle getirdiğine bir örnek.
-
-*Problem:* $946877 times 946875 - 946876 times 946875 = ?$
-
-*Çözüm:* Sürekli altı haneli sayılarla işlem yapmak hem hata olasılığını artırır hem de çözümü zorlaştırır. Bunun yerine 946875 sayısını bir değişkenle gösterelim. $x = 946875$ dersek $946877 = x + 2$ ve $946876 = x + 1$ olur.\ Buna göre ifadeyi yeniden yazalım:
-#v(-0.5em)
+*Problem:* $946877 times 946875 - 946876 times 946875 = ?$ Bu soru matematik sorularında değişken kullanımının hesaplamaları nasıl daha kolay hâle getirdiğine bir örnektir.\
+*Çözüm:* Altı haneli sayılarla işlem yapmak hata olasılığını artırır ve çözümü zorlaştırır. $x = 946875$ dersek:
+// #v(-0.5em)
 #align(center)[
   $ (x + 2) x - (x + 1) x
     = x [(x + 2) - (x + 1)] 
     = x (x + 2 - x - 1) 
     = x.1 
-    = x $
-]
+    = x$
+    => sonuç $x = 946875$
+] 
 
-#not_block(title: "Sonuç: ")[
-  $x = 946875$ olduğuna göre işlemin sonucu *946875*'tir.
-]
 === Programlama Dillerinde Değişken
 Değişken; programın çalışması sırasında verilerin bilgisayarın geçici belleğinde (RAM) saklandığı alanlara verilen isimdir (etikettir). Bilgisayarlar karmaşık bellek adresleriyle çalışırken programcılar bu adresleri ezberlemek yerine verilerine anlamlı değişken isimleriyle kolayca ulaşır.
 
