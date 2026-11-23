@@ -49,24 +49,182 @@
 #soru(8, [Yazdığımız kaynak kodun tamamını baştan sona okuyup bir bütün halinde makine diline çeviren yazılımlara ne ad verilir?])
 #siklar5([Derleyici], [Yorumlayıcı], [Assembler], [Editör], [İşletim Sistemi])
 
-#soru(9, [Bilgisayarda bilginin en küçük temel veri birimine ............... denir.])
 
-#soru(10, [8 bitin yan yana gelmesiyle oluşan veri birimine ............... adı verilir.])
+#soru(9, [1837'de "Analitik Makine" adını verdiği cihazı tasarlayan kişi kimdir?])
+#siklar5(
+  sutunlar: (1fr, 1fr, 1fr, 1fr, 1.1fr),
+  [Ada Lovelace],
+  [Alan Turing],
+  [Charles Babbage],
+  [Bill Gates],
+  [John von Neumann],
+)
 
-#soru(11, [0–9 rakamları ile A–F harflerini kullanan sayı sistemine ............... sayı sistemi denir.])
+#soru(10, [Charles Babbage'ın Analitik Makine'yi hayata geçirememesinin temel nedeni nedir?])
+#siklar2(
+  [Dönemin teknolojisinin yeterli olmaması],
+  [Yeterli matematik bilgisi olmaması],
+  [Cihazın çok küçük olması],
+  [Elektrik enerjisinin bulunmaması],
+  [Babbage'ın çalışmaktan vazgeçmesi],
+)
 
-#soru(12, [Harf ve sembolleri sayısal kodlarla temsil etmek için kullanılan standart tablonun adı ...............'dir.])
+#soru(11, [Ada Lovelace'in Babbage'ın çalışmalarındaki rolü aşağıdakilerden hangisidir?])
+#siklar2(
+  [Analitik Makine'yi tek başına icat etmesi],
+  [İlk işlemciyi tasarlaması],
+  [İlk bilgisayarı üretmesi],
+  [İnterneti geliştirmesi],
+  [Babbage'ın en büyük destekçilerinden biri olması],
+)
 
-#soru(13, [İşlemci komutlarını sembolik ve hatırlanabilir kısaltmalarla ifade eden alt seviyeli dile ............... denir.])
+#soru(12, [Ada Lovelace neden tarihteki ilk bilgisayar programcısı olarak kabul edilir?])
+#siklar2(
+  [İlk bilgisayarı ürettiği için],
+  [İlk algoritmayı tasarladığı için],
+  [İlk işlemciyi icat ettiği için],
+  [Ada programlama dilini kendisi geliştirdiği için],
+  [İlk bilgisayar oyununu yaptığı için],
+)
 
-#soru(14, [Bir Byte, bilgisayardaki en küçük veri birimidir. #sik_D_Y])
+#soru(13, [Ada programlama dilinin adı nereden gelmektedir?])
+#siklar5(
+  [Charles Babbage],
+  [Analitik Makine],
+  [Ada ülkesi],
+  [Ada Lovelace],
+  [İlk bilgisayar],
+)
 
-#soru(15, [8 bit bir araya gelerek 1 Byte oluşturur. #sik_D_Y])
+#soru(14, [Bilgisayarın temel görevi aşağıdakilerden hangisidir?])
+#siklar2(
+  [Verileri depolamak, işlemek ve sonuçları çıktı olarak sunmak],
+  [Yalnızca metin yazmak],
+  [İnternete bağlanmak],
+  [Yalnızca oyun oynamak],
+  [Elektrik üretmek],
+)
 
-#soru(16, [Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır. #sik_D_Y])
+#soru(15, [Kullanıcı tarafından girilen işlenmemiş ham verilere ne ad verilir?])
+#siklar5(
+  [Çıktı],
+  [Bellek],
+  [Girdi],
+  [Algoritma],
+  [Dosya],
+)
 
-#soru(17, [Aşağıdaki numaralandırılmış kavramlar ile harflendirilmiş görev tanımlarını eşleştiriniz:])
+#soru(16, [İşlem sonucunda elde edilen ve kullanıcıya sunulan anlamlı değere ne denir?])
+#siklar5(
+  [Girdi],
+  [Komut],
+  [Veri yolu],
+  [Program],
+  [Çıktı],
+)
 
+#soru(17, [Aşağıdakilerden hangisi bilgisayarda gerçekleştirilen temel işlemlerden biri değildir?])
+#siklar2(
+  [Giriş],
+  [Programlama],
+  [Veri işleme],
+  [Veri saklama],
+  [Çıkış],
+)
+
+#soru(18, [Dış dünyadan gelen verileri elektrik sinyaline çeviren birim hangisidir?])
+#siklar5(
+  [İşlemci],
+  [Bellek],
+  [Çıkış birimi],
+  [Giriş birimi],
+  [Veri yolu],
+)
+
+#soru(19, [Bellek biriminin görevi aşağıdakilerden hangisidir?])
+#siklar2(
+  [Verileri, komutları ve ara sonuçları geçici olarak saklamak],
+  [Verileri işlemek],
+  [Sonuçları ekrana yazmak],
+  [Dış dünyadan veri almak],
+  [Programları derlemek],
+)
+
+#soru(20, [Aritmetiksel ve mantıksal işlemleri yapan birim hangisidir?])
+#siklar5(
+  [RAM],
+  [Giriş birimi],
+  [İşlemci (CPU)],
+  [Çıkış birimi],
+  [Sabit disk],
+)
+
+#soru(21, [İşlenmiş sonuçları ekran, yazıcı veya hoparlörle kullanıcıya sunan birim hangisidir?])
+#siklar5(
+  [Giriş birimi],
+  [Bellek],
+  [İşlemci],
+  [Veri yolu],
+  [Çıkış birimi],
+)
+
+#soru(22, [Veri yolu (BUS) ile ilgili aşağıdakilerden hangisi doğrudur?])
+#siklar2(
+  [Yalnızca elektrik üretir],
+  [Birimler arasında veri ve komut taşır],
+  [Yalnızca ses iletir],
+  [Kalıcı dosyaları saklar],
+  [İşlemcinin yerini alır],
+)
+
+#soru(23, [`5 + 3` işlemi sırasında giriş biriminden gelen veriler, işlemciye ulaşmadan önce nereye yazılır?])
+#siklar5(
+  [Sabit diske],
+  [Ekrana],
+  [Yazıcıya],
+  [RAM'e],
+  [Klavyeye],
+)
+
+#soru(24, [RAM ile ilgili aşağıdakilerden hangisi doğrudur?])
+#siklar2(
+  [Geçicidir, bilgisayar kapanınca içeriği silinir],
+  [Kalıcıdır, bilgisayar kapanınca silinmez],
+  [Yalnızca program dosyalarını saklar],
+  [İşlemciye veri taşır],
+  [Ekran çıktısını üretir],
+)
+
+#soru(25, [Bilgisayar kapatıldığında kaybolmaması gereken veriler nerede saklanmalıdır?])
+#siklar5(
+  [RAM'de],
+  [İşlemcide],
+  [Sabit diskte],
+  [Önbellekte],
+  [Veri yolunda],
+)
+
+#v(0.5em)
+#soru(26, [Bilgisayarda bilginin en küçük temel veri birimine ............... denir.])
+
+#soru(27, [8 bitin yan yana gelmesiyle oluşan veri birimine ............... adı verilir.])
+
+#soru(28, [0–9 rakamları ile A–F harflerini kullanan sayı sistemine ............... sayı sistemi denir.])
+
+#soru(29, [Harf ve sembolleri sayısal kodlarla temsil etmek için kullanılan standart tablonun adı ...............'dir.])
+
+#soru(30, [İşlemci komutlarını sembolik ve hatırlanabilir kısaltmalarla ifade eden alt seviyeli dile ............... denir.])
+
+#v(0.5em)
+#soru(31, [Bir Byte, bilgisayardaki en küçük veri birimidir. #sik_D_Y])
+
+#soru(32, [8 bit bir araya gelerek 1 Byte oluşturur. #sik_D_Y])
+
+#soru(33, [Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır. #sik_D_Y])
+
+// #v(0.5em)
+#pagebreak()
+#soru(34, [Aşağıdaki numaralandırılmış kavramlar ile harflendirilmiş görev tanımlarını eşleştiriniz:])
 #table(
   columns: (1fr, 3fr),
   stroke: 0.5pt + gray,
@@ -79,96 +237,3 @@
   [5. Assembly], [E. Donanım bileşenleri arasında veri taşınmasını sağlayan iletim hattı],
 )
 *Cevaplarınız:*  *1* – ..... #h(1.5em) *2* – ..... #h(1.5em) *3* – ..... #h(1.5em) *4* – ..... #h(1.5em) *5* – .....
-
-#soru(18, [1837'de "Analitik Makine" adını verdiği cihazı tasarlayan kişi kimdir?])
-#siklar5([Ada Lovelace], [Charles Babbage], [Alan Turing], [Bill Gates], [John von Neumann])
-
-#soru(19, [Charles Babbage'ın Analitik Makine'yi hayata geçirememesinin temel nedeni nedir?])
-#siklar2(
-  [Yeterli matematik bilgisi olmaması],
-  [Dönemin teknolojisinin yeterli olmaması],
-  [Cihazın çok küçük olması],
-  [Elektrik enerjisinin bulunmaması],
-  [Babbage'ın çalışmaktan vazgeçmesi],
-)
-
-#soru(20, [Ada Lovelace'in Babbage'ın çalışmalarındaki rolü aşağıdakilerden hangisidir?])
-#siklar2(
-  [Analitik Makine'yi tek başına icat etmesi],
-  [Babbage'ın en büyük destekçilerinden biri olması],
-  [İlk işlemciyi tasarlaması],
-  [İlk bilgisayarı üretmesi],
-  [İnterneti geliştirmesi],
-)
-
-#soru(21, [Ada Lovelace neden tarihteki ilk bilgisayar programcısı olarak kabul edilir?])
-#siklar2(
-  [İlk bilgisayarı ürettiği için],
-  [İlk algoritmayı tasarladığı için],
-  [İlk işlemciyi icat ettiği için],
-  [Ada programlama dilini kendisi geliştirdiği için],
-  [İlk bilgisayar oyununu yaptığı için],
-)
-
-#soru(22, [Ada programlama dilinin adı nereden gelmektedir?])
-#siklar5([Charles Babbage], [Ada Lovelace], [Analitik Makine], [Ada ülkesi], [İlk bilgisayar])
-
-#soru(23, [Bilgisayarın temel görevi aşağıdakilerden hangisidir?])
-#siklar2(
-  [Yalnızca metin yazmak],
-  [Verileri depolamak, işlemek ve sonuçları çıktı olarak sunmak],
-  [İnternete bağlanmak],
-  [Yalnızca oyun oynamak],
-  [Elektrik üretmek],
-)
-
-#soru(24, [Kullanıcı tarafından girilen işlenmemiş ham verilere ne ad verilir?])
-#siklar5([Çıktı], [Girdi], [Bellek], [Algoritma], [Dosya])
-
-#soru(25, [İşlem sonucunda elde edilen ve kullanıcıya sunulan anlamlı değere ne denir?])
-#siklar5([Girdi], [Çıktı], [Komut], [Veri yolu], [Program])
-
-#soru(26, [Aşağıdakilerden hangisi bilgisayarda gerçekleştirilen temel işlemlerden biri değildir?])
-#siklar2([Giriş], [Veri işleme], [Veri saklama], [Çıkış], [Programlama])
-
-#soru(27, [Dış dünyadan gelen verileri elektrik sinyaline çeviren birim hangisidir?])
-#siklar5([İşlemci], [Bellek], [Giriş birimi], [Çıkış birimi], [Veri yolu])
-
-#soru(28, [Bellek biriminin görevi aşağıdakilerden hangisidir?])
-#siklar2(
-  [Verileri işlemek],
-  [Verileri, komutları ve ara sonuçları geçici olarak saklamak],
-  [Sonuçları ekrana yazmak],
-  [Dış dünyadan veri almak],
-  [Programları derlemek],
-)
-
-#soru(29, [Aritmetiksel ve mantıksal işlemleri yapan birim hangisidir?])
-#siklar5([RAM], [Giriş birimi], [İşlemci (CPU)], [Çıkış birimi], [Sabit disk])
-
-#soru(30, [İşlenmiş sonuçları ekran, yazıcı veya hoparlörle kullanıcıya sunan birim hangisidir?])
-#siklar5([Giriş birimi], [Bellek], [İşlemci], [Çıkış birimi], [Veri yolu])
-
-#soru(31, [Veri yolu (BUS) ile ilgili aşağıdakilerden hangisi doğrudur?])
-#siklar2(
-  [Yalnızca elektrik üretir],
-  [Birimler arasında veri ve komut taşır],
-  [Yalnızca ses iletir],
-  [Kalıcı dosyaları saklar],
-  [İşlemcinin yerini alır],
-)
-
-#soru(32, [`5 + 3` işlemi sırasında giriş biriminden gelen veriler, işlemciye ulaşmadan önce nereye yazılır?])
-#siklar5([Sabit diske], [RAM'e], [Ekrana], [Yazıcıya], [Klavyeye])
-
-#soru(33, [RAM ile ilgili aşağıdakilerden hangisi doğrudur?])
-#siklar2(
-  [Kalıcıdır, bilgisayar kapanınca silinmez],
-  [Geçicidir, bilgisayar kapanınca içeriği silinir],
-  [Yalnızca program dosyalarını saklar],
-  [İşlemciye veri taşır],
-  [Ekran çıktısını üretir],
-)
-
-#soru(34, [Bilgisayar kapatıldığında kaybolmaması gereken veriler nerede saklanmalıdır?])
-#siklar5([RAM'de], [İşlemcide], [Sabit diskte], [Önbellekte], [Veri yolunda])

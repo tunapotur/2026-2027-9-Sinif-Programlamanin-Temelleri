@@ -458,12 +458,11 @@ _start:
 === Programlama Dilleri
 Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold")[hexadecimal sayılar] ile kodlama yapmaya göre #text(weight: "semibold")[Assembly] dili büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. Ayrıca Assembly kodları işlemciden işlemciye farklılık gösteriyor, bu da her yeni işlemci için kodların yeniden yazılması zorunluluğunu doğuruyordu. Bu duruma #text(weight: "semibold")[donanım bağımlılığı] deniyordu.
 
-//TODO  bu paragraf düzenlenmeli
-Donanım bağımlılığı sorununu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Artık #text(weight: "bold")[`sonuc = a + b`] gibi ifadeler kullanılabilir hale gelmişti. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır. Ayrıca programlama dili ile yazılan tek bir kodun hedef bilgisayarda derlenmesiyle #text(weight: "semibold")[donanım bağımlılığı] sorunu çözüldü ve aynı kodların farklı işlemci mimarilerinde çalışabilmesi sağlandı.
+Donanım bağımlılığı sorununu çözmek için *Fortran*, *COBOL* ve *C* gibi programlama dilleri ortaya çıktı. Artık #text(weight: "bold")[`sonuc = a + b`] gibi ifadeler kullanılabilir hale gelmişti. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır. Ayrıca programlama dili ile yazılan tek bir kodun hedef bilgisayarda derlenmesiyle #text(weight: "semibold")[donanım bağımlılığı] sorunu çözüldü ve aynı kodların farklı işlemci mimarilerinde çalışabilmesi sağlandı.
 
-*Derleyici (Compiler):* Programcının yazdığı kodun tamamını önce baştan sona okur, yazım hatalarını kontrol eder ve tüm kodu bir bütün olarak makine diline çevirir. Kodun yazımında (söz diziminde) bir hata varsa derleme işlemi tamamlanmaz.
+*Derleyici (Compiler):* Programcının yazdığı kodun tamamını önce baştan sona okur, yazım hatalarını kontrol eder ve tüm kodu bir bütün olarak makine diline çevirir. Kodun yazımında (sözdiziminde) bir hata varsa derleme işlemi tamamlanmaz.
 
-*Yorumlayıcı (Interpreter):* Kodu bir bütün olarak değil satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, hatanın bulunduğu satıra gelene kadar programı çalıştırır ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. *Python ve Ruby*, bu yaklaşımı kullanan dillere örnek gösterilebilir.
+*Yorumlayıcı (Interpreter):* Kodu satır satır okuyarak anında çalıştırır. Bir satır çevrilip çalıştırıldıktan sonra sıradaki satıra geçilir. Hata tespiti açısından yorumlayıcı, çalışma zamanı hatası oluştuğunda hatanın bulunduğu satıra kadar ilerler ve o noktada durur. Bu yaklaşım tıpkı bir tercümanın, konuşmacının cümlelerini anlık olarak çevirmesine benzer. Python ve Ruby, bu yaklaşımı kullanan dillere örnek gösterilebilir.
 
 #icerik-tablo(
   sutunlar: (1fr, 0.65fr, 0.7fr, 2fr, 2fr),

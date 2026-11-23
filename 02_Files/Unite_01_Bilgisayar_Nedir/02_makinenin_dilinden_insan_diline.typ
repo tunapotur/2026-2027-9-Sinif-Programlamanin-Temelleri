@@ -9,7 +9,7 @@
 #iki_hucreli_satir(
   columns: (3fr,1fr),
   gutter: 10pt,
-[Programlamada ilk adım geleneksel olarak ekrana *"Hello, World!"* yazdırmaktır. Aşağıda, bu çıktıyı üreten aynı programın beş farklı düzeydeki gösterimi yer almaktadır. Yukarıdan aşağıya doğru kod, insan için giderek daha okunabilir ve anlaşılır hâle gelir. Ben de yeni bir programlama dili kurduğumda ilk iş olarak ekrana mutlaka "Hello World" yazdırırım.]
+[Programlamada ilk adım geleneksel olarak ekrana *"Hello, World!"* yazdırmaktır. Aşağıda, bu çıktıyı üreten aynı programın beş farklı düzeydeki gösterimi yer almaktadır. Yukarıdan aşağıya doğru kod, insan için giderek daha okunabilir ve anlaşılır hâle gelir. Yazılımcılar yeni bir programlama dilini bilgisayarlarına kurduklarında ilk iş olarak ekrana mutlaka "Hello World" yazdırırlar.]
 ,[#output-box[Hello world!]] 
 )
 
@@ -91,7 +91,6 @@ Assembly dili, makine kodundaki her komuta bir *anımsatıcı* (mnemonic) ad ver
 #kod-blok(width: 100%)[
   ```c
   #include <stdio.h>
-
   int main(void) {
       printf("Hello world!\n");
       return 0;
