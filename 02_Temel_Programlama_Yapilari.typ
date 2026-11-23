@@ -50,7 +50,7 @@
 
 // Unite 05 infografik dosyaları
 #include "02_Files/Unite_05_Infographic/kapak-infografikler.typ"
-#include "02_Files/Unite_05_Infographic/bilgisayarin_dili.typ"
+
 #include "02_Files/Unite_05_Infographic/degisken_ve_bellek.typ"
 #include "02_Files/Unite_05_Infographic/veri_turleri.typ"
 #include "02_Files/Unite_05_Infographic/ram_islemci_iliskisi.typ"
