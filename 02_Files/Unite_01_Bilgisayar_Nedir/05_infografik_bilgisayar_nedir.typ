@@ -127,13 +127,13 @@
       rows: (auto, 1fr), row-gutter: 4pt,
       text(size: 8.4pt)[Bilgisayarın en temel donanım birimi; işlemci ve hafızada *milyarlarca* transistör vardır.],
       grid(
-        columns: (1fr, 1fr), column-gutter: 5pt,
-        block(width: 100%, height: 100%, fill: c_turuncu.light, stroke: 0.8pt + c_turuncu.border, radius: 4pt, inset: 5pt,
+        columns: (1fr, 1fr), column-gutter: 5pt,align: center,
+        block(width: 100%, height: 100%, fill: c_turuncu.light, stroke: 0.8pt + c_turuncu.border, radius: 4pt, inset: 15pt,
           grid(columns: (auto, 1fr), column-gutter: 5pt, align: horizon, lamp(true),
-            text(size: 7.8pt)[#text(weight: "bold", fill: c_turuncu.dark)[AÇIK · Çıkış 1] \ Base: HIGH (5V), LED yanar])),
-        block(width: 100%, height: 100%, fill: c_gri.light, stroke: 0.8pt + c_gri.border, radius: 4pt, inset: 5pt,
+            text(size: 8.8pt)[#text(weight: "bold", fill: c_turuncu.dark)[AÇIK · Çıkış 1] \ Base: HIGH (5V),\ LED yanar])),
+        block(width: 100%, height: 100%, fill: c_gri.light, stroke: 0.8pt + c_gri.border, radius: 4pt, inset: 15pt,
           grid(columns: (auto, 1fr), column-gutter: 5pt, align: horizon, lamp(false),
-            text(size: 7.8pt)[#text(weight: "bold", fill: c_gri.dark)[KAPALI · Çıkış 0] \ Base: LOW (0V), LED söner])),
+            text(size: 8.8pt)[#text(weight: "bold", fill: c_gri.dark)[KAPALI · Çıkış 0] \ Base: LOW (0V),\ LED söner])),
       ),
     )),
     bolum(4, [Bit (Binary Digit)], grid(
