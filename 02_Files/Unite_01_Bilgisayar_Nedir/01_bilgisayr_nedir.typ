@@ -19,9 +19,7 @@ Bilgisayarda temel olarak giriş, veri işleme, veri saklama ve çıkış işlem
 #include "diagrams/bilgisayarin_calisma_mimarisi.typ"
 
 
-Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan mimarisini özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır.
-
-Dört temel birim arasındaki görev paylaşımı şöyledir:
+Yukarıdaki şema, günümüz bilgisayarlarının büyük çoğunluğunda kullanılan mimarisini özetler. Bu mimarinin en ayırt edici özelliği, *komutların da verilerin de aynı bellekte* saklanmasıdır. İşlemci, çalıştıracağı komutu da işleyeceği veriyi de bellekten okur. Bu nedenle giriş biriminden gelen bir veri, işlemciye ulaşmadan önce mutlaka *bellekte (RAM)* bir alana yazılır. Dört temel birim arasındaki görev paylaşımı şöyledir:
 
 + *Giriş Birimi:* Dış dünyadan gelen verileri ve kullanıcı komutlarını, bilgisayarın anlayacağı elektrik sinyallerine dönüştürür.
 + *Bellek Birimi:* Gelen verileri, çalıştırılacak programın komutlarını ve ara sonuçları geçici olarak saklar.
@@ -41,8 +39,8 @@ Bir bilgisayarda `5 + 3` gibi basit görünen bir toplama işleminin arka planda
   icerik_hizalama: (center + horizon, center + horizon, left + horizon, center + horizon),
   sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon),
   boyut: 9pt,
-  dikey-bosluk: 6.7pt,
-  [`1`], [Giriş Birimi], [Kullanıcı klavyeden `5` ve `3` tuşlarına basar; klavye bu tuşları elektrik sinyallerine çevirir.], [`5`, `3`],
+  dikey-bosluk: 5.8pt,
+  [`1`], [Giriş Birimi], [Klavyeden `5` ve `3` tuşlarına basılır; klavye bu tuşları elektrik sinyallerine çevirir.], [`5`, `3`],
   [`2`], [Bellek Birimi], [Sinyaller ikilik sisteme dönüştürülerek RAM'de ayrılan hücrelere yazılır.], [`0000 0101` \ `0000 0011`],
   [`3`], [İşlemci (CPU)], [İşlemci, bellekten "topla" komutunu ve toplanacak iki sayıyı okur; ardından bu sayıları toplayarak sonucu üretir.], [`topla`],
   [`4`], [Bellek Birimi], [Elde edilen sonuç, daha sonra kullanılmak üzere tekrar RAM'e yazılır.], [`0000 1000`],
@@ -82,7 +80,9 @@ ABD Savunma Bakanlığı için geliştirilen Ada programlama dili, adını Ada L
 *Transistör* elektrik akımını geçirerek ya da keserek *$1$* veya *$0$* değerini üreten bilgisayarın en temel donanım birimidir. İşlemci, hafıza gibi bilgisayar donanımlarında milyarlarca transistör bulunur.
 
 #align(center)[
-*Bir Transistör Elektrik Akını Geçirir veya Keser*  
+#v(0.25em)
+*Bir Transistör Elektrik Akını Geçirir veya Keser*
+#v(-0.75em)
 #grid(
   columns: (auto, auto),
   gutter: 5pt,
@@ -222,8 +222,8 @@ Bir harfi veya sembolü sayılarla temsil etmek için standart referans tablosu 
 #align(center)[
 #block(breakable: false)[
 // #let binary-size=6em
-#let table-content-size=8pt
-#let hucre_bosluk = (x:5pt, y:4.1pt)
+#let table-content-size=8.5pt
+#let hucre_bosluk = (x:4pt, y:3.75pt)
 #text(size:8pt)[*Temel ASCII Tablosu (32-127 Karakterin Kodu)*]
 #v(-0.4em)
 #grid(
@@ -365,6 +365,7 @@ Bilgisayar dünyasındaki tüm içeriklerin fiziksel temelde sadece *$1$* ve *$0
   Bu nedenle bilişim mimarisinde her bir büyüklük basamağı bir öncekinin *1024 katı* ($2^(10)$) kabul edilir.
 
 #icerik-tablo(boyut: 9pt, tablo_baslik: "Veri Büyüklüğü Basamakları", sutunlar: (auto,auto,auto,auto),
+dikey-bosluk: 6.4pt,
 icerik_hizalama: (left+horizon,left+horizon,center+horizon,left+horizon),
 sutun_baslik_hizalama: (center),
 sutun_basliklari: ([Birim], [Kapasite], [Kısaltma], [Somut Karşılığı]),
@@ -406,7 +407,7 @@ Piyasadan satın alınan *1TB* kapasiteli bir SSD veya harici disk bilgisayara t
 
 === Makine Kodundan Assembly Diline
 Altair 8800 gibi ilk bilgisayarlarda #text(weight: "semibold")[1 ve 0]'lardan oluşan makine kodlarıyla program yazmak oldukça zahmetliydi. #text(weight: "semibold")[Onaltılık (Hexadecimal) sayı sistemi] kodları kısaltsa da komutların anlamını açıklamıyordu. Bu nedenle komutlar yerine İngilizce kısaltmalardan oluşan sembolik isimler (#text(weight: "bold")[Mnemonic]) kullanılmaya başlandı ve bu dili ifade eden #text(weight: "bold")[Assembly dili] doğdu. Böylece program yazmak çok daha anlaşılır ve kolay hâle geldi.
-
+#v(0.5em)
 #grid(
   columns: (auto, auto),
   gutter: 10pt,
@@ -457,7 +458,8 @@ _start:
 === Programlama Dilleri
 Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold")[hexadecimal sayılar] ile kodlama yapmaya göre #text(weight: "semibold")[Assembly] dili büyük bir kolaylık sağlasa da projeler büyüdükçe kodları yazmak zorlaşıyordu. Ayrıca Assembly kodları işlemciden işlemciye farklılık gösteriyor, bu da her yeni işlemci için kodların yeniden yazılması zorunluluğunu doğuruyordu. Bu duruma #text(weight: "semibold")[donanım bağımlılığı] deniyordu.
 
-İşte bu sorunu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Artık iki sayıyı toplamak için işlemci yazmaçlarıyla uğraşmak yerine doğrudan #text(weight: "bold")[`sonuc = a + b`] yazmak yeterli hale geldi. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır. Ayrıca programlama dili ile yazılan tek bir kodun hedef bilgisayarda derlenmesiyle #text(weight: "semibold")[donanım bağımlılığı] sorunu çözüldü ve aynı kodların farklı işlemci mimarilerinde çalışabilmesi sağlandı.
+//TODO  bu paragraf düzenlenmeli
+Donanım bağımlılığı sorununu çözmek için *Fortran, COBOL ve C* gibi programlama dilleri ortaya çıktı. Artık #text(weight: "bold")[`sonuc = a + b`] gibi ifadeler kullanılabilir hale gelmişti. Programlama dilleri ile yazılan kodlar, *Derleyici (Compiler)* veya *Yorumlayıcı (Interpreter)* adı verilen araçlarla makine koduna çevrilerek işlemci üzerinde çalıştırılmaktadır. Ayrıca programlama dili ile yazılan tek bir kodun hedef bilgisayarda derlenmesiyle #text(weight: "semibold")[donanım bağımlılığı] sorunu çözüldü ve aynı kodların farklı işlemci mimarilerinde çalışabilmesi sağlandı.
 
 *Derleyici (Compiler):* Programcının yazdığı kodun tamamını önce baştan sona okur, yazım hatalarını kontrol eder ve tüm kodu bir bütün olarak makine diline çevirir. Kodun yazımında (söz diziminde) bir hata varsa derleme işlemi tamamlanmaz.
 
@@ -469,7 +471,7 @@ Her ne kadar #text(weight: "semibold")[`1` ve `0`] veya #text(weight: "semibold"
   sutun_basliklari: ([Evrim Aşaması], [Temsil\ Biçimi], [Örnek Kod], [Temel Avantajı], [Temel Zorluğu],),
   boyut: 8pt,
   sutun_baslik_bosluk: (x: 6pt, y: 4pt),
-  hucre_bosluk: (x:4pt, y:5.6pt),
+  hucre_bosluk: (x:4pt, y:6pt),
   icerik_hizalama: (center+horizon, center+horizon, center+horizon, left+horizon, left+horizon),
   sutun_baslik_hizalama:  (center+horizon),
  // 1. Satır
