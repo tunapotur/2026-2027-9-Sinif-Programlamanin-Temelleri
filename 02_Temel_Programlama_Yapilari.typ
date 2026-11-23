@@ -21,7 +21,7 @@
 #include "02_Files/Unite_01_Bilgisayar_Nedir/02_makinenin_dilinden_insan_diline.typ"
 #include "02_Files/Unite_01_Bilgisayar_Nedir/03_Sorular.typ"
 #include "02_Files/Unite_01_Bilgisayar_Nedir/04_Soru-Cevaplari.typ"
-#include "02_Files/Unite_01_Bilgisayar_Nedir/00_bilgisayarin_dili.typ"
+#include "02_Files/Unite_01_Bilgisayar_Nedir/05_infografik_bilgisayar_nedir.typ"
 #pagebreak()
 
 // Unite 02 Degisken ve Bellek
