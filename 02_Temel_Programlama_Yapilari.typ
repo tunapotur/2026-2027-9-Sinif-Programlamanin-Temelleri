@@ -14,12 +14,14 @@
 #set page(numbering: "1")
 
 = Temel Programlama Yapıları
+#pagebreak()
 
 // Unite 01 Bilgisayar Nedir
 #include "02_Files/Unite_01_Bilgisayar_Nedir/01_bilgisayr_nedir.typ"
 #include "02_Files/Unite_01_Bilgisayar_Nedir/02_makinenin_dilinden_insan_diline.typ"
 #include "02_Files/Unite_01_Bilgisayar_Nedir/03_Sorular.typ"
 #include "02_Files/Unite_01_Bilgisayar_Nedir/04_Soru-Cevaplari.typ"
+#include "02_Files/Unite_01_Bilgisayar_Nedir/00_bilgisayarin_dili.typ"
 #pagebreak()
 
 // Unite 02 Degisken ve Bellek
