@@ -109,7 +109,9 @@ Yazılım projelerinde, derleyicinin görmezden geldiği ancak yazılımcıları
         ```Python
 a = 50
 b = 20
+
 c = a * b / 100
+
 print(c)
 ```
       ]
@@ -120,10 +122,13 @@ print(c)
         ```Python
 # Ürünün fiyatı
 a = 50
+
 # İndirim oranı (%)
 b = 20
+
 # İndirim miktarı
 c = a * b / 100
+
 print(c)
 ```
       ]
@@ -172,31 +177,31 @@ def topla(a, b):
 
 *Çok Satırlı Açıklama ile Program Başlığı*
 #grid(
-  columns: (sutun1Genislik+6em,auto),
-  gutter: 15pt,
+  columns: (sutun1Genislik,auto),
+  gutter: 10pt,
   align: horizon,
   [
-#kod-blok(width: 100%)[
+#kod-blok(width:auto)[
   ```Python
 """
 Program : Daire Alanı Hesaplama
 Ders    : Programlamanın Temelleri (9. Sınıf)
 Yazar   : Ahmet Tuna POTUR
 Sürüm   : 1.0
-Açıklama: Sabit olarak tanımlanan pi sayısı ve yarıçap (r) 
-değerini kullanarak dairenin alanını (π * r²) hesaplar
-ve ekrana yazdırır. Girdiler: pi (float), r (int).
+Alan    :  (π * r²)
+Girdiler: pi (float), r (int).
 Çıktı   : alan (float) - Hesaplanan daire alanı
 """
-pi = 3.14        # pi sayısı (yaklaşık değer)
-r = 5            # yarıçap
+pi = 3.14           # pi sayısı (yaklaşık değer)
+r = 5               # yarıçap
+
 alan = pi * r * r
-print(alan)      # Ekrana 78.5 yazar
+print(alan)         # Ekrana 78.5 yazar
 ```]
   ],
   [
     #not_block(title: "Dikkat: ")[
-  Açıklama satırları programın çalışmasını etkilemez, ancak kodun okunabilirliğini artırır.\ Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
+  Açıklama satırları programın çalışmasını etkilemez, kodun okunabilirliğini artırır.\ Gereksiz ve her satır için tekrarlanan açıklamalardan kaçınılmalı; kodun *ne yaptığından çok neden yaptığı* anlatılmalıdır.  
 ]
   ]
 )

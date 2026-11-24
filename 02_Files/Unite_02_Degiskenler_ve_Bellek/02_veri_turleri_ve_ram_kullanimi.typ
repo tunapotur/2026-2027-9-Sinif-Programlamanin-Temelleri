@@ -112,15 +112,17 @@ ram-goster(
     align: (horizon),
     [
 - RAM’de *2 bayt* (16 bit) yer kaplar.
-- $16$ bit ile $2^16=65536$ farklı değer saklanabilir.
+- $16$ bit ile $2^{16}=65536$ farklı değer saklanabilir.
 - Yalnızca tam sayıları tutar.
-- Toplama, çıkarma, çarpma, bölme ve mod(kalan) işlemlerinde kullanılır.
+- İşlemcinin (ALU) aritmetik işlemlerde doğrudan kullanabildiği temel bir veri türüdür.
+- Toplama, çıkarma, çarpma, bölme ve mod (kalan) işlemlerinde kullanılır.
       ],
     [
 #kod-blok(width: 100%)[
     ```cpp
 int a = 7;
 int b = 2;
+
 int toplam = a + b  // toplam = 9
 int sonuc = a / b;  // sonuc = 3 (3.5 değil!)
 int kalan = a % b;  // kalan = 1
@@ -130,38 +132,43 @@ int kalan = a % b;  // kalan = 1
   )
 ]
 
-#ram-goster(
+
+  #grid(
+    columns: (auto, auto),
+    gutter: 5pt,
+    align: (horizon),
+ram-goster(
   "int",
   "int puan = 50;",
   "00000000 00110010",
   aciklama: "50 = 32 + 16 + 2 olduğu için son byte 00110010 olur. İlk byte'ın tamamı 0'dır.",
-)
-
-#ram-goster(
+),
+ram-goster(
   "int",
   "int sayi = 12377;",
   "00110000 01011001",
   aciklama: "12377 = 8192 + 4096 + 64 + 16 + 8 + 1 olduğu için ilk byte 00110000 (12288), son byte ise 01011001 (89) olur.",
-)
+))
 
 ==== Ondalıklı Sayı (float)
 #block(breakable: false)[
   #grid(
-    columns: (25em, auto),
+    columns: (29em, auto),
     gutter: 10pt,
     align: (horizon),
     [
-- RAM’de *4 bayt* yer kaplar; *int*’ten 2 kat fazla alan.
-- Virgüllü sayıları tutar. Kodda nokta ile yazılır: $3.14$.
-- Tam sayı ve küsurat kısımlarını ayrı işler.
-- Küsuratlı ve geniş aralıklı sayılarda kullanılır.
-- Tüm matematiksel işlemlerde kullanılabilir.
+- RAM'de `int` türüne göre 2 kat fazla olarak *4 bayt* yer kaplar.
+- Virgüllü sayıları tutar; nokta ondalık ayırıcı olarak kullanılır.
+- İşaret, üs ve kesir (küsurat) bileşenlerini ayrı temsil eder.
+- Hesaplamalarda `int` türüne göre daha fazla işlem adımı ve gerektiğinde tür çevrimi (*type conversion*) işlemleri içerir.
+- Küsuratlı ve geniş aralıklı sayıların temsilinde ve matematiksel hesaplamalarda kullanılır.
       ],
     [
       #kod-blok(width: 100%)[
   ```cpp
 float a = 7;
 float b = 2;
+
 float sonuc = a / b;      // => 3.5
 float pi = 3.14;
 float alan = pi * b * b;  // => 12.56
@@ -177,6 +184,13 @@ float alan = pi * b * b;  // => 12.56
   "float pi = 3.14;",
   "01000000 01001000 11110101 11000011",
   aciklama: "Ondalıklı sayılar IEEE 754 biçiminde saklanır ve 4 byte yer kaplar.",
+)
+
+#ram-goster(
+  "float",
+  "float e = 2.72;",
+  "01000000 00101110 00010100 01111010",
+  aciklama: "Euler sayısı IEEE 754 biçiminde saklanır ve 4 byte yer kaplar.",
 )
 
 
@@ -195,7 +209,7 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
 ]
 ]
 
-#v(0.65em)
+// #v(0.65em)
 #align(center)[*MUSTAFA* Metni RAM üzerinde nasıl saklanır?]
 #v(-0.5em)
 #ram-goster(
@@ -205,7 +219,7 @@ Tek bir *char* verisi bellekte yalnızca *1 Bayt* yer kaplar ve tek başına sad
   aciklama: "Her bir harf ASCII karşılığı ile bellekte 1 byte yer kaplar (M:77, U:85, S:83, T:84, A:65, F:70, A:65). Toplam 7 karakter = 7 byte.",
 )
 
-#v(0.65em)
+// #v(0.65em)
 #align(center)[*ADA LOVELACE* Metni RAM üzerinde nasıl saklanır?]
 #v(-0.5em)
 #ram-goster(

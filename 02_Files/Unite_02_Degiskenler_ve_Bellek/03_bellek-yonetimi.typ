@@ -98,7 +98,7 @@
 === Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
 
 #align(center)[
-#image("/02_Files/Unite_02_Degiskenler_ve_Bellek/images/bellek-yönetimi-ve-CPU-Performansi.jpg", width: 93%)
+#image("/02_Files/Unite_02_Degiskenler_ve_Bellek/images/bellek-yönetimi-ve-CPU-Performansi.jpg", width: 92%)
 ]
 
 Program yazmaya başlarken aklımıza şu soru gelebilir: _"Bilgisayarımızda gigabaytlarca (GB) RAM varken, bir değişkenin bellekte 1 bayt mı yoksa 4 bayt mı yer kapladığını neden dert edelim? Her şeyi en geniş veri türüyle tanımlasak ne fark eder?"_\
@@ -447,8 +447,8 @@ float sonuc = a + b;
   sutun_basliklari: ([İncelenen Kriter], [`int` (Doğru Tercih)], [`float` (Gereksiz Tercih)], [Sisteme ve Performansa Etkisi]),
   hucre_bosluk: (x: 6pt, y: 6.5pt),
   boyut: 9.4pt,
-  icerik_hizalama: (left + horizon, center + horizon, center + horizon, left + horizon),
   sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon),
+  icerik_hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
   [*RAM Alanı*], [6 Bayt], [12 Bayt], [*%50 Bellek Tasarrufu:* RAM'de diğer programlara ve değişkenlere daha fazla yer kalır.],
   [*Veri Yolu Trafiği*], [6 Bayt taşınır], [12 Bayt taşınır], [*2 Kat Daha Az Trafik:* Veri yollarındaki yoğunluk ve bekleme süresi yarıya iner.],
   [*İşlemci Eforu*], [1 Saat Çevrimi (Tek Adım)], [Onlarca Çevrim (Çok Adım)], [*İşlemci Yorulmaz:* Karmaşık ondalık algoritmaları işletilmez.],

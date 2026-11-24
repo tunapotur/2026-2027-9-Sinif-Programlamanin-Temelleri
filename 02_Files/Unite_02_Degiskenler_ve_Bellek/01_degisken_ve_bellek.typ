@@ -151,7 +151,7 @@ icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Türkçe Karakterlerin İngilizce Karşılıkları],
   sutun-baslik-bosluk: (x:6pt, y:7pt),
-  hucre-bosluk: (x:8pt, y:8.4pt),
+  hucre-bosluk: (x:8pt, y:7.5pt),
   sutun_basliklari: ([Türkçe], [Dönüşüm], [İngilizce]),
   [ç / Ç], [#text(weight: "bold",size: 12pt)[$-->$]], [*c / C*],
   [ğ / Ğ], [#text(weight: "bold",size: 12pt)[$-->$]], [*g / G*],
@@ -164,7 +164,7 @@ icerik-tablo(
   sutunlar:(auto, auto, auto),
   tablo_baslik:[Değişken Kullanım Örnekleri],
   sutun-baslik-bosluk: (x:6pt, y:7pt),
-  hucre-bosluk: (x:8pt, y:6pt),
+  hucre-bosluk: (x:8pt, y:5.34pt),
   sutun_basliklari: ([Hatalı Kullanım],[Dönüşüm],[Doğru Kullanım]),
   [`doğumTarihi`],  [$-->$], [*`dogumTarihi`*],
   [`ürünFiyatı`],    [$-->$], [*`urunFiyati`*],
@@ -188,7 +188,7 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
   tablo_baslik: "Değişken Adlandırma Kuralları (Naming Conventions)",
   sutunlar: (auto, auto, auto),
   sutun_basliklari: ([Yanlış / Zor Okunan Biçim],[snake_case (Python)],[camelCase]),
-  dikey-bosluk: 8.5pt,
+  dikey-bosluk: 7pt,
     text(fill: rgb("#dc2626"))[`personelsayisi`],
     text(fill: rgb("#2563eb"), weight: "bold")[`personel_sayisi`],
     text(fill: rgb("#16a34a"), weight: "bold")[`personelSayisi`],
@@ -219,7 +219,7 @@ Değişken adları tanımlanırken kelimeler arasında *boşluk bırakılamaz*. 
 )
 
 === Sabitler
-Bir yazılım mimarisinde programın çalışma süresince değiştirilmemesi amaçlanan ve aynı değeri koruması beklenen verilere sabit (*constant*) adı verilir. Sabit olarak kullanılması amaçlanan isimler, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
+Bir yazılım mimarisinde programın çalışma süresince değişmeden koruması beklenen verilere sabit (*constant*) adı verilir. Sabit isimleri, tüm harfleri büyük olacak ve kelimeler alt çizgiyle (\_) ayrılacak biçimde yazılır.
 
 #kod-blok(width: 100%)[
 ```Python

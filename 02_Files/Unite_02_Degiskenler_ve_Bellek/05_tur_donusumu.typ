@@ -7,7 +7,7 @@
 #import "../../lib/icerik-tablo.typ": *
 
 // #show: conf
-
+//TODO Burada Kaldım
 === Tür Dönüşümü (Type Conversion / Type Casting)
 Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir.
 
