@@ -48,6 +48,7 @@
 #soru(7, [Aşağıdaki değişken adlarından hangisi Python değişken tanımlama kurallarına *aykırıdır*?])
 #siklar5([`okul_no`], [`_toplam`], [`ogrenciNotu`], [`1yazili`], [`yas`])
 
+#pagebreak()
 #soru(8, [Aşağıdakilerden hangisi Python'da değişken adı olarak kullanılmaya *uygundur*?])
 #siklar5([`ogrenci_no`], [`ogrenci-no`], [`ogrenci no`], [`2ogrenci`], [`class`])
 
@@ -57,6 +58,7 @@
 #soru(10, [Python'da tek satırlık açıklama (yorum) belirtmek için satırın başına hangi karakter yazılır?])
 #siklar5([`$`], [`&`], [`#`], [`@`], [`!`])
 
+#v(1em)
 #soru(11, [Bilgisayar çalışırken programların ve verilerin geçici olarak tutulduğu ana belleğe ............... adı verilir.])
 
 #soru(12, [Python'da ondalıklı sayıları temsil etmek için kullanılan temel veri türü ...............'tır.])
@@ -65,6 +67,7 @@
 
 #soru(14, [Kullanıcıdan metin biçiminde alınan sayısal bir girdiyi tam sayıya çevirmek için ............... fonksiyonu kullanılır.])
 
+#v(1em)
 #soru(15, [RAM'de tutulan veriler bilgisayar kapatıldığında dahi kalıcı olarak korunur. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
 
 #soru(16, [İşlemci, RAM'deki verilere veri yolu üzerinden doğrudan erişebilir. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
@@ -77,27 +80,28 @@
 
 #soru(20, [Python'da aynı değişkene programın farklı satırlarında farklı türlerde değerler atanabilir. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
 
+#v(1em)
 #soru(21, [Programlamada değişken nedir? Kısaca açıklayınız.])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 
 #soru(22, [Bir değişkene yeni bir değer atandığında bellekteki (RAM) eski değere ne olur?])
-#cevap-cizgisi(2)
+#cevap-cizgisi()
 
 #soru(23, [Python'da `int` ve `float` veri türleri arasındaki temel fark nedir?])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 
 #soru(24, [Tüm sayısal verileri `float` olarak saklamak bellek ve işlemci açısından neden uygun değildir?])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 
 #soru(25, [Python'da `input()` fonksiyonuyla alınan sayısal bir veri neden doğrudan matematiksel işlemlerde kullanılamaz?])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 
 #soru(26, [Metin olarak alınan bir sayıyı matematiksel işleme sokabilmek için hangi fonksiyonlar kullanılır?])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 
 #soru(27, [Python'da *`rakam = '5'`* ile *`sayi = 5`* ifadeleri arasındaki temel fark nedir?])
 #cevap-cizgisi(2)
 
 #soru(28, [Python'da yazılan *`yas = int(input("Yaşınız: "))`* kod satırında işlemlerin içten dışa çalışma sırasını kısaca açıklayınız.])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 

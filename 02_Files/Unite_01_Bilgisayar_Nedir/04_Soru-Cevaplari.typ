@@ -33,19 +33,19 @@
 #cevap(24, [A], [RAM geçicidir; bilgisayar kapanınca içeriği silinir.])
 #cevap(25, [C], [Kalıcı veriler sabit diskte saklanır.])
 
-#v(0.5em)
+#v(1em)
 #cevap(26, [Bit], [İkilik sayı sisteminde $0$ veya $1$ değerini alabilen en temel mantıksal veri birimi.])
 #cevap(27, [Byte (Bayt)], [8 bitin birleşmesiyle oluşan ve 1 karakter saklamaya yeten veri birimi.])
 #cevap(28, [Hexadecimal (Onaltılık)], [0–9 rakamları ile A–F harflerini kullanan 16 tabanlı sayı sistemi.])
 #cevap(29, [ASCII], [Karakter ve sembolleri standart sayısal kodlarla eşleştiren kodlama tablosu.])
 #cevap(30, [Assembly], [İşlemci komutlarını kısaltmalarla ifade eden alt seviyeli programlama dili.])
 
-#v(0.5em)
+#v(1em)
 #cevap(31, [Y], [Bilgisayardaki en küçük veri birimi Byte değil, *bittir* (1 Byte = 8 bit).])
 #cevap(32, [D], [8 bit bir araya gelerek 1 Byte'lık veri büyüklüğünü meydana getirir.])
 #cevap(33, [D], [Hexadecimal sistemde 0–9 rakamları ile A–F arasındaki 6 harf (toplam 16 sembol) kullanılır.])
 
-#v(0.5em)
+#v(1em)
 #text(weight: "semibold")[Soru 34.] Eşleştirme: *1-B, 2-C, 3-E, 4-D, 5-A* \
 #text(weight: "semibold")[1) RAM $arrow.r$ B :] Program ve verilerin çalışma sırasında geçici tutulduğu birincil bellek \
 #text(weight: "semibold")[2) CPU $arrow.r$ C :] Komutları yorumlayıp çalıştıran merkezi işlem birimi \

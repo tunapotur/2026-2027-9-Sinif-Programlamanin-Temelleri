@@ -134,7 +134,8 @@
     ],
     [
       #set par(leading: 0.95em)
-      #text(fill: white, weight: "bold", size: 22pt)[Değişkenler ve Bellek] \
+      // #text(fill: white, weight: "bold", size: 22pt)[Değişkenler ve Bellek] \
+      #text(fill: white)[=== Değişkenler ve Bellek İnfografik]
       #v(4pt)
       #text(fill: rgb("#d6e4f7"), size: 8.4pt)[Programda tanımlanan değişkenler, geçici olarak bellekte (RAM) \ bir alan tutar ve bu alanlara değerler kaydedilir.]
     ],

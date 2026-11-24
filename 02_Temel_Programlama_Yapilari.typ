@@ -32,6 +32,12 @@
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/05_tur_donusumu.typ"
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/06_Sorular.typ"
 #include "02_Files/Unite_02_Degiskenler_ve_Bellek/07_Soru-Cevaplari.typ"
+// infografikler
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/08_infografik_degisken_ve_bellek.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/09_infografik_veri_turleri.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/10_infografik_ram_islemci_iliskisi.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/11_infografik_bellek_yonetimi.typ"
+#include "02_Files/Unite_02_Degiskenler_ve_Bellek/12_infografik_tur_donusumu.typ"
 #pagebreak()
 
 // Unite 03 Operatorler
@@ -51,11 +57,6 @@
 // Unite 05 infografik dosyaları
 #include "02_Files/Unite_05_Infographic/kapak-infografikler.typ"
 
-#include "02_Files/Unite_05_Infographic/degisken_ve_bellek.typ"
-#include "02_Files/Unite_05_Infographic/veri_turleri.typ"
-#include "02_Files/Unite_05_Infographic/ram_islemci_iliskisi.typ"
-#include "02_Files/Unite_05_Infographic/bellek_yonetimi.typ"
-#include "02_Files/Unite_05_Infographic/tur_donusumu.typ"
 #include "02_Files/Unite_05_Infographic/operatorler.typ"
 #include "02_Files/Unite_05_Infographic/fonksiyon_kullanimi.typ"
 #include "02_Files/Unite_05_Infographic/input_print.typ"

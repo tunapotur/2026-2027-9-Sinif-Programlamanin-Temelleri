@@ -175,7 +175,8 @@
     columns: (1fr, 150pt), gutter: 14pt, align: horizon,
     [
       #set par(leading: 0.95em)
-      #text(fill: white, weight: "bold", size: 18pt)[Veri Türleri ve RAM Kullanımı] \
+      // #text(fill: white, weight: "bold", size: 18pt)[Veri Türleri ve RAM Kullanımı] \
+      #text(fill: white,)[=== Veri Türleri ve RAM Kullanımı İnfografik]
       #v(3pt)
       #text(fill: rgb("#d6e4f7"), size: 8.4pt)[Programlar verileri RAM'de bayt kutularında saklar. Verinin türü, kaç \ bayt yer ayrılacağını ve hangi işlemlerin yapılabileceğini belirler.]
     ],

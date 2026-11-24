@@ -7,16 +7,14 @@
 #import "../../lib/icerik-tablo.typ": *
 
 // #show: conf
-//TODO Burada Kaldım
+
 === Tür Dönüşümü (Type Conversion / Type Casting)
-Bilgisayarlar bellekteki verileri türlerine göre farklı formatlarda saklandığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir.
+Bilgisayarların bellekteki verileri türlerine göre farklı formatlarda sakladığını gördük. Bir verinin türünü başka bir türe çevirme işlemine *tür dönüşümü* denir. Bir veri tipi farklı bir veri tipine dönüştürüldüğünde bu verinin RAM'de kapladığı alan da değişebilir.
 
 ==== Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin $->$ Sayı)
-Klavyeden girilen veya bir metin dosyasından okunan tüm veriler, sisteme ilk olarak karakter dizisi (metin / string) biçiminde ulaşır.
+Klavyeden girilen tüm veriler, sisteme ilk olarak karakter dizisi (metin / `str`) biçiminde alınır. Kullanıcı klavyeden *`25`* girdiğinde sisteme *`"25"`* metni gelir. Karakter tabanlı bir veriyle doğrudan aritmetik işlem yapılamaz; bu değerlerin matematiksel işlemlerde kullanılabilmesi için *`int`* veya *`float`* gibi uygun bir sayısal veri tipine dönüştürülmesi gerekir.
 
-- Kullanıcı ekrana 25 yazdığında bilgisayar bunu sayısal 25 olarak değil; yan yana duran *'2'*(ASCII: 50) ve *'5'*(ASCII: 53) karakterleri olarak algılar.
-- Karakter tabanlı bir veriyle matematiksel işlem yapılamaz. Örneğin iki metinsel veri toplanmak istendiğinde matematiksel toplama ($25 + 10 = 35$) yerine metin birleştirme ("25" + "10" = "2510") gerçekleşir veya derleyici hata verir.
-- Bu değerlerin matematiksel işlemlere girebilmesi için metin biçiminden uygun sayı türüne (int veya float) dönüştürülmesi (parse/cast edilmesi) şarttır.
+
 
 #kod-cikti(baslik: [Tam Sayı Girişi Örneği])[
   ```python
@@ -33,83 +31,72 @@ Puan Giriniz: 50
 ```
 ]
 
-Program, kullanıcıdan "*`Puan Giriniz:`*" iletisiyle bir tam sayı değeri beklemektedir. Python'da *`input()`* fonksiyonu klavyeden veri almak için kullanılır. Ancak daha önce belirttiğimiz gibi, *`input()`* fonksiyonu girilen veriyi ne olursa olsun her zaman bir metin (*`string`*) olarak okur. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için *`int()`* fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
+Python'da *`input()`* fonksiyonu klavyeden veri almak için kullanılır. *`input()`* fonksiyonu girilen veriyi metin (*`string`*) olarak döndürür. Bu metinsel değerin matematiksel hesaplamalarda veya karşılaştırmalarda kullanılabilmesi için *`int()`* fonksiyonu ile tam sayıya dönüştürülmesi şarttır.
 
 #align(center)[
-#kod-satiri(no:0, size:15pt,weight: "semibold")[
+#kod-satiri(no:0, size:12pt,weight: "semibold")[
            ```Python
           puan = int(input("Puan Giriniz: "))
           ```
 ]
 ]
-#v(-0.5em)
-Bu satır *içten dışa* doğru çalışır: önce en içteki *`input()`*, sonra onu saran *`int()`*, en son da atama (#oprt-goster(size: 12pt)[`=`]).
 
-#v(0.5em)
+Bu satır *içten dışa* doğru: önce en içteki *`input()`*, sonra onu saran *`int()`*, en son da atama (#oprt-goster(size: 12pt)[`=`]) operatörü çalışır.
+
 #align(center)[
-  #grid(
-    columns: (auto, auto),
-    gutter: 8pt,
-    align: top,
-    [
-      #stack(
-        dir: ttb,
-        spacing: 5pt, // Başlık ile kutu arasındaki boşluk (0pt yapabilirsin)
-        align(center)[#text(weight: "semibold")[Adım 1]],
-        block(
-          inset: 10pt,
-          radius: 4pt,
-          stroke: 1pt + rgb("#d0d7de"),
-          width: auto
-        )[
-          #islem-aciklama(
-            on: "puan = ",
-            degisken: "int",
-            ara: "(",
-            ifade: "input(\"Puan Giriniz: \")",
-            son: ")",
-            deger: "\"50\"",
-            boyut: 15pt,
-          )
-        ]
-      )
-    ],
-    [
-      #stack(
-        dir: ttb,
-        spacing: 5pt, // Başlık ile kutu arasındaki boşluk
-        align(center)[#text(weight: "semibold")[Adım 2]],
-        block(
-          inset: 10pt,
-          radius: 4pt,
-          stroke: 1pt + rgb("#d0d7de"),
-          width: auto
-        )[
-          #islem-aciklama(
-            degisken: "puan",
-            ifade: "int(\"50\")",
-            deger: "50",
-            boyut: 15pt,
-          )
-        ]
-      )
-    ]
+#block(
+  inset: 10pt,
+  radius: 4pt,
+  stroke: 1pt + rgb("#d0d7de"),
+  width: 75%
+)[
+  #align(center)[
+  #islem-aciklama(
+    on: "puan = ",
+    degisken: "int",
+    ara: "(",
+    ifade: "input(\"Puan Giriniz: \")",
+    son: ")",
+    deger: "\"50\"",
+    boyut: 15pt,
   )
+  ]
 ]
+]
+      
 #text(size: 10pt, weight: "semibold")[Adım 1: `input()` çalışır ve `int()` fonksiyonuna değer döner]\
-Kullanıcı klavyeden *`50`* yazıp Enter'a basar. *`input()`* fonksiyonu bu değeri her zaman *metin* olarak döndürür; yani elimize geçen şey sayı değil, tırnak içinde *`"50"`* olur. Bu değer, dıştaki *`int()`* fonksiyonuna gider.
+Kullanıcı klavyeden *`50`* yazıp Enter'a basar. *`input()`* fonksiyonu bu değeri *metin* olarak döndürür; *`"50"`* olur.\ Bu değer, dıştaki *`int()`* fonksiyonuna gider.
+
+#align(center)[
+#block(
+  inset: 10pt,
+  radius: 4pt,
+  stroke: 1pt + rgb("#d0d7de"),
+  width: 75%
+)[
+  #align(center)[
+  #islem-aciklama(
+    degisken: "puan",
+    ifade: "int(\"50\")",
+    deger: "50",
+    boyut: 15pt,
+  )
+  ]
+]
+]
 
 #text(size: 10pt, weight: "semibold")[Adım 2: `int()` çalışır ve sonuç `puan` değişkenine atanır]\
-*`input()`* fonksiyonu metin *`"50"`* değerin döndürür; *`puan = int("50")`*. *`int()`* fonksiyonu *`"50"`* metnini tam sayıya çevirir ve sonuç olan *`50`* değeri *`puan`* değişkenine atanır.
+*`input()`* fonksiyonu metin *`"50"`* değerini döndürür. *`int()`* fonksiyonu *`"50"`* metnini tam sayıya çevirir ve *`50`* değeri *`puan`* değişkenine atanır.
 
-      #kod-blok(width: 100%)[
+Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *`int()`* veya *`float()`* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
+
+#kod-blok(width: 100%)[
     ```Python
 veri = input("Puan Giriniz: ")  # 1. Aşama: Metin olarak alındı ("50")
 puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
     ```
 ]
 
-#text(size:10pt)[
 #kod-cikti(
   columns: (30em,auto), 
   baslik: [Kullanıcı girişlerinin #underline(stroke: 1.25pt, offset: 2pt)[metin] türünden \ #underline(stroke: 1.25pt, offset: 2pt)[float] tipine dönüşümü yapılır #v(1.5em)], baslik-yeri: "sag")[
@@ -117,32 +104,23 @@ puan = int(veri)                # 2. Aşama: Tam sayıya dönüştürüldü (50)
 # Kullanıcı girişleri metin olarak alınır
 birinci_sayi = input("Birinci Sayıyı Girin: ")
 ikinci_sayi = input("İkinci Sayıyı Girin: ")
-ucuncu_sayi = input("Üçüncü Sayıyı Girin: ")
 
-# Girilen 3 değişken float türüne dönüştürülür
+# Girilen 2 değişken float türüne dönüştürülür
 birinci_sayi = float(birinci_sayi)
 ikinci_sayi = float(ikinci_sayi)
-ucuncu_sayi = float(ucuncu_sayi)
 
-bolum = (birinci_sayi + ikinci_sayi) / ucuncu_sayi
+
+bolum = birinci_sayi / ikinci_sayi
 print("Bölüm:", bolum)
 ```
 ][
 ```text
 Birinci Sayıyı Girin: 1.2
 İkinci Sayıyı Girin: 1.8
-Üçüncü Sayıyı Girin: 2.5
 Bölüm: 1.2
 ```
 ]
-]
 
-Dileyenler bu işlemi tek satırda iç içe yapmak yerine, önce veriyi bir değişkene metin olarak alıp ardından ikinci bir satırda *`int()`* veya *`float()`* fonksiyonuyla sayıya dönüştürerek iki aşamada da gerçekleştirebilir. Fakat bu tek satır kod yazmaya göre daha uzundur.
-
-
-#not_block(title: "Dikkat:")[
-  *`int()`* olmasaydı *`puan`* değişkeninde *`"50"`* yani *metin* olurdu ve *`puan + 10`* gibi bir işlem hata verirdi. Sayıyla işlem yapacaksak *`int()`* (ya da ondalıklı değerler için *`float()`*) ile dönüştürmemiz gerekir.
-]
 ==== Otomatik (Örtük / Implicit) Dönüşüm:
 Farklı türler aynı matematiksel işleme girdiğinde, veri kaybını önlemek için küçük tür otomatik olarak daha geniş ve kapsayıcı olan türe yükseltilir:
 

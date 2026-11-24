@@ -1,6 +1,6 @@
 // Infografik: Tür Dönüşümü (Type Conversion / Casting)  (tek sayfa)
 // Kullanım: ana belgede  #include "tur_donusumu.typ"
-#import "infografik_ortak.typ": *
+#import "/02_Files/infografik_ortak.typ":*
 
 // Kod satırı + sonuç kutusu (beyaz, renkli çerçeveli)
 #let ornek(c, baslik, baslik-c, ..satirlar) = block(
@@ -13,7 +13,7 @@
 
   // ---------- BAŞLIK ----------
   baslik_bandi(
-    [Tür Dönüşümü (Type Conversion / Casting)],
+    [=== Tür Dönüşümü (Type Conversion / Casting) İnfografik],
     [Metinden sayıya, örtükten açık dönüşüme: verinin tür dönüşüm yolculuğu],
     [#text(font: mono)[str] #h(3pt) ↔ #h(3pt) #text(font: mono)[int] #h(3pt) ↔ #h(3pt) #text(font: mono)[float]],
   ),

@@ -5,6 +5,7 @@
 #import "/lib/yardimcilar.typ": *
 #import "/lib/sorular.typ":*
 
+#pagebreak()
 === Bölüm Soruları: Cevap Anahtarı
 
 #cevap(1, [E], [Verileri bellekte (RAM) adlandırılmış bir alanda tutmak])

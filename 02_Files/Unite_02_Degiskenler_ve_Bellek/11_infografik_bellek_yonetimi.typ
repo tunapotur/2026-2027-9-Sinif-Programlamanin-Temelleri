@@ -1,6 +1,6 @@
 // Infografik: Bellek Yönetimi, RAM ve İşlemci İlişkisi  (tek sayfa)
 // Kullanım: ana belgede  #include "bellek_yonetimi.typ"
-#import "infografik_ortak.typ": *
+#import "/02_Files/infografik_ortak.typ":*
 
 // Bayt kareleri
 #let bayt(n, renk) = for _ in range(n) {
@@ -70,7 +70,7 @@
 
   // ---------- BAŞLIK ----------
   baslik_bandi(
-    [Bellek Yönetimi, RAM ve İşlemci İlişkisi],
+    [=== Bellek Yönetimi, RAM ve İşlemci İlişkisi İnfografik],
     [Doğru veri türü seçimi hem RAM'de tasarruf sağlar hem de işlemcinin çalışma hızını artırır!],
     [RAM #h(3pt) ↔ #h(3pt) Veri Yolu #h(3pt) ↔ #h(3pt) CPU],
   ),

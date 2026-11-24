@@ -204,7 +204,7 @@
   [Veri yolunda],
 )
 
-#v(0.5em)
+#v(1em)
 #soru(26, [Bilgisayarda bilginin en küçük temel veri birimine ............... denir.])
 
 #soru(27, [8 bitin yan yana gelmesiyle oluşan veri birimine ............... adı verilir.])
@@ -215,14 +215,14 @@
 
 #soru(30, [İşlemci komutlarını sembolik ve hatırlanabilir kısaltmalarla ifade eden alt seviyeli dile ............... denir.])
 
-#v(0.5em)
+#v(1em)
 #soru(31, [Bir Byte, bilgisayardaki en küçük veri birimidir. #sik_D_Y])
 
 #soru(32, [8 bit bir araya gelerek 1 Byte oluşturur. #sik_D_Y])
 
 #soru(33, [Hexadecimal sayı sisteminde 0–9 rakamları ile A–F harfleri kullanılır. #sik_D_Y])
 
-// #v(0.5em)
+// #v(1em)
 #pagebreak()
 #soru(34, [Aşağıdaki numaralandırılmış kavramlar ile harflendirilmiş görev tanımlarını eşleştiriniz:])
 #table(

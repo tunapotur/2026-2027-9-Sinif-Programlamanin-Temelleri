@@ -162,9 +162,10 @@
     columns: (1fr, 150pt), gutter: 14pt, align: horizon,
     [
       #set par(leading: 0.95em)
-      #text(fill: white, weight: "bold", size: 18pt)[RAM ve İşlemci İlişkisi] \
-      #v(3pt)
-      #text(fill: rgb("#d6e4f7"), size: 8.4pt)[İşlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazar. \ Veri ne kadar büyükse bu yolculuk o kadar uzun sürer.]
+      // #text(fill: white, weight: "bold", size: 18pt)[RAM ve İşlemci İlişkisi] \
+      #text(fill: white)[=== RAM ve İşlemci İlişkisi İnfografik] \
+      #v(-0.5em)
+      #text(fill: rgb("#d6e4f7"), size: 8.4pt)[İşlemci, RAM'den aldığı veriyi işleyip tekrar RAM'e yazar. Veri ne kadar büyükse bu yolculuk o kadar uzun sürer.]
     ],
     align(center + horizon, cpu_ram_cizim),
   )

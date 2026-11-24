@@ -192,11 +192,11 @@ Alan    :  (π * r²)
 Girdiler: pi (float), r (int).
 Çıktı   : alan (float) - Hesaplanan daire alanı
 """
-pi = 3.14           # pi sayısı (yaklaşık değer)
-r = 5               # yarıçap
+pi = 3.14          # pi sayısı (yaklaşık değer)
+r = 5              # yarıçap
 
 alan = pi * r * r
-print(alan)         # Ekrana 78.5 yazar
+print(alan)        # Ekrana 78.5 yazar
 ```]
   ],
   [
