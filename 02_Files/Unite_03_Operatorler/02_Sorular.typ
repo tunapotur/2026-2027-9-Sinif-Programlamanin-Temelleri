@@ -19,8 +19,10 @@
 #soru(4, [Aşağıdakilerden hangisi bir aritmetik operatör *değildir*?])
 #siklar5([`+`], [`>=`], [`*`], [`/`], [`-`])
 
+#v(0.5em)
 #soru(5, [Python'da `=` atama operatörü, `==` ise eşitlik karşılaştırma operatörüdür. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
 
+#v(0.5em)
 #soru(6, [Python'da atama operatörü (`=`) ile eşitlik karşılaştırma operatörü (`==`) arasındaki fark nedir?])
-#cevap-cizgisi(2)
+#cevap-cizgisi(3)
 

@@ -5,6 +5,8 @@
 #import "../../lib/yardimcilar.typ": *
 #import "../../lib/islem-aciklama.typ": *
 #import "/02_Files/Unite_03_Operatorler/diagrams/bolme-islemi.typ": *
+#import "diagrams/degisken_guncelleme_satir_1.typ": degisken_guncelleme_satir_1
+#import "diagrams/degisken_guncelleme_satir_2.typ": degisken_guncelleme_satir_2
 
 // #show: conf
 
@@ -39,6 +41,7 @@
   sutun_baslik_hizalama: (center + horizon),
   icerik_hizalama: (center + horizon, left + horizon, left + horizon),
   dikey-bosluk: 6pt,
+  baslik-boyut: 9pt,
   [*Atama*], [Bir değişkene değer yerleştirir.], [#oprt-goster(size:12pt)[`= += -= *= /= //= %= **=`]],
   [*Aritmetik*], [Matematiksel hesap yapar.], [#oprt-goster(size:12pt)[`+ - * / // % **`]],
   [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [#oprt-goster(size:12pt)[`== != > < >= <=`]],
@@ -105,16 +108,18 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
       ]
     
 )
-#not_block(title: "Atama Her Zaman Sağdan Sola Çalışır")[
+#not_block(title: "Atama Her Zaman Sağdan Sola Çalışır:")[
   Eğer bir hesaplama işlemi yapılıyorsa, önce operatörün sağ tarafı hesaplanır; ardından elde edilen sonuç soldaki değişkene atanır.
 ]
 
 #align(center)[
 *Bellekte Değerin Güncellenmesi*
-#v(0.5em)
+// #v(0.5em)
 ]
 
-#include "diagrams/degisken_guncelleme.typ"
+#degisken_guncelleme_satir_1
+#v(6pt)
+#degisken_guncelleme_satir_2
 
 #v(1em)
 ==== Bileşik Atama Operatörleri
@@ -127,7 +132,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
   sutun_basliklari: ("Operatör", "Kısa Yazım", "Uzun Karşılığı", [`a = 10` iken sonuç]),
   baslik-boyut: 10pt,
   boyut: 12pt,
-  dikey-bosluk: 7pt,
+  dikey-bosluk: 6pt,
   [`+=`], [`a += 3`], [`a = a + 3`], [`13`],
   [`-=`], [`a -= 3`], [`a = a - 3`], [`7`],
   [`*=`], [`a *= 3`], [`a = a * 3`], [`30`],
@@ -167,7 +172,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
   icerik_hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
   sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon, center + horizon),
   boyut: 10pt,
-  dikey-bosluk: 7pt,
+  dikey-bosluk: 6pt,
   bolunebilir: true,
   [#oprt-goster()[`+`]], [Toplama], [`10 + 3`], [`13`], [İki sayıyı toplar.],
   [#oprt-goster()[`-`]], [Çıkarma], [`10 - 3`], [`7`], [Soldakinden sağdakini çıkarır.],
@@ -226,7 +231,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
 
 ]
 
-==== Tam Bölme, Mod Alma(` / // % `)
+==== Tam Bölme, Mod Alma(` // % `)
 
 #block(
     width: 100%,
@@ -247,7 +252,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
       ]
     ]
 
-    #pad(x: 20pt, top: 18pt, bottom: 16pt)[
+    #pad(x: 20pt, top: 18pt, bottom: 8pt)[
 
       #align(center)[
       #bolme-sekli(17, 5, 3, 2)
@@ -259,7 +264,7 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
         fill: rgb("#f1f5f9"),
         stroke: 1pt + rgb("#cbd5e1"),
         radius: 6pt,
-        inset: (x: 12pt, y: 10pt),
+        inset: (x: 12pt, y: 3pt),
       )[
         #grid(
           columns: (1.2fr, 1fr),
@@ -268,11 +273,11 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
           [
             #align(center)[
               #text(size: 8.5pt, weight: "bold", fill: rgb("#475569"))[Bölme İşleminin Matematiksel Sağlaması:]
-              #v(3pt)
+              // #v(3pt)
               #text(size: 12pt, weight: "bold", fill: rgb("#0f172a"))[
                 $ "Bölünen" = ("Bölen" times "Bölüm") + "Kalan" $
               ]
-              #v(2pt)
+              // #v(2pt)
               #text(size: 10.5pt, fill: rgb("#1d4ed8"), weight: "bold")[
                 $ 17 = (5 times 3) + 2 $
               ]
@@ -286,11 +291,11 @@ print("Güncel puan:", puan) # puan'ın gösterdiği 75 değeri bellekten çağr
               inset: (x: 10pt, y: 8pt),
             )[
               #text(size: 8pt, weight: "bold", fill: rgb("#0f172a"))[💡 Unutmayınız (Altın Kural):]
-              #v(2pt)
+              // #v(2pt)
               #text(size: 7.5pt, fill: rgb("#334155"))[
                 Bir bölme işleminde *kalan* daima sıfır veya sıfırdan büyük, ancak *bölenden kesinlikle küçük* olmak zorundadır:
               ]
-              #v(3pt)
+              // #v(3pt)
               #align(center)[
                 #text(size: 9.5pt, weight: "bold", fill: rgb("#d97706"))[
                   $ 0 <= "Kalan" < "Bölen" quad (0 <= 2 < 5) $
@@ -382,20 +387,18 @@ print(saat, "saat", dakika, "dakika")
         ```python
         ad = "Ali"
         soyad = "Yılmaz"
+
         print(ad + " " + soyad)
         print("Ha" * 3)
         print("-" * 20)
-        print("Yaş: " + str(15))
         ```
 ][
-  ```
-Ali Yılmaz
-HaHaHa
+Ali Yılmaz\
+HaHaHa\
 #("-" * 20)
-Yaş: 15
-```
 ]
 ]
+
 === Aritmetik Operatörlerde İşlem Önceliği
 Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine göre matematikteki sırayla yapar. Önceliği yüksek olan işlem önce hesaplanır. *Eşit öncelikli operatörler soldan sağa işlenir.*
 
@@ -404,7 +407,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
   sutunlar: (auto, auto, auto),
   sutun_basliklari: ("Öncelik", "Operatör", "Açıklama"),
   icerik_hizalama: (center + horizon, center + horizon, left + horizon),
-  dikey-bosluk: 6pt,
+  dikey-bosluk: 5pt,
   [1 (en yüksek)], [`( )`], [Parantez içi her zaman önce hesaplanır.],
   [2], [`**`], [Üs alma],
   [3], [`-x`], [Tek operandlı eksi (negatif işareti)],
@@ -420,6 +423,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
     #kod-blok(width: 100%)[
   ```python
   print(10 - 4 - 3)   # 3    ((10 - 4) - 3)
+
   print(100 / 10 * 5) # 50.0 ((100 / 10) * 5)
   ```
 ]
@@ -428,6 +432,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
 #kod-blok(width: 100%)[
   ```python
   print(20 - 8 + 4)   # 16   ((20 - 8) + 4)
+
   print(25 // 4 % 4)  # 2    ((25 // 4) % 4)
   ```
 ]
@@ -488,7 +493,9 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
     #kod-blok(width: 100%)[
     ```python
   print(10 - 4 - 3)    # 3     ((10 - 4) - 3)
+
   print(100 / 10 * 5)  # 50.0  ((100 / 10) * 5)
+
   print(20 - 8 + 4)    # 16    ((20 - 8) + 4)
     ```
   ]
@@ -497,7 +504,9 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
     #kod-blok(width: 100%)[
     ```python
   print(25 // 4 % 4)   # 2     ((25 // 4) % 4)
+
   print(3 * 7 // 2)    # 10    ((3 * 7) // 2)
+
   print(17 % 5 * 3)    # 6     ((17 % 5) * 3)
     ```
   ]
@@ -508,7 +517,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
   Sıradan emin değilseniz *`()` parantez kullanın*. Parantez hem hatayı önler hem de kodu okuyan kişiye niyetinizi gösterir.
 ]
 
-#kod-cikti(baslik: [Not ortalaması ve sıcaklık dönüşümü#v(1.5em)], baslik-yeri: "sag")[
+#kod-cikti(baslik: [Not ortalaması ve sıcaklık dönüşümü#v(2.5em)], baslik-yeri: "sag")[
         ```python
         n1 = 80
         n2 = 90
@@ -519,6 +528,7 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
 
         c = 25
         f = c * 9 / 5 + 32
+
         print("Fahrenheit:", f)
         ```
 ][
@@ -566,68 +576,70 @@ Bir ifadede birden fazla operatör varsa Python işlemleri işlem önceliğine g
 
 Programlamada #oprt-goster()[`=`] işareti, matematikteki "eşittir" anlamından farklı olarak *atama* anlamında kullanılır. Eşittir operatörünün sağındaki ifade önce hesaplanır; elde edilen sonuç, sol taraftaki değişkene atanır. Yani önce işlem yapılır, sonra sonuç değişkene atanır.
 
-*Örnek 1: x = 3 + 5 \* 2*
-
-#iki_hucreli_satir(
-  columns: (auto, auto),
-  align: horizon+left,
+#v(0.5em)
+#grid(
+  columns: (auto, auto, auto, auto),
+  gutter: 8pt,
+  align: horizon + left,
+  islem-aciklama-cerceve(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt),
+  islem-aciklama-cerceve(degisken: "x", ifade: "3 + 10", deger: "13", boyut: 12pt),
+  islem-aciklama-cerceve(degisken: "x", ifade: "13", deger: "13", boyut: 12pt),
   [
-    #align(center)[
-      #kod-blok(width: auto, satir-no: false)[
-  ```python
-  x = 3 + 5 * 2
-  ```]
-    ]
-
-    `x = 3 + 5 * 2` örneğinde önce çarpma işlemi yapılır: `5 * 2 = 10`.\ 
-    Ardından toplama yapılır: `3 + 10 = 13`. Son olarak `13` değeri `x` değişkenine atanır.
-  ],
-  [
-    #islem-aciklama-cerceve(degisken: "x", ifade: "3 + 5 * 2", deger: "13", boyut: 12pt)
+    *Örnek 1: x = 3 + 5 \* 2* \
+    `x = 3 + 5 * 2` örneğinde\
+    `5 * 2 = 10` önce çarpma işlemi yapılır\ 
+    `3 + 10 = 13` Ardından toplama yapılır:\
+    `x = 13` Son olarak `13` değeri `x` değişkenine atanır.
   ]
 )
 
-*Örnek 2: ozkutle = kutle / hacim*
-#iki_hucreli_satir(
-  columns: (auto, auto),
-  align: horizon+left,
+#v(0.5em)
+#grid(
+  columns: (auto, auto, auto),
+  gutter: 8pt,
+  align: horizon + left,
   [
-  #align(center)[
+    *Örnek 2: ozkutle = kutle / hacim*
     #kod-blok(width: auto)[
   ```python
   kutle = 100
   hacim = 25
+
   ozkutle = kutle / hacim
   ```]
-	]
-  `kutle = 100` ve `hacim = 25` satırlarında değişkenlere değerler atanır. `ozkutle = kutle / hacim` satırında ise önce `kutle / hacim` işlemi yapılır. Python'da `/` operatörü ondalıklı bölme yaptığı için sonuç `4.0` olur. Ardından bu sonuç `ozkutle` (özkütle) değişkenine atanır.
-    ],
+  ],
+  islem-aciklama-cerceve(degisken: "ozkutle", ifade: "kutle / hacim", deger: "4.0", boyut: 10pt),
   [
-    #islem-aciklama-cerceve(degisken: "ozkutle", ifade: "kutle / hacim", deger: "4.0", boyut: 12pt)    
+    `kutle = 100` ve `hacim = 25` satırlarında değişkenlere değerleri atanır.\ 
+    `ozkutle = kutle / hacim` satırında `kutle` ve `hacim` değişkenlerinin değerleri çağrılarak `100 / 25 = 4.0` işlemi yapılır ve sonuç `ozkutle`değişkenine atanır.
   ]
 )
 
-*Örnek 3: x = x \* 2 + 3*
-
-#iki_hucreli_satir(
-  columns: (auto, auto),
-  align: horizon+left,
+#v(0.5em)
+#grid(
+  columns: (auto, auto, auto),
+  gutter: 8pt,
+  align: horizon + left,
   [
-  #align(center)[
+    *Örnek 3: x = x \* 2 + 3*
+    #v(0.5em)
+    #align(center)[
     #kod-blok(width: auto)[
   ```python
   x = 5
+
   x = x * 2 + 3
   ```
 ]
 	]
-  `x = 5` satırıyla `x` değişkenine `5` değeri atanır. `x = x * 2 + 3` satırı ise bir denklem değil, bir atama komutudur. Eşittir operatörünün sağındaki ifade önce hesaplanır; buradaki `x`, değişkenin o anki değeri olan `5`'tir. `5 * 2 + 3 = 13` olduğundan yeni değer `13` olur ve bu değer yine `x` değişkenine atanır.
-    ],
+  ],
+  islem-aciklama-cerceve(degisken: "x", ifade: "x * 2 + 3", deger: "13", boyut: 12pt),
   [
-    #islem-aciklama-cerceve(degisken: "x", ifade: "x * 2 + 3", deger: "13", boyut: 12pt)
+    `x = 5` satırıyla `x` değişkenine `5` değeri atanır.\
+     `x = x * 2 + 3` satırı ise bir denklem değil, bir atama komutudur. Eşittir operatörünün sağındaki ifade önce hesaplanır; buradaki `x`, değişkenin o anki değeri olan `5`'tir.\
+     `5 * 2 + 3 = 13` olduğundan yeni değer `13` olur ve bu değer yine `x` değişkenine atanır.
   ]
 )
-
 
 
 === Karşılaştırma Operatörleri
@@ -637,8 +649,9 @@ Karşılaştırma operatörleri iki değeri kıyaslar ve sonuç olarak her zaman
   tablo_baslik: "Python Karşılaştırma Operatörleri",
   sutunlar: (auto, auto, auto, auto, auto),
   sutun_basliklari: ("Operatör", "Anlamı", "Örnek", "Sonuç", "Açıklama"),
+  sutun_baslik_hizalama: center,
   icerik_hizalama: (center + horizon, left + horizon, center + horizon, center + horizon, left + horizon),
-  dikey-bosluk: 7pt,
+  dikey-bosluk: 8.4pt,
   [#oprt-goster()[`==`]], [Eşittir], [`5 == 5`], [`True`], [İki değer eşitse `True` olur.],
   [#oprt-goster()[`!=`]], [Eşit değildir], [`5 != 3`], [`True`], [İki değer farklıysa `True` olur.],
   [#oprt-goster()[`>`]], [Büyüktür], [`7 > 3`], [`True`], [Soldaki, sağdakinden büyükse `True` olur.],
@@ -696,7 +709,6 @@ Metinler de karşılaştırılabilir. `==` operatörü büyük/küçük harfe du
   ```python
   print("elma" == "elma")    # True
   print("elma" == "Elma")    # False  (büyük/küçük harf farklı)
-  print("elma" != "armut")   # True
   print("a" < "b")           # True   (alfabetik sıra / karakter kodu)
   print("Z" < "a")           # True   (büyük harf kodları küçük harflerden önce gelir)
   ```
@@ -707,7 +719,6 @@ Metinler de karşılaştırılabilir. `==` operatörü büyük/küçük harfe du
   ```python
   print(3 == 3.0)        # True   (int ile float değer olarak eşit)
   print("5" == 5)        # False  (metin ile sayı aynı şey değildir)
-  print(int("5") == 5)   # True   (türü dönüştürünce eşit)
   print(True == 1)       # True   (bool türü sayısal olarak 1'e eşittir)
   print("10" > 5)        # TypeError (metin ile sayı büyüklük olarak karşılaştırılamaz)
   ```
@@ -733,22 +744,26 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   sutunlar: (auto, auto, auto, 1fr),
   sutun_basliklari: ("Operatör", "Anlamı", "Ne zaman True olur?", "Günlük Hayattan Örnek"),
   icerik_hizalama: (center + horizon, center + horizon, left + horizon, left + horizon),
-  dikey-bosluk: 6pt,
+  dikey-bosluk: 4pt,
+  boyut: 9pt,
   [#oprt-goster()[`and`]], [Ve], [İki koşul da `True` ise.], ["Hava güzel *ve* ödevim bitti ise parka giderim."],
   [#oprt-goster()[`or`]], [Veya], [En az bir koşul `True` ise.], ["Param *veya* kartım varsa alışveriş yapabilirim."],
   [#oprt-goster()[`not`]], [Değil], [Koşul `False` ise (tersine çevirir).], ["Yağmur yağmıyorsa dışarı çıkarım."],
 )
 
+#align(center)[
 #block(breakable: false)[
   #align(center)[*Doğruluk Tabloları*#v(-0.5em)]
   #grid(
     columns: (auto, auto, auto, auto),
-    gutter: 5pt,
+    gutter: 10pt,
     align: top,
       icerik-tablo(
         tablo_baslik: "and: Hepsi doğru olmalı",
         tablo_baslik_boyut: 8pt,
         sutunlar: (auto, auto, auto),
+        dikey-bosluk: 5pt,
+        boyut: 9pt,
         sutun_basliklari: ("A", "B", [`A and B`]),
         [`True`], [`True`], [*`True`*],
         [`True`], [`False`], [`False`],
@@ -760,6 +775,8 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
         tablo_baslik: "or: Biri doğru olsa yeter",
         tablo_baslik_boyut: 8pt,
         sutunlar: (auto, auto, auto),
+        dikey-bosluk: 5pt,
+        boyut: 9pt,
         sutun_basliklari: ("A", "B", [`A or B`]),
         [`True`], [`True`], [`True`],
         [`True`], [`False`], [`True`],
@@ -771,6 +788,8 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
         tablo_baslik: "not:Tersine çevirir",
         tablo_baslik_boyut: 8pt,
         sutunlar: (auto, auto),
+        dikey-bosluk: 5pt,
+        boyut: 9pt,
         sutun_basliklari: ("A", [`not A`]),
         [`True`], [`False`],
         [`False`], [`True`],
@@ -779,6 +798,8 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
         
         #text(size:8pt)[*Örnek Kod*]
         #v(-0.5em)
+        
+        #text(size:8.5pt)[      
         #kod-blok()[
   ```python
   print(True and True)  #True
@@ -786,12 +807,14 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
 
   print(False or True) #True
   print(False or False) #False
-  
+
   print(not True) #False
   print(not False) #True
   ```]
+        ]
       ]
   )
+]
 ]
 
 #kod-cikti(baslik: [Karşılaştırma operatörleriyle birlikte kullanım], baslik-yeri: "sag")[
@@ -818,23 +841,34 @@ Mantıksal operatörler, `True` / `False` değerlerini ve karşılaştırma sonu
   sayi = 15
   print(sayi % 3 == 0 and sayi % 5 == 0)   # True  (hem 3'e hem 5'e bölünüyor)
   print(sayi % 2 == 0 or sayi > 10)        # True  (çift değil ama 10'dan büyük)
-  print(not (sayi > 20))                   # True
   ```
 ]
 
 *Örnek: Adım adım mantıksal ifade*
 #v(-0.5em)
-#kod-blok(width: 100%)[
+#iki_hucreli_satir(columns: (1fr, 1fr),
+ [
+  #kod-blok(width: 100%)[
   ```python
-  not_degeri = 65
+  not_degeri = 65 
   devam = 20
   gecti = not_degeri >= 50 and devam <= 30
-  # 1) not_degeri >= 50  ->  65 >= 50  ->  True
-  # 2) devam <= 30       ->  20 <= 30  ->  True
-  # 3) True and True     ->  True
+
   print(gecti)   # True
   ```
 ]
+ ],[
+    #kod-blok(width: 100%, satir-no:false)[
+  ```python
+  # 1) not_degeri >= 50  ->  65 >= 50  ->  True
+
+  # 2) devam <= 30       ->  20 <= 30  ->  True
+
+  # 3) True and True     ->  True
+  ```
+]
+ ]   
+)
 
 #not_block(title:"Kısa Devre (Short-Circuit): ")[
   Python mantıksal ifadeyi *gereksiz yere sonuna kadar hesaplamaz*.\ Bu özellik, hataya yol açabilecek bir işlemi önce kontrol etmek için çok kullanışlıdır.
@@ -852,20 +886,14 @@ metin = ""
 # 1. Sıfıra bölme koruması: x != 0 False olduğu için sağdaki 20/x hiç çalışmaz (Hata vermez)
 print(x != 0 and 20 / x > 2)          # False
 
-# 2. or koruması: x == 0 True olduğu için sağdaki 100/x çalıştırılmaz
-print(x == 0 or 100 / x == 5)         # True
-
-# 3. Boş metin kontrolü: len(metin) > 0 False olduğu için metin[0] index hatası vermez
+# 2. Boş metin kontrolü: len(metin) > 0 False olduğu için metin[0] index hatası vermez
 print(len(metin) > 0 and metin[0] == "A")  # False
 
-# 4. Sol taraf True olunca and devam eder: Bu kez sağ taraf çalışır ve hesaplanır
+# 3. Sol taraf True olunca and devam eder: Bu kez sağ taraf çalışır ve hesaplanır
 print(sayi > 10 and sayi % 3 == 0)    # True
 
-# 5. or ilk doğruyu bulunca durur: sayi > 5 True olduğundan sağdaki ağır koşula bakılmaz
-print(sayi > 5 or sayi / x == 1)      # True
-
-# 6. and zinciri: Sol taraf False olursa sonraki hiçbir işlem çalışmaz
-print(x > 0 and sayi > 10 and 50 / x > 1)  # False
+# 4. and zinciri: Sol taraf False olursa sonraki hiçbir işlem çalışmaz
+print(x > 0 and sayi > 10)  # False
   ```
 ]
 
@@ -880,6 +908,7 @@ Bir ifadede aritmetik, karşılaştırma ve mantıksal operatörler birlikte bul
   icerik_hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
   bolunebilir: false,
   dikey-bosluk: 6.3pt,
+  boyut: 10pt,
   [1 (en yüksek)], [Parantez], [`( )`], [Her zaman en başta işlenir.],
   [2], [Aritmetik], [`**`], [Sağdan sola işlenir.],
   [3], [Aritmetik], [`-x`], [Tek operandlı eksi.],
