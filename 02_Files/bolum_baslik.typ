@@ -1,198 +1,151 @@
-#import "infografik_ortak.typ":*
+#import "infografik_ortak.typ": *
 
 = Temel Programlama Yapıları
 
-#v(4pt)
+#v(5pt)
 
-// ---------- BAŞLIK BANDI ----------
-#baslik_bandi(
-  [Temel Programlama Yapıları — Görsel Kavram Haritaları],
-  [Donanım temellerinden Python fonksiyonlarına: 9 konunun tek sayfalık görsel referans kartları],
-  [9 İnfografik · Tam Sayfa Referans],
-)
-
-#v(6pt)
-
-// ---------- GİRİŞ VE KAPSAM KUTUSU ----------
-#block(
-  width: 100%, fill: c_mavi.light, stroke: (left: 3.5pt + c_mavi.main), radius: (right: 5pt),
-  inset: (x: 10pt, y: 7.5pt),
-)[
-  #text(size: 8.8pt, fill: rgb("#0f172a"))[
-    *Bölümün Amacı ve Kapsamı:* Bu bölümde yer alan 9 infografik; donanım mimarisinden (transistör ve ikili sistem) başlayarak Python programlamanın temel yapı taşlarına (değişkenler, bellek modelleri, operatörler, fonksiyonlar ve Girdi/Çıktı döngüsü) uzanan soyut kavramları zihinde somutlaştırmak amacıyla hazırlanmıştır. Her sayfa, karmaşık bir konuyu tek başına ele alan bağımsız bir *görsel referans kartı (Cheat Sheet)* niteliğindedir.
+#align(center)[
+  #block(width: 86%)[
+    #set par(justify: false)
+    #text(size: 9pt, fill: rgb("#334155"))[
+      Bu bölüm; bilgisayarın donanım temellerinden başlayarak değişkenler, bellek yönetimi, operatörler ve fonksiyonlarla Python programlamanın temel yapı taşlarını ele alır. Her ünitede kavramlar kısa özetler, görseller ve örneklerle desteklenir.
+    ]
   ]
 ]
 
 #v(7pt)
 
-// ---------- SÜTUN BAŞLIĞI YARDIMCISI ----------
-#let sutun_baslik(baslik, c) = block(
-  width: 100%,
-  fill: c.light,
-  stroke: 1pt + c.border,
-  radius: 4pt,
-  inset: (x: 6pt, y: 4.5pt),
-  align(center, text(weight: "bold", size: 8.5pt, fill: c.dark, baslik)),
-)
+#let gorsel(path, w) = block(
+  width: w,
+  clip: true,
+  radius: 3pt,
+  stroke: 0.6pt + c_gri.border,
+)[
+  #image(path, width: w)
+]
 
-// ---------- KART YARDIMCISI (EŞİT SABİT BOYUTLU) ----------
-#let kart_ozet(no, baslik, aciklama, c, yukseklik: 96pt) = block(
+#let hucre(no, baslik, ozet, c) = block(
   width: 100%,
-  height: yukseklik,
+  height: 82pt,
   fill: c.light,
-  stroke: 1pt + c.border,
-  radius: 6pt,
-  inset: (x: 8pt, y: 7.5pt),
+  stroke: 0.9pt + c.border,
+  radius: 5pt,
+  inset: (x: 6pt, y: 5.5pt),
   breakable: false,
 )[
-  #grid(
-    columns: (auto, 1fr),
-    column-gutter: 6pt,
+  #set par(justify: false)
+  #text(weight: "bold", size: 7.7pt, fill: c.dark)[#no #baslik]
+  #v(2.5pt)
+  #set text(size: 6.8pt, fill: rgb("#1e293b"))
+  #set par(leading: 0.42em)
+  #ozet
+]
+
+#let satir_baslik(no, baslik, c) = block(
+  width: 100%,
+  fill: c.main,
+  radius: 4pt,
+  inset: (x: 8pt, y: 4pt),
+)[
+  #text(weight: "bold", size: 10pt, fill: white)[#no #baslik]
+]
+
+#let satir(no, baslik, ozet, c, gorseller, hucreler, ozet_y: 40pt) = {
+  satir_baslik(no, baslik, c)
+  v(2pt)
+  grid(
+    columns: (1fr, auto),
+    column-gutter: 8pt,
     align: horizon,
-    daire(no, c.main),
-    text(weight: "bold", size: 9pt, fill: c.dark, baslik),
-  )
-  #v(4.5pt)
-  #set text(size: 7.8pt, fill: rgb("#1e293b"))
-  #set par(justify: false, leading: 0.44em)
-  #aciklama
-]
-
-// ---------- 3x3 MATRİS (9 EŞİT KART) ----------
-#grid(
-  columns: (1fr, 1fr, 1fr),
-  column-gutter: 8pt,
-  row-gutter: 7pt,
-
-  // Sütun Başlıkları
-  sutun_baslik([1. Donanım & Dillerin Evrimi], c_turuncu),
-  sutun_baslik([2. Sistem & Bellek Yönetimi], c_kirmizi),
-  sutun_baslik([3. Python Programlama Yapıları], c_mor),
-
-  // 1. Satır: Kart 1, Kart 4, Kart 7
-  kart_ozet(
-    1, [Bilgisayarın Dili],
-    [Transistörden Python'a 1 ve 0'ın yolculuğu: Makine dili (0-1) → Hexadecimal → Assembly → Yüksek seviyeli diller. Bit/bayt mantığı, Altair komut girişi ve ASCII metin temsili.],
-    c_turuncu,
-  ),
-  kart_ozet(
-    4, [RAM ve İşlemci],
-    [İşlemci birimleri (ALU, Kontrol, Yazmaçlar), CPU ile RAM arasındaki veri yolu (Bus), önbellek (Cache) seviyeleri ve veri getirme döngüsü.],
-    c_turuncu,
-  ),
-  kart_ozet(
-    7, [Operatörler & Öncelik],
-    [Aritmetik, ilişkisel ve mantıksal (#kod("and"), #kod("or"), #kod("not")) operatörler; PEMDAS kuralına göre işlem öncelik hiyerarşisi.],
-    c_mor,
-  ),
-
-  // 2. Satır: Kart 2, Kart 5, Kart 8
-  kart_ozet(
-    2, [Değişkenler ve Bellek],
-    [Değişken tanımlama mantığı, atama operatörü (#kod("=")), RAM adresleme mimarisi, bellek hücreleri ve bellekteki değerin güncellenme adımları.],
-    c_mavi,
-  ),
-  kart_ozet(
-    5, [Bellek Yönetimi],
-    [Python'da dinamik bellek tahsisi, nesne kimliği (#kod("id()")), referans sayımı, nesne yaşam döngüsü ve Çöp Toplayıcı (Garbage Collector).],
-    c_kirmizi,
-  ),
-  kart_ozet(
-    8, [Fonksiyon Kullanımı],
-    [Kod tekrarını önleme (DRY ilkesi), fonksiyon çağırma anatomisi, parametre ve argüman ayrımı, #kod("return") mekanizması ve yerleşik araçlar.],
-    c_yesil,
-  ),
-
-  // 3. Satır: Kart 3, Kart 6, Kart 9
-  kart_ozet(
-    3, [Veri Türleri ve RAM],
-    [Temel türler (#kod("bool"), #kod("int"), #kod("float"), #kod("str")), kapladıkları bayt boyutları ve verilerin RAM'deki fiziksel kutu dizilimi.],
-    c_yesil,
-  ),
-  kart_ozet(
-    6, [Tür Dönüşümü],
-    [Açık ve örtük tür dönüşümü, #kod("int()"), #kod("float()"), #kod("str()") işlevleri ve klavye girdisindeki (#kod("input()")) metin tuzağını aşma.],
-    c_mavi,
-  ),
-  kart_ozet(
-    9, [input() ve print()],
-    [Girdi-İşlem-Çıktı (IPO) yaşam döngüsü, program akışını dondurma, f-string biçimlendirme ve #kod("sep") / #kod("end") parametreleri.],
-    c_mavi,
-  ),
-)
-
-#v(8pt)
-
-// ---------- ÇALIŞMA REHBERİ (3 SÜTUN) ----------
-#block(
-  width: 100%, fill: white, stroke: 1pt + c_gri.border, radius: 6pt, inset: (x: 10pt, y: 8pt),
-)[
-  #text(weight: "bold", size: 9.2pt, fill: navy)[İnfografiklerle Nasıl Çalışmalısınız? (Öğrenci Kılavuzu)]
-  #v(4pt)
-  #grid(
-    columns: (1fr, 1fr, 1fr), column-gutter: 10pt,
-    [
-      #grid(columns: (auto, 1fr), column-gutter: 4pt, align: horizon,
-        ikon("1", c_mavi.main, r: 6.5pt),
-        text(weight: "bold", size: 8.4pt, fill: c_mavi.dark, [Görsel Bağlantı Kurun]),
-      )
-      #v(2.5pt)
-      #text(size: 7.7pt, fill: rgb("#334155"))[
-        Yazdığınız Python kodunun arka planda donanımı (transistör, CPU, RAM) nasıl etkilediğini şemalar üzerinden zihninizde canlandırın.
-      ]
+    block(
+      width: 100%,
+      height: ozet_y,
+      fill: c.light,
+      stroke: 0.7pt + c.border,
+      radius: 4pt,
+      inset: (x: 7pt, y: 5pt),
+    )[
+      #set par(justify: false, leading: 0.42em)
+      #text(size: 7.2pt, fill: rgb("#334155"))[#ozet]
     ],
-    [
-      #grid(columns: (auto, 1fr), column-gutter: 4pt, align: horizon,
-        ikon("2", c_yesil.main, r: 6.5pt),
-        text(weight: "bold", size: 8.4pt, fill: c_yesil.dark, [Kodla Birlikte Deneyin]),
-      )
-      #v(2.5pt)
-      #text(size: 7.7pt, fill: rgb("#334155"))[
-        İnfografiklerdeki kısa kodları Python kabuğunda (`IDLE`) yazarak `type()`, `id()` ve operatör çıktılarını bizzat gözlemleyin.
-      ]
-    ],
-    [
-      #grid(columns: (auto, 1fr), column-gutter: 4pt, align: horizon,
-        ikon("3", c_turuncu.main, r: 6.5pt),
-        text(weight: "bold", size: 8.4pt, fill: c_turuncu.dark, [Hızlı Referans Kartı]),
-      )
-      #v(2.5pt)
-      #text(size: 7.7pt, fill: rgb("#334155"))[
-        Uygulama çözerken takıldığınızda (işlem sırası, kaçış dizileri, tür dönüşümü vb.) doğrudan ilgili infografiği açıp başvurun.
-      ]
-    ],
+    gorseller,
   )
-]
+  v(4pt)
+  grid(columns: (1fr,) * 4, gutter: 5pt, ..hucreler)
+}
 
-#v(6pt)
+// 1. SATIR
+#satir(1, [Bilgisayar Nedir?],
+  [Bilgisayarın tanımı ve temel çalışma mimarisi; transistörden bit, ASCII ve makine diline uzanan donanım temelleri ile programlama dillerine giriş.],
+  c_mavi,
+  grid(
+    columns: (auto, auto), gutter: 4pt,
+    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-acik.svg", 44pt),
+    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-kapali.svg", 44pt),
+  ),
+  (
+  hucre("1.1.", [Bilgisayarın Temel Çalışma Mimarisi],
+    [Giriş, bellek, işlemci ve çıkış birimleri; komut ve verilerin aynı bellekte tutulması; veri yolu (BUS) üzerinden veri akışı.], c_mavi),
+  hucre("1.2.", [Donanımın Temeli: Transistör ve İkili Sistem],
+    [Transistörün akımı geçirip kesmesiyle 1 ve 0; ikili sistem, bit ve byte kavramları; bilgisayarın donanım temeli.], c_mavi),
+  hucre("1.3.", [Metin Temsili: 8 Bit = 1 Byte ve ASCII],
+    [Karakterlerin ASCII kodlarıyla sayıya dönüştürülmesi; 1 karakter = 1 byte = 8 bit; hexadecimal gösterim.], c_mavi),
+  hucre("1.4.", [Programlama Dilleri],
+    [Makine dili, assembly ve yüksek seviyeli diller; derleyici ve yorumlayıcı; aynı kaynak kodun farklı mimarilerde derlenebilmesi.], c_mavi),
+), ozet_y: 52pt)
 
-// ---------- RENK REHBERİ ----------
-#block(
-  width: 100%, fill: rgb("#f8fafc"), stroke: 0.8pt + c_gri.border, radius: 5pt, inset: (x: 10pt, y: 5.5pt),
-)[
-  #grid(
-    columns: (auto, 1fr), column-gutter: 8pt, align: horizon,
-    text(weight: "bold", size: 8pt, fill: navy)[İnfografik Renk Dili:],
-    grid(
-      columns: (auto, auto, auto, auto, auto), column-gutter: 7pt, align: horizon,
-      rozet("Turuncu: Donanım & CPU", c_turuncu, boy: 7.2pt),
-      rozet("Mavi: Mantık & Değişken", c_mavi, boy: 7.2pt),
-      rozet("Yeşil: Bellek & Fonksiyon", c_yesil, boy: 7.2pt),
-      rozet("Kırmızı: GC & Dikkat", c_kirmizi, boy: 7.2pt),
-      rozet("Mor: Operatör & Sözdizimi", c_mor, boy: 7.2pt),
-    ),
-  )
-]
+#v(7pt)
 
-#v(5pt)
+// 2. SATIR
+#satir(2, [Değişkenler ve Bellek (RAM)],
+  [Değişkenlerin RAM'de tutulması, veri türleri, bellek yönetimi ve tür dönüşümü; değerlerin bellekte nasıl saklandığı ve güncellendiği.],
+  c_turuncu,
+  gorsel("Unite_02_Degiskenler_ve_Bellek/images/01-Deger-Atama-RAM.jpg", 88pt),
+  (
+  hucre("2.1.", [Programlama Dillerinde Değişken],
+    [Değişkenin RAM'deki adlandırılmış alan olması; değer atama, türün değere göre belirlenmesi ve değişken güncelleme.], c_turuncu),
+  hucre("2.2.", [Veri Türleri ve RAM Kullanımı],
+    [int, float, bool ve str türleri; türlerin RAM'de kapladığı alan ve verinin hücrelerde saklanma biçimi.], c_turuncu),
+  hucre("2.3.", [Bellek Yönetimi, RAM ve İşlemcinin İlişkisi],
+    [RAM, CPU ve veri yolu ilişkisi; adresleme, okuma-yazma döngüsü ve bellek yönetiminin program hızına etkisi.], c_turuncu),
+  hucre("2.4.", [Tür Dönüşümü (Type Conversion)],
+    [Açık ve örtük tür dönüşümü; input()'un metin döndürmesi; int(), float() ve str() ile güvenli dönüşüm.], c_turuncu),
+), ozet_y: 92pt)
 
-// ---------- ALT İPUCU BANDI ----------
-#align(center)[
-  #block(
-    fill: c_gri.light, stroke: 0.6pt + c_gri.border, radius: 4pt, inset: (x: 14pt, y: 3.5pt),
-  )[
-    #text(size: 7.7pt, fill: c_gri.dark)[
-      *İpucu:* Her infografik sonraki sayfalarda tek bir sayfayı tam dolduracak şekilde yer almaktadır. İhtiyacınıza göre doğrudan ilgili sayfaya geçebilirsiniz.
-    ]
-  ]
-]
+#v(7pt)
+
+// 3. SATIR
+#satir(3, [Operatörler ve İşlem Önceliği],
+  [Atama, aritmetik, karşılaştırma ve mantıksal operatörler; operatörlerin birlikte kullanımı ve işlem önceliği.],
+  c_mor,
+  [],
+  (
+  hucre("3.1.", [Atama Operatörleri],
+    [`=` atama operatörü; `+=`, `-=`, `*=` gibi bileşik atamalar; atama ile `==` karşılaştırmasının farkı.], c_mor),
+  hucre("3.2.", [Aritmetik Operatörler],
+    [`+`, `-`, `*`, `/`, `//`, `%`, `**` operatörleri; bölme, kalan ve üs alma; işlem önceliği.], c_mor),
+  hucre("3.3.", [Karşılaştırma Operatörleri],
+    [==, !=, <, >, <=, >= ile karşılaştırma; sonuçların bool (True/False) olması.], c_mor),
+  hucre("3.4.", [Mantıksal Operatörler],
+    [and, or, not mantıksal operatörleri; koşulların birleştirilmesi ve işlem önceliği.], c_mor),
+))
+
+#v(7pt)
+
+// 4. SATIR
+#satir(4, [Fonksiyonların Kullanımı],
+  [Fonksiyonların sağladığı avantajlar, input/print kullanımı, f-string biçimlendirme ve type/isinstance ile tür kontrolü.],
+  c_yesil,
+  [],
+  (
+  hucre("4.1.", [Fonksiyonları Kullanmanın Yarattığı Fark],
+    [Fonksiyonun parametre alıp sonuç döndürmesi; kod tekrarını önleme (DRY) ve yerleşik fonksiyonlar.], c_yesil),
+  hucre("4.2.", [input(): Kullanıcıdan Veri Alma],
+    [input() ile kullanıcıdan veri alma; dönen değerin her zaman str olduğu ve sayıya dönüştürülmesi.], c_yesil),
+  hucre("4.3.", [print() ile Metin ve Değişkenleri Yazdırma],
+    [print() ile metin ve değişken yazdırma; sep, end ve f-string ile biçimlendirme.], c_yesil),
+  hucre("4.4.", [Python Tür Kontrolü: type() ve isinstance()],
+    [type() ve isinstance() ile veri türü kontrolü; tür doğrulama ve güvenli dönüşüm.], c_yesil),
+))
+
+#pagebreak()
