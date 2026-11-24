@@ -9,29 +9,28 @@
 // #show: conf
 
 == Operatörler ve İşlem Önceliği
-*Operatör*, bir veya birden fazla değer üzerinde *matematiksel hesaplama* yapan, değerleri *karşılaştıran* veya *mantıksal işlemler* yürüterek yeni bir sonuç üreten özel *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
+*Operatör*, bir veya birden fazla değer üzerinde *matematiksel*, *karşılaştırma* veya *mantıksal* işlemler yürüterek sonuç üreten *sembol* ya da *anahtar kelimelerdir*. Operatörün üzerinde işlem yaptığı değerlere veya değişkenlere *operand* (işlenen) denir.
 
 #align(center)[
 #grid(
-    columns: (auto, auto),
+    columns: (auto, auto, auto),
     gutter: 20pt,
     align: horizon,
     [#text(size:11pt, weight: "semibold")[
       #kod-blok()[
   ```python
   sonuc = 5 + 3
-  ```
-]
+  ```]
     ]
-      ],
-      
-        align(left)[
+  ],      
+  align(left)[
 - *`5`* ve *`3`* → *operand* (işlenen değerler)
 - *`+`* → *operatör* (işlemi yapan sembol)
-- *`=`* → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)]
-)
-
 ]
+,
+  align(left)[
+- *`=`* → *atama operatörü* (sonucu `sonuc` değişkenine yerleştirir)]
+)]
 
 #icerik-tablo(
   tablo_baslik: "Python'daki operatörleri dört ana grupta inceleyeceğiz",
@@ -39,7 +38,7 @@
   sutun_basliklari: ("Grup", "Ne işe yarar?", "Operatörler"),
   sutun_baslik_hizalama: (center + horizon),
   icerik_hizalama: (center + horizon, left + horizon, left + horizon),
-  dikey-bosluk: 10pt,
+  dikey-bosluk: 6pt,
   [*Atama*], [Bir değişkene değer yerleştirir.], [#oprt-goster(size:12pt)[`= += -= *= /= //= %= **=`]],
   [*Aritmetik*], [Matematiksel hesap yapar.], [#oprt-goster(size:12pt)[`+ - * / // % **`]],
   [*Karşılaştırma*], [İki değeri kıyaslar; sonuç `True` veya `False` olur.], [#oprt-goster(size:12pt)[`== != > < >= <=`]],
