@@ -25,18 +25,16 @@
   [Metin içinde değişken değerlerini ve ifadeleri `{}` ile doğrudan biçimlendirmek],
 )
 
-#block(above: 1em, below: 0.6em)[
-#text(size: 8.8pt, fill: luma(100))[Aşağıdaki cümlelerde boş bırakılan yerleri en uygun kavram veya ifadeyle tamamlayınız.]
-]
-
+#v(0.5em)
 #soru(5, [Python'da klavyeden kullanıcı girdisi almak için ............... fonksiyonu kullanılır.])
 
 #soru(6, [Python'da hesaplanan sonuçları ekrana çıktı olarak yazdırmak için ............... fonksiyonu kullanılır.])
 
-#block(above: 1em, below: 0.6em)[#text(size: 8.8pt, fill: luma(100))[Aşağıdaki ifadeleri inceleyerek doğru olanların sonuna (D), yanlış olanların sonuna (Y) yazınız.]]
 
+#v(0.5em)
 #soru(7, [`type()` fonksiyonu bir değişkenin veya değerin veri türünü öğrenmek için kullanılır. #box(stroke: 0.5pt + gray, radius: 2pt, inset: (x: 6pt, y: 1.5pt))[ D / Y ]])
 
+#v(0.5em)
 #soru(8, [Programlamada fonksiyon kullanmanın sağladığı en önemli fayda nedir?])
 #cevap-cizgisi(2)
 

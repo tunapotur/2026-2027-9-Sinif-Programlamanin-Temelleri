@@ -1,6 +1,6 @@
 // Infografik: Operatörler ve İşlem Önceliği  (tek sayfa)
 // Kullanım: ana belgede  #include "operatorler.typ"
-#import "infografik_ortak.typ": *
+#import "/02_Files/infografik_ortak.typ":*
 
 // Operatör kutucuğu (sağ sütundaki dikey operatör ızgarası için)
 #let op_kutu(t, c) = block(
@@ -40,7 +40,7 @@
 
   // ---------- BAŞLIK ----------
   baslik_bandi(
-    [Operatörler ve İşlem Önceliği],
+    [=== Operatörler İnfografik],
     [Değerleri işleyen semboller, 4 temel operatör grubu ve Python'un hesaplama hiyerarşisi],
     [Parantez #h(2pt) → #h(2pt) Aritmetik #h(2pt) → #h(2pt) Karşılaştırma #h(2pt) → #h(2pt) Mantık #h(2pt) → #h(2pt) Atama],
   ),

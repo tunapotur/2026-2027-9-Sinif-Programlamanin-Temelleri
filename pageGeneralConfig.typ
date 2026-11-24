@@ -88,12 +88,17 @@
   #show outline.entry.where(level: 1): it => block(
     above: 0.8em,
     below: 1.2em,
+    width: 100%,
   )[
-    #align(center)[
-      #text(size: 14pt, weight: "bold")[
+    #grid(
+      columns: (1fr, auto, 1fr),
+      align: horizon,
+      [],
+      text(size: 14pt, weight: "bold")[
         #link(it.element.location(), [#it.prefix()#h(0.5em)#it.body()])
-      ]
-    ]
+      ],
+      align(right, text(size: 11pt, weight: "bold")[#it.page()]),
+    )
   ]
 
   // İçindekiler: ünite satırları koyu, biraz büyük ve üstü aralıklı

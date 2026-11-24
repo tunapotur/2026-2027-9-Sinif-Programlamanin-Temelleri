@@ -8,25 +8,18 @@
 === Bölüm Soruları: Cevap Anahtarı
 
 #cevap(1, [C], [16-11-2026 (sep parametresi araya tire ekler)])
-
 #cevap(2, [E], [`type()`])
-
 #cevap(3, [D], [True (7.5 bir float türüdür)])
-
 #cevap(4, [E], [Metin içinde değişken ve ifadeleri `{}` ile doğrudan biçimlendirmek])
 
-#ara-baslik([Boşluk Doldurma Soruları Cevap Anahtarı])
-
+#v(0.5em)
 #cevap(5, [`input()`], [Kullanıcının klavyeden metin girişi yapmasını sağlayan standart fonksiyon.])
-
 #cevap(6, [`print()`], [Ekrana veya konsola çıktı yazdırmak için kullanılan temel Python fonksiyonu.])
 
-#ara-baslik([Doğru – Yanlış Soruları Cevap Anahtarı])
-
+#v(0.5em)
 #cevap(7, [D], [`type()` fonksiyonu parametre olarak verilen değişkenin veri türünü döndürür.])
 
-#ara-baslik([*Açık Uçlu ve Klasik Sorular Model Cevapları*])
-
+#v(0.5em)
 #cevap-acikUclu(
   8,
   [Aynı kodları tekrar tekrar yazmayı önler (kod tekrarını azaltır) ve programın daha düzenli, bakımı kolay olmasını sağlar.],

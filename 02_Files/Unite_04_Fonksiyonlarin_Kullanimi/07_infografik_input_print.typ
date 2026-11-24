@@ -1,6 +1,6 @@
 // Infografik: input() ve print() Fonksiyonları  (tek sayfa)
 // Kullanım: ana belgede  #include "input_print.typ"
-#import "infografik_ortak.typ": *
+#import "/02_Files/infografik_ortak.typ":*
 
 // Girdi → İşlem → Çıktı adım kartı
 #let adim(n, c, baslik, govde) = kart(c, baslik, govde, ikon_: daire(n, c.main))
@@ -10,7 +10,7 @@
 
   // ---------- BAŞLIK ----------
   baslik_bandi(
-    [input() ve print() Fonksiyonları],
+    [=== input() ve print() Fonksiyonları],
     [Girdi-İşlem-Çıktı modeli, f-string biçimlendirme, sep / end ve kaçış dizileri],
     [Girdi (input) #h(3pt) → #h(3pt) İşlem (CPU / RAM) #h(3pt) → #h(3pt) Çıktı (print)],
   ),

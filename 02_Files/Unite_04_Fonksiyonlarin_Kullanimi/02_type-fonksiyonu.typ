@@ -10,7 +10,8 @@
 === Python Tür Kontrolü: `type()` ve `isinstance()` Fonksiyonları
 ==== `type()` Fonksiyonu
 Python'da her değerin bir türü vardır; *`type()`* fonksiyonu bu türü bize söyler. Python'da her değer (sayı, metin, liste, hatta fonksiyonlar) bir *nesnedir* ve her nesne bir *türe (sınıfa)* aittir. `type()` fonksiyonu, kendisine verilen nesnenin türünü döndürür.
-\ Altaki şemada *`type(10)`* çağrısının sonucu *`type()`* fonksiyonu *`int`* sınıfını döndürerek *`tur`* değişkenine atıyor.
+
+Altaki şemada *`type(10)`* çağrısının sonucu *`type()`* fonksiyonu *`int`* sınıfını döndürerek *`tur`* değişkenine atıyor.
 
 #iki_hucreli_satir(columns: (auto,auto))[
   #align(center)[
@@ -20,7 +21,7 @@ Python'da her değerin bir türü vardır; *`type()`* fonksiyonu bu türü bize 
     stroke: 1pt + rgb("#d0d7de"),
     width: auto
     )[
-  #islem-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 20pt)
+  #islem-aciklama(degisken: "tur", ifade: "type(10)", deger: "int", boyut: 16pt)
 ]]
 ][
 #kod-cikti(baslik: [Temel kullanım])[
@@ -43,28 +44,14 @@ print(type(True))
 
 Çıktıdaki *`<class 'int'>`* ifadesi şu anlama gelir: "Bu değer, *`int`* sınıfından bir nesnedir."
 
-#icerik-tablo(
-  tablo_baslik: "Sık Karşılaşılan Türler",
-  sutunlar: (3cm, 3.5cm, 6cm),
-  sutun_basliklari: ("Değer", "type() sonucu", "Açıklama"),
-  icerik_hizalama: (center + horizon, center + horizon, left + horizon),
-  boyut: 11pt,
-  [`42`], [`int`], [Tam sayı],
-  [`3.14`], [`float`], [Ondalıklı sayı],
-  [`"Python"`], [`str`], [Metin (string)],
-  [`True`], [`bool`], [Mantıksal değer],
-  [`[1, 2, 3]`], [`list`], [Liste],
-  [`(1, 2, 3)`], [`tuple`], [Demet],
-  [`{"a": 1}`], [`dict`], [Sözlük],
-  [`{1, 2, 3}`], [`set`], [Küme],
-  [`None`], [`NoneType`], [Değer yokluğu],
-)
-
 Python *dinamik tipli* bir dildir. Bir değişkenin türünü önceden yazmayız; Python değere bakarak türü kendisi belirler. Üstelik aynı değişken sonradan başka türde bir değer alabilir.
 
 #kod-cikti(baslik:"Değişkenin türü değişebilir", baslik-yeri: "sag")[
 ```python
 x = 5
+print(type(x))
+
+x = 3.14
 print(type(x))
 
 x = "beş"
@@ -73,6 +60,7 @@ print(type(x))
 ][
 ```
 <class 'int'>
+<class 'float'>
 <class 'str'>
 ```
 ]
@@ -118,11 +106,9 @@ Veri veya değişken türünü görmek için `type()` fonksiyonu kullanılır. K
 deger = 3
 if isinstance(deger, int):
     print("Değer Bir Tamsayıdır!")
-
 deger = 3.5
 if isinstance(deger, float):
     print("Değer Kesirli Bir Sayıdır!")
-
 if isinstance(deger, (int, float)):
     print("Değer Bir Sayıdır!")
 ```

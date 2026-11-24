@@ -13,8 +13,7 @@
 #counter(page).update(1)
 #set page(numbering: "1")
 
-= Temel Programlama Yapıları
-#pagebreak()
+#include "02_Files/bolum_baslik.typ"
 
 // Unite 01 Bilgisayar Nedir
 #include "02_Files/Unite_01_Bilgisayar_Nedir/01_bilgisayr_nedir.typ"
@@ -44,6 +43,7 @@
 #include "02_Files/Unite_03_Operatorler/01_operatorler.typ"
 #include "02_Files/Unite_03_Operatorler/02_Sorular.typ"
 #include "02_Files/Unite_03_Operatorler/03_Soru-Cevaplari.typ"
+#include "02_Files/Unite_03_Operatorler/04_infografik_operatorler.typ"
 #pagebreak()
 
 // Unite 04 Fonksiyon Kullanımı
@@ -52,14 +52,8 @@
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/03_ornek_uygulamalar.typ"
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/04_Sorular.typ"
 #include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/05_Soru-Cevaplari.typ"
-#pagebreak()
-
-// Unite 05 infografik dosyaları
-#include "02_Files/Unite_05_Infographic/kapak-infografikler.typ"
-
-#include "02_Files/Unite_05_Infographic/operatorler.typ"
-#include "02_Files/Unite_05_Infographic/fonksiyon_kullanimi.typ"
-#include "02_Files/Unite_05_Infographic/input_print.typ"
+#include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/06_infografik_fonksiyon_kullanimi.typ"
+#include "02_Files/Unite_04_Fonksiyonlarin_Kullanimi/07_infografik_input_print.typ"
 #pagebreak()
 
 // Unite 06 Uygulama Sorulari

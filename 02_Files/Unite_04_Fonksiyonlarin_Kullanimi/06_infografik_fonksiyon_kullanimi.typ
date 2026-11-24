@@ -1,7 +1,7 @@
 // Infografik: Fonksiyonların Kullanımı  (tek sayfa)
 // Kullanım: ana belgede  #include "fonksiyon_kullanimi.typ"
 // Sayfa ayarı yapmaz; pageGeneralConfig.typ (conf) ile uyumludur.
-#import "infografik_ortak.typ": *
+#import "/02_Files/infografik_ortak.typ":*
 
 #let belirt(c, metin, govde) = block(
   width: 100%, stroke: (top: 2.2pt + c.main), fill: c.light, radius: (bottom: 3pt), inset: (x: 5pt, y: 4pt),
@@ -16,7 +16,7 @@
 
   // ---------- 1. BAŞLIK ----------
   baslik_bandi(
-    [Fonksiyonların Kullanımı],
+    [=== Fonksiyonların Kullanımı],
     [DRY ilkesi, fonksiyon çağırma mekanizması, argümanlar, dönüş değeri ve yerleşik araçlar],
     [Argüman #h(3pt) → #h(3pt) Fonksiyon Gövdesi #h(3pt) → #h(3pt) Dönüş Değeri],
   ),

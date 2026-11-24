@@ -134,6 +134,7 @@ Python'la birlikte hazır gelen fonksiyonlara *yerleşik fonksiyon* denir. Bu ko
   sutunlar: (auto, auto, auto, auto),
   sutun_basliklari: ("Fonksiyon", "Ne yapar?", "Örnek", "Sonuç"),
   icerik_hizalama: (center + horizon, left + horizon, left + horizon, left + horizon),
+  sutun_baslik_hizalama: center,
   bolunebilir: true,
   [`print()`], [Değerleri ekrana yazdırır.], [`print("Merhaba")`], [Ekrana `Merhaba` yazar],
   [`input()`], [Kullanıcıdan klavyeyle veri alır.], [`input("Adınız: ")`], [Yazılan metin],
@@ -434,7 +435,7 @@ Tablo gibi düzenli çıktılar için metni belirli bir genişlikte sola (`<`), 
   sutun_basliklari: ("Kalıp", "Örnek", "Sonuç (| işaretleri sınırı gösterir)", "Açıklama"),
   icerik_hizalama: (center + horizon, left + horizon, center + horizon, left + horizon),
   sutun_baslik_hizalama: (center + horizon),
-  dikey-bosluk: 10pt,
+  dikey-bosluk: 9.4pt,
   [`:<10`], [`f"{'Elma':<10}"`], [`|Elma      |`], [10 karakterlik alanda sola yasla.],
   [`:>10`], [`f"{'Elma':>10}"`], [`|      Elma|`], [10 karakterlik alanda sağa yasla.],
   [`:^10`], [`f"{'Elma':^10}"`], [`|   Elma   |`], [10 karakterlik alanda ortala.],
@@ -505,7 +506,8 @@ Süslü parantez içine değişkenin sonuna `=` koyarsak Python hem değişkenin
   sutun_basliklari: ("Parametre", "Varsayılan değer", "Ne işe yarar?"),
   icerik_hizalama: (center + horizon, center + horizon, left + horizon),
   sutun_baslik_hizalama: center + horizon,
-  dikey-bosluk: 10pt,
+  dikey-bosluk:6.3pt,
+  boyut: 9pt,
   [`sep` (separator)], [`" "` (bir boşluk)], [Virgülle ayrılan değerlerin arasına ne konacağını belirler.],
   [`end`], [`"\n"` (alt satıra geç)], [Yazdırma bittikten sonra satırın nasıl sonlanacağını belirler.],
 )
@@ -567,9 +569,10 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
 
 #icerik-tablo(
   tablo_baslik: "Sık Kullanılan Kaçış Karakterleri",
-  sutunlar: (auto, 1fr, auto),
+  sutunlar: (auto, auto, auto),
   sutun_basliklari: ("Karakter", "Anlamı", "Örnek"),
   icerik_hizalama: (center + horizon, left + horizon, left + horizon),
+  // dikey-bosluk: 9pt,
   [`\n`], [Yeni satıra geç.], [`print("A\nB")`],
   [`\t`], [Sekme (tab) boşluğu bırak.], [`print("A\tB")`],
   [`\\`], [Ters eğik çizgi karakterini yazdır.], [`print("C:\\Okul")`],
@@ -588,8 +591,8 @@ Metin içinde yeni satır, sekme (tab) veya tırnak işareti gibi özel karakter
 ```
 Birinci
 İkinci
-Ad:#h(1.5em)Ayşe
-Yol: C:\\Okul
-O \"evet\" dedi
+Ad:	Ayşe
+Yol: C:\Okul
+O "evet" dedi
 ```
 ]

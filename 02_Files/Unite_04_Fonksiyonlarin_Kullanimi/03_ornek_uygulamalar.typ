@@ -15,6 +15,7 @@
     ```python
     pi = 3.14159
     r = float(input("Yarıçap (cm): "))
+
     alan = pi * r * r
     print(f"r={r}cm olan dairenin alanı {alan:.2f}cm²'dir.")
     ```
@@ -67,6 +68,7 @@
     kalan = toplam % 3600
     dakika = kalan // 60
     saniye = kalan % 60
+
     print(f"{saat:02d}:{dakika:02d}:{saniye:02d}")
     ```
   ],
@@ -74,6 +76,33 @@
     ```
     Saniye giriniz: 3725
     01:02:05
+    ```
+  ],
+)
+
+#kod-cikti(
+  baslik: "Dikdörtgen çevre ve alan",
+  columns: (32em, auto),
+  align: bottom,
+  [
+    ```python
+    kisa_kenar = float(input("Kısa kenar (cm): "))
+    uzun_kenar = float(input("Uzun kenar (cm): "))
+    
+    cevre = 2 * (kisa_kenar + uzun_kenar)
+    alan = kisa_kenar * uzun_kenar
+    print(f"Çevre: {cevre:.1f} cm")
+    print(f"Alan : {alan:.1f} cm²")
+    print(f"Kare mi: {kisa_kenar == uzun_kenar}")
+    ```
+  ],
+  [
+    ```text
+    Kısa kenar (cm): 6
+    Uzun kenar (cm): 10
+    Çevre: 32.0 cm
+    Alan : 60.0 cm²
+    Kare mi: False
     ```
   ],
 )
@@ -111,7 +140,7 @@
 )
 
 #not_block(title: "Özet: ")[
-  - Fonksiyon, bir işi yapan isimli kod parçasıdır; `fonksiyon(argümanlar)` biçiminde çağrılır ve gerekirse bir dönüş değeri verir.
-  - `input()` klavyeden veri alır ve *her zaman metin* döndürür. Sayı gerekiyorsa `int()` veya `float()` ile dönüştürülür.
-  - `print()` değerleri ekrana yazar. Virgül araya boşluk koyar; *f-string* ise değişkenleri metnin içine `{ }` ile yerleştirir.
+  - Fonksiyon, bir işi yapan kod parçasıdır; `fonksiyon(argümanlar)` biçiminde çağrılır ve bir dönüş değeri verir.
+  - `input()` klavyeden veri alır ve *her zaman metin* döndürür. `int()` veya `float()` girdiyi sayıya döndürür.
+  - `print()` değerleri ekrana yazar. *f-string* değişkenleri metnin içine `{ }` ile yerleştirir.
 ]
