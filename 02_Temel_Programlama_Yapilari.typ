@@ -57,6 +57,6 @@
 #pagebreak()
 
 // Unite 06 Uygulama Sorulari
-#include "02_Files/Unite_06_Uygulama_Sorulari/01_Uygulama_Sorulari.typ"
-#include "02_Files/Unite_06_Uygulama_Sorulari/02_Uygulama_Sorulari_Cevaplari.typ"
+#include "02_Files/Unite_05_Uygulama_Sorulari/01_Uygulama_Sorulari.typ"
+#include "02_Files/Unite_05_Uygulama_Sorulari/02_Uygulama_Sorulari_Cevaplari.typ"
 
