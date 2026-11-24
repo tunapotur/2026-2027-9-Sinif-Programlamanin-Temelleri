@@ -1,0 +1,103 @@
+Bölüm 1 Temel Programlama Yapıları
+  Ünite 1 Bilgisayar Nedir?
+    1. Bilgisayarın Temel Çalışma Mimarisi
+    2. Adım Adım Veri Akışı: "5 + 3" İşlemi
+    3. Bilgisayar Veriyi Nasıl Saklar?
+    4. Tarihteki İlk Bilgisayar Programcısı
+    5. Donanımın Temeli: Transistör ve İkili Sistem (Binary)
+    6. İlk Bilgisayarlar ve 8 Bitlik Komut Girişleri (Altair 8800)
+    7. Onaltılık Sayı Sistemi (Hexadecimal)
+    8. Metin Temsili: 8 Bit = 1 Byte ve ASCII Tablosu
+    9. Bit'ten Terabayt'a Veri Büyüklükleri
+    10. Makine Kodundan Assembly Diline
+    11. Programlama Dilleri
+    12. Makinenin Dilinden İnsanın Diline: "Hello world!"
+      12.1. Makine Dili (0 ve 1'lerle)
+      12.2. Makine Dili (Hexadecimal Sayılarla)
+      12.3. Assembly Dili
+      12.4. C Dili
+      12.5. Python Dili
+    13. Bölüm Soruları
+    14. Bölüm Soruları: Cevap Anahtarı
+    15. Bilgisayar Nedir? İnfografik
+  Ünite 2 Değişkenler ve Bellek(RAM)
+    1. Değişken Kullanılarak Çözülen Matematik Problemi
+    2. Programlama Dillerinde Değişken
+    3. Değişken Tanımlama Kuralları
+    4. Değişken Adlandırma Standartları (Notasyonlar)
+      4.1. Yılan Gösterimi (snake_case)
+      4.2. Camel Case (Deve Notasyonu) Kuralı
+    5. Sabitler
+    6. Veri Türleri ve RAM Kullanımı
+      6.1. Boolean (bool): doğru / yanlış
+      6.2. Karakter (char)
+      6.3. Tam Sayı (int)
+      6.4. Ondalıklı Sayı (float)
+    7. Karakterden Metne (Karakter Dizisi)
+    8. Bellek Yönetimi, RAM ve İşlemcinin İlişkisi
+      8.1. Donanım Üçlüsü: RAM, Veri Yolu ve İşlemci
+      8.2. Bir İşlemin Yaşam Döngüsü: Oku → İşle → Yaz
+      8.3. Gündelik Hayat Benzetmesi: Kurye Çantası mı, Nakliye Tırı mı?
+      8.4. Somut Örnek ve Kanıt: Aynı İşlem, İki Farklı Veri Türü!
+      8.5. Karşılaştırma ve Donanım Etkisi
+      8.6. Neden-Sonuç Zinciri: Veri Türü Sistemi Nasıl Etkiler?
+    9. Python Dili
+      9.1. Sarı ve Mavi Yılanlar
+      9.2. Neden Günümüzün En Popüler Dili?
+      9.3. Yaygın Kullanım Alanları
+      9.4. Python Açıklama Satırı (Comment line)
+    10. Tür Dönüşümü (Type Conversion / Type Casting)
+      10.1. Kullanıcı Girişlerinin Sayıya Dönüştürülmesi (Metin → Sayı)
+      10.2. Otomatik (Örtük / Implicit) Dönüşüm:
+      10.3. Bilinçli (Açık / Explicit) Dönüşüm:
+    11. Bölüm Soruları
+    12. Bölüm Soruları: Cevap Anahtarı
+    13. Değişkenler ve Bellek İnfografik
+    14. Veri Türleri ve RAM Kullanımı İnfografik
+    15. RAM ve İşlemci İlişkisi İnfografik
+    16. Bellek Yönetimi, RAM ve İşlemci İlişkisi İnfografik
+    17. Tür Dönüşümü (Type Conversion / Casting) İnfografik
+  Ünite 3 Operatörler ve İşlem Önceliği
+    1. Atama Operatörleri: Değişken Oluşturma ve Güncelleme
+      1.1. Bileşik Atama Operatörleri
+    2. Aritmetik Operatörler
+      2.1. Kesirli Bölme İşlemi ( / )
+      2.2. Tam Bölme, Mod Alma( // % )
+      2.3. Üs Alma (**)
+    3. Aritmetik Operatörlerde İşlem Önceliği
+    4. Matematik İşleminin Sonucunu Değişkene Atama (Önce İşlem, Sonra Atama)
+    5. Karşılaştırma Operatörleri
+    6. Mantıksal Operatörler
+    7. Operatörler Arası İşlem Önceliği
+    8. Bölüm Soruları
+    9. Bölüm Soruları: Cevap Anahtarı
+    10. Operatörler İnfografik
+  Ünite 4 Fonksiyonların Kullanımı
+    1. Fonksiyonları Kullanmanın Yarattığı Fark
+    2. Yerleşik (Built-in) Fonksiyonlar
+    3. Dönüş Değeri Olan ve Olmayan Fonksiyonlar
+    4. input(): Kullanıcıdan Veri Alma
+      4.1. input() Her Zaman Metin Verir
+    5. print(): Ekrana Yazdırma
+    6. print() ile Metin ve Değişkenleri Birlikte Yazdırma
+      6.1. Virgül (,) ile Yazdırma
+      6.2. f-string (Formatlı Metin)
+      6.3. f-string İçinde İşlem Yapmak
+      6.4. f-string ile Sayıları Biçimlendirme
+      6.5. f-string ile Hizalama
+      6.6. f-string'de Süslü Parantez ve Tırnak Kullanımı
+      6.7. f"{degisken=}" Kullanımı
+    7. print() Fonksiyonunun sep ve end Parametreleri
+      7.1. sep: Değerler Arasına Ne Gelsin?
+      7.2. end: Satır Nasıl Bitsin?
+    8. Kaçış Karakterleri (Escape Characters)
+    9. Python Tür Kontrolü: type() ve isinstance() Fonksiyonları
+      9.1. type() Fonksiyonu
+      9.2. isinstance() Fonksiyonu
+    10. Örnek Uygulamalar
+    11. Bölüm Soruları
+    12. Bölüm Soruları: Cevap Anahtarı
+    13. Fonksiyonların Kullanımı
+    14. input() ve print() Fonksiyonları
+  Ünite 5 Uygulama Soruları
+  Ünite 6 Uygulama Soruları Cevapları
