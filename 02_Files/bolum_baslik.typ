@@ -2,7 +2,7 @@
 
 = Temel Programlama Yapıları
 
-#v(5pt)
+#v(2pt)
 
 #align(center)[
   #block(width: 86%)[
@@ -13,7 +13,7 @@
   ]
 ]
 
-#v(7pt)
+#v(4pt)
 
 #let gorsel(path, w) = block(
   width: w,
@@ -26,7 +26,7 @@
 
 #let hucre(no, baslik, ozet, c) = block(
   width: 100%,
-  height: 82pt,
+  height: 66pt,
   fill: c.light,
   stroke: 0.9pt + c.border,
   radius: 5pt,
@@ -50,7 +50,7 @@
   #text(weight: "bold", size: 10pt, fill: white)[#no #baslik]
 ]
 
-#let satir(no, baslik, ozet, c, gorseller, hucreler, ozet_y: 40pt) = {
+#let satir(no, baslik, ozet, c, gorseller, hucreler, ozet_y: 24pt) = {
   satir_baslik(no, baslik, c)
   v(2pt)
   grid(
@@ -70,7 +70,7 @@
     ],
     gorseller,
   )
-  v(4pt)
+  v(3pt)
   grid(columns: (1fr,) * 4, gutter: 5pt, ..hucreler)
 }
 
@@ -80,8 +80,8 @@
   c_mavi,
   grid(
     columns: (auto, auto), gutter: 4pt,
-    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-acik.svg", 44pt),
-    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-kapali.svg", 44pt),
+    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-acik.svg", 40pt),
+    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-kapali.svg", 40pt),
   ),
   (
   hucre("1.1.", [Bilgisayarın Temel Çalışma Mimarisi],
@@ -92,15 +92,15 @@
     [Karakterlerin ASCII kodlarıyla sayıya dönüştürülmesi; 1 karakter = 1 byte = 8 bit; hexadecimal gösterim.], c_mavi),
   hucre("1.4.", [Programlama Dilleri],
     [Makine dili, assembly ve yüksek seviyeli diller; derleyici ve yorumlayıcı; aynı kaynak kodun farklı mimarilerde derlenebilmesi.], c_mavi),
-), ozet_y: 52pt)
+), ozet_y: 40pt)
 
-#v(7pt)
+#v(4pt)
 
 // 2. SATIR
 #satir(2, [Değişkenler ve Bellek (RAM)],
   [Değişkenlerin RAM'de tutulması, veri türleri, bellek yönetimi ve tür dönüşümü; değerlerin bellekte nasıl saklandığı ve güncellendiği.],
   c_turuncu,
-  gorsel("Unite_02_Degiskenler_ve_Bellek/images/01-Deger-Atama-RAM.jpg", 88pt),
+  gorsel("Unite_02_Degiskenler_ve_Bellek/images/01-Deger-Atama-RAM.jpg", 56pt),
   (
   hucre("2.1.", [Programlama Dillerinde Değişken],
     [Değişkenin RAM'deki adlandırılmış alan olması; değer atama, türün değere göre belirlenmesi ve değişken güncelleme.], c_turuncu),
@@ -110,9 +110,9 @@
     [RAM, CPU ve veri yolu ilişkisi; adresleme, okuma-yazma döngüsü ve bellek yönetiminin program hızına etkisi.], c_turuncu),
   hucre("2.4.", [Tür Dönüşümü (Type Conversion)],
     [Açık ve örtük tür dönüşümü; input()'un metin döndürmesi; int(), float() ve str() ile güvenli dönüşüm.], c_turuncu),
-), ozet_y: 92pt)
+), ozet_y: 56pt)
 
-#v(7pt)
+#v(4pt)
 
 // 3. SATIR
 #satir(3, [Operatörler ve İşlem Önceliği],
@@ -130,7 +130,7 @@
     [and, or, not mantıksal operatörleri; koşulların birleştirilmesi ve işlem önceliği.], c_mor),
 ))
 
-#v(7pt)
+#v(4pt)
 
 // 4. SATIR
 #satir(4, [Fonksiyonların Kullanımı],
