@@ -57,6 +57,7 @@
 
 // Ünite başlıkları: "Ünite N: Başlık"
 #show heading.where(level: 2): it => {
+  pagebreak(weak: true, to: "odd")
   set align(left)
   set text(size: 18pt, weight: "bold")
   block(above: 1.4em, below: 0.8em)[

@@ -446,7 +446,7 @@ float sonuc = a + b;
   sutunlar: (auto, auto, auto, 1fr),
   sutun_basliklari: ([İncelenen Kriter], [`int` (Doğru Tercih)], [`float` (Gereksiz Tercih)], [Sisteme ve Performansa Etkisi]),
   hucre_bosluk: (x: 6pt, y: 6.5pt),
-  boyut: 9.4pt,
+  boyut: 9.2pt,
   sutun_baslik_hizalama: (center + horizon, center + horizon, center + horizon, center + horizon),
   icerik_hizalama: (center + horizon, center + horizon, center + horizon, left + horizon),
   [*RAM Alanı*], [6 Bayt], [12 Bayt], [*%50 Bellek Tasarrufu:* RAM'de diğer programlara ve değişkenlere daha fazla yer kalır.],
