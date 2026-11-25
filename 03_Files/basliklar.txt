@@ -1,14 +1,3 @@
-Dallanma Mantığı ve Girinti Dünyası => bu başlığı bölüm 2 ye python'un altına yap.
-Büyük / Küçük Harf Duyarlılığı için bir örnek yap. .lower() ve .upper() metodunu kullan.
-
-= Karar Yapıları ve Döngüler
-== Koşul Yapıları
-=== if (Eğer) Tek Yönlü Karar Mekanizmaları
-=== if-else (Eğer-Değilse) Çift Yönlü Karar Mekanizmaları
-=== Karşılaştırma ve Mantıksal Operatörlerin Birlikte Kullanımı
-=== if-elif-else Çok Kriterli Karar Mekanizmaları
-=== İç İçe Koşul Yapıları
-
 3. KARAR YAPILARI VE DÖNGÜLER
   3.1. KOŞUL YAPILARI VE MANTIKSAL OPERATÖRLER
     3.1.1. Tek Yönlü Karar Mekanizmaları: if (Eğer) Yapısı
@@ -34,3 +23,68 @@ Büyük / Küçük Harf Duyarlılığı için bir örnek yap. .lower() ve .upper
     3.3.1. Koordinat Tabanlı Çizim Aracı: Turtle
     3.3.2. İç İçe Döngülerle Karmaşık Geometrik Desenlerin Üretimi
     3.3.3. Dijital Depolarda Sürüm Yönetimi ve Release Kavramı
+
+Uygulama Örnekleri Önerileri
+
+
+
+
+= Karar Yapıları ve Döngüler
+
+== Koşul Yapıları
+=== Programın Akışı: Sıralı Çalışma ve Karar Verme
+=== Kod Blokları ve Girinti (Indentation) Kuralı
+=== if (Eğer) Tek Yönlü Karar Mekanizmaları
+=== if-else (Eğer-Değilse) Çift Yönlü Karar Mekanizmaları
+=== Örnek Uygulamalar
+==== Mod Operatörü ile Karar Verme: Tek-Çift ve Bölünebilme
+==== Büyük / Küçük Harf Duyarlılığı ==> .lower() ve .upper() metodunu kullan.
+=== if-elif-else Çok Kriterli Karar Mekanizmaları
+=== İç İçe Koşul Yapıları
+=== Karşılaştırma ve Mantıksal Operatörlerin Birlikte Kullanımı
+=== İç İçe Koşul mu, Mantıksal Operatör mü?
+=== Koşul İfadelerinde Okunabilirlik ve Kısa Devre (Short-Circuit) Mantığı
+
+== Döngü Yapıları ve Liste İşlemleri
+=== Döngüye Neden İhtiyaç Duyarız?
+=== range() Fonksiyonu
+=== Belirli Sayıda Tekrar: for Döngüsü
+=== Başlangıç, Bitiş ve Adım Değerleri
+=== Koşula Bağlı Tekrar: while Döngüsü
+=== Sonsuz Döngü
+=== Örnek Uygulamalar
+==== Kullanıcıdan Çıkış Değeri Gelene Kadar Tekrar
+==== Geçerli Veri Girilene Kadar Tekrar
+=== `for` mu, `while` mı?
+=== Döngü Kontrol İfadeleri: break ve continue
+==== break ve continue Mümkünse Kullanılmamalı?
+==== `break` ve `continue` Kullanmadan Çözüm Yolları
+=== İç İçe Döngüler
+==== Dış ve İç Döngünün Çalışma Sırası
+==== Örnek: Çarpım Tablosu ve Yıldızlarla Desenler
+
+== Liste İşlemleri (Veri Kümeleri ve Döngü Entegrasyonu)
+=== Liste Kavramı ve Liste Oluşturma
+=== İndis ile Elemanlara Erişme ve Eleman Değiştirme
+=== Liste Dilimleme
+=== `len()` Fonksiyonu ve `in` Operatörü
+=== Döngü ile Listede Gezinme
+=== Listede Toplam, Ortalama, En Büyük ve En Küçük Değer
+=== Liste Metotları
+==== Eleman Ekleme: `append()`, `insert()`, `extend()`
+==== Eleman Silme: `remove()`, `pop()`, `clear()`
+==== Arama ve Sayma: `index()`, `count()`
+==== Sıralama ve Ters Çevirme: `sort()`, `reverse()`
+==== Listede Filtreleme
+
+== Grafiksel Görselleştirme
+=== Koordinat Tabanlı Çizim Aracı: Turtle
+=== Turtle Kütüphanesini Projeye Dahil Etme
+=== Çizim Ekranı ve Koordinat Sistemi
+=== Hareket ve Yön Komutları
+=== Kalem, Renk ve Dolgu Ayarları
+=== Döngülerle Düzgün Çokgen Çizimi
+=== İç İçe Döngülerle Karmaşık Geometrik Desenlerin Üretimi
+=== Bir Şekli Döndürerek Tekrarlama
+=== Izgara (Satır-Sütun) Desenleri
+=== Koşul ve Listelerle Renkli Desenler
