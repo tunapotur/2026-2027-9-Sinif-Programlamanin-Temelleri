@@ -5,7 +5,9 @@
 #import "/lib/yardimcilar.typ": *
 #import "/lib/sorular.typ": soru_bilgi
 
-== Uygulama Soruları
+== Bölüm Kod Uygulamaları 
+=== Uygulama Soruları
+
 
 #iki_hucreli_satir(columns: (auto, 29em))[
 *Soru 1: Çemberin çevresi ve alanı*\

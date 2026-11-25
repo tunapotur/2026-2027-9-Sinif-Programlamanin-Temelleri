@@ -4,11 +4,11 @@
 
 #v(2pt)
 
-#align(center)[
+#align(left)[
   #block(width: 86%)[
     #set par(justify: false)
     #text(size: 9pt, fill: rgb("#334155"))[
-      Bu bölüm; bilgisayarın donanım temellerinden başlayarak değişkenler, bellek yönetimi, operatörler ve fonksiyonlarla Python programlamanın temel yapı taşlarını ele alır. Her ünitede kavramlar kısa özetler, görseller ve örneklerle desteklenir.
+      Bu bölüm; bilgisayarın donanım temellerinden başlayarak değişkenler, bellek yönetimi, operatörler ve fonksiyonlarla Python programlamanın temel yapı taşlarını ele alır.
     ]
   ]
 ]
@@ -24,7 +24,7 @@
   #image(path, width: w)
 ]
 
-#let hucre(no, baslik, ozet, c) = block(
+#let hucre(baslik, ozet, c) = block(
   width: 100%,
   height: 66pt,
   fill: c.light,
@@ -34,7 +34,7 @@
   breakable: false,
 )[
   #set par(justify: false)
-  #text(weight: "bold", size: 7.7pt, fill: c.dark)[#no #baslik]
+  #text(weight: "bold", size: 7.7pt, fill: c.dark)[#baslik]
   #v(2.5pt)
   #set text(size: 6.8pt, fill: rgb("#1e293b"))
   #set par(leading: 0.42em)
@@ -43,16 +43,19 @@
 
 #let satir_baslik(no, baslik, c) = block(
   width: 100%,
+  height: 20pt,
   fill: c.main,
   radius: 4pt,
   inset: (x: 8pt, y: 4pt),
 )[
-  #text(weight: "bold", size: 10pt, fill: white)[#no #baslik]
+  #align(horizon)[
+    #text(weight: "bold", size: 10pt, fill: white)[#no #baslik]
+  ]
 ]
 
 #let satir(no, baslik, ozet, c, gorseller, hucreler, ozet_y: 24pt) = {
   satir_baslik(no, baslik, c)
-  v(2pt)
+  v(1pt)
   grid(
     columns: (1fr, auto),
     column-gutter: 8pt,
@@ -70,7 +73,7 @@
     ],
     gorseller,
   )
-  v(3pt)
+  v(1pt)
   grid(columns: (1fr,) * 4, gutter: 5pt, ..hucreler)
 }
 
@@ -78,21 +81,17 @@
 #satir(1, [Bilgisayar Nedir?],
   [Bilgisayarın tanımı ve temel çalışma mimarisi; transistörden bit, ASCII ve makine diline uzanan donanım temelleri ile programlama dillerine giriş.],
   c_mavi,
-  grid(
-    columns: (auto, auto), gutter: 4pt,
-    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-acik.svg", 40pt),
-    gorsel("Unite_01_Bilgisayar_Nedir/images/transistor-kapali.svg", 40pt),
-  ),
+  [],
   (
-  hucre("1.1.", [Bilgisayarın Temel Çalışma Mimarisi],
+  hucre([Bilgisayarın Temel Çalışma Mimarisi],
     [Giriş, bellek, işlemci ve çıkış birimleri; komut ve verilerin aynı bellekte tutulması; veri yolu (BUS) üzerinden veri akışı.], c_mavi),
-  hucre("1.2.", [Donanımın Temeli: Transistör ve İkili Sistem],
+  hucre([Donanımın Temeli: Transistör ve İkili Sistem],
     [Transistörün akımı geçirip kesmesiyle 1 ve 0; ikili sistem, bit ve byte kavramları; bilgisayarın donanım temeli.], c_mavi),
-  hucre("1.3.", [Metin Temsili: 8 Bit = 1 Byte ve ASCII],
-    [Karakterlerin ASCII kodlarıyla sayıya dönüştürülmesi; 1 karakter = 1 byte = 8 bit; hexadecimal gösterim.], c_mavi),
-  hucre("1.4.", [Programlama Dilleri],
+  hucre([Metin Temsili: 8 Bit = 1 Byte ve ASCII],
+    [Karakterlerin ASCII kodlarıyla sayıya dönüştürülmesi;\ 1 karakter = 1 byte = 8 bit; hexadecimal gösterim.], c_mavi),
+  hucre([Programlama Dilleri],
     [Makine dili, assembly ve yüksek seviyeli diller; derleyici ve yorumlayıcı; aynı kaynak kodun farklı mimarilerde derlenebilmesi.], c_mavi),
-), ozet_y: 40pt)
+))
 
 #v(4pt)
 
@@ -100,17 +99,17 @@
 #satir(2, [Değişkenler ve Bellek (RAM)],
   [Değişkenlerin RAM'de tutulması, veri türleri, bellek yönetimi ve tür dönüşümü; değerlerin bellekte nasıl saklandığı ve güncellendiği.],
   c_turuncu,
-  gorsel("Unite_02_Degiskenler_ve_Bellek/images/01-Deger-Atama-RAM.jpg", 56pt),
+  [],
   (
-  hucre("2.1.", [Programlama Dillerinde Değişken],
+  hucre([Programlama Dillerinde Değişken],
     [Değişkenin RAM'deki adlandırılmış alan olması; değer atama, türün değere göre belirlenmesi ve değişken güncelleme.], c_turuncu),
-  hucre("2.2.", [Veri Türleri ve RAM Kullanımı],
+  hucre([Veri Türleri ve RAM Kullanımı],
     [int, float, bool ve str türleri; türlerin RAM'de kapladığı alan ve verinin hücrelerde saklanma biçimi.], c_turuncu),
-  hucre("2.3.", [Bellek Yönetimi, RAM ve İşlemcinin İlişkisi],
+  hucre([Bellek Yönetimi, RAM ve İşlemcinin İlişkisi],
     [RAM, CPU ve veri yolu ilişkisi; adresleme, okuma-yazma döngüsü ve bellek yönetiminin program hızına etkisi.], c_turuncu),
-  hucre("2.4.", [Tür Dönüşümü (Type Conversion)],
+  hucre([Tür Dönüşümü (Type Conversion)],
     [Açık ve örtük tür dönüşümü; input()'un metin döndürmesi; int(), float() ve str() ile güvenli dönüşüm.], c_turuncu),
-), ozet_y: 56pt)
+))
 
 #v(4pt)
 
@@ -120,13 +119,13 @@
   c_mor,
   [],
   (
-  hucre("3.1.", [Atama Operatörleri],
+  hucre([Atama Operatörleri],
     [`=` atama operatörü; `+=`, `-=`, `*=` gibi bileşik atamalar; atama ile `==` karşılaştırmasının farkı.], c_mor),
-  hucre("3.2.", [Aritmetik Operatörler],
+  hucre([Aritmetik Operatörler],
     [`+`, `-`, `*`, `/`, `//`, `%`, `**` operatörleri; bölme, kalan ve üs alma; işlem önceliği.], c_mor),
-  hucre("3.3.", [Karşılaştırma Operatörleri],
+  hucre([Karşılaştırma Operatörleri],
     [==, !=, <, >, <=, >= ile karşılaştırma; sonuçların bool (True/False) olması.], c_mor),
-  hucre("3.4.", [Mantıksal Operatörler],
+  hucre([Mantıksal Operatörler],
     [and, or, not mantıksal operatörleri; koşulların birleştirilmesi ve işlem önceliği.], c_mor),
 ))
 
@@ -138,14 +137,32 @@
   c_yesil,
   [],
   (
-  hucre("4.1.", [Fonksiyonları Kullanmanın Yarattığı Fark],
+  hucre([Fonksiyonları Kullanmanın Yarattığı Fark],
     [Fonksiyonun parametre alıp sonuç döndürmesi; kod tekrarını önleme (DRY) ve yerleşik fonksiyonlar.], c_yesil),
-  hucre("4.2.", [input(): Kullanıcıdan Veri Alma],
+  hucre([input(): Kullanıcıdan Veri Alma],
     [input() ile kullanıcıdan veri alma; dönen değerin her zaman str olduğu ve sayıya dönüştürülmesi.], c_yesil),
-  hucre("4.3.", [print() ile Metin ve Değişkenleri Yazdırma],
+  hucre([print() ile Metin ve Değişkenleri Yazdırma],
     [print() ile metin ve değişken yazdırma; sep, end ve f-string ile biçimlendirme.], c_yesil),
-  hucre("4.4.", [Python Tür Kontrolü: type() ve isinstance()],
+  hucre([Python Tür Kontrolü: type() ve isinstance()],
     [type() ve isinstance() ile veri türü kontrolü; tür doğrulama ve güvenli dönüşüm.], c_yesil),
+))
+
+#v(4pt)
+
+// 5. SATIR
+#satir(5, [Bölüm Kod Uygulamaları],
+  [Önceki bölümlerde öğrenilen konuları gerçek hayat problemlerinde birleştiren kod yazma uygulamaları.],
+  c_kirmizi,
+  [],
+  (
+  hucre([Vücut Kitle Endeksi (BMI)],
+    [Boy ve kilodan `BMI = kilo / boy ** 2` formülüyle vücut kitle endeksini hesaplama; üs alma ve tür dönüşümü.], c_kirmizi),
+  hucre([Araç Yakıt Tüketimi],
+    [Gidilen yol ve alınan yakıttan 100 km'de harcanan litre ve tutarı hesaplama; oran hesabı ve aritmetik operatörler.], c_kirmizi),
+  hucre([Dik Üçgende Hipotenüs],
+    [Dik kenarlar `a` ve `b`'den Pisagor bağıntısıyla hipotenüsü hesaplama; üs alma ve karekök.], c_kirmizi),
+  hucre([Not Ortalaması],
+    [Yazılı ve performans notlarından ağırlıklı ortalamayı hesaplama; geçme ve takdir durumunu `True`/`False` üretme.], c_kirmizi),
 ))
 
 #pagebreak()
