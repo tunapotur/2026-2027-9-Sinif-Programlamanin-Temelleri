@@ -165,4 +165,4 @@
     [Yazılı ve performans notlarından ağırlıklı ortalamayı hesaplama; geçme ve takdir durumunu `True`/`False` üretme.], c_kirmizi),
 ))
 
-#pagebreak()
+// #pagebreak()
