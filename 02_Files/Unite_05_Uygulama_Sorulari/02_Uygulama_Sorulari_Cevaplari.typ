@@ -3,7 +3,7 @@
 #import "/lib/kod-bloklari.typ": *
 #import "/lib/icerik-tablo.typ": *
 #import "/lib/yardimcilar.typ": *
-
+#pagebreak()
 === Uygulama Soruları Cevapları
 
 *Soru 1: Çemberin çevresi ve alanı*
@@ -21,6 +21,7 @@
   print(f"Alan: {alan:.2f} cm²")
   ```
 ]
+
 
 *Soru 2: Vücut kitle endeksi (BMI)*
 

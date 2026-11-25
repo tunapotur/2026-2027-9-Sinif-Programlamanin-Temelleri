@@ -9,11 +9,11 @@
 === Uygulama Soruları
 
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#[
 *Soru 1: Çemberin çevresi ve alanı*\
 #soru_bilgi[Konu: sabit, `float()`, aritmetik operatörler, üs alma, f-string · Zorluk: Kolay]
 
-  Kullanıcıdan bir çemberin yarıçapını alın. `PI` adında bir sabit (3.14159) tanımlayın. Çemberin çevresini ve alanını hesaplayıp virgülden sonra 2 basamakla yazdırın.][
+  Kullanıcıdan bir çemberin yarıçapını alın. `PI` adında bir sabit (3.14159) tanımlayın. Çemberin çevresini ve alanını hesaplayıp virgülden sonra 2 basamakla yazdırın.
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Yarıçap (cm): 5
@@ -23,11 +23,12 @@ Alan: 78.54 cm²
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#[
 *Soru 2: Vücut kitle endeksi (BMI)*\
 #soru_bilgi[Konu: `float()`, `int()`, üs alma, aritmetik operatörler · Zorluk: Kolay]
 
-  Kullanıcının girdiği boy (metre) ve kilo (kilogram) değerlerine göre vücut kitle endeksini hesaplayan programı yazın. Formül: `BMI = kilo / boy ** 2`. Boyun karesi için üs alma operatörünü kullanın.][
+  Kullanıcının girdiği boy (metre) ve kilo (kilogram) değerlerine göre vücut kitle endeksini hesaplayan kodu yazın.\ Formül: `BMI = kilo / boy ** 2`. Boyun karesi için üs alma operatörünü kullanın.]
+  
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Boyunuzu Metre Cinsinden Giriniz(1.85 gibi):1.60
@@ -35,16 +36,16 @@ Kilonuzu Tam Sayı Olarak Giriniz(85 gibi):56
 Vücut Kitle Endeksiniz (BMI): 21.875
 ```
 ]
-]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+
+#[
 *Soru 3: Araç yakıt tüketimi*\
 #soru_bilgi[Konu: `float()`, aritmetik operatörler, oran hesaplama · Zorluk: Orta]
 
   Yakıt deposu tam dolu bir araçla yola çıkıp dönüşte depoyu yeniden dolduran bir sürücünün verilerinden yakıt tüketimini hesaplayan programı yazın. Formüller:
 
   - 100 km'de harcanan litre = (alınan yakıt litre) / (gidilen yol km) × 100
-  - 100 km'de harcanan benzin tutarı = (alınan yakıt tutarı) / (gidilen yol km) × 100][
+  - 100 km'de harcanan benzin tutarı = (alınan yakıt tutarı) / (gidilen yol km) × 100]
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Araç Kullanım Bilgileri Giriş Ekranı
@@ -55,13 +56,13 @@ Alınan Yakıt Tutarı:146.6
 100km 'de Harcanan Yakıtın Tutarı: 34.19
 ```
 ]
-]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+
+#[
 *Soru 4: Sayıyı iki katının beş fazlasına güncelleme*\
 #soru_bilgi[Konu: `int()`, atama, önce işlem sonra atama · Zorluk: Kolay]
 
-  Kullanıcıdan 1–20 arasında pozitif bir tam sayı alın. Sayının değerini, iki katının beş fazlası olacak şekilde güncelleyin (yeni değer = sayı × 2 + 5) ve ekrana yazdırın. Önce işlem, sonra atama kuralını kullanın.][
+  Kullanıcıdan 1–20 arasında pozitif bir tam sayı alın. Sayının değerini, iki katının beş fazlası olacak şekilde güncelleyin (yeni değer = sayı × 2 + 5) ve ekrana yazdırın. Önce işlem, sonra atama kuralını kullanın.]
   #output-box(title: "Örnek Ekran Çıktısı")[
 ```text
 Klavyeden 1-20 Arası Pozitif Tam Sayı Girin: 12
@@ -69,20 +70,20 @@ Girilen sayının değeri 2 katının 5 fazlası kadar arttırıldı
 Sayının Yeni Değeri : 29
 ```
 ]
-]
+
+
+#[
+
+*Soru 5: Dik üçgende hipotenüs*\
+#soru_bilgi[Konu: `float()`, üs alma, karekök, Pisagor bağıntısı · Zorluk: Orta]
+#set par(justify: false)
+Kullanıcıdan bir dik üçgenin dik kenarları olan `a` ve `b` kenar uzunluklarını alın. $a^2 + b^2 = c^2$ bağıntısını kullanarak hipotenüs uzunluğu `c`'yi hesaplayıp yazdırın.
 
 #grid(
-  columns: (auto, auto,auto),
+  columns: (auto, auto),
   gutter: 15pt,
   align: horizon,
   [
-    *Soru 5: Dik üçgende hipotenüs*\
-    #soru_bilgi[Konu: `float()`, üs alma, karekök, Pisagor bağıntısı · Zorluk: Orta]
-    #set par(justify: false)
-    Kullanıcıdan bir dik üçgenin dik kenarları olan `a` ve `b` kenar uzunluklarını alın. $a^2 + b^2 = c^2$ bağıntısını kullanarak hipotenüs uzunluğu `c`'yi hesaplayıp yazdırın.
-  ],
-  [
-    
 #scale(x: 50%, y: 50%, reflow: true)[
 #block(
     width: auto,
@@ -128,7 +129,9 @@ c Kenarının Uzunluğu(Hipotenüs):  5.0
   ]
 )
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+] 
+
+#iki_hucreli_satir(columns: (3fr, 1.4fr))[
 *Soru 6: Tanışma ve yaş hesabı*\
 #soru_bilgi[Konu: `input()`, `int()`, sabit, f-string · Zorluk: Kolay]
 
@@ -142,7 +145,7 @@ Merhaba Ayşe, 16 yaşındasın.
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1fr))[
 *Soru 7: Dikdörtgenin alanı ve çevresi*\
 #soru_bilgi[Konu: `float()`, aritmetik operatörler, `:.2f` · Zorluk: Kolay]
 
@@ -157,7 +160,7 @@ Alan: 27.95 cm²
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1fr))[
 *Soru 8: Not ortalaması*\
 #soru_bilgi[Konu: karşılaştırma operatörleri, `bool`, f-string · Zorluk: Kolay]
 
@@ -174,7 +177,7 @@ Takdir mi: False
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1fr))[
 *Soru 9: Tür dönüşümü*\
 #soru_bilgi[Konu: `type()`, `int()`, `float()`, açık tür dönüşümü · Zorluk: Kolay]
 
@@ -194,7 +197,7 @@ Bir sayı girin: 25
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.9fr))[
 *Soru 10: Hatalı kodu düzeltin*\
 #soru_bilgi[Konu: değişken tanımlama kuralları, `snake_case` · Zorluk: Kolay]
 
@@ -263,7 +266,7 @@ print(10 - 4 - 3)
 ```]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.6fr))[
 *Soru 12: Dakikayı gün, saat ve dakikaya çevirme*\
 #soru_bilgi[Konu: tam bölme `//`, mod `%` · Zorluk: Orta]
 
@@ -276,7 +279,7 @@ Toplam dakika: 4000
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.6fr))[
 *Soru 13: Basamaklarına ayırma*\
 #soru_bilgi[Konu: tam bölme `//`, mod `%` · Zorluk: Orta]
 
@@ -291,7 +294,7 @@ Ters sayı: 784
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.2fr))[
 *Soru 14: ATM para dağıtımı*\
 #soru_bilgi[Konu: `//` ve `%` ile adım adım hesap, değişken güncelleme · Zorluk: Zor]
 
@@ -309,7 +312,7 @@ Ters sayı: 784
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.2fr))[
 *Soru 15: Sinema bileti*\
 #soru_bilgi[Konu: karşılaştırma ve mantıksal operatörler · Zorluk: Orta]
 
@@ -327,7 +330,7 @@ Tam fiyat: False
 ]
 
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.2fr))[
 *Soru 16: Çıktı biçimlendirme*\
 #soru_bilgi[Konu: `sep`, `end`, kaçış karakterleri · Zorluk: Orta]
 
@@ -342,7 +345,7 @@ Yıl: 2026
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.2fr))[
   *b)* Aşağıdaki çıktıyı `print()` ile üreten programı yazın. "Yükleniyor...Tamam" aynı satırda görünmeli, diğer satırlarda kaçış karakterleri kullanılmalıdır (ikinci satırdaki boşluk bir `Tab` boşluğudur).][
   #output-box[
 ```text
@@ -354,7 +357,7 @@ O "evet" dedi
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.3fr))[
 *Soru 17: Market fişi*\
 #soru_bilgi[Konu: sabit, f-string ile hizalama ve biçimlendirme · Zorluk: Zor]
 
@@ -374,7 +377,7 @@ GENEL TOPLAM     117.60 TL
 ]
 ]
 
-#iki_hucreli_satir(columns: (auto, 29em))[
+#iki_hucreli_satir(columns: (3fr, 1.3fr))[
 *Soru 18: Sayı ve İsim İstatistiği*\
 #soru_bilgi[Konu: yerleşik fonksiyonlar `len()`, `max()`, `min()`, `abs()`, `round()` · Zorluk: Orta]
 
