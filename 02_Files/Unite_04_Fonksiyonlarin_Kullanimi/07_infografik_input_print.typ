@@ -10,7 +10,7 @@
 
   // ---------- BAŞLIK ----------
   baslik_bandi(
-    [=== input() ve print() Fonksiyonları],
+    [=== input() ve print() Fonksiyonları İnfografik],
     [Girdi-İşlem-Çıktı modeli, f-string biçimlendirme, sep / end ve kaçış dizileri],
     [Girdi (input) #h(3pt) → #h(3pt) İşlem (CPU / RAM) #h(3pt) → #h(3pt) Çıktı (print)],
   ),

@@ -16,7 +16,7 @@
 
   // ---------- 1. BAŞLIK ----------
   baslik_bandi(
-    [=== Fonksiyonların Kullanımı],
+    [=== Fonksiyonların Kullanımı İnfografik],
     [DRY ilkesi, fonksiyon çağırma mekanizması, argümanlar, dönüş değeri ve yerleşik araçlar],
     [Argüman #h(3pt) → #h(3pt) Fonksiyon Gövdesi #h(3pt) → #h(3pt) Dönüş Değeri],
   ),
