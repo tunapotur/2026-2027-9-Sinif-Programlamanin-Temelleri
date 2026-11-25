@@ -1,0 +1,36 @@
+Dallanma Mantığı ve Girinti Dünyası => bu başlığı bölüm 2 ye python'un altına yap.
+Büyük / Küçük Harf Duyarlılığı için bir örnek yap. .lower() ve .upper() metodunu kullan.
+
+= Karar Yapıları ve Döngüler
+== Koşul Yapıları
+=== if (Eğer) Tek Yönlü Karar Mekanizmaları
+=== if-else (Eğer-Değilse) Çift Yönlü Karar Mekanizmaları
+=== Karşılaştırma ve Mantıksal Operatörlerin Birlikte Kullanımı
+=== if-elif-else Çok Kriterli Karar Mekanizmaları
+=== İç İçe Koşul Yapıları
+
+3. KARAR YAPILARI VE DÖNGÜLER
+  3.1. KOŞUL YAPILARI VE MANTIKSAL OPERATÖRLER
+    3.1.1. Tek Yönlü Karar Mekanizmaları: if (Eğer) Yapısı
+    3.1.2. Dallanma Mantığı ve Girinti Dünyası
+    3.1.3. Çift Yönlü Alternatifler: if-else (Eğer-Değilse) Yapısı
+    3.1.4. Karşılaştırma ve Mantıksal Operatörlerin Birleşik Kullanımı
+    3.1.5. Çok Kriterli Karar Mekanizmaları: if-elif-else Merdiveni
+    3.1.6. İç İçe Koşul Yapıları
+    3.1.7. Kararlı Veri Kontrolü: Büyük / Küçük Harf Duyarlılığı
+  3.2. DÖNGÜ YAPILARI VE LİSTE İŞLEMLERİ
+    3.2.1. Belirli Sayıda Tekrar: for Döngüsü ve Sıralı Veri Dünyası
+    3.2.2. range() Fonksiyonu
+    3.2.3. Koşula Bağlı Tekrar: while Döngüsü ve Mantıksal Süreklilik
+    3.2.4. Bileşik Atama Operatörleri
+    3.2.5. Döngü Kontrol İfadeleri: break ve continue
+    3.2.6. Döngülerin Yazılım Verimliliğindeki Rolü
+    3.2.7. for ve while Döngüleri Arasındaki Karşılaştırmalı Farklar
+    3.2.8. Liste İşlemleri (Veri Kümeleri ve Döngü Entegrasyonu)
+    3.2.9. Dinamik Döngü-Liste İlişkisi (Iterating Through a List)
+    3.2.10. Liste Metotları ve Bellek Davranışları
+    3.2.11. Döngü ve Liste İşlemlerinde Yapay Zekâ Denetimi
+  3.3. GRAFİKSEL GÖRSELLEŞTİRME
+    3.3.1. Koordinat Tabanlı Çizim Aracı: Turtle
+    3.3.2. İç İçe Döngülerle Karmaşık Geometrik Desenlerin Üretimi
+    3.3.3. Dijital Depolarda Sürüm Yönetimi ve Release Kavramı
