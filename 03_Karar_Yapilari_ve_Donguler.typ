@@ -13,5 +13,4 @@
 #counter(page).update(1)
 #set page(numbering: "1")
 
-= KARAR YAPILARI VE DÖNGÜLER
 
